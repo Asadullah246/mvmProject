@@ -1,0 +1,65 @@
+#img1,
+#img2 {
+    width: 18vw !important;
+}
+
+#img2 {
+    margin-top: 130px;
+}
+
+#imgSection {
+    margin-top: 130px;
+    position: relative;
+}
+
+.signUp {
+    width: 60% !important;
+    margin-top: 80px !important;
+}
+
+
+
+@media only screen and (max-width:768px) {
+    #imgSection {
+        display: none !important;
+    }
+
+    #signUpSection {
+        width: 100vw !important;
+    }
+
+    #signUp {
+        width: 60% !important;
+    }
+
+    .account {
+        margin-top: 80px !important;
+        margin-bottom: 80px !important;
+        text-align: center !important;
+    }
+
+
+
+}
+
+@media only screen and (max-width:576px) {
+
+    #signUpSection {
+        width: 100vw !important;
+    }
+
+    #signUp {
+        width: 90vw !important;
+
+    }
+
+    .account {
+        margin-top: 80px !important;
+        margin-bottom: 80px !important;
+        text-align: center !important;
+    }
+
+
+
+
+}

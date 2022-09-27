@@ -1,0 +1,53 @@
+.navbarSection{
+    width: 90vw;
+    padding: 20px auto;
+}
+#navbarIs {
+    background-image: linear-gradient(to right, #463039, #393039);
+    background-color: #fff;
+}
+
+.navbarItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbarItem a {
+    text-decoration: none;
+    margin-right: 30px;
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+.navbarItem button{
+    text-decoration: none;
+    margin-right: 20px;
+    color: white;
+    transition: ease-in-out 0.3s;
+
+}
+.navbarItem a:hover {
+    color: #9747FF;
+}
+.menuLink{
+    font-size: 1.2em !important;
+    color: white !important;
+    padding-left: 20px !important; 
+    padding-right: 10px !important; 
+    margin-top: 10px;
+}
+
+@media only screen and (max-width:768px) {
+    .navbarSection{
+        width: 100vw !important; 
+        padding: 20px auto;
+    }
+    
+}
+@media only screen and (max-width:576px) {
+    .navbarSection{
+        width: 100vw !important; 
+        padding: 20px auto;
+    }
+    
+}

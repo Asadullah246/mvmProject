@@ -1,0 +1,33 @@
+.newsletter{
+    margin-top: 230px;
+}
+.newsletterInput{
+    background-color: #48343F;
+    padding: 13px 20px;
+    border-radius: 30px;
+
+}
+.subscribebtn{
+    background-color: #EF3054;
+    color: white;
+    padding: 13px 30px;
+    margin-left: 10px;
+    border-radius: 54px;
+} 
+.socialIcons p{
+    margin-right: 7px; 
+    font-size: 1.4em;
+}
+.footerContainer{
+    width: 100vw !important;
+}
+.socialIcons{
+    text-align: left;
+} 
+
+@media only screen and (max-width:576px) {
+    .socialIcons{
+        margin: auto;
+    } 
+    
+}

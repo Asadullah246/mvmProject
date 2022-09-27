@@ -1,0 +1,37 @@
+.communityBody{
+    width: 85vw;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+.comBody{
+    margin-top: 60px;
+    display: flex;
+    align-items: flex-start;
+    gap: 5%;
+}
+.bodyContent{
+width: 53%;
+}
+.captionCommunity{
+    margin-top: 76px;
+    margin-bottom: 20px;
+}
+.seeMoreBtn{
+    background-color: transparent;
+    padding: 13px 50px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    text-align: left;
+    transition: ease-in-out 0.3s;
+}
+.viewPostBtn{
+    background-color: transparent;
+    color: white;
+    transition: ease-in-out 0.3s;
+
+}
+.viewPostBtn:hover,.seeMoreBtn:hover{
+    color: #9747FF;
+}

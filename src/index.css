@@ -1,5 +1,17 @@
+
+/* import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css'; */
+
+
 body {
   margin: 0;
+  box-sizing: border-box !important;  
+  /* overflow: hidden !important;  */
+  /* background-image: url("../public/images/Frame\ 38361.svg"); */
+  /* background-size: 100vw 100vw; */
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +23,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a{
+  text-decoration: none !important;
+}
+
+/* position: absolute;
+left: 52.94%;
+right: 0%;
+top: 15.3%;
+bottom: 0%;
+
+background: #EF3054;
+filter: blur(600px); */
+
+

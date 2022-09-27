@@ -1,0 +1,131 @@
+.navbarDiv{
+    background-image: linear-gradient(to right, #463039 , #393039);
+}
+#inputTag{
+    color: white !important; 
+    background-color: black !important;
+    padding: 12px 5px; 
+    border-radius: 7px; 
+    border: 1px solid white;
+    margin-top: 7px;
+}
+.bgColor {
+    position: absolute;
+    top: 25%; 
+    left: 7%; 
+    background: #EF3054;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    filter: blur(380px);
+    transform: rotate(-180deg)
+}
+#alert{
+    /* padding-bottom: 20px !important;   */
+}
+
+.loginDiv{
+    margin-top:-130px !important;
+} 
+.inputSection{
+    margin-bottom: 30px;
+}
+#inputTag:-webkit-autofill,
+#inputTag:-webkit-autofill:hover, 
+#inputTag:-webkit-autofill:focus, 
+#inputTag:-webkit-autofill:active{
+    -webkit-text-fill-color: white !important; 
+
+    transition: background-color 5000s ease-in-out 0s !important;
+} 
+.loginBtn{
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    background-color: #EF3054;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.googleLogin{
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    background-color: transparent; 
+    color: white;
+    border: 1px solid white;
+    margin-bottom: 24px;
+}
+#picDiv{
+    margin-left: 50px ;
+}
+.firstImages{
+    margin-top: 60px;
+}
+.nextImages{
+    margin-top: 150px;
+}
+.firstImages img, .nextImages img {
+    margin-bottom: 20px;
+    width: 18vw; 
+    height: auto;
+    height: auto;
+}
+
+.google{
+    width: 1.4em;
+}
+.errorMsg{
+    color: #EF3054;
+    display: block; 
+    padding-top: 10px !important;
+}
+
+@media only screen and (max-width:768px){
+   #navbar{
+    display: none !important;  
+   } 
+   #login{
+    width: 100vw !important;
+   }
+   #picDiv{
+    display: none !important;
+   }
+   .loginDiv{
+    width: 60vw !important;
+   }
+   .welcome, .details{
+    text-align: center !important; 
+   }
+   .details{
+    margin-bottom: 70px !important; 
+   }
+ 
+    
+}
+
+@media only screen and (max-width:576px) {
+    #navbar{
+        display: none !important;  
+       } 
+       #login{
+        width: 100vw !important;
+       }
+       #picDiv{
+        display: none !important;
+       }
+       .loginDiv{
+        width: 90vw !important;
+       }
+       .welcome, .details{
+        text-align: center !important; 
+       }
+       .details{
+        margin-bottom: 70px !important; 
+       }
+       .loginBtn, .googleLogin{
+        border-radius: 7px; 
+       }
+       .loginDiv{
+        margin-top: 80px !important; 
+       }
+}

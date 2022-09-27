@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+// import { Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import Login from './pages/Login/Login';
+import NotFound from './pages/NotFound/NotFound';
+import SignUp from './pages/Sign up/SignUp';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
+import LandingPage from './pages/LandingPage/LandingPage';
+import Community from './pages/Community/Community';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+
+        <Router>
+          <Routes>
+            <Route path="/login" exact element={<Login/>}/> 
+            <Route path="/register" exact element={<SignUp/>}/> 
+            <Route path="/reset-password" exact element={<ResetPassword/>}/> 
+            <Route path="/" exact element={<LandingPage/>}/> 
+            <Route path="/community" exact element={<Community/>}/> 
+
+            
+            <Route path="/*"  element={<NotFound/>}/> 
+          </Routes>
+        </Router>
+
+      </ThemeProvider>
+
     </div>
   );
 }
