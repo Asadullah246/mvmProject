@@ -129,14 +129,12 @@ const Navbar = () => {
                 <a href="/" className='menuLink'>Services</a>
             </MenuItem>
             <MenuItem>
-                <a href="/" className='menuLink'>Courses</a>
+                <a href="/all-courses" className='menuLink'>Courses</a>
             </MenuItem>
             <MenuItem>
-                <a href="/" className='menuLink'>Community</a>
+                <a href="/community" className='menuLink'>Community</a>
             </MenuItem>
-            <MenuItem>
-                <a href="/" className='menuLink'>Community</a>
-            </MenuItem>
+           
             <MenuItem>
                 <a href="/"  className='menuLink'>Login</a>
             </MenuItem>
@@ -195,8 +193,8 @@ const Navbar = () => {
                             <div className='navbarItem'>
                                 <a href="/">Products</a>
                                 <a href="/">Services</a>
-                                <a href="/">Courses</a>
-                                <a href="/">Community</a>
+                                <a href="/all-courses">Courses</a>
+                                <a href="/community">Community</a>
                                 <a href="/">Community</a>
                                 {/* <button style={{ backgroundColor: "transparent", color: "white", fontWeight: "900" }}><FiSearch /></button> */}
                                 {/* <button style={{backgroundColor:"transparent", color:"white", fontWeight:"900"}}><AiOutlineHeart/></button>

@@ -9,7 +9,7 @@ const Community = () => {
             <Navbar />
             {/* body  */}
             <div className='communityBody'>
-                <h1 className='text-start'>MVM Community</h1>
+                <h1 className='text-center text-lg-start'>MVM Community</h1>
                 <div className='comBody'>
                     {/* left side  */}
 
@@ -17,24 +17,24 @@ const Community = () => {
                         {/* profile pic and liked  */}
                         <div className='w-100 d-flex justify-content-between align-items-center mb-4 profileCommunity'>
                             <div className='d-flex justify-content-start align-items-center'>
-                                <img src="images/community/Ellipse 19.png" alt="" style={{ width: "3em", marginRight: "13px" }} />
+                                <img src="images/community/Ellipse 19.png" alt="" className='profileImage'  />
                                 <div className='text-start'>
                                     <h5 className='mb-0'>Smir A</h5>
                                     <p className='mb-0'>via mobile</p>
                                 </div>
                             </div>
                             <div className='d-flex justify-content-start align-items-center'>
-                                <div className='d-flex justify-content-start align-items-center me-4'>
+                                <div className='d-flex justify-content-start align-items-center me-3'>
                                     <img src="images/community/Vector (1).svg" alt="" />
-                                    <p className='mb-0 ms-1'>15</p>
+                                    <p className='mb-0 msgText'>15</p>
                                 </div>
-                                <div className='d-flex justify-content-start align-items-center me-4'>
+                                <div className='d-flex justify-content-start align-items-center me-3'>
                                     <img src="images/community/Vector (2).svg" alt="" />
-                                    <p className='mb-0 ms-1'>15</p>
+                                    <p className='mb-0 msgText'>15</p>
                                 </div>
-                                <div className='d-flex justify-content-start align-items-center me-4'>
+                                <div className='d-flex justify-content-start align-items-center me-3'>
                                     <img src="images/community/Vector (3).svg" alt="" />
-                                    <p className='mb-0 ms-1'>15</p>
+                                    <p className='mb-0 msgText'>15</p>
                                 </div>
 
                             </div>
@@ -43,7 +43,9 @@ const Community = () => {
                         {/* end of profile pic and liked  */}
 
                         {/* image  */}
-                        <img src="images/community/Rectangle 1004.png" alt="" className='w-100 h-auto' />
+                        <div className='bigImage'>
+                        <img src="images/community/Rectangle 1004.png" alt="" className='w-100 h-auto communityImg' />
+                        </div>
 
                         {/* caption  */}
                         <p className='captionCommunity text-start'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration... See more</p>
@@ -57,24 +59,24 @@ const Community = () => {
                                     <div style={{ marginBottom: "104px" }}>
                                         <div className='w-100 d-flex justify-content-between align-items-center mb-4 profileCommunity'>
                                             <div className='d-flex justify-content-start align-items-center'>
-                                                <img src="images/community/Ellipse 19.png" alt="" style={{ width: "3em", marginRight: "13px" }} />
+                                                <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
                                                 <div className='text-start'>
                                                     <h5 className='mb-0'>Smir A</h5>
                                                     <p className='mb-0'>via mobile</p>
                                                 </div>
                                             </div>
                                             <div className='d-flex justify-content-start align-items-center'>
-                                                <div className='d-flex justify-content-start align-items-center me-4'>
+                                                <div className='d-flex justify-content-start align-items-center me-3'>
                                                     <img src="images/community/Vector (1).svg" alt="" />
-                                                    <p className='mb-0 ms-1'>15</p>
+                                                    <p className='mb-0  msgText'>15</p>
                                                 </div>
-                                                <div className='d-flex justify-content-start align-items-center me-4'>
+                                                <div className='d-flex justify-content-start align-items-center me-3'>
                                                     <img src="images/community/Vector (2).svg" alt="" />
-                                                    <p className='mb-0 ms-1'>15</p>
+                                                    <p className='mb-0  msgText'>15</p>
                                                 </div>
-                                                <div className='d-flex justify-content-start align-items-center me-4'>
+                                                <div className='d-flex justify-content-start align-items-center me-3'>
                                                     <img src="images/community/Vector (3).svg" alt="" />
-                                                    <p className='mb-0 ms-1'>15</p>
+                                                    <p className='mb-0  msgText'>15</p>
                                                 </div>
 
                                             </div>
@@ -95,8 +97,8 @@ const Community = () => {
 
                     {/* right side  */}
 
-                    <div>
-                        <h3 className='text-start'>Activity</h3>
+                    <div className='postsCommunity'>
+                        <h3 className='text-start mb-4'>Activity</h3>
                         {
                             [...Array(12)].map(a => {
                                 return (
@@ -133,7 +135,7 @@ const Community = () => {
 
             </div>
 
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     );
 };

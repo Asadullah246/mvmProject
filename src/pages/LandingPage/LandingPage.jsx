@@ -1,10 +1,10 @@
 import React from 'react';
 import "./LandingPage.css"
 import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
-import { BsArrowRight } from "react-icons/bs";
 import Navbar from '../../Components/Navbar';
 import { Carousel } from 'react-responsive-carousel';
 import { Rating } from '@mui/material';
@@ -80,14 +80,14 @@ const LandingPage = () => {
                         </Carousel> */}
                     </div>
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                        <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                        <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
+                        <img src="images/landing/Group 10 (1).png" alt="" className='bigImg forScale' />
+                        <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg forScale' />
 
                     </div>
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 productImages">
 
-                        <img src="images/landing/Rectangle 6 (1).png" alt="" className='smallImg' />
-                        <img src="images/landing/natural.png" alt="" className='bigImg' />
+                        <img src="images/landing/Rectangle 6 (1).png" alt="" className='smallImg forScale' />
+                        <img src="images/landing/natural.png" alt="" className='bigImg forScale' />
 
                     </div>
                     <div>
@@ -104,8 +104,8 @@ const LandingPage = () => {
                             {
                                 [...Array(6)].map(d => {
                                     return (
-                                        <div className='col px-3 py-4 topSellingCard'>
-                                            <img src="images/landing/Rectangle 19 (1).png" alt="" className='w-100 productCol' />
+                                        <div className='col px-3 py-4 topSellingCard scaleDiv'>
+                                            <img src="images/landing/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                                 <div className='d-flex justify-content-between'>
                                                     <p>Paid</p>
@@ -170,8 +170,8 @@ const LandingPage = () => {
                             {
                                 [...Array(6)].map(d => {
                                     return (
-                                        <div className='col px-3 py-4 courseCard'>
-                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol' />
+                                        <div className='col px-3 py-4 courseCard scaleDiv'>
+                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                                 <div className='d-flex justify-content-between'>
                                                     <p>Paid</p>

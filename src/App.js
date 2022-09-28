@@ -8,6 +8,7 @@ import SignUp from './pages/Sign up/SignUp';
 import ResetPassword from './pages/ResetPassword/ResetPassword';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Community from './pages/Community/Community';
+import AllCourses from './pages/AllCourses/AllCourses';
 
 const darkTheme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/reset-password" exact element={<ResetPassword/>}/> 
             <Route path="/" exact element={<LandingPage/>}/> 
             <Route path="/community" exact element={<Community/>}/> 
+            <Route path="/all-courses" exact element={<AllCourses/>}/> 
 
             
             <Route path="/*"  element={<NotFound/>}/> 

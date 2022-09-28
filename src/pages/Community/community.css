@@ -35,3 +35,71 @@ width: 53%;
 .viewPostBtn:hover,.seeMoreBtn:hover{
     color: #9747FF;
 }
+.profileImage{
+width: 3em;
+margin-right: 13px;
+}
+.msgText{
+    margin-left: 5px;
+}
+.bigImage{
+    width: 100%;
+    overflow: hidden;
+ 
+}
+.communityImg{
+    transition: ease-in-out 0.4s;
+}
+.communityImg:hover{
+    transform: scale(1.05);
+}
+
+@media only screen and (max-width:768px) {
+    
+    .comBody{
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column !important;
+        /* align-items: flex-start; */
+        gap: 5%;
+    }
+    .bodyContent{
+        width: 90%;
+        margin-left: auto; 
+        margin-right: auto;
+        }
+    .postsCommunity{
+        margin-top: 60px !important;
+        width: 90%;
+        margin-left: auto; 
+        margin-right: auto;
+        }
+    
+}
+@media only screen and (max-width:768px) {
+    .communityBody{
+        width: 90vw;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
+    .bodyContent{
+        width: 100%;
+        margin-left: auto; 
+        margin-right: auto;
+        }
+    .postsCommunity{
+        margin-top: 60px !important;
+        width: 100%;
+        margin-left: auto; 
+        margin-right: auto;
+        }
+        .profileImage{
+            width: 3em;
+            margin-right: 6px;
+            }
+            .msgText{
+                margin-left: 2px;
+            }
+            
+    
+}

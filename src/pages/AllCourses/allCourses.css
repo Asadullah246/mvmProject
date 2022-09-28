@@ -1,0 +1,18 @@
+
+.allCoursesBody{
+    width: 85vw;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+.likeIcon{
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    cursor: pointer;
+} 
+.paginationDiv{
+    width: fit-content; 
+    margin-left: auto;
+    margin-bottom: 150px;
+
+}
