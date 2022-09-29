@@ -9,6 +9,7 @@ import ResetPassword from './pages/ResetPassword/ResetPassword';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Community from './pages/Community/Community';
 import AllCourses from './pages/AllCourses/AllCourses';
+import CourseFullPage from './pages/AllCourses/CourseFullPage';
 
 const darkTheme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" exact element={<LandingPage/>}/> 
             <Route path="/community" exact element={<Community/>}/> 
             <Route path="/all-courses" exact element={<AllCourses/>}/> 
+            <Route path="/full-course" exact element={<CourseFullPage/>}/> 
 
             
             <Route path="/*"  element={<NotFound/>}/> 

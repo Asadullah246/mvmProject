@@ -1,18 +1,263 @@
-
-.allCoursesBody{
+.courseFullPage{
+    overflow-x: hidden !important;
+}
+.allCoursesBody {
     width: 85vw;
     margin: 0 auto;
     margin-top: 70px;
 }
-.likeIcon{
+
+.likeIcon {
     position: absolute;
     top: 8%;
     right: 8%;
     cursor: pointer;
-} 
-.paginationDiv{
-    width: fit-content; 
+}
+
+.paginationDiv {
+    width: fit-content;
     margin-left: auto;
     margin-bottom: 150px;
 
+}
+
+.fullCourseBody {
+    margin-top: 90px;
+}
+.alsoLike {
+    margin-top: 120px;
+}
+
+.previewBtn {
+    background-color: transparent;
+    padding: 13px 40px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    text-align: left;
+    transition: ease-in-out 0.3s;
+    margin-top: 30px;
+}
+
+.addToCartBtn {
+    background-color: #EF3054;
+    /* width: 75%; */
+    padding: 15px 0;
+    font-size: 1.2em;
+    text-align: center;
+    width: 75%;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    transition: ease-in-out 0.3s;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.ratingState {
+    margin-top: 35px;
+    margin-bottom: 24px;
+}
+
+.likeBtn {
+    background-color: transparent;
+    padding: 10px 12px;
+    border: 1px solid whitesmoke;
+}
+
+/* previw section  */
+
+.previewAndSpec {
+    margin-top: 135px !important;
+}
+
+.previewSection {
+    width: 100%;
+
+
+}
+
+.previews {
+    width: 94%;
+    margin: auto;
+}
+
+.showMoreDetails {
+    background-color: transparent;
+    width: 100%;
+    padding: 13px 0;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    transition: ease-in-out 0.3s;
+    margin-top: 35px;
+}
+
+.showLess {
+    display: none;
+    background-color: transparent;
+    padding: 13px 0;
+    border-radius: 10px;
+    color: white;
+
+    text-align: left;
+    transition: ease-in-out 0.3s;
+    margin-top: 35px;
+}
+
+/* .showLess:hover{
+ 
+} */
+.showLessIcon {
+
+    width: 0.9em;
+}
+
+.courseImg {
+    width: 100%;
+    /* height: 100% !important;  */
+    /* height: 300px; */
+}
+
+.rowDiv {
+    /* gap: 100px; */
+}
+
+.imgDivForCourse {
+    margin-left: 10%;
+    height: 100%;
+    /* background-image: url("../../../public/images/course/courseImg.png"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imgDivForCourse img {
+    height: 100%;
+    width: 100%;
+}
+
+.specForCourse {
+    margin-left: 10%;
+    background-color: #463942;
+
+}
+
+.specForCourse ul {
+    padding: 60px;
+
+}
+
+.specLi {
+    list-style-type: none;
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 1.1em;
+
+}
+
+.specLi:last-child {
+    list-style-type: none;
+    text-align: left;
+
+
+}
+
+
+.specLi img {
+    width: 1em;
+    margin-right: 12px;
+
+
+}
+
+/* reviews  */
+
+.reviewsheadline {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.reviewsheadline img {
+    height: 1em;
+    margin-top: -0.8%;
+    margin-right: 5px;
+}
+
+.ratingStarCourse {
+    color: white !important;
+    font-size: 0.8em;
+    margin-bottom: 0;
+}
+
+.weekText {
+    margin-bottom: 5px;
+    margin-left: 6px;
+}
+
+.reviewCol {
+    margin-left: 4%;
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+    .courseheadLine1{
+        display: none;
+    }
+    .courseheadLine2{ 
+        display: block;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .imgDivForCourse {
+        width: 70% ;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        margin-bottom: 70px;
+     
+    }
+    .specForCourse {
+        margin-top: 50px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #463942;
+    
+    }
+    
+    /* .specForCourse ul {
+        padding: 60px;
+    
+    } */
+    
+}
+@media only screen and (max-width: 576px) {
+    .courseheadLine1{
+        display: none;
+    }
+    .courseheadLine2{ 
+        display: block;
+        margin-bottom: 50px;
+    }
+    .imgDivForCourse {
+        width: 100% !important;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        margin-bottom: 70px;
+     
+    }
+    .specForCourse {
+        margin-top: 50px;
+        width: 100%;
+        /* margin-left: auto;
+        margin-right: auto; */
+        background-color: #463942; 
+    
+    }
+    
 }

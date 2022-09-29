@@ -140,7 +140,7 @@ const AllCourses = () => {
                                 )
                             })
                         }
-                    </Carousel>;
+                    </Carousel>
                     <div className='d-flex justify-content-between align-items center arrowForService'>
                         <button className='serviceBtn' onClick={arrowLeft}><BsArrowLeft /></button>
                         <button className='serviceBtn' onClick={arrowRight}><BsArrowRight /></button>
