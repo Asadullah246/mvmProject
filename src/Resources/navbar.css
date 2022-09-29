@@ -1,12 +1,15 @@
 .navbarSection{
-    width: 90vw;
-    padding: 20px auto;
+    width: 100%;
 }
 #navbarIs {
     background-image: linear-gradient(to right, #463039, #393039);
     background-color: #fff;
 }
-
+@media screen and (min-width: 700px) {
+    #navbarIs {
+        padding: 0 10rem;
+    }
+}
 .navbarItem {
     display: flex;
     align-items: center;
