@@ -20,7 +20,7 @@ const LandingPage = () => {
             {/* body section  */}
 
             <div style={{ width: "85vw", margin: "0 auto", marginTop: "150px", }} className="bodySection">
-                <div style={{ width: "50%", margin: "auto" }} className="headingDiv">
+                <div style={{ width: "60%", margin: "auto" }} className="headingDiv">
                     <h1 style={{ marginBottom: "20px" }}>Get Magical & Botanical Products Easily and make your dreams come true!</h1>
                     <p className='mb-5'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
                     <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
