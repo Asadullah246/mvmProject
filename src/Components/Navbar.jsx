@@ -184,7 +184,7 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1 }} style={{width:"100%"}}>
                 <AppBar position="static">
                     <Toolbar id='navbarIs'>
-                        <img src="images/companyLogo.svg" alt="" />
+                        <img src="images/logo.svg" alt="mvm" height="100" className='py-2'/>
                         <Box sx={{ flexGrow: 1 }} />
 
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
