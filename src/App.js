@@ -10,6 +10,9 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import Community from './pages/Community/Community';
 import AllCourses from './pages/AllCourses/AllCourses';
 import CourseFullPage from './pages/AllCourses/CourseFullPage';
+import Curses from './pages/AllCourses/Curses';
+import WishList from './pages/AllCourses/WishList';
+import Service from './pages/AllCourses/Service';
 
 const darkTheme = createTheme({
   palette: {
@@ -32,6 +35,11 @@ function App() {
             <Route path="/community" exact element={<Community/>}/> 
             <Route path="/all-courses" exact element={<AllCourses/>}/> 
             <Route path="/full-course" exact element={<CourseFullPage/>}/> 
+            <Route path="/wishlist" element={<WishList></WishList>}> 
+              <Route index element={<Curses/>}/>
+              
+              <Route path="service" element={<Service/>}/>
+            </Route>
 
             
             <Route path="/*"  element={<NotFound/>}/> 
