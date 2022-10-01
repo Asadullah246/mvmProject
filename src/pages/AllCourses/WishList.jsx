@@ -42,7 +42,7 @@ const WishList = () => {
              {/* className={(location=="/wishlist/product")?"navBtn2":"navBtn"} */}
             <div className="container-fluid container-md wishlistBody">
                 <h1 className='text-start wishlistHeading'>Wishlist</h1>
-                <div className='text-start'>
+                <div className='text-start '>
                 <NavLink  to="/wishlist"    className={(location=="/wishlist")?"navBtn2":"navBtn"} id='wishCourses'
                 //  onClick={course}
                  >Courses</NavLink>

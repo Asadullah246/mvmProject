@@ -13,6 +13,7 @@ import CourseFullPage from './pages/AllCourses/CourseFullPage';
 import Curses from './pages/AllCourses/Curses';
 import WishList from './pages/AllCourses/WishList';
 import Service from './pages/AllCourses/Service';
+import BillingPage from './pages/AllCourses/BillingPage';
 
 const darkTheme = createTheme({
   palette: {
@@ -35,9 +36,10 @@ function App() {
             <Route path="/community" exact element={<Community/>}/> 
             <Route path="/all-courses" exact element={<AllCourses/>}/> 
             <Route path="/full-course" exact element={<CourseFullPage/>}/> 
+            <Route path="/billing-page" exact element={<BillingPage/>}/> 
+
             <Route path="/wishlist" element={<WishList></WishList>}> 
               <Route index element={<Curses/>}/>
-              
               <Route path="service" element={<Service/>}/>
             </Route>
 

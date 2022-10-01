@@ -1,6 +1,7 @@
-.courseFullPage{
+.courseFullPage {
     overflow-x: hidden !important;
 }
+
 .allCoursesBody {
     width: 85vw;
     margin: 0 auto;
@@ -24,6 +25,7 @@
 .fullCourseBody {
     margin-top: 90px;
 }
+
 .alsoLike {
     margin-top: 120px;
 }
@@ -203,12 +205,12 @@
     margin-bottom: 40px;
 }
 
-.wishlistHeading{
+.wishlistHeading {
     margin-top: 60px;
     margin-bottom: 25px;
 }
-    
-.navBtn{
+
+.navBtn {
     background-color: transparent;
     padding: 10px 30px;
     border: 1px solid whitesmoke;
@@ -220,7 +222,8 @@
     margin-right: 15px;
     font-weight: 500;
 }
-.navBtn2{
+
+.navBtn2 {
     background-color: #EF3054;
     padding: 10px 30px;
     border: 1px solid #EF3054;
@@ -233,69 +236,225 @@
     font-weight: 500;
 }
 
-.serviceDiv{
+.serviceDiv {
     margin-top: 70px;
 }
 
-.courseImg{
+.courseImg {
     height: 100%;
     width: 100%;
-    
+
 }
+
+.priceHourly {
+    display: flex;
+    justify-content: left !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 20px;
+}
+
+.serviceSection {
+    padding: 15px;
+    min-height: 150px;
+    max-height: fit-content;
+    width: 100%;
+    background: rgb(91, 60, 71);
+    background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+
+}
+
+
+.imgDivCourse {
+    padding: 8px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+
+}
+
+.courseImg {
+    height: 100%;
+    width: auto;
+ 
+}
+.priceDiv{
+    min-height: 100% !important;
+    background-color: blue;
+}
+.serviceTextDiv{
+    min-height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    align-items: flex-end;
+}
+
+.serviceCardText{
+    width: fit-content;
+    border: 1px solid rgba(245, 245, 245, 0.267);
+    border-radius: 8px;
+    /* padding: 6px; */
+
+}
+.amount{
+    width: 100% !important;
+}
+.addition, .Subtraction{
+ padding: 10px 25px;
+ cursor: pointer; 
+}
+.addition{
+    color: white;
+
+}
+.Subtraction{
+    color: white;
+
+}
+
+.cartBtn{
+    white-space: nowrap; 
+    background-color: transparent; 
+    padding: 8px 25px;
+    color: white;
+    border: 1px solid whitesmoke;
+    border-radius: 6px;
+}
+#btnForSmall{
+    display: none ;
+
+}
+
+
 
 /* media query  */
 
 @media only screen and (max-width: 768px) {
-    .courseheadLine1{
+    .courseheadLine1 {
         display: none;
     }
-    .courseheadLine2{ 
+
+    .courseheadLine2 {
         display: block;
         margin-bottom: 50px;
         text-align: center;
     }
+
     .imgDivForCourse {
-        width: 70% ;
+        width: 70%;
         margin-left: auto;
         margin-right: auto;
         height: 100%;
         margin-bottom: 70px;
-     
+
     }
+
     .specForCourse {
         margin-top: 50px;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
         background-color: #463942;
-    
+
     }
-    
+
 
 }
+
+@media only screen and (max-width: 640px) {
+    .allCoursesBody {
+        width: 100%;
+        /* margin: 0 auto; */
+        margin-top: 70px;
+    }
+    .serviceCardDiv{
+        flex-direction: column !important;
+    }
+    .serviceCard{
+        flex-direction: column !important;
+    }
+    .courseImg{
+        width: 100% !important;
+        height: auto !important;
+    }
+  
+    .serviceTextDiv{
+        text-align: left !important;
+        display: block !important;
+
+    }
+    .spiritText{
+        /* display: block !important; */
+        text-align: left !important;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    #btnForSmall{
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .btnForBig{
+        display: none !important;
+       
+    }
+    .priceDivService{
+        font-size: 1em;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .priceTextService{
+        
+        font-size: 0.8em;
+    }
+    .navBtn, .navBtn2 {
+        background-color: transparent;
+        padding: 8px 25px;
+        border: 1px solid whitesmoke;
+        border-radius: 7px;
+        font-size: 0.8em;
+        color: white;
+        /* text-align: left; */
+        transition: ease-in-out 0.3s;
+        margin-top: 30px;
+        margin-right: 15px;
+        font-weight: 500;
+    }
+
+   
+
+
+}
+
 @media only screen and (max-width: 576px) {
-    .courseheadLine1{
+    .courseheadLine1 {
         display: none;
     }
-    .courseheadLine2{ 
+
+    .courseheadLine2 {
         display: block;
         margin-bottom: 50px;
     }
+
     .imgDivForCourse {
         width: 100% !important;
         margin-left: auto;
         margin-right: auto;
         height: 100%;
         margin-bottom: 70px;
-     
+
     }
+
     .specForCourse {
         margin-top: 50px;
         width: 100%;
         /* margin-left: auto;
         margin-right: auto; */
-        background-color: #463942; 
-    
+        background-color: #463942;
+
     }
-    
+
 }
