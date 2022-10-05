@@ -123,7 +123,7 @@ const Navbar = () => {
 
 
             <MenuItem>
-                <a href="/" className='menuLink'>Products</a>
+                <a href="/all-product" className='menuLink'>Products</a>
             </MenuItem>
             <MenuItem>
                 <a href="/" className='menuLink'>Services</a>
@@ -136,7 +136,7 @@ const Navbar = () => {
             </MenuItem>
            
             <MenuItem>
-                <a href="/"  className='menuLink'>Login</a>
+                <a href="/login"  className='menuLink'>Login</a>
             </MenuItem>
 
             <MenuItem>
@@ -191,11 +191,11 @@ const Navbar = () => {
 
 
                             <div className='navbarItem'>
-                                <a href="/">Products</a>
+                                <a href="/all-product">Products</a>
                                 <a href="/">Services</a>
                                 <a href="/all-courses">Courses</a>
                                 <a href="/community">Community</a>
-                                <a href="/">Community</a>
+                                
                                 {/* <button style={{ backgroundColor: "transparent", color: "white", fontWeight: "900" }}><FiSearch /></button> */}
                                 {/* <button style={{backgroundColor:"transparent", color:"white", fontWeight:"900"}}><AiOutlineHeart/></button>
                             <button style={{backgroundColor:"transparent", color:"white", fontWeight:"900"}}><RiShoppingCart2Line/></button> */}
@@ -203,11 +203,12 @@ const Navbar = () => {
                                 <IconButton size="md" aria-label="show 4 new mails" color="inherit">
                                     <FiSearch />
                                 </IconButton>
-                                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                <a href="wishList" className='wishlistLink'><IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                     <Badge badgeContent={4} color="error">
                                         <AiOutlineHeart />
                                     </Badge>
                                 </IconButton>
+                                </a>
                                 <IconButton
                                     size="md"
                                     aria-label="show 17 new notifications"
@@ -217,7 +218,7 @@ const Navbar = () => {
                                         <RiShoppingCart2Line />
                                     </Badge>
                                 </IconButton>
-                                <a href="/" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
+                                <a href="/login" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
                             </div>
 
                             {/* <IconButton

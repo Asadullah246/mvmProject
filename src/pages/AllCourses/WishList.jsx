@@ -43,13 +43,16 @@ const WishList = () => {
             <div className="container-fluid container-md wishlistBody">
                 <h1 className='text-start wishlistHeading'>Wishlist</h1>
                 <div className='text-start '>
-                <NavLink  to="/wishlist"    className={(location=="/wishlist")?"navBtn2":"navBtn"} id='wishCourses'
+                <NavLink  to="/wishlist"  className={(location=="/wishlist")?"navBtn2":"navBtn"} id='wishCourses'
                 //  onClick={course}
                  >Courses</NavLink>
                 <NavLink to="/wishlist/product"  className={(location=="/wishlist/product")?"navBtn2":"navBtn"} id='wishProduct'
                 //   onClick={product}
                   >product</NavLink>
-                <NavLink to="/wishlist/service"  className={(location=="/wishlist/service")?"navBtn2":"navBtn"} id='wishProduct'>service</NavLink>
+                <NavLink to="/wishlist/service"  className={(location=="/wishlist/service")?"navBtn2":"navBtn"} id='wishProduct'
+                //   onClick={product}
+                  >Service</NavLink>
+             
                      
                 </div>
 

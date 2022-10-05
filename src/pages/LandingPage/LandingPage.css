@@ -92,6 +92,9 @@
 }
 .courseCard, .topSellingCard{
     position: relative;
+    /* transition: max-height 0.5s, overflow 0s !important; */
+    /* overflow:auto; */
+    /* transition: max-height 0.5s, overflow 0.5s 0.5s; */
 }
 .coursePrice{
     background-color: #EF3054;
@@ -151,6 +154,28 @@
     /* width: 100% !important; */
     margin: auto;
 }
+
+.priceHourly{
+   display: flex; 
+    /* justify-content: flex-end !important;  */
+    /* justify-content: end !important; */
+    
+    width: 100% !important;
+    text-align: right !important; 
+    padding: 0 !important;
+    margin-top: 20px;  
+}
+.priceAndDetailsSection{
+    width: 100%;
+    text-align: right !important;
+
+}
+.wishlistLink{
+    margin-right: 0 !important;
+}
+ 
+
+/* media query  */
 
 @media screen and (max-width: 900px){
     .headingDiv{
@@ -221,6 +246,7 @@
          
         
     }
+ 
     .priceHourly{
         display: flex; 
         justify-content: left !important; 
@@ -229,6 +255,11 @@
         width: 100% !important;
         padding: 0 !important;
         margin-top: 20px;  
+    }
+    .priceAndDetailsSection{
+        width: 100%;
+        text-align: left !important;
+    
     }
     
     

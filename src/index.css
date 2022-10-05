@@ -10,6 +10,7 @@ import '@fontsource/roboto/700.css'; */
 
 body {
   margin: 0;
+  /* background-color: transparent !important; */
   box-sizing: border-box !important;  
   font-family: 'Noto Sans',sans-serif !important;
   -webkit-font-smoothing: antialiased;

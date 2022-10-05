@@ -6,12 +6,48 @@ import { BsChevronDown } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
 import Navbar from '../../Components/Navbar';
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import { Rating } from '@mui/material';
 import Footer from '../../Components/Footer';
+import Carousel from 'react-multi-carousel';
+// import { BsArrowLeft } from "react-icons/bs";
+// import { BsArrowRight } from "react-icons/bs";
 
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 4,
+        slidesToSlide: 4 // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 769 },
+        items: 3,
+        slidesToSlide: 3 // optional, default to 1.
+    },
+    miniTablet: {
+        breakpoint: { max: 768, min: 577 },
+        items: 2,
+        slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 576, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
 
 const LandingPage = () => {
+
+    const arrowLeft = (e) => {
+        e.preventDefault()
+        let classname = ".react-multiple-carousel__arrow--left"
+        document.querySelector(classname).click()
+    }
+    const arrowRight = (e) => {
+        e.preventDefault()
+        let classname = ".react-multiple-carousel__arrow--right"
+        document.querySelector(classname).click()
+    }
 
     return (
         <div style={{  overflowX: "hidden" }}>
@@ -143,7 +179,7 @@ const LandingPage = () => {
                                             <p>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
                                         </div>
                                         <div className='text-start text-md-end priceHourly'>
-                                            <div>
+                                            <div className='priceAndDetailsSection'>
                                             <h6>$30/hr</h6>
                                             <button className='detailsBtn'>View details</button>
                                             </div>
@@ -165,7 +201,56 @@ const LandingPage = () => {
 
                 <div className='courseDiv'>
                     <h2>Our Course</h2>
-                    <div className="container-fluid">
+
+                    <Carousel
+                        swipeable={false}
+                        draggable={false}
+                        // showDots={true}
+                        responsive={responsive}
+                        ssr={true} // means to render carousel on server-side.
+                        infinite={true}
+                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+
+                        autoPlaySpeed={1000}
+                        keyBoardControl={true}
+                        customTransition="all .5"
+                        transitionDuration={500}
+                        containerClass="carousel-container"
+                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                        // deviceType={this.props.deviceType}
+                        // dotListClass="custom-dot-list-style"
+                        itemClass="carousel-item-padding-40-px" 
+                    >
+                        {
+                            [...Array(8)].map(d => {
+                                return (
+                                    <div className=' px-3 py-4 courseCard scaleDiv'>
+                                        <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                        <div className='coursePrice'>
+                                            <div className='d-flex justify-content-between'>
+                                                <p>Paid</p>
+                                                <h4>$500</h4>
+                                            </div>
+                                            <h3 className='text-start mb-0'>Course name</h3>
+                                            <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div>
+                                        </div>
+                                        <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                    </div>
+                                )
+                            })
+                        }
+                    </Carousel>
+                    <div className='d-flex justify-content-between align-items center arrowForService'>
+                        <button className='serviceBtn' onClick={arrowLeft}><BsArrowLeft /></button>
+                        <button className='serviceBtn' onClick={arrowRight}><BsArrowRight /></button>
+                    </div>   
+
+
+
+                    {/* <div className="container-fluid">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
                             {
                                 [...Array(6)].map(d => {
@@ -188,7 +273,7 @@ const LandingPage = () => {
                                 })
                             }
                         </div>
-                    </div>
+                    </div> */}
                 </div> 
                 {/* customer comments  */}
 

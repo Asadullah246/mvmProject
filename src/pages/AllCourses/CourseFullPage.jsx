@@ -81,8 +81,6 @@ const CourseFullPage = () => {
                         <h4 className='text-start'>$19.99 <span className='text-muted ms-1'>$59.99</span></h4>
                         <button className='addToCartBtn '>Add to cart</button>
 
-
-
                     </div>
                     <div className="col-12 col-lg-6 ">
                     <h1 className='text-start courseheadLine2'>The Complete Magical  Consultation</h1>

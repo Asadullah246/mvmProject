@@ -1,0 +1,73 @@
+.sideBarSection{
+    /* background-color: aliceblue !important; */
+    
+}
+.css-d9ml5t-MuiDrawer-docked .MuiDrawer-paper{
+    background: rgb(91, 60, 71);
+    background: linear-gradient(180deg, rgb(87, 56, 66) 50%, rgba(47, 47, 63, 0.938) 100%)!important;
+    position: static;
+    
+}
+.productHeadline{
+    font-size: 3em !important;
+    text-align: left; 
+    font-weight: 700 !important;
+    padding-left: 16px;
+    margin-bottom: 40px !important;
+}
+.productBody{
+    margin-top: 60px;
+}
+.iconSidebarDiv{
+    min-width: fit-content !important;
+    margin-right: 15px !important;
+    
+} 
+.sidebarHeading{
+    padding: 5px 16px;
+    text-align: left;
+    margin-top: 25px ;
+    cursor: pointer;
+
+} 
+.sidebarHeading:hover{
+    background-color: #644851;
+}
+.dividerSidebar{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important; 
+}
+
+.topSelling{
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width:768px) {
+    .sideBarSection{
+        display: none !important;
+    }
+    .productHeadline{
+        font-size: 2.5em !important;
+        text-align: left; 
+        font-weight: 700 !important;
+        padding-left: 16px;
+    }
+    
+}
+@media only screen and (max-width:576px) {
+    .sideBarSection{
+        display: none !important;
+    }
+    .css-1v5u2yv{
+        padding: 0 !important;
+    }
+    .productHeadline{
+        font-size: 1.9em !important;
+        text-align: left; 
+        font-weight: 700 !important;
+        padding-left: 16px;
+    }
+}
+
