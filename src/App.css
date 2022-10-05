@@ -1,5 +1,5 @@
 body{
-  background-image: url('./Resources/bg.png'), linear-gradient(to right, #000, #000) !important;
+  background-image: url('./Resources/bg.png') !important;
   background-size: cover, contain !important;
   background-position: center, right bottom !important;
   background-repeat: no-repeat, no-repeat !important;
