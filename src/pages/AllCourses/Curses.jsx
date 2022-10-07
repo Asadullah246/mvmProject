@@ -27,12 +27,22 @@ const Curses = () => {
                                                     <h4 className='spiritText'>Learn  how to spiritual</h4>
                                                     <div className='amount'>
                                                         <p className='mb-2'>You will master the Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over..You will master the Python programming language by building 100 unique projects over..</p>
-                                                        
+
+                                                        {/* add this class  */}
+                                                        {/* .text {
+                                                            overflow: hidden;
+                                                        text-overflow: ellipsis;
+                                                        display: -webkit-box;
+                                                        -webkit-line-clamp: 2; 
+                                                        line-clamp: 2;
+                                                        -webkit-box-orient: vertical;
+} */}
+
                                                         <div className='d-flex justify-content-start align-items-center my-3'>
                                                             <Rating name="half-rating " defaultValue={4.3} precision={0.5} className='courseRating' readOnly />
                                                             <p className='mb-0 courseRatingText'>4.5k Reviews</p>
                                                         </div>
-                                                        <p className='mb-0'> <span>72 hours total</span> <img src={dotIcon} alt=""  className='mx-2+' /> <span>534 lectures</span> <img src={dotIcon} alt="" className='mx-2+' /> <span>Intermediate level</span></p>
+                                                        <p className='mb-0'> <span>72 hours total</span> <img src={dotIcon} alt="" className='mx-2' /> <span>534 lectures</span> <img src={dotIcon} alt="" className='mx-2' /> <span>Intermediate level</span></p>
                                                     </div>
                                                 </div>
                                             </div>

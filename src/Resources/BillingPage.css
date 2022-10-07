@@ -1,0 +1,156 @@
+.billingServiceDiv {
+    margin-top: 60px !important;
+    margin-bottom: 20px !important;
+
+
+}
+.profileDivBilling{
+    margin-top: 40px;
+}
+
+.purePriceSection {
+    margin-left: 10%;
+}
+
+.mvmServiceText {
+    display: block;
+    width: fit-content;
+    text-align: left;
+    margin-bottom: 30px !important;
+    background-color: transparent;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+}
+.contactInformation{
+    margin-top: 80px;
+}
+
+.pureDiv {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(91, 60, 71);
+    background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+
+}
+
+.pureBotanical {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 0;
+}
+.dividerBilling{
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 40px 0;
+}
+.couponDiv{
+display: flex;
+justify-content: space-between;
+}
+.couponInputTag{
+    margin-top: 0 !important;
+    width: 67%;
+    padding-left:5px;
+}
+.applyBtn{
+padding: 13px 30px;
+gap: 10px;
+background: #EF3054;
+border-radius: 8px;
+color: white;
+margin-left: 8px;
+}
+
+.priceBilling{
+    font-weight: 600;
+}
+
+.shippingText {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.inputName {
+    width: 48% !important;
+}
+
+.inputAddress {
+    width: 31% !important;
+}
+
+.checkboxForBilling {
+    margin-right: 6px !important;
+    padding: 12px 5px; 
+    border-radius: 7px; 
+    border: 1px solid white;
+    margin-top: 7px;
+    
+}
+
+.paymentBtn {
+    background-color: #EF3054;
+    color: white;
+    margin-bottom: 20px;
+    /* font-size: 1.1em; */
+    font-weight: 600;
+    padding: 13px 30px;
+    border-radius: 8px;
+
+}
+
+.agreeText{
+    font-size: 0.9em;
+}
+.policyBtn{
+    font-size: 0.9em;
+    color: white ;
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+}
+
+/* media Query  */
+
+@media only screen and (max-width:991px) {
+    .purePriceSection{
+        margin-left: 0;
+        margin-top: 60px !important
+    }
+    
+}
+@media only screen and (max-width:576px) {
+    .policyBtn{
+        font-size: 0.9em;
+        color: white ;
+        background-color: transparent;
+        border: none;
+        margin-right: 15px;
+    }
+    .couponDiv{
+        flex-direction: column !important;
+    }
+    .couponInputTag{
+        margin-top: 0 !important;
+        /* white-space: nowrap; */
+        width: 100%;
+    }
+    .applyBtn{
+        padding: 13px 30px;
+        gap: 10px;
+        background: #EF3054;
+        border-radius: 8px;
+        color: white;
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 0px;
+        }
+    
+}

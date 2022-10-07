@@ -24,12 +24,15 @@ width: 53%;
     color: white;
     display: block;
     text-align: left;
-    transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s; 
 }
 .viewPostBtn{
     background-color: transparent;
     color: white;
+    font-weight: 600;
     transition: ease-in-out 0.3s;
+    border: none;
+    margin-top: 5px;
 
 }
 .viewPostBtn:hover,.seeMoreBtn:hover{

@@ -19,6 +19,13 @@ import ProductDetails from './pages/Product/ProductDetails/ProductDetails';
 import ProductwishList from './pages/Product/ProductWishList/ProductwishList';
 import ProductBillingtwo from './pages/Product/ProductBillingpage/ProductBillingtwo';
 import Product from './pages/AllCourses/Product';
+import ServiceBillingPage3 from './pages/Services/BillingPage3/ServiceBillingPage3';
+import BillingSuccess from './pages/Services/BillingSuccess/BillingSuccess';
+import MyOrder from './pages/Product/MyOrder/MyOrder';
+import Message from './pages/Product/Message/Message';
+import PreviousOrder from './pages/Product/PreviousOrder/PreviousOrder';
+import Notification from './pages/Notification/Notification';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 
 const darkTheme = createTheme({
@@ -50,6 +57,12 @@ function App() {
             <Route path="/product-details" exact element={<ProductDetails />} />
             <Route path="/product-wishlist" exact element={<ProductwishList />} />
             <Route path="/product-billing-two" exact element={<ProductBillingtwo />} />
+            <Route path="/service-billing-cart" exact element={<ServiceBillingPage3 />} />
+            <Route path="/billing-success" exact element={<BillingSuccess />} />
+            <Route path="/messages" exact element={<Message />} />
+            <Route path="/previous-order" exact element={<PreviousOrder />} />
+            <Route path="/notification" exact element={<Notification />} />
+            <Route path="/edit-profile" exact element={<EditProfile />} />
 
 
             <Route path="/wishlist" element={<WishList></WishList>}>

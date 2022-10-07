@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Footer from "../../../Components/Footer"
+import "../../../Resources/BillingPage.css"
 import "./productBillingtwo.css"
 import Navbar from "../../../Components/Navbar"
 import { Breadcrumbs, Checkbox, Link, Stack, Typography } from '@mui/material';

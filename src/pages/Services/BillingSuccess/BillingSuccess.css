@@ -1,0 +1,21 @@
+.successPageBody {
+    margin-top: 70px;
+}
+.successText{
+    margin-top: 40px;
+}
+
+.backBtn {
+    margin-top: 50px;
+    padding: 13px 30px;
+    color: white;
+    background: #EF3054;
+    border-radius: 8px;
+}
+
+@media only screen and (max-width: 576px) {
+    .successImg{
+        height: 20vw;
+    }
+    
+}

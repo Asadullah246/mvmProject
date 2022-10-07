@@ -1,0 +1,111 @@
+.messages {
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+}
+
+.messageProfile {
+    width: 100%;
+    background-color: #58515A;
+    padding: 20px 30px;
+
+}
+
+
+
+.moreMsg {
+    padding: 20px 30px;
+
+}
+.messageSending {
+    width: 100%;
+    background-color: #58515A;
+    padding: 15px 30px;
+
+}
+
+.singleMsg {
+    margin-bottom: 30px;
+}
+
+.msgIcons{
+    display: flex;
+    align-items: center;
+}
+
+.msgIcons img {
+    cursor: pointer;
+
+}
+.callIcon{
+    margin-left: 40px;
+}
+
+.dotIcon {
+    margin-left: 40px;
+
+}
+
+.inputField {
+    position: relative;
+    width: 90%;
+
+}
+
+.inputField input {
+   
+    width: 100%;
+    background-color: #70636B;
+    padding: 10px 15px;
+    padding-left: 50px; 
+    border: none;
+    border: 1px solid white;
+    border-radius: 34px;
+    color: white;
+
+}
+
+.imoji {
+    position: absolute;
+    left: 2%;
+    top: 25%;
+    cursor: pointer;
+    
+}
+.sendingMsg {
+    position: absolute;
+    right: 2%;
+    top: 25%;
+    cursor: pointer;
+    
+}
+
+@media only screen and (max-width:576px) {
+    .messageProfile {
+        width: 100%;
+        background-color: #58515A;
+        padding: 20px 5px;
+       
+    
+    }
+    .moreMsg ,.messageSending {
+        padding: 20px 5px;
+        
+    
+    }
+    /* .messageSending {
+
+        
+    
+    } */
+    .callIcon, .dotIcon{
+        margin-left: 20px;
+    }
+    .inputField {
+        position: relative;
+        width: 70%;
+    
+    }
+    
+   
+    
+}

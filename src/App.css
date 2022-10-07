@@ -1,5 +1,7 @@
 body{
   background-image: url('./Resources/bg.png') !important;
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
   background-size: cover, contain !important;
   background-position: center, right bottom !important;
   background-repeat: no-repeat, no-repeat !important;

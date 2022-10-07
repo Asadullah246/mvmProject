@@ -1,0 +1,222 @@
+.statusSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 40px 100px;
+    background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+
+
+}
+.orderHeading{
+    margin-top: 60px;
+    font-weight: 600;
+}
+
+.orderDivider {
+    width: 20%;
+    border-bottom: 1px solid white;
+    height: 1px;
+    margin-top: 1%;
+}
+
+.orderDivider2 {
+    width: 20%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+    height: 1px;
+    margin-top: 1%;
+}
+
+.statusDiv {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.statusDiv p {
+    margin-bottom: 0;
+    margin-left: 7px;
+}
+.productId{
+    font-size: 0.8em;
+}
+.productImg{
+    height: fit-content;
+    width: auto;
+}
+.productDivider{
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.308) ;
+}
+.orderedItemText{
+    margin-top: 40px;
+    text-align: left;
+    font-weight: 600;
+}
+.orderedItems{
+    margin-top: 20px;
+}
+
+.orderDetailsRow{
+    margin-top: 40px !important;
+}
+.shippingDetailsHeading{
+    margin-bottom: 20px !important;
+}
+
+.orderButtons{
+    margin-top: 100px;
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.smallDisplayButtons{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+}
+.trackBtn{
+    width: 50%;
+    background-color: #EF3054;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+.orderBtn{
+   
+    background-color: #EF3054;
+    color: #EF3054;
+    border: none;
+    border-radius: 8px;
+}
+.msgBtn{
+    background-color: #EF3054;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* media query  */
+
+@media only screen and (max-width:840px) {
+    .statusSection {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 50px;
+        background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+    
+    
+    }
+
+    .statusDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .statusDiv p {
+        margin-bottom: 0;
+        /* margin-left: 7px; */
+        margin-top: 5px;
+    }
+}
+@media only screen and (max-width:768px) {
+    .statusSection {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 10%;
+        padding-bottom: 55px;
+        background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+    
+    
+    }
+    .orderDivider {
+        width: 20%;
+        border-bottom: 1px solid white;
+        height: 1px;
+        margin-top: 2%;
+    }
+    
+    .orderDivider2 {
+        width: 20%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        height: 1px;
+        margin-top: 2%;
+    }
+
+    .statusDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .statusDiv p {
+        margin-bottom: 0;
+        white-space: nowrap;
+        position: absolute;
+        margin-left: 0;
+        top: 30px ;
+
+    }
+}
+@media only screen and (max-width:576px) {
+    .statusSection {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+        padding-bottom: 55px;
+        background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+    
+    
+    }
+
+    .orderDivider {
+        /* width: 5%; */
+        border-bottom: 1px solid white;
+        height: 1px;
+        margin-top: 2%;
+        display: none;
+    }
+    
+    .orderDivider2 {
+        /* width: 5%; */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.301);
+        height: 1px;
+        margin-top: 2%;
+        display: none;
+    }
+
+    .statusDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .statusDiv p {
+        margin-bottom: 0;
+        /* margin-left: 7px; */
+        margin-top: 5px;
+        white-space: nowrap;
+        position: absolute;
+        margin-left: 0;
+        top: 30px;
+        /* left: -200%; */
+
+        font-size: 0.8em;
+       
+    }
+    .statusDiv img{
+        height: 1.2em;
+    }
+    .productImg{
+        width: 70vw;
+        height: auto;
+    }
+   
+    
+}

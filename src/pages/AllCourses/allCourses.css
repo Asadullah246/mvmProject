@@ -392,6 +392,9 @@
         width: 100% !important;
         height: auto !important;
     }
+    .imgDivCourse{
+        border: none;
+    }
   
     .serviceTextDiv{
         text-align: left !important;

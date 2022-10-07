@@ -1,5 +1,7 @@
 .navbarSection{
     width: 100%;
+    margin-bottom: 0 !important;
+    /* padding-bottom: 0 !important;  */
 }
 #navbarIs {
     background-image: linear-gradient(to right, #463039, #393039);

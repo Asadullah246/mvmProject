@@ -1,0 +1,51 @@
+
+.infoDiv p{
+font-weight: 600;
+margin-top: 80px;
+}
+.infoDetails{
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgb(91, 60, 71);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(68, 56, 87, 0.603) 100%) ; 
+
+}
+.infoTitle{
+    width: 30%;
+    text-align: left;
+}
+.serviceDivider{
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+.serviceBillingPaymentText{
+    margin-top: 80px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.inputSection{
+    position: relative;
+}
+.visaIcon{
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    cursor: pointer;
+}
+/* input[type="date"].date-input--has-value::-webkit-datetime-edit-text,
+input[type="date"].date-input--has-value::-webkit-datetime-edit-month-field,
+input[type="date"].date-input--has-value::-webkit-datetime-edit-day-field,
+input[type="date"].date-input--has-value::-webkit-datetime-edit-year-field {
+  color: #f8f9fa;
+  
+} */
+
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #888;
+}

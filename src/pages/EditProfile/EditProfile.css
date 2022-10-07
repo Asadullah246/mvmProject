@@ -1,0 +1,12 @@
+.headingDiv{
+    margin-top: 60px ;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+/* .passChange{
+    width: 100%;
+    padding
+} */
