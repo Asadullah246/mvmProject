@@ -26,6 +26,7 @@ import Message from './pages/Product/Message/Message';
 import PreviousOrder from './pages/Product/PreviousOrder/PreviousOrder';
 import Notification from './pages/Notification/Notification';
 import EditProfile from './pages/EditProfile/EditProfile';
+import Services from "./pages/Services/ServicesMainPage/Sevices.jsx"
 
 
 const darkTheme = createTheme({
@@ -63,6 +64,7 @@ function App() {
             <Route path="/previous-order" exact element={<PreviousOrder />} />
             <Route path="/notification" exact element={<Notification />} />
             <Route path="/edit-profile" exact element={<EditProfile />} />
+            <Route path="/services" exact element={<Services />} />
 
 
             <Route path="/wishlist" element={<WishList></WishList>}>

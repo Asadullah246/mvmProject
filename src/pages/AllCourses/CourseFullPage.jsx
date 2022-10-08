@@ -83,7 +83,7 @@ const CourseFullPage = () => {
 
                     </div>
                     <div className="col-12 col-lg-6 ">
-                    <h1 className='text-start courseheadLine2'>The Complete Magical  Consultation</h1>
+                   
                         <div className='imgDivForCourse'>
                             <img src="images/course/courseImg.png" alt="" />
 

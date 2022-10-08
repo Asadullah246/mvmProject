@@ -49,13 +49,22 @@ const LandingPage = () => {
         document.querySelector(classname).click()
     }
 
+    const mouseEnter = (e) => {
+        let element = (e.target.parentNode.lastChild);
+        element.style.display = "block"
+    }
+    const mouseLeave = (e) => {
+        let element = (e.target.parentNode.lastChild);
+        element.style.display = "none"
+    }
+
     return (
-        <div style={{  overflowX: "hidden" }}>
+        <div style={{ overflowX: "hidden" }}>
             <Navbar />
 
             {/* body section  */}
 
-            <div style={{ width: "85vw", margin: "0 auto", marginTop: "150px", }} className="bodySection">
+            <div style={{ width: "85vw", margin: "0 auto", marginTop: "140px", }} className="bodySection">
                 <div style={{ width: "60%", margin: "auto" }} className="headingDiv">
                     <h1 style={{ marginBottom: "20px" }}>Get Magical & Botanical Products Easily and make your dreams come true!</h1>
                     <p className='mb-5'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
@@ -116,14 +125,29 @@ const LandingPage = () => {
                         </Carousel> */}
                     </div>
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                        <img src="images/landing/Group 10 (1).png" alt="" className='bigImg forScale' />
-                        <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg forScale' />
+                        <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                            <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
+                            <h3 className='productName'>Product name</h3>
+                        </div>
+                        <div className='smallImage '  onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                            <img src="images/landing/Rectangle 5 (2).png" alt="" className='w-100 h-100 headerImages' />
+                            <h3 className='productName'>Product name</h3>
+                        </div>
 
                     </div>
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 productImages">
-
-                        <img src="images/landing/Rectangle 6 (1).png" alt="" className='smallImg forScale' />
-                        <img src="images/landing/natural.png" alt="" className='bigImg forScale' />
+                        
+                    <div className='smallImage '  onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                            <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
+                            <h3 className='productName'>Product name</h3>
+                        </div>
+                    <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                            <img src="images/landing/Rectangle 6 (1).png" alt="" className='w-100 headerImages' />
+                            <h3 className='productName'>Product name</h3>
+                        </div>
+                       
+                        {/* <img src="images/landing/Rectangle 6 (1).png" alt="" className='smallImg ' />
+                        <img src="images/landing/natural.png" alt="" className='bigImg ' /> */}
 
                     </div>
                     <div>
@@ -180,8 +204,8 @@ const LandingPage = () => {
                                         </div>
                                         <div className='text-start text-md-end priceHourly'>
                                             <div className='priceAndDetailsSection'>
-                                            <h6>$30/hr</h6>
-                                            <button className='detailsBtn'>View details</button>
+                                                <h6>$30/hr</h6>
+                                                <button className='detailsBtn'>View details</button>
                                             </div>
                                         </div>
 
@@ -197,7 +221,7 @@ const LandingPage = () => {
                         <button className='serviceBtn'><BsArrowLeft /></button>
                         <button className='serviceBtn'><BsArrowRight /></button>
                     </div>
-                </div> 
+                </div>
 
                 <div className='courseDiv'>
                     <h2>Our Course</h2>
@@ -219,7 +243,7 @@ const LandingPage = () => {
                         removeArrowOnDeviceType={["miniTablet", "mobile"]}
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
-                        itemClass="carousel-item-padding-40-px" 
+                        itemClass="carousel-item-padding-40-px"
                     >
                         {
                             [...Array(8)].map(d => {
@@ -246,7 +270,7 @@ const LandingPage = () => {
                     <div className='d-flex justify-content-between align-items center arrowForService'>
                         <button className='serviceBtn' onClick={arrowLeft}><BsArrowLeft /></button>
                         <button className='serviceBtn' onClick={arrowRight}><BsArrowRight /></button>
-                    </div>   
+                    </div>
 
 
 
@@ -274,10 +298,10 @@ const LandingPage = () => {
                             }
                         </div>
                     </div> */}
-                </div> 
+                </div>
                 {/* customer comments  */}
 
-               <div className='customerDiv'>
+                <div className='customerDiv'>
                     <h2 className='mb-5'>What Our Customer Says</h2>
                     <div className='customerCommentDiv'>
                         <div className='commentDiv'>
@@ -286,7 +310,7 @@ const LandingPage = () => {
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
                             <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
-                            <hr style={{color:"white", fontSize:"2em"}}/>
+                            <hr style={{ color: "white", fontSize: "2em" }} />
                             <h5 className='text-start'>Raju Mullah</h5>
                             <p className='text-start'>UI UX Designer</p>
                         </div>
@@ -295,7 +319,7 @@ const LandingPage = () => {
                             <div className='imageForComment'>
                                 <img src="images/comments/Rectangle 21.png" alt="" className='commentImg' />
                                 <div className='d-flex justify-content-between mt-4 nextCommentSection'>
-                                    <p><span style={{fontSize:"2.3em"}}>05</span>/10</p>
+                                    <p><span style={{ fontSize: "2.3em" }}>05</span>/10</p>
                                     <div>
                                         <button className='commentArrow'><BsArrowLeft /></button>
                                         <button className='commentArrow'><BsArrowRight /></button>
@@ -307,7 +331,7 @@ const LandingPage = () => {
                         </div>
                     </div>
 
-                </div> 
+                </div>
 
 
 
@@ -316,9 +340,9 @@ const LandingPage = () => {
 
 
             </div>
-            <Footer/>
+            <Footer />
 
-         
+
         </div>
     );
 };

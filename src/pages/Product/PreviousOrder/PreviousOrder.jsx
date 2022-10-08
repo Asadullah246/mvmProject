@@ -58,7 +58,7 @@ const PreviousOrder = () => {
             {/* body  */}
 
             <div className='container-fluid container-md'>
-                <div className='headingDiv'>
+                <div className='headingOrderDiv'>
                     <h1 style={{}}>Previous order</h1>
                     <div className='d-flex justify-content-end align-items-center'>
                         <p className='mb-0 me-3'>Sort by</p>

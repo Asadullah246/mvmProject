@@ -14,6 +14,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import "../Resources/navbar.css"
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -59,6 +60,7 @@ const Navbar = () => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const navigate=useNavigate()
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -123,27 +125,85 @@ const Navbar = () => {
 
 
             <MenuItem>
-                <a href="/all-product" className='menuLink'>Products</a>
+                <div className='d-flex justify-content-start align-items-center mb-3'>
+                    <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
+                    <div className='text-start ms-2'>
+                        <h5 className='mb-0'>Raju Mullah</h5>
+                        <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
+                    </div>
+                </div>
             </MenuItem>
             <MenuItem>
-                <a href="/" className='menuLink'>Services</a>
+                <a href="/wishlist" className='menuLink w-100 d-block menuitems p-0'>
+                    <div className='w-100 d-flex justify-content-between align-items-center '>
+                        <p className='mb-0'>Wishlist</p>
+                        <p className='navbarNotiCount'>05</p>
+                    </div>
+                </a>
             </MenuItem>
             <MenuItem>
-                <a href="/all-courses" className='menuLink'>Courses</a>
+                <a href="/all-product" className='menuLink w-100 d-block  menuitems p-0'>
+                    <div className='w-100 d-flex justify-content-between align-items-center '>
+                        <p className='mb-0'>Cart</p>
+                        <p className='navbarNotiCount'>02</p>
+                    </div>
+                </a>
+            </MenuItem>
+
+            <div className='dividerNavbar'></div>
+            <MenuItem>
+                <a href="/message" className='menuLink w-100 d-block  menuitems p-0'>
+                    <div className='w-100 d-flex justify-content-between align-items-center '>
+                        <p className='mb-0'>Message</p>
+                        <p className='navbarNotiCount'>01</p>
+                    </div>
+                </a>
             </MenuItem>
             <MenuItem>
-                <a href="/community" className='menuLink'>Community</a>
+                <a href="/notification" className='menuLink w-100 d-block  menuitems p-0'>
+                    <div className='w-100 d-flex justify-content-between align-items-center '>
+                        <p className='mb-0'>Notifications</p>
+                        <p className='navbarNotiCount'>03</p>
+                    </div>
+                </a>
             </MenuItem>
-           
+
+            <div className='dividerNavbar'></div>
+
+
             <MenuItem>
-                <a href="/login"  className='menuLink'>Login</a>
+                <a href="/community" className='menuLink menuitems p-0'>My order</a>
             </MenuItem>
 
             <MenuItem>
+                <a href="/login" className='menuLink menuitems p-0'>Order history</a>
+            </MenuItem>
+
+            <div className='dividerNavbar'></div>
+            <MenuItem>
+                <a href="/services" className='menuLink menuitems p-0'>My service</a>
+            </MenuItem>
+
+            <div className='dividerNavbar'></div>
+            <MenuItem>
+                <a href="/" className='menuLink menuitems p-0'>My learning</a>
+            </MenuItem>
+
+            <div className='dividerNavbar'></div>
+            <MenuItem>
+                <a href="/edit-profile" className='menuLink menuitems p-0'>Edit profile</a>
+            </MenuItem>
+
+            <div className='dividerNavbar'></div>
+            <MenuItem>
+                <a href="" className='menuLink menuitems p-0'>Logout</a>
+            </MenuItem>
+
+            {/* <MenuItem>
                 <IconButton size="md" aria-label="show 4 new mails" color="inherit">
                     <FiSearch />
                 </IconButton>
-                <p style={{paddingBottom:"0", paddingLeft:"5px"}}>Search</p>
+                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Search</p>
             </MenuItem>
             <MenuItem>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -151,7 +211,7 @@ const Navbar = () => {
                         <AiOutlineHeart />
                     </Badge>
                 </IconButton>
-                <p style={{paddingBottom:"0", paddingLeft:"5px"}}>Liked</p>
+                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Liked</p>
             </MenuItem>
             <MenuItem>
                 <IconButton
@@ -163,7 +223,7 @@ const Navbar = () => {
                         <RiShoppingCart2Line />
                     </Badge>
                 </IconButton>
-                <p style={{paddingBottom:"0", paddingLeft:"5px"}}>Cart</p>
+                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Cart</p>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
@@ -174,17 +234,21 @@ const Navbar = () => {
                     color="inherit"
                 >     <AccountCircle />
                 </IconButton>
-                <p style={{paddingBottom:"0", paddingLeft:"5px"}}>Profile</p>
-            </MenuItem>
-           
+                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Profile</p>
+            </MenuItem> */}
+
         </Menu>
     );
+
+    const home=()=>{
+        navigate("/")
+    }
     return (
         <div className='navbarSection'>
-            <Box sx={{ flexGrow: 1 }} style={{width:"100%"}}>
+            <Box sx={{ flexGrow: 1 }} style={{ width: "100%" }}>
                 <AppBar position="static">
                     <Toolbar id='navbarIs'>
-                        <img src="images/logo.svg" alt="mvm" height="100" className='py-2'/>
+                        <img src="images/logo.svg" alt="mvm" height="100" className='py-2 cursor-pointer' onClick={home} />
                         <Box sx={{ flexGrow: 1 }} />
 
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -195,10 +259,8 @@ const Navbar = () => {
                                 <a href="/">Services</a>
                                 <a href="/all-courses">Courses</a>
                                 <a href="/community">Community</a>
+
                                 
-                                {/* <button style={{ backgroundColor: "transparent", color: "white", fontWeight: "900" }}><FiSearch /></button> */}
-                                {/* <button style={{backgroundColor:"transparent", color:"white", fontWeight:"900"}}><AiOutlineHeart/></button>
-                            <button style={{backgroundColor:"transparent", color:"white", fontWeight:"900"}}><RiShoppingCart2Line/></button> */}
 
                                 <IconButton size="md" aria-label="show 4 new mails" color="inherit">
                                     <FiSearch />

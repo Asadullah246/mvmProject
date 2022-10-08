@@ -9,7 +9,7 @@ const Community = () => {
             <Navbar />
             {/* body  */}
             <div className='communityBody'>
-                <h1 className='text-center text-lg-start'>MVM Community</h1>
+                <h1 className=' text-start'>MVM Community</h1>
                 <div className='comBody'>
                     {/* left side  */}
 

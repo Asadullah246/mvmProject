@@ -19,7 +19,7 @@ const EditProfile = () => {
             {/* body  */}
 
             <div className="container-fluid container-md">
-                <div className='headingDiv'>
+                <div className='editProfileheading'>
                     <h1>Edit profile</h1>
                     <RedButton name="Delete account" />
 

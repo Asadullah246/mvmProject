@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import Footer from '../../Components/Footer';
+import Navbar from '../../Components/Navbar';
 
 
 const actived = ({ isActive }) => {
@@ -39,6 +41,7 @@ const WishList = () => {
     
     return (
         <div>
+            <Navbar/>
              {/* className={(location=="/wishlist/product")?"navBtn2":"navBtn"} */}
             <div className="container-fluid container-md wishlistBody">
                 <h1 className='text-start wishlistHeading'>Wishlist</h1>
@@ -58,6 +61,7 @@ const WishList = () => {
 
                 <Outlet/>
             </div>
+            <Footer/>
         </div>
     );
 };

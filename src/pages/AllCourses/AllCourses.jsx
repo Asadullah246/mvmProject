@@ -6,6 +6,8 @@ import Navbar from '../../Components/Navbar';
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import "./allCourses.css"
+import { createBrowserHistory } from '@remix-run/router';
+import { useNavigate } from 'react-router-dom';
 
 
 const responsive = {
@@ -33,6 +35,8 @@ const responsive = {
 
 const AllCourses = () => {
     const [page, setPage] = React.useState(1);
+    const history = createBrowserHistory();
+    const navigate=useNavigate()
     const handleChange = (event, value) => {
         setPage(value);
     };
@@ -46,6 +50,11 @@ const AllCourses = () => {
         e.preventDefault()
         let classname = ".react-multiple-carousel__arrow--right"
         document.querySelector(classname).click()
+    }
+
+    const fullCourse=()=>{
+        // navigate("/full-course") 
+        history.push("/full-course") 
     }
     return (
         <div>
@@ -64,7 +73,7 @@ const AllCourses = () => {
                             {
                                 [...Array(8)].map(d => {
                                     return (
-                                        <div className='col px-3 py-4 courseCard scaleDiv'>
+                                        <div className='col px-3 py-4 courseCard scaleDiv' onClick={fullCourse}>
                                             <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                                 <div className='d-flex justify-content-between'>
@@ -122,7 +131,7 @@ const AllCourses = () => {
                         {
                             [...Array(8)].map(d => {
                                 return (
-                                    <div className=' px-3 py-4 courseCard scaleDiv'>
+                                    <div className=' px-3 py-4 courseCard scaleDiv ' >
                                         <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
                                         <div className='coursePrice'>
                                             <div className='d-flex justify-content-between'>

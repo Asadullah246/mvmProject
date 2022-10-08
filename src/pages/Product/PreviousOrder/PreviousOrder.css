@@ -1,4 +1,4 @@
-.headingDiv{
+.headingOrderDiv{
     display: flex;
     justify-content: space-between;
     margin-top: 60px;
@@ -23,7 +23,7 @@ border-radius: 8px;
 } 
 
 @media only screen and (max-width:576px) {
-    .headingDiv{
+    .headingOrderDiv{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
