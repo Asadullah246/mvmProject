@@ -87,7 +87,7 @@ const AllCourses = () => {
                                                 </div>
                                             </div>
                                             <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
-                                        </div>
+                                        </div> 
                                     )
                                 })
                             }

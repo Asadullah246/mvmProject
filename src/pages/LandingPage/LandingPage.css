@@ -16,6 +16,13 @@
     height: 100% !important;
 }
 
+.headerSectionLanding{
+    height: 100vh !important;
+    position: relative;
+    /* outline: 0 !important; */
+
+}
+
 .productName{
     display: none;
     font-weight: 600;
@@ -24,11 +31,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     transition: ease-in-out 0.6s;
-}
+} 
 
 
 .arrow {
     animation: up-down 1s ease-in-out infinite alternate-reverse both !important;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes up-down {
@@ -202,10 +213,11 @@
 }
 @media only screen and (max-width:768px) {
     .bodySection{
-        width: 90vw !important;
-        margin: auto;
-        margin-top: 100px !important;
+       
+        /* margin: auto; */
+   
     }
+    
     
     .bigImg {
         width: 60%;
@@ -306,9 +318,9 @@
         height: 85vw;
     }
     .bodySection{
-        width: 95vw !important;
-        margin: auto;
-        margin-top: 100px !important;
+        /* margin: auto; */
+        /* width: 95vw !important; */
+        /* margin-top: 100px !important; */
     }
     .headingDiv{
         width: 100% !important;

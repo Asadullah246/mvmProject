@@ -15,7 +15,6 @@ const Service = () => {
                     [...Array(6)].map(d => {
                         return (
                             <div className='mb-4'>
-                                {/* d-flex align-items-start justify-content-between  */}
                                 <div className='serviceSection '>
                                     <div className='d-flex justify-content-between serviceCardDiv '>
                                         <div className='d-flex justify-content-start serviceCard'>

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { AccountCircle } from '@mui/icons-material';
 import { alpha, AppBar, Badge, Box, Divider, IconButton, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
@@ -15,6 +15,8 @@ import { BsChevronDown } from "react-icons/bs";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import "../Resources/navbar.css"
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineMenu } from "react-icons/ai";
+import { BiMenuAltRight } from "react-icons/bi";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -60,6 +62,7 @@ const Navbar = () => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [menuStatus, setMenuStatus]=useState(false)
     const navigate=useNavigate()
 
     const isMenuOpen = Boolean(anchorEl);
@@ -79,7 +82,10 @@ const Navbar = () => {
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
+        console.log(event.currentTarget); 
+        setMenuStatus(!menuStatus)
     };
+    
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -98,17 +104,18 @@ const Navbar = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
         </Menu>
     );
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
+        style={{marginTop:""}}
             anchorEl={mobileMoreAnchorEl}
             anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'left',
             }}
             id={mobileMenuId}
             keepMounted
@@ -245,8 +252,8 @@ const Navbar = () => {
     }
     return (
         <div className='navbarSection'>
-            <Box sx={{ flexGrow: 1 }} style={{ width: "100%" }}>
-                <AppBar position="static">
+            <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom:"0"}}> 
+                <AppBar position="static" style={{ width: "100%", marginBottom:"0"}}>
                     <Toolbar id='navbarIs'>
                         <img src="images/logo.svg" alt="mvm" height="100" className='py-2 cursor-pointer' onClick={home} />
                         <Box sx={{ flexGrow: 1 }} />
@@ -283,17 +290,7 @@ const Navbar = () => {
                                 <a href="/login" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
                             </div>
 
-                            {/* <IconButton
-                                size="large"
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                onClick={handleProfileMenuOpen}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton> */}
+                            
                         </Box>
                         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -304,13 +301,20 @@ const Navbar = () => {
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
                             >
-                                <MoreIcon />
+                                {/* <MoreIcon /> */}
+                                {menuStatus?
+                                <AiOutlineMenu/>
+                                :
+                                <BiMenuAltRight/>
+                                }
+                                
+                               
                             </IconButton>
                         </Box>
                     </Toolbar>
                 </AppBar>
                 {renderMobileMenu}
-                {renderMenu}
+                {/* {renderMenu} */}
             </Box>
         </div>
 

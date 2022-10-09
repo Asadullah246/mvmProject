@@ -1,0 +1,15 @@
+.bodyHeading{
+    margin-top: 60px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+.serviceOptions{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+}
+.upcomingBtns{
+    display: flex;
+    gap: 20px;
+}

@@ -1,11 +1,13 @@
 .navbarSection{
     width: 100%;
     margin-bottom: 0 !important;
+    /* outline: 0 !important; */
     /* padding-bottom: 0 !important;  */
 }
 #navbarIs {
     background-image: linear-gradient(to right, #463039, #393039);
     background-color: #fff;
+    margin-bottom: 0 !important;
 }
 .navbarNotiCount{
     background-color: #EF3054;
@@ -69,14 +71,14 @@
 
 @media only screen and (max-width:768px) {
     .navbarSection{
-        width: 100vw !important; 
+        width: 100% !important; 
         padding: 20px auto;
     }
     
 }
 @media only screen and (max-width:576px) {
     .navbarSection{
-        width: 100vw !important; 
+        width: 100% !important; 
         padding: 20px auto;
     }
     

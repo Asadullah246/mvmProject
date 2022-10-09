@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../../Components/Navbar';
 import "./PreviousOrder.css"
 import cardImg from "../../../images/Rectanglet71.png"
-import Button2 from '../../../Components/Button2';
 import usePagination from '@mui/material/usePagination';
 import { styled } from '@mui/material/styles';
 import RedButton from '../../../Components/RedButton';
@@ -42,6 +41,12 @@ const List = styled('ul')({
     margin: 0,
     display: 'flex',
 });
+
+const Button2 = (props) => {
+    return (
+        <button style={{padding:"13px 30px ", border:"1px solid white ", borderRadius:"8px", backgroundColor:"transparent",color:"white"}}>{props.name}</button>
+    );
+};
 
 const PreviousOrder = () => {
 
