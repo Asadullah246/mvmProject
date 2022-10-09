@@ -61,31 +61,31 @@ const LandingPage = () => {
     return (
         <div style={{ overflowX: "hidden" }}>
 
-            <div style={{ }}  className="headerSectionLanding">
-            <Navbar />
-          
-               <div className='container-fluid container-md '>
-               <div style={{ width: "60%", margin: "auto",marginTop: "140px" }} className="headingDiv">
-                    <h1 style={{ marginBottom: "20px" }}>Get Magical & Botanical Products Easily and make your dreams come true!</h1>
-                    <p className='mb-5'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
-                    <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
-                </div>
+            <div style={{}} className="headerSectionLanding">
+                <Navbar />
 
-                <p style={{  fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
-               
-               </div>
+                <div className='container-fluid container-md '>
+                    <div style={{ width: "60%", margin: "auto", marginTop: "140px" }} className="headingDiv">
+                        <h1 style={{ marginBottom: "20px" }}>Get Magical & Botanical Products Easily and make your dreams come true!</h1>
+                        <p className='mb-5'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
+                        <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
+                    </div>
+
+                    <p style={{ fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
+
+                </div>
 
 
             </div>
-            
+
 
             {/* body section  */}
 
             <div className="container-fluid container-md bodySection">
 
-                {/* header section  */}
+                
 
-               
+        {/* product categories  */}
 
                 <div>
                     <h2 className='mb-4'>Products Categories</h2>
@@ -142,23 +142,23 @@ const LandingPage = () => {
                             <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
                             <h3 className='productName'>Product name</h3>
                         </div>
-                        <div className='smallImage '  onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                        <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                             <img src="images/landing/Rectangle 5 (2).png" alt="" className='w-100 h-100 headerImages' />
                             <h3 className='productName'>Product name</h3>
                         </div>
 
                     </div>
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 productImages">
-                        
-                    <div className='smallImage '  onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+
+                        <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                             <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
                             <h3 className='productName'>Product name</h3>
                         </div>
-                    <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                        <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                             <img src="images/landing/Rectangle 6 (1).png" alt="" className='w-100 headerImages' />
                             <h3 className='productName'>Product name</h3>
                         </div>
-                       
+
                         {/* <img src="images/landing/Rectangle 6 (1).png" alt="" className='smallImg ' />
                         <img src="images/landing/natural.png" alt="" className='bigImg ' /> */}
 
@@ -323,7 +323,7 @@ const LandingPage = () => {
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
                             <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
-                            <hr style={{ color: "white", fontSize: "2em" }} />
+                            {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
                             <h5 className='text-start'>Raju Mullah</h5>
                             <p className='text-start'>UI UX Designer</p>
                         </div>
@@ -346,16 +346,8 @@ const LandingPage = () => {
 
                 </div>
 
-
-
-
-
-
-
+                <Footer />
             </div>
-            <Footer />
-
-
         </div>
     );
 };

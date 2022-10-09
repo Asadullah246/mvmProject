@@ -7,16 +7,19 @@ import { GrTwitter } from "react-icons/gr";
 import { AiOutlineInstagram } from "react-icons/ai";
 
 const Footer = () => {
+
+    const Divider=<div className='dividerFooter'></div>
     return (
         <div>
             <div className='newsletter'>
                 <h2>Subscribe to our newsletter</h2>
-                <div className='mt-4 ' style={{ marginBottom: "120px" }}>
+                <div className='mt-4 ' style={{ marginBottom: "80px" }}>
                     <input type="email" placeholder='Enter your email address' name="" id="" className='newsletterInput' />
                     <button className='subscribebtn'>Subscribe</button>
                 </div>
 
             </div>
+            {Divider}
             {/* <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
                 <div className='me-5 d-none d-lg-block'>
                     <span>Get connected with us on social networks:</span>
@@ -114,6 +117,7 @@ const Footer = () => {
                         </MDBRow>
                     </MDBContainer>
                 </section>
+                {Divider}
 
                 <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
                    Copyright ©2022 Mystique vedic miracles. All Rights Reserved.   

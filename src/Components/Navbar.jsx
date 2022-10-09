@@ -62,7 +62,7 @@ const Navbar = () => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-    const [menuStatus, setMenuStatus]=useState(false)
+    const [menuStatus, setMenuStatus]=useState(true)
     const navigate=useNavigate()
 
     const isMenuOpen = Boolean(anchorEl);
@@ -74,6 +74,7 @@ const Navbar = () => {
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
+        setMenuStatus(!menuStatus)
     };
     const handleMenuClose = () => {
         setAnchorEl(null);
@@ -111,7 +112,8 @@ const Navbar = () => {
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
-        style={{marginTop:""}}
+       
+        style={{marginTop:"", marginLeft:"0"}}
             anchorEl={mobileMoreAnchorEl}
             anchorOrigin={{
                 vertical: 'top',
@@ -134,13 +136,13 @@ const Navbar = () => {
             <MenuItem>
                 <div className='d-flex justify-content-start align-items-center mb-3'>
                     <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
-                    <div className='text-start ms-2'>
+                    <div className='text-start ms-2 profileTextMenu'>
                         <h5 className='mb-0'>Raju Mullah</h5>
                         <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
                     </div>
                 </div>
             </MenuItem>
-            <MenuItem>
+            <MenuItem >
                 <a href="/wishlist" className='menuLink w-100 d-block menuitems p-0'>
                     <div className='w-100 d-flex justify-content-between align-items-center '>
                         <p className='mb-0'>Wishlist</p>
@@ -148,7 +150,7 @@ const Navbar = () => {
                     </div>
                 </a>
             </MenuItem>
-            <MenuItem>
+            <MenuItem >
                 <a href="/all-product" className='menuLink w-100 d-block  menuitems p-0'>
                     <div className='w-100 d-flex justify-content-between align-items-center '>
                         <p className='mb-0'>Cart</p>
@@ -303,7 +305,9 @@ const Navbar = () => {
                             >
                                 {/* <MoreIcon /> */}
                                 {menuStatus?
-                                <AiOutlineMenu/>
+                                // <AiOutlineMenu/>
+                                <span className='navIcon'></span>
+                            
                                 :
                                 <BiMenuAltRight/>
                                 }

@@ -27,12 +27,32 @@
 
 }
 .dividerNavbar{
+    
     margin: 20px 0;
     width: 100%;
     border-bottom: 1px solid linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
 }
 
 
+.navIcon{
+    
+}
+
+
+
+@media only screen and (max-width:768px) {
+    .navbarSection{
+        width: 100% !important; 
+        padding: 20px auto;
+    }
+    .menuLink{
+        /* font-size: 0.8em !important; */
+    }
+
+    
+    
+    
+}
 
 @media screen and (min-width: 700px) {
     #navbarIs {
@@ -69,17 +89,32 @@
     margin-top: 10px;
 }
 
-@media only screen and (max-width:768px) {
-    .navbarSection{
-        width: 100% !important; 
-        padding: 20px auto;
-    }
-    
-}
 @media only screen and (max-width:576px) {
     .navbarSection{
         width: 100% !important; 
         padding: 20px auto;
     }
+    .menuLink , .profileTextMenu p{
+        font-size: 0.8em !important;
+        
+    }
+    .menuLink div{
+        padding: 0 !important;
+    }
+    .profileTextMenu h5{
+        font-size: 0.9em;
+    }
+    .navbarNotiCount{
+        background-color: #EF3054;
+        font-size: 0.8em;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-radius: 50%;
+        padding: 4px 6px;
+    }
+    .dividerNavbar{
+        display: none;
+    }
+    
     
 }
