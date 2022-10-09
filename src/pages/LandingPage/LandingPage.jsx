@@ -79,7 +79,7 @@ const LandingPage = () => {
 
             {/* product categories  */}
 
-                <div>
+                <section>
                     <h2 className='mb-4'>Products Categories</h2>
                     <div>
                         {/* <Carousel showArrows={true}
@@ -159,10 +159,11 @@ const LandingPage = () => {
                         <button className='productArrow'><BsArrowLeft /></button>
                         <button className='productArrow'><BsArrowRight /></button>
                     </div>
-                </div>
+                </section>
 
                 {/* top selling section  */}
-                <div className='topSelling'>
+
+                <section id='topSelling'>
                     <h2 className='mb-3'>Top selling products</h2>
                     <div className="container-fluid">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
@@ -188,11 +189,11 @@ const LandingPage = () => {
                             }
                         </div>
                     </div>
-                </div>
+                </section>
 
                 {/* services  */}
 
-                <div className='serviceDiv'>
+                <section id='serviceDiv'>
                     <h2 className='mb-3'>Services</h2>
                     {
                         [...Array(6)].map(d => {
@@ -226,9 +227,11 @@ const LandingPage = () => {
                         <button className='serviceBtn'><BsArrowLeft /></button>
                         <button className='serviceBtn'><BsArrowRight /></button>
                     </div>
-                </div>
+                </section>
 
-                <div className='courseDiv'>
+                {/* course section  */}
+
+                <section id='courseDiv'>
                     <h2>Our Course</h2>
 
                     <Carousel
@@ -303,10 +306,12 @@ const LandingPage = () => {
                             }
                         </div>
                     </div> */}
-                </div>
+                </section>
+
+
                 {/* customer comments  */}
 
-                <div className='customerDiv'>
+                <section id='customerDiv'>
                     <h2 className='mb-5'>What Our Customer Says</h2>
                     <div className='customerCommentDiv'>
                         <div className='commentDiv'>
@@ -336,7 +341,7 @@ const LandingPage = () => {
                         </div>
                     </div>
 
-                </div>
+                </section>
 
                 <Footer />
             </div>
