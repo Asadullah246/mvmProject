@@ -252,10 +252,13 @@ const Navbar = () => {
     const home=()=>{
         navigate("/")
     }
+
+    
+  
     return (
         <div className='navbarSection'>
             <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom:"0"}}> 
-                <AppBar position="static" style={{ width: "100%", marginBottom:"0"}}>
+                <AppBar position="fixed" style={{ width: "100%", marginBottom:"0"}} id="header">  
                     <Toolbar id='navbarIs'>
                         <img src="images/logo.svg" alt="mvm" height="100" className='py-2 cursor-pointer' onClick={home} />
                         <Box sx={{ flexGrow: 1 }} />

@@ -38,6 +38,8 @@ body{
 }
 header{
   box-shadow: none !important; 
+  background-color: transparent !important;  
+  /* position: fixed !important;  */
 }
 
 @keyframes App-logo-spin {
