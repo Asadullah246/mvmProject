@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./LandingPage.css"
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
@@ -10,6 +10,8 @@ import Navbar from '../../Components/Navbar';
 import { Rating } from '@mui/material';
 import Footer from '../../Components/Footer';
 import Carousel from 'react-multi-carousel';
+import AOS from "aos";
+import "aos/dist/aos.css";
 // import { BsArrowLeft } from "react-icons/bs";
 // import { BsArrowRight } from "react-icons/bs";
 
@@ -37,7 +39,13 @@ const responsive = {
 };
 
 const LandingPage = () => {
-
+    useEffect(() => {
+        AOS.init({
+            duration : 2000
+          });
+        AOS.refresh();
+    }, []);
+      
     const arrowLeft = (e) => {
         e.preventDefault()
         let classname = ".react-multiple-carousel__arrow--left"
@@ -65,7 +73,7 @@ const LandingPage = () => {
             {/* Hero Section */}
             <section id="hero">
                 <div className='container'>
-                    <div className='headingDiv'>
+                    <div className='headingDiv' data-aos="zoom-out-down">
                         <h1 style={{ marginBottom: "20px" }} data-text="
                        Equip yourself with magical power" className='glitch'>Equip yourself with magical power</h1>
                         <p className='mb-5 sub'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
