@@ -1,4 +1,12 @@
-
+@font-face {
+    font-family: harryPoter;
+    src: url(../../Resources/HarryPotter-ov4z.ttf);
+}
+  
+/* h2 {
+    font-family: harryPoter;
+    color: darkgreen;
+} */
 
 .bigImage {
     width: 60% !important;
@@ -16,30 +24,45 @@
     height: 100% !important;
 }
 
-.headerSectionLanding{
-    height: 100vh !important;
-    position: relative;
-    /* outline: 0 !important; */
-
+#hero{
+    height: 100vh;
+    display: grid;
+    margin: auto;
+    align-items: center;
+    vertical-align: middle;
 }
-
-.productName{
-    display: none;
-    font-weight: 600;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: ease-in-out 0.6s;
-} 
+#hero h1{
+    font-family: harryPoter;
+    font-size: 4.7rem;
+    line-height: 6rem;
+}
+@media screen and (max-width:766px) {
+    #hero h1{
+        font-size: 3.7rem !important;
+        line-height: 4rem !important;
+    }
+}
+@media screen and (max-width: 518px) {
+    #hero h1{
+        font-size: 2.7rem !important;
+        line-height: 4rem !important;
+    }
+}
+.headingDiv{
+    margin: auto;
+    width: 70% !important;
+}
+@media screen and (max-width: 900px){
+    .headingDiv{
+        width: 100% !important;
+    }
+}
 
 
 .arrow {
     animation: up-down 1s ease-in-out infinite alternate-reverse both !important;
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
     transform: translate(-50%, -50%);
+    margin-top: 2.5rem;
 }
 
 @keyframes up-down {
@@ -52,6 +75,16 @@
     }
 }
 
+
+.productName{
+    display: none;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: ease-in-out 0.6s;
+} 
 .service {
     min-height: 150px;
     max-height: fit-content;
@@ -206,11 +239,7 @@
 
 /* media query  */
 
-@media screen and (max-width: 900px){
-    .headingDiv{
-        width: 100% !important;
-    }
-}
+
 @media only screen and (max-width:768px) {
     .bodySection{
        
@@ -321,9 +350,6 @@
         /* margin: auto; */
         /* width: 95vw !important; */
         /* margin-top: 100px !important; */
-    }
-    .headingDiv{
-        width: 100% !important;
     }
     .ratingText{
         margin-bottom: 8px ;

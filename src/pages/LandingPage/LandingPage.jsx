@@ -60,32 +60,24 @@ const LandingPage = () => {
 
     return (
         <div style={{ overflowX: "hidden" }}>
-
-            <div style={{}} className="headerSectionLanding">
-                <Navbar />
-
-                <div className='container-fluid container-md '>
-                    <div style={{ width: "60%", margin: "auto", marginTop: "140px" }} className="headingDiv">
-                        <h1 style={{ marginBottom: "20px" }}>Get Magical & Botanical Products Easily and make your dreams come true!</h1>
+            <Navbar />
+            {/* Hero Section */}
+            <section id="hero">
+                <div className='container'>
+                    <div className='headingDiv'>
+                        <h1 style={{ marginBottom: "20px" }}>Equip yourself with magical power</h1>
                         <p className='mb-5'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
                         <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
-                    </div>
-
                     <p style={{ fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
-
+                    </div>
                 </div>
-
-
-            </div>
-
+            </section>
 
             {/* body section  */}
 
             <div className="container-fluid container-md bodySection">
 
-                
-
-        {/* product categories  */}
+            {/* product categories  */}
 
                 <div>
                     <h2 className='mb-4'>Products Categories</h2>
