@@ -62,23 +62,23 @@ const Navbar = () => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-    const [menuStatus, setMenuStatus]=useState(true)
-    const navigate=useNavigate()
+    const [menuStatus, setMenuStatus] = useState(true)
+    const navigate = useNavigate()
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => {
-          window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         }
-      }, [])
+    }, [])
     const handleScroll = () => {
         if (window.scrollY > 20) {
-            document.querySelector("#header").setAttribute('scroll','true');
+            document.querySelector("#header").setAttribute('scroll', 'true');
         } else {
-            document.querySelector("#header").setAttribute('scroll','false');
+            document.querySelector("#header").setAttribute('scroll', 'false');
         }
     };
 
@@ -99,8 +99,8 @@ const Navbar = () => {
         setMobileMoreAnchorEl(event.currentTarget);
         setMenuStatus(!menuStatus)
     };
-    
-    
+
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -125,19 +125,20 @@ const Navbar = () => {
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
-        style={{marginTop:"", marginLeft:"0"}}
+            className='navbarOption'
+            style={{ marginTop: "", marginLeft: "0" }}
             anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-            }}
-           
+            // anchorOrigin={{
+            //     vertical: 'top',
+            //     horizontal: 'left',
+            // }}
+
             id={mobileMenuId}
             keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
+            // transformOrigin={{
+            //     vertical: 'top',
+            //     horizontal: 'right',
+            // }}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
@@ -216,57 +217,19 @@ const Navbar = () => {
                 <a href="" className='menuLink menuitems p-0'>Logout</a>
             </MenuItem>
 
-            {/* <MenuItem>
-                <IconButton size="md" aria-label="show 4 new mails" color="inherit">
-                    <FiSearch />
-                </IconButton>
-                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Search</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <AiOutlineHeart />
-                    </Badge>
-                </IconButton>
-                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Liked</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="md"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
-                    <Badge badgeContent={17} color="error">
-                        <RiShoppingCart2Line />
-                    </Badge>
-                </IconButton>
-                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Cart</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >     <AccountCircle />
-                </IconButton>
-                <p style={{ paddingBottom: "0", paddingLeft: "5px" }}>Profile</p>
-            </MenuItem> */}
-
         </Menu>
     );
 
-    const home=()=>{
+    const home = () => {
         navigate("/")
     }
 
-    
-  
+
+
     return (
         <div className='navbarSection'>
-            <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom:"0"}}> 
-                <AppBar position="fixed" style={{ width: "100%", marginBottom:"0"}} id="header" scroll="false">  
+            <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom: "0" }} className=''>
+                <AppBar position="fixed" style={{ width: "100%", marginBottom: "0" }} id="header" scroll="false">
                     <Toolbar id='navbarIs'>
                         <img src="images/logo.svg" alt="mvm" height="100" className='py-2 cursor-pointer' onClick={home} />
                         <Box sx={{ flexGrow: 1 }} />
@@ -280,7 +243,7 @@ const Navbar = () => {
                                 <a href="/all-courses">Courses</a>
                                 <a href="/community">Community</a>
 
-                                
+
 
                                 <IconButton size="md" aria-label="show 4 new mails" color="inherit">
                                     <FiSearch />
@@ -303,7 +266,7 @@ const Navbar = () => {
                                 <a href="/login" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
                             </div>
 
-                            
+
                         </Box>
                         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -313,7 +276,7 @@ const Navbar = () => {
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
-                                className={menuStatus? 'menu' : 'menu active'}
+                                className={menuStatus ? 'menu' : 'menu active'}
                             >
                                 <div></div>
                             </IconButton>
