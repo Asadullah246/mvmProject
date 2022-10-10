@@ -131,6 +131,7 @@ const Navbar = () => {
                 vertical: 'top',
                 horizontal: 'left',
             }}
+           
             id={mobileMenuId}
             keepMounted
             transformOrigin={{
@@ -141,7 +142,7 @@ const Navbar = () => {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <div className='d-flex justify-content-start align-items-center mb-3'>
+                <div className='d-flex justify-content-start align-items-center mb-3 mt-2 mt-md-4'>
                     <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
                     <div className='text-start ms-2 profileTextMenu'>
                         <h5 className='mb-0'>Raju Mullah</h5>

@@ -27,6 +27,42 @@
     transition: all .3s ease;
     border-radius: 4px;
 }
+
+
+/* for navabr  */
+
+.css-1if8r2c-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+    background-color: #121212;
+    color: #fff;
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+    max-height: calc(100% - 96px);
+    -webkit-overflow-scrolling: touch;
+    background-color: #121212;
+    color: #fff;
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12));
+    position: absolute;
+    top: 0px !important;
+    left: 0px !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 16px;
+    max-width: calc(100% - 32px);
+    min-height: 100vh !important;
+    outline: 0;
+}
+
+
+
+
+
 .menu.active:before {
     transform: rotate(-45deg) translate3d(0,-50%,0);
     top: 50%;

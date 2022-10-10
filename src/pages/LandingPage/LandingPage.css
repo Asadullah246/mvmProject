@@ -8,17 +8,34 @@
     color: darkgreen;
 } */
 
+
+.forScale {
+  transition: ease-in-out 0.3s;
+}
+
+.forScale:hover {
+  transform: scale(1.07);
+}
+
 .bigImage {
-    width: 60% !important;
-    height: 300px;
-    position: relative;
+  width: 60% !important;
+  height: 300px;
+  position: relative;
+  overflow: hidden !important;
+  border-radius: 12px;
+  
 }
 
 .smallImage {
-    width:40% !important;
-    height: 300px;
-    position: relative;
+  width: 40% !important;
+  height: 300px;
+  position: relative;
+  overflow: hidden !important;
+  border-radius: 12px;
+  
 }
+
+
 .headerImages{
     width: 100% !important;
     height: 100% !important;
@@ -398,12 +415,7 @@ text set in the data-text attribute. */
 .scaleDiv{
     overflow: hidden !important;
 }
-.forScale{
-    transition: ease-in-out 0.3s;
-}
-.forScale:hover{
-    transform: scale(1.07);
-}
+
 .commentArrow{
     background-color: transparent;
     color: white;

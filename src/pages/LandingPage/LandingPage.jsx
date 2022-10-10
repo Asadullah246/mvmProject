@@ -142,11 +142,11 @@ const LandingPage = () => {
                     </div> */}
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
                         <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
+                            <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
                             <h3 className='productName'>Product name</h3>
                         </div>
                         <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/Rectangle 5 (2).png" alt="" className='w-100 h-100 headerImages' />
+                            <img src="images/landing/Rectangle 5 (2).png" alt="" className=' headerImages forScale' />
                             <h3 className='productName'>Product name</h3>
                         </div>
 
@@ -154,11 +154,11 @@ const LandingPage = () => {
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 productImages">
 
                         <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
+                            <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
                             <h3 className='productName'>Product name</h3>
                         </div>
                         <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/Rectangle 6 (1).png" alt="" className='w-100 headerImages' />
+                            <img src="images/landing/Rectangle 6 (1).png" alt="" className='forScale headerImages' />
                             <h3 className='productName'>Product name</h3>
                         </div>
 

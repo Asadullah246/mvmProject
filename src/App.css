@@ -50,3 +50,12 @@ header{
     transform: rotate(360deg);
   }
 }
+
+/* element.style {
+  opacity: 1;
+  transform: none;
+  transition: opacity 397ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 264ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  top: 0px !important;
+  left: 0px !important;
+  transform-origin: 304px 0px;
+} */
