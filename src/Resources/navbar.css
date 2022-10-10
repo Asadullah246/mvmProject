@@ -5,11 +5,54 @@
     /* outline: 0 !important; */
     /* padding-bottom: 0 !important;  */
 }
+.menu {
+    height: 28px;
+    width: 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    text-align: center;
+    outline: none;
+    color: transparent;
+}
+.menu:after, .menu:before, .menu div {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: #fff;
+    transition: all .3s ease;
+    border-radius: 4px;
+}
+.menu.active:before {
+    transform: rotate(-45deg) translate3d(0,-50%,0);
+    top: 50%;
+}
+.menu.active:after {
+    transform: rotate(45deg) translate3d(0,50%,0);
+    bottom: 50%;
+}
+.menu:before {
+    top: 0;
+}
+.menu:after {
+    bottom: 0;
+}
+.menu.active div {
+    opacity: 0;
+}
 #navbarIs {
     /* background-image: linear-gradient(to right, #463039, #393039);
     background-color: #fff; */
+    transition: all .3s;
     background-color: transparent !important; 
-    
+}
+#header[scroll="true"] #navbarIs {
+    transition: all .3s;
+    background-image: linear-gradient(to right, #463039, #0000006e) !important;
 }
 .navbarNotiCount{
     background-color: #EF3054;

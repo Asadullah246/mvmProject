@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AccountCircle } from '@mui/icons-material';
 import { alpha, AppBar, Badge, Box, Divider, IconButton, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
@@ -15,7 +15,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import "../Resources/navbar.css"
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineMenu } from "react-icons/ai";
+import { BiMenu } from "react-icons/bi";
 import { BiMenuAltRight } from "react-icons/bi";
 
 const Search = styled('div')(({ theme }) => ({
@@ -67,6 +67,20 @@ const Navbar = () => {
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        }
+      }, [])
+    const handleScroll = () => {
+        if (window.scrollY > 20) {
+            document.querySelector("#header").setAttribute('scroll','true');
+        } else {
+            document.querySelector("#header").setAttribute('scroll','false');
+        }
+    };
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -83,11 +97,10 @@ const Navbar = () => {
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
-        console.log(event.currentTarget); 
         setMenuStatus(!menuStatus)
     };
     
-
+    
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -112,7 +125,6 @@ const Navbar = () => {
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
         <Menu
-       
         style={{marginTop:"", marginLeft:"0"}}
             anchorEl={mobileMoreAnchorEl}
             anchorOrigin={{
@@ -128,11 +140,6 @@ const Navbar = () => {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-
-
-
-
-
             <MenuItem>
                 <div className='d-flex justify-content-start align-items-center mb-3'>
                     <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
@@ -258,7 +265,7 @@ const Navbar = () => {
     return (
         <div className='navbarSection'>
             <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom:"0"}}> 
-                <AppBar position="fixed" style={{ width: "100%", marginBottom:"0"}} id="header">  
+                <AppBar position="fixed" style={{ width: "100%", marginBottom:"0"}} id="header" scroll="false">  
                     <Toolbar id='navbarIs'>
                         <img src="images/logo.svg" alt="mvm" height="100" className='py-2 cursor-pointer' onClick={home} />
                         <Box sx={{ flexGrow: 1 }} />
@@ -305,17 +312,9 @@ const Navbar = () => {
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
                                 color="inherit"
+                                className={menuStatus? 'menu' : 'menu active'}
                             >
-                                {/* <MoreIcon /> */}
-                                {menuStatus?
-                                // <AiOutlineMenu/>
-                                <span className='navIcon'></span>
-                            
-                                :
-                                <BiMenuAltRight/>
-                                }
-                                
-                               
+                                <div></div>
                             </IconButton>
                         </Box>
                     </Toolbar>

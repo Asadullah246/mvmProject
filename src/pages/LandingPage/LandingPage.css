@@ -24,8 +24,10 @@
     height: 100% !important;
 }
 .headerSection{
-    background: rgb(10,10,10);
-    /* background: linear-gradient(rgba(10,10,10,.6),rgba(0,0,0,.9)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px); */
+    display: grid;
+    margin: auto;
+    align-items: center;
+    vertical-align: middle;
     background: linear-gradient(rgba(10,10,10,.6),rgba(0,0,0,.9)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px),
 		url("../../images/header.jpg");
     background-size: cover;
@@ -34,24 +36,19 @@
     height: 100vh !important;
     
 }
-
+#header{
+    background: transparent !important;
+}
 #hero{
-    
     display: grid;
     margin: auto;
     align-items: center;
     vertical-align: middle;
-   
-
 }
-
-
-
 .sub {
     color: red;
     /* letter-spacing: 1em; */
-    font-size: 30px;
-  }
+}
 
 /* Our mixin positions a copy of our text
 directly on our existing text, while
@@ -61,7 +58,7 @@ text set in the data-text attribute. */
     position: relative;
     color: white;
     font-size: 4em;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.1em;
     /* Animation provies a slight random skew. Check bottom of doc
     for more information on how to random skew. */
     animation: glitch-skew 1s infinite linear alternate-reverse;
