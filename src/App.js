@@ -28,6 +28,7 @@ import Notification from './pages/Notification/Notification';
 import EditProfile from './pages/EditProfile/EditProfile';
 import Services from "./pages/Services/ServicesMainPage/Sevices.jsx"
 import MyOrderProducts from './pages/Product/MyOrderProducts/MyOrderProducts';
+// import GoogleMap from './pages/GoogleMap/GoogleMap';
 
 
 const darkTheme = createTheme({
@@ -67,6 +68,7 @@ function App() {
             <Route path="/edit-profile" exact element={<EditProfile />} />
             <Route path="/services" exact element={<Services />} />
             <Route path="/my-order-products" exact element={<MyOrderProducts />} />
+            {/* <Route path="/map" exact element={<GoogleMap />} /> */}
 
 
             <Route path="/wishlist" element={<WishList></WishList>}>

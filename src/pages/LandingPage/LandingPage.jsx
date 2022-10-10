@@ -84,8 +84,8 @@ const LandingPage = () => {
 
                 <section>
                     <h2 className='mb-4'>Products Categories</h2>
-                    <div>
-                        {/* <Carousel showArrows={true}
+                    {/* <div>
+                        <Carousel showArrows={true}
                         //  onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}
                         >
                             <div>
@@ -130,8 +130,8 @@ const LandingPage = () => {
 
                                 </div>
                             </div>
-                        </Carousel> */}
-                    </div>
+                        </Carousel>
+                    </div> */}
                     <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
                         <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                             <img src="images/landing/natural.png" alt="" className='w-100 headerImages' />
