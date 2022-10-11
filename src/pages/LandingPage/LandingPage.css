@@ -1,8 +1,8 @@
 @font-face {
-    font-family: harryPoter;
-    src: url(../../Resources/HarryPotter-ov4z.ttf);
+  font-family: harryPoter;
+  src: url(../../Resources/HarryPotter-ov4z.ttf);
 }
-  
+
 /* h2 {
     font-family: harryPoter;
     color: darkgreen;
@@ -10,7 +10,7 @@
 
 
 .forScale {
-  transition: ease-in-out 0.3s;
+  transition: ease-in 0.3s;
 }
 
 .forScale:hover {
@@ -19,52 +19,91 @@
 
 .bigImage {
   width: 60% !important;
-  height: 300px;
+  height: 18vw;
+  /* height: 300px; */
   position: relative;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
   border-radius: 12px;
-  
+
 }
 
 .smallImage {
   width: 40% !important;
-  height: 300px;
+  height: 18vw;
+  /* height: 300px; */
   position: relative;
   overflow: hidden !important;
   border-radius: 12px;
-  
+
+
 }
 
 
-.headerImages{
-    width: 100% !important;
-    height: 100% !important;
+
+.headerImages {
+  width: 100% !important;
+  height: 100% !important;
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+
+
 }
-.headerSection{
-    display: grid;
-    margin: auto;
-    align-items: center;
-    vertical-align: middle;
-    background: linear-gradient(rgba(10,10,10,.6),rgba(0,0,0,.9)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px),
-		url("../../images/header.jpg");
-    background-size: cover;
-	background-position: center;
-	z-index: 1;
-    height: 100vh !important;
-    
+
+.headerImages:hover {
+  /* box-shadow:0px 0px 47px 16px #ffff !important; */
+  -webkit-filter: blur(1px) brightness(0.45);
+  -moz-filter: blur(1px) brightness(0.45);
+  -ms-filter: blur(1px) brightness(0.45);
+  -o-filter: blur(1px) brightness(0.45);
+  filter: blur(1px) brightness(0.45);
 }
-#header{
-    background: transparent !important;
+
+.bigImage:hover .productName,
+.smallImage:hover .productName {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: ease-out 0.7s;
 }
-#hero{
-    display: grid;
-    margin: auto;
-    align-items: center;
-    vertical-align: middle;
+
+.productName {
+  font-weight: 600;
+  white-space: nowrap;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+
+.headerSection {
+  display: grid;
+  margin: auto;
+  align-items: center;
+  vertical-align: middle;
+  background: linear-gradient(rgba(10, 10, 10, .6), rgba(0, 0, 0, .9)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px),
+    url("../../images/header.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  height: 100vh !important;
+
+}
+
+#header {
+  background: transparent !important;
+}
+
+#hero {
+  display: grid;
+  margin: auto;
+  align-items: center;
+  vertical-align: middle;
+}
+
 .sub {
-    color: red;
-    /* letter-spacing: 1em; */
+  color: red;
+  /* letter-spacing: 1em; */
 }
 
 /* Our mixin positions a copy of our text
@@ -72,589 +111,771 @@ directly on our existing text, while
 also setting content to the appropriate
 text set in the data-text attribute. */
 .glitch {
-    position: relative;
-    color: white;
-    font-size: 4em;
-    letter-spacing: 0.1em;
-    /* Animation provies a slight random skew. Check bottom of doc
+  position: relative;
+  color: white;
+  font-size: 4em;
+  letter-spacing: 0.1em;
+  /* Animation provies a slight random skew. Check bottom of doc
     for more information on how to random skew. */
-    animation: glitch-skew 1s infinite linear alternate-reverse;
-  }
-  .glitch::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    left: 2px;
-    text-shadow: -2px 0 #ff00c1;
-    /* Creates an initial clip for our glitch. This works in
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  /* Creates an initial clip for our glitch. This works in
     a typical top,right,bottom,left fashion and creates a mask
     to only show a certain part of the glitch at a time. */
-    clip: rect(44px, 450px, 56px, 0);
-    /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+  clip: rect(44px, 450px, 56px, 0);
+  /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
     with an alternating animation to keep things fresh. */
-    animation: glitch-anim 5s infinite linear alternate-reverse;
-  }
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    left: -2px;
-    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
-    animation: glitch-anim2 1s infinite linear alternate-reverse;
-  }
-  
-  /* Creates an animation with 20 steaps. For each step, it calculates 
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+/* Creates an animation with 20 steaps. For each step, it calculates 
   a percentage for the specific step. It then generates a random clip
   box to be used for the random glitch effect. Also adds a very subtle
   skew to change the 'thickness' of the glitch.*/
-  @keyframes glitch-anim {
-    0% {
-      clip: rect(70px, 9999px, 47px, 0);
-      transform: skew(0.04deg);
-    }
-    5% {
-      clip: rect(99px, 9999px, 89px, 0);
-      transform: skew(0.57deg);
-    }
-    10% {
-      clip: rect(47px, 9999px, 57px, 0);
-      transform: skew(0.4deg);
-    }
-    15% {
-      clip: rect(85px, 9999px, 30px, 0);
-      transform: skew(0.48deg);
-    }
-    20% {
-      clip: rect(41px, 9999px, 16px, 0);
-      transform: skew(0.74deg);
-    }
-    25% {
-      clip: rect(66px, 9999px, 60px, 0);
-      transform: skew(0.09deg);
-    }
-    30% {
-      clip: rect(77px, 9999px, 71px, 0);
-      transform: skew(0.21deg);
-    }
-    35% {
-      clip: rect(99px, 9999px, 55px, 0);
-      transform: skew(0.95deg);
-    }
-    40% {
-      clip: rect(88px, 9999px, 16px, 0);
-      transform: skew(0.62deg);
-    }
-    45% {
-      clip: rect(47px, 9999px, 29px, 0);
-      transform: skew(0.56deg);
-    }
-    50% {
-      clip: rect(51px, 9999px, 51px, 0);
-      transform: skew(0.45deg);
-    }
-    55% {
-      clip: rect(30px, 9999px, 29px, 0);
-      transform: skew(0.07deg);
-    }
-    60% {
-      clip: rect(6px, 9999px, 48px, 0);
-      transform: skew(0.77deg);
-    }
-    65% {
-      clip: rect(70px, 9999px, 83px, 0);
-      transform: skew(0.43deg);
-    }
-    70% {
-      clip: rect(84px, 9999px, 62px, 0);
-      transform: skew(0.49deg);
-    }
-    75% {
-      clip: rect(6px, 9999px, 72px, 0);
-      transform: skew(0.83deg);
-    }
-    80% {
-      clip: rect(95px, 9999px, 37px, 0);
-      transform: skew(0.6deg);
-    }
-    85% {
-      clip: rect(52px, 9999px, 27px, 0);
-      transform: skew(0.91deg);
-    }
-    90% {
-      clip: rect(28px, 9999px, 66px, 0);
-      transform: skew(0.62deg);
-    }
-    95% {
-      clip: rect(15px, 9999px, 99px, 0);
-      transform: skew(0.22deg);
-    }
-    100% {
-      clip: rect(15px, 9999px, 34px, 0);
-      transform: skew(0.55deg);
-    }
-  }
-  @keyframes glitch-anim2 {
-    0% {
-      clip: rect(65px, 9999px, 75px, 0);
-      transform: skew(0.23deg);
-    }
-    5% {
-      clip: rect(16px, 9999px, 71px, 0);
-      transform: skew(0.06deg);
-    }
-    10% {
-      clip: rect(28px, 9999px, 51px, 0);
-      transform: skew(0.27deg);
-    }
-    15% {
-      clip: rect(79px, 9999px, 91px, 0);
-      transform: skew(0.52deg);
-    }
-    20% {
-      clip: rect(88px, 9999px, 19px, 0);
-      transform: skew(0.87deg);
-    }
-    25% {
-      clip: rect(50px, 9999px, 58px, 0);
-      transform: skew(0.13deg);
-    }
-    30% {
-      clip: rect(63px, 9999px, 93px, 0);
-      transform: skew(0.41deg);
-    }
-    35% {
-      clip: rect(35px, 9999px, 42px, 0);
-      transform: skew(0.16deg);
-    }
-    40% {
-      clip: rect(72px, 9999px, 17px, 0);
-      transform: skew(0.24deg);
-    }
-    45% {
-      clip: rect(77px, 9999px, 21px, 0);
-      transform: skew(0.24deg);
-    }
-    50% {
-      clip: rect(88px, 9999px, 94px, 0);
-      transform: skew(0.94deg);
-    }
-    55% {
-      clip: rect(39px, 9999px, 79px, 0);
-      transform: skew(0.3deg);
-    }
-    60% {
-      clip: rect(59px, 9999px, 70px, 0);
-      transform: skew(0.16deg);
-    }
-    65% {
-      clip: rect(5px, 9999px, 18px, 0);
-      transform: skew(0.2deg);
-    }
-    70% {
-      clip: rect(18px, 9999px, 11px, 0);
-      transform: skew(0.07deg);
-    }
-    75% {
-      clip: rect(28px, 9999px, 50px, 0);
-      transform: skew(0.85deg);
-    }
-    80% {
-      clip: rect(77px, 9999px, 93px, 0);
-      transform: skew(0.64deg);
-    }
-    85% {
-      clip: rect(27px, 9999px, 12px, 0);
-      transform: skew(0.77deg);
-    }
-    90% {
-      clip: rect(52px, 9999px, 90px, 0);
-      transform: skew(0.07deg);
-    }
-    95% {
-      clip: rect(64px, 9999px, 24px, 0);
-      transform: skew(0.33deg);
-    }
-    100% {
-      clip: rect(61px, 9999px, 99px, 0);
-      transform: skew(0.23deg);
-    }
-  }
-  @keyframes glitch-skew {
-    0% {
-      transform: skew(5deg);
-    }
-    10% {
-      transform: skew(0deg);
-    }
-    20% {
-      transform: skew(4deg);
-    }
-    30% {
-      transform: skew(3deg);
-    }
-    40% {
-      transform: skew(1deg);
-    }
-    50% {
-      transform: skew(5deg);
-    }
-    60% {
-      transform: skew(2deg);
-    }
-    70% {
-      transform: skew(-2deg);
-    }
-    80% {
-      transform: skew(0deg);
-    }
-    90% {
-      transform: skew(-4deg);
-    }
-    100% {
-      transform: skew(5deg);
-    }
+@keyframes glitch-anim {
+  0% {
+    clip: rect(70px, 9999px, 47px, 0);
+    transform: skew(0.04deg);
   }
 
+  5% {
+    clip: rect(99px, 9999px, 89px, 0);
+    transform: skew(0.57deg);
+  }
 
-#hero h1{
-    font-family: harryPoter;
-    font-size: 4.7rem;
-    line-height: 6rem;
+  10% {
+    clip: rect(47px, 9999px, 57px, 0);
+    transform: skew(0.4deg);
+  }
+
+  15% {
+    clip: rect(85px, 9999px, 30px, 0);
+    transform: skew(0.48deg);
+  }
+
+  20% {
+    clip: rect(41px, 9999px, 16px, 0);
+    transform: skew(0.74deg);
+  }
+
+  25% {
+    clip: rect(66px, 9999px, 60px, 0);
+    transform: skew(0.09deg);
+  }
+
+  30% {
+    clip: rect(77px, 9999px, 71px, 0);
+    transform: skew(0.21deg);
+  }
+
+  35% {
+    clip: rect(99px, 9999px, 55px, 0);
+    transform: skew(0.95deg);
+  }
+
+  40% {
+    clip: rect(88px, 9999px, 16px, 0);
+    transform: skew(0.62deg);
+  }
+
+  45% {
+    clip: rect(47px, 9999px, 29px, 0);
+    transform: skew(0.56deg);
+  }
+
+  50% {
+    clip: rect(51px, 9999px, 51px, 0);
+    transform: skew(0.45deg);
+  }
+
+  55% {
+    clip: rect(30px, 9999px, 29px, 0);
+    transform: skew(0.07deg);
+  }
+
+  60% {
+    clip: rect(6px, 9999px, 48px, 0);
+    transform: skew(0.77deg);
+  }
+
+  65% {
+    clip: rect(70px, 9999px, 83px, 0);
+    transform: skew(0.43deg);
+  }
+
+  70% {
+    clip: rect(84px, 9999px, 62px, 0);
+    transform: skew(0.49deg);
+  }
+
+  75% {
+    clip: rect(6px, 9999px, 72px, 0);
+    transform: skew(0.83deg);
+  }
+
+  80% {
+    clip: rect(95px, 9999px, 37px, 0);
+    transform: skew(0.6deg);
+  }
+
+  85% {
+    clip: rect(52px, 9999px, 27px, 0);
+    transform: skew(0.91deg);
+  }
+
+  90% {
+    clip: rect(28px, 9999px, 66px, 0);
+    transform: skew(0.62deg);
+  }
+
+  95% {
+    clip: rect(15px, 9999px, 99px, 0);
+    transform: skew(0.22deg);
+  }
+
+  100% {
+    clip: rect(15px, 9999px, 34px, 0);
+    transform: skew(0.55deg);
+  }
 }
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 75px, 0);
+    transform: skew(0.23deg);
+  }
+
+  5% {
+    clip: rect(16px, 9999px, 71px, 0);
+    transform: skew(0.06deg);
+  }
+
+  10% {
+    clip: rect(28px, 9999px, 51px, 0);
+    transform: skew(0.27deg);
+  }
+
+  15% {
+    clip: rect(79px, 9999px, 91px, 0);
+    transform: skew(0.52deg);
+  }
+
+  20% {
+    clip: rect(88px, 9999px, 19px, 0);
+    transform: skew(0.87deg);
+  }
+
+  25% {
+    clip: rect(50px, 9999px, 58px, 0);
+    transform: skew(0.13deg);
+  }
+
+  30% {
+    clip: rect(63px, 9999px, 93px, 0);
+    transform: skew(0.41deg);
+  }
+
+  35% {
+    clip: rect(35px, 9999px, 42px, 0);
+    transform: skew(0.16deg);
+  }
+
+  40% {
+    clip: rect(72px, 9999px, 17px, 0);
+    transform: skew(0.24deg);
+  }
+
+  45% {
+    clip: rect(77px, 9999px, 21px, 0);
+    transform: skew(0.24deg);
+  }
+
+  50% {
+    clip: rect(88px, 9999px, 94px, 0);
+    transform: skew(0.94deg);
+  }
+
+  55% {
+    clip: rect(39px, 9999px, 79px, 0);
+    transform: skew(0.3deg);
+  }
+
+  60% {
+    clip: rect(59px, 9999px, 70px, 0);
+    transform: skew(0.16deg);
+  }
+
+  65% {
+    clip: rect(5px, 9999px, 18px, 0);
+    transform: skew(0.2deg);
+  }
+
+  70% {
+    clip: rect(18px, 9999px, 11px, 0);
+    transform: skew(0.07deg);
+  }
+
+  75% {
+    clip: rect(28px, 9999px, 50px, 0);
+    transform: skew(0.85deg);
+  }
+
+  80% {
+    clip: rect(77px, 9999px, 93px, 0);
+    transform: skew(0.64deg);
+  }
+
+  85% {
+    clip: rect(27px, 9999px, 12px, 0);
+    transform: skew(0.77deg);
+  }
+
+  90% {
+    clip: rect(52px, 9999px, 90px, 0);
+    transform: skew(0.07deg);
+  }
+
+  95% {
+    clip: rect(64px, 9999px, 24px, 0);
+    transform: skew(0.33deg);
+  }
+
+  100% {
+    clip: rect(61px, 9999px, 99px, 0);
+    transform: skew(0.23deg);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(5deg);
+  }
+
+  10% {
+    transform: skew(0deg);
+  }
+
+  20% {
+    transform: skew(4deg);
+  }
+
+  30% {
+    transform: skew(3deg);
+  }
+
+  40% {
+    transform: skew(1deg);
+  }
+
+  50% {
+    transform: skew(5deg);
+  }
+
+  60% {
+    transform: skew(2deg);
+  }
+
+  70% {
+    transform: skew(-2deg);
+  }
+
+  80% {
+    transform: skew(0deg);
+  }
+
+  90% {
+    transform: skew(-4deg);
+  }
+
+  100% {
+    transform: skew(5deg);
+  }
+}
+
+
+#hero h1 {
+  font-family: harryPoter;
+  font-size: 4.7rem;
+  line-height: 6rem;
+}
+
 @media screen and (max-width:766px) {
-    #hero h1{
-        font-size: 3.7rem !important;
-        line-height: 4rem !important;
-    }
+  #hero h1 {
+    font-size: 3.7rem !important;
+    line-height: 4rem !important;
+  }
 }
+
 @media screen and (max-width: 518px) {
-    #hero h1{
-        font-size: 2.7rem !important;
-        line-height: 4rem !important;
-    }
+  #hero h1 {
+    font-size: 2.7rem !important;
+    line-height: 4rem !important;
+  }
 }
-.headingDiv{
-    margin: auto;
-    width: 70% !important;
+
+.headingDiv {
+  margin: auto;
+  width: 70% !important;
 }
-@media screen and (max-width: 900px){
-    .headingDiv{
-        width: 100% !important;
-    }
+
+@media screen and (max-width: 900px) {
+  .headingDiv {
+    width: 100% !important;
+  }
 }
 
 
 .arrow {
-    animation: up-down 1s ease-in-out infinite alternate-reverse both !important;
-    transform: translate(-50%, -50%);
-    margin-top: 2.5rem;
+  animation: up-down 1s ease-in-out infinite alternate-reverse both !important;
+  transform: translate(-50%, -50%);
+  margin-top: 2.5rem;
 }
 
 @keyframes up-down {
-    0% {
-        transform: translateY(7px);
-    }
+  0% {
+    transform: translateY(7px);
+  }
 
-    100% {
-        transform: translateY(-7px);
-    }
+  100% {
+    transform: translateY(-7px);
+  }
 }
 
 
-.productName{
-    display: none;
-    font-weight: 600;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: ease-in-out 0.6s;
-} 
+
 .service {
-    min-height: 150px;
-    max-height: fit-content;
-    width: 100%;
-    background: rgb(91, 60, 71);
-    background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%); 
-}
-.dividerSection{
-    min-height: 150px;
-    height: 100%;
-    border-right: 2px solid white;
-    
-}
-.service div{ 
-    padding: 0 30px;
-    
-}
-.detailsBtn{
-    white-space: nowrap; 
-    background-color: transparent; 
-    padding: 6px 20px;
-    color: white;
-    border: 1px solid whitesmoke;
-    border-radius: 6px;
-}
-.productArrow{
-    background-color: transparent;
-    color: white;
-    font-size: 2.3em;
-    border: none;
-    margin: 20px 10px;
-
-}
-.productImages{
-    overflow: hidden;
-}
-.scaleDiv{
-    overflow: hidden !important;
+  min-height: 150px;
+  max-height: fit-content;
+  width: 100%;
+  background: rgb(91, 60, 71);
+  background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
 }
 
-.commentArrow{
-    background-color: transparent;
-    color: white;
-    font-size: 2.3em;
-    border: none;
-    /* margin: 20px 10px; */
+.dividerSection {
+  min-height: 150px;
+  height: 100%;
+  border-right: 2px solid white;
 
 }
-#topSelling, #courseDiv, #customerDiv{
-    margin-top: 177px;
-}
-#serviceDiv{
-    margin-top: 150px;
-}
-.serviceBtn{
-    background-color: transparent;
-    color: white;
-    font-size: 2.3em;
-    border: none;
+
+.service div {
+  padding: 0 30px;
 
 }
-.courseCard, .topSellingCard{
-    position: relative;
-    cursor:pointer !important
+
+.detailsBtn {
+  white-space: nowrap;
+  background-color: transparent;
+  padding: 6px 20px;
+  color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 6px;
+}
+.btnArrowDiv{
+  margin-top: 20px;
+}
+
+.productArrow {
+  background-color: transparent;
+  color: white;
+  font-size: 2.3em;
+  border: none;
+  margin: 0 10px;
+  position: relative;
+
+}
+
+.btnRedEffectLeft {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ff000024;
+  position: absolute;
+  top: 26%;
+  left: 12%;
+  transform: translate(-50%, 0);
+}
+.btnRedEffectRight {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ff000024;
+  position: absolute;
+  top: 26%;
+  right: -62%;
+  transform: translate(-50%, 0);
+}
+
+.productImages {
+  overflow: hidden;
+}
+
+.scaleDiv {
+  overflow: hidden !important;
+}
+
+.commentArrow {
+  background-color: transparent;
+  color: white;
+  font-size: 2.3em;
+  border: none;
+  /* margin: 20px 10px; */
+
+}
+
+#topSelling,
+#courseDiv,
+#customerDiv {
+  margin-top: 177px;
+}
+
+#serviceDiv {
+  margin-top: 150px;
+}
+
+.serviceBtn {
+  background-color: transparent;
+  color: white;
+  font-size: 2.3em;
+  border: none;
+
+}
+
+.courseCard,
+.topSellingCard {
+  position: relative;
+  cursor: pointer !important
     /* transition: max-height 0.5s, overflow 0s !important; */
     /* overflow:auto; */
     /* transition: max-height 0.5s, overflow 0.5s 0.5s; */
 }
-.coursePrice{
-    background-color: #EF3054;
-    width: 80%;
-    position: absolute;
-    bottom: -5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 8px 15px;
+
+.coursePrice {
+  background-color: #EF3054;
+  width: 80%;
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 8px 15px;
 
 }
-.rating{
-    color: white !important;
-}
-.commentRating{
-    color: white !important;
-    font-size: 1.9em !important;
-    margin-bottom: 52px;
-} 
 
-.customerCommentDiv{
-    display: flex;
-    justify-content: space-between !important;
-    align-items: center !important; 
-
-}
-.commentDiv{
-    width: 55% ;
-    
+.rating {
+  color: white !important;
 }
 
-.imgDivComment{
-    width: 35%;
-    /* display: flex;
+.commentRating {
+  color: white !important;
+  font-size: 1.9em !important;
+  margin-bottom: 52px;
+}
+
+.customerCommentDiv {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+}
+
+.commentDiv {
+  width: 55%;
+
+}
+
+.imgDivComment {
+  width: 35%;
+  /* display: flex;
     justify-content: end; */
 
 }
 
-.imageForComment{
-    margin-right: 0;
-    width: 450px;
-    height: 450px;
-    /* width: 90%;
+.imageForComment {
+  margin-right: 0;
+  width: 450px;
+  height: 450px;
+  /* width: 90%;
     height: 80%; */
-    border-top: 13px solid #EF3054;
-    border-left: 13px solid #EF3054;
+  border-top: 13px solid #EF3054;
+  border-left: 13px solid #EF3054;
 }
-.commentImg{
-    width: 470px;
-    height:470px;
-    /* width: 100%;
+
+.commentImg {
+  width: 470px;
+  height: 470px;
+  /* width: 100%;
     height: 90%; */
 }
 
-.nextCommentSection{
-    /* width: 100% !important; */
-    margin: auto;
+.nextCommentSection {
+  /* width: 100% !important; */
+  margin: auto;
 }
 
-.priceHourly{
-   display: flex; 
-    /* justify-content: flex-end !important;  */
-    /* justify-content: end !important; */
-    
-    width: 100% !important;
-    text-align: right !important; 
-    padding: 0 !important;
-    margin-top: 20px;  
+.priceHourly {
+  display: flex;
+  /* justify-content: flex-end !important;  */
+  /* justify-content: end !important; */
+
+  width: 100% !important;
+  text-align: right !important;
+  padding: 0 !important;
+  margin-top: 20px;
 }
-.priceAndDetailsSection{
-    width: 100%;
-    text-align: right !important;
+
+.priceAndDetailsSection {
+  width: 100%;
+  text-align: right !important;
 
 }
-.wishlistLink{
-    margin-right: 0 !important;
+
+.wishlistLink {
+  margin-right: 0 !important;
 }
- 
+
 
 /* media query  */
 
+@media only screen and (max-width:840px) {}
 
 @media only screen and (max-width:768px) {
-    .bodySection{
-       
-        /* margin: auto; */
-   
-    }
-    
-    
-    .bigImg {
-        width: 60%;
-        height: auto;
-    }
-    
-    .smallImg {
-        width: 40%;
-        height: auto;
-    }
-    .courseName{
-        font-size: 1.5em;
-        margin-bottom: 5px;
-    }
-    .customerCommentDiv{
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        /* gap: 30px; */
-    }
-    .commentDiv{
-        /* display: none;  */
-        width: 90vw;
-        /* margin: auto auto; */
-        margin-top: 100px; 
-    }
-    .imgDivComment{
-        width: fit-content;
-        margin: auto auto;
-        margin-bottom: 30px;
-    }
-    .commentRating{
-        margin-bottom: 20px;
 
-    }
-    .service{
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    .dividerSection{
-        display: none;
-        width: 100%;
-        max-height: 20px !important; 
-        border: none; 
-        border-bottom: 2px solid white;
-         
-        
-    }
-    .divider2{
-        /* display: none; */
-        width: 100%;
-        /* max-height: 20px !important;  */
-        /* border: none;  */
-        border-bottom: 2px solid white;
-        margin: 20px auto;
-         
-        
-    }
- 
-    .priceHourly{
-        display: flex; 
-        justify-content: left !important; 
-        justify-content: flex-start !important; 
-        text-align: left !important; 
-        width: 100% !important;
-        padding: 0 !important;
-        margin-top: 20px;  
-    }
-    .priceAndDetailsSection{
-        width: 100%;
-        text-align: left !important;
-    
-    }
-    #customerDiv{
-        display: none;
-    }
-    
-    
+  .bodySection {
+
+    /* margin: auto; */
+
+  }
+
+  .bigImage {
+    width: 60% !important;
+    height: 30vw;
+    /* height: 300px; */
+    position: relative;
+    /* overflow: hidden !important; */
+    border-radius: 12px;
+
+  }
+
+  .smallImage {
+    width: 40% !important;
+    height: 30vw;
+    /* height: 300px; */
+    position: relative;
+    overflow: hidden !important;
+    border-radius: 12px;
+
+
+  }
+
+  .productName {
+    /* display: none; */
+    font-weight: 600;
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* transition: ease-in-out 0.6s; */
+  }
+
+
+  .bigImg {
+    width: 60%;
+    height: auto;
+  }
+
+  .smallImg {
+    width: 40%;
+    height: auto;
+  }
+
+  .courseName {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+
+  .customerCommentDiv {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    /* gap: 30px; */
+  }
+
+  .commentDiv {
+    /* display: none;  */
+    width: 90vw;
+    /* margin: auto auto; */
+    margin-top: 100px;
+  }
+
+  .imgDivComment {
+    width: fit-content;
+    margin: auto auto;
+    margin-bottom: 30px;
+  }
+
+  .commentRating {
+    margin-bottom: 20px;
+
+  }
+
+  .service {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .dividerSection {
+    display: none;
+    width: 100%;
+    max-height: 20px !important;
+    border: none;
+    border-bottom: 2px solid white;
+
+
+  }
+
+  .divider2 {
+    /* display: none; */
+    width: 100%;
+    /* max-height: 20px !important;  */
+    /* border: none;  */
+    border-bottom: 2px solid white;
+    margin: 20px auto;
+
+
+  }
+
+  .priceHourly {
+    display: flex;
+    justify-content: left !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 20px;
+  }
+
+  .priceAndDetailsSection {
+    width: 100%;
+    text-align: left !important;
+
+  }
+
+  #customerDiv {
+    display: none;
+  }
+  .btnRedEffectLeft {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background-color: #ff000024;
+    position: absolute;
+    top: 31%;
+    left: 17%;
+    transform: translate(-50%, 0);
+  }
+  .btnRedEffectRight {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background-color: #ff000024;
+    position: absolute;
+    top: 31%;
+    right: -47%;
+    transform: translate(-50%, 0);
+  }
+
+
 }
-@media only screen and (max-width:640px) {
-   
-    
-}
+
+@media only screen and (max-width:640px) {}
 
 @media only screen and (max-width:576px) {
-    .imgDivComment{
-        width: 95vw;
-        margin: auto auto ;
-        margin-bottom: 30px;
-    }
-    .imageForComment{
-        width: 75vw;
-        height: 80vw;
-        /* margin-bottom: 20px; */
-    }
-    .commentImg{
-        width: 80vw; 
-        height: 85vw;
-    }
-    .bodySection{
-        /* margin: auto; */
-        /* width: 95vw !important; */
-        /* margin-top: 100px !important; */
-    }
-    .ratingText{
-        margin-bottom: 8px ;
-    }
-    .courseName{
-        font-size: 1.5em;
-        margin-bottom: 5px;
-    }
-    .rating{
-        font-size: 1em !important;
-    }
-    .bigImg {
-        width: 60%;
-        height: auto;
-    }
-    
-    .smallImg {
-        width: 40%;
-        height: auto;
-    }
-    
+  .productName {
+    /* display: none; */
+    font-weight: 600;
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* transition: ease-in-out 0.6s; */
+  }
+
+
+  .imgDivComment {
+    width: 95vw;
+    margin: auto auto;
+    margin-bottom: 30px;
+  }
+
+  .imageForComment {
+    width: 75vw;
+    height: 80vw;
+    /* margin-bottom: 20px; */
+  }
+
+  .commentImg {
+    width: 80vw;
+    height: 85vw;
+  }
+
+  .bodySection {
+    /* margin: auto; */
+    /* width: 95vw !important; */
+    /* margin-top: 100px !important; */
+  }
+
+  .ratingText {
+    margin-bottom: 8px;
+  }
+
+  .courseName {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+
+  .rating {
+    font-size: 1em !important;
+  }
+
+  .bigImg {
+    width: 60%;
+    height: auto;
+  }
+
+  .smallImg {
+    width: 40%;
+    height: auto;
+  }
+
+}
+
+@media only screen and (max-width:322px) {
+  .categoriesText {
+    margin-top: 40px;
+
+  }
+
 }

@@ -37,15 +37,37 @@ const responsive = {
         slidesToSlide: 1 // optional, default to 1.
     }
 };
+const responsiveSingle = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 769 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    },
+    miniTablet: {
+        breakpoint: { max: 768, min: 577 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 576, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
 
 const LandingPage = () => {
     useEffect(() => {
         AOS.init({
-            duration : 2000
-          });
+            duration: 2000
+        });
         AOS.refresh();
     }, []);
-      
+
     const arrowLeft = (e) => {
         e.preventDefault()
         let classname = ".react-multiple-carousel__arrow--left"
@@ -54,34 +76,35 @@ const LandingPage = () => {
     const arrowRight = (e) => {
         e.preventDefault()
         let classname = ".react-multiple-carousel__arrow--right"
+
         document.querySelector(classname).click()
     }
 
     const mouseEnter = (e) => {
-        let element = (e.target.parentNode.lastChild);
-        element.style.display = "block"
+        // let element = (e.target.parentNode.lastChild);
+        // element.style.display = "block"
     }
     const mouseLeave = (e) => {
-        let element = (e.target.parentNode.lastChild);
-        element.style.display = "none"
+        // let element = (e.target.parentNode.lastChild);
+        // element.style.display = "none"
     }
 
     return (
         <div style={{ overflowX: "hidden" }}>
             <div className='headerSection'>
-            <Navbar />
-            {/* Hero Section */}
-            <section id="hero">
-                <div className='container'>
-                    <div className='headingDiv' data-aos="zoom-out-down">
-                        <h1 style={{ marginBottom: "20px" }} data-text="
+                <Navbar />
+                {/* Hero Section */}
+                <section id="hero">
+                    <div className='container'>
+                        <div className='headingDiv' data-aos="zoom-out-down">
+                            <h1 style={{ marginBottom: "20px" }} data-text="
                        Equip yourself with magical power" className='glitch'>Equip yourself with magical power</h1>
-                        <p className='mb-5 sub'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
-                        <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
-                        <p style={{ fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
+                            <p className='mb-5 sub'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
+                            <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
+                            <p style={{ fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
             </div>
 
             {/* body section  */}
@@ -91,84 +114,75 @@ const LandingPage = () => {
                 {/* product categories  */}
 
                 <section>
-                    <h2 className='mb-4'>Products Categories</h2>
-                    {/* <div>
-                        <Carousel showArrows={true}
-                        //  onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}
-                        >
-                            <div>
-                                <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                                    <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                                    <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
+                    <h2 className='mb-4 categoriesText'>Products Categories</h2>
+                    {/* carousel  */}
 
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                                    <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                                    <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
+                    <Carousel
+                        swipeable={false}
+                        draggable={false}
+                        showDots={true}
+                        responsive={responsiveSingle}
+                        ssr={true} // means to render carousel on server-side.
+                        infinite={true}
+                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
 
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                                    <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                                    <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
+                        autoPlaySpeed={1000}
+                        keyBoardControl={true}
+                        customTransition="all .5"
+                        transitionDuration={500}
+                        containerClass="carousel-container"
+                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                        // deviceType={this.props.deviceType}
+                        // dotListClass="custom-dot-list-style"
+                        itemClass="carousel-item-padding-40-px"
+                    >
+                        {
+                            [...Array(8)].map((d, index) => {
+                                return (
+                                    <>
+                                    
+                                        <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 mb-2 mb-md-3 mb-lg-4 productImages">
+                                            <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                                                <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
+                                                <h2 className='productName'>Product name</h2>
+                                            </div>
+                                            <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                                                <img src="images/landing/Rectangle 5 (2).png" alt="" className=' headerImages forScale' />
+                                                <h2 className='productName'>Product name</h2>
+                                            </div>
 
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                                    <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                                    <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
+                                        </div>
+                                        <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 productImages">
 
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                                    <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                                    <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
+                                            <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                                                <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
+                                                <h2 className='productName'>Product name</h2>
+                                            </div>
+                                            <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                                                <img src="images/landing/Rectangle 6 (1).png" alt="" className='forScale headerImages' />
+                                                <h2 className='productName'>Product name</h2>
+                                            </div>
 
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                                    <img src="images/landing/Group 10 (1).png" alt="" className='bigImg' />
-                                    <img src="images/landing/Rectangle 5 (2).png" alt="" className='smallImg' />
 
-                                </div>
-                            </div>
-                        </Carousel>
-                    </div> */}
-                    <div style={{ width: "100%", }} className="d-flex justify-content gap-3 mb-4 productImages">
-                        <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
-                            <h3 className='productName'>Product name</h3>
-                        </div>
-                        <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/Rectangle 5 (2).png" alt="" className=' headerImages forScale' />
-                            <h3 className='productName'>Product name</h3>
-                        </div>
+                                        </div>
 
-                    </div>
-                    <div style={{ width: "100%", }} className="d-flex justify-content gap-3 productImages">
+                                    </>
+                                )
+                            })
+                        }
+                    </Carousel>
 
-                        <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
-                            <h3 className='productName'>Product name</h3>
-                        </div>
-                        <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                            <img src="images/landing/Rectangle 6 (1).png" alt="" className='forScale headerImages' />
-                            <h3 className='productName'>Product name</h3>
-                        </div>
 
-                        {/* <img src="images/landing/Rectangle 6 (1).png" alt="" className='smallImg ' />
-                        <img src="images/landing/natural.png" alt="" className='bigImg ' /> */}
-
-                    </div>
-                    <div>
-                        <button className='productArrow'><BsArrowLeft /></button>
-                        <button className='productArrow'><BsArrowRight /></button>
+                    <div className='btnArrowDiv'>
+                        <button className='productArrow' onClick={arrowLeft}><div className='btnTextDiv'>
+                            <BsArrowLeft/>
+                            <div className='btnRedEffectLeft'></div>
+                        </div></button>
+                        <button className='productArrow' onClick={arrowRight}>
+                            <div className='btnTextDiv'>
+                                <BsArrowRight />
+                                <div className='btnRedEffectRight'></div>
+                            </div></button>
                     </div>
                 </section>
 
