@@ -87,6 +87,12 @@ const responsiveSingle = {
 };
 
 const LandingPage = () => {
+
+    const { height, width } = useWindowDimensions()
+    const [btnText, setBtnText]=useState("See more")
+    const [showMore, setShowMore]=useState(true)
+
+
     useEffect(() => {
         AOS.init({
             duration: 2000
@@ -94,7 +100,7 @@ const LandingPage = () => {
         AOS.refresh();
     }, []);
 
-    const { height, width } = useWindowDimensions()
+  
 
     const arrowLeft = (e) => {
         e.preventDefault()
@@ -149,6 +155,23 @@ const LandingPage = () => {
     const mouseLeave = (e) => {
         // let element = (e.target.parentNode.lastChild);
         // element.style.display = "none"
+    }
+
+    const showMoreText=()=>{
+        // let showMoreId=document.querySelector("#reviewUserText")
+        // console.log(showMoreId);
+        if(btnText==="See more"){
+            setBtnText("See less")
+            setShowMore(!showMore)
+        }
+        else{
+           
+            setBtnText("See more")
+            setShowMore(!showMore)
+            
+
+        }
+
     }
 
     return (
@@ -505,7 +528,9 @@ const LandingPage = () => {
                                                 <div >
                                                     <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
                                                 </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+                                                <p className={showMore ?"reviewText" :"mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+
+                                                <button className='reviewShowMoreBtn' onClick={showMoreText}>{btnText}</button>
 
                                                 <div className='reviewNameBigSize'>
                                                     <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
@@ -515,14 +540,13 @@ const LandingPage = () => {
                                                 </div>
                                             </div>
 
-                                            <div className='imgDivComment'>
+                                            <div className='imgDivComment overflow-hidden'>
                                                 <div className=''>
                                                     <img src="images/comments/Rectangle 21.png" alt="" className='commentImg' />
                                                     <div className='d-flex justify-content-between mt-4 nextCommentSection'>
                                                         <p><span style={{ fontSize: "2.3em" }}>{index+1}</span>/10</p>
                                                         <div>
-                                                            {/* <button className='commentArrow' onClick={reviewCarouselLeft}><BsArrowLeft /></button>
-                                                            <button className='commentArrow' onClick={reviewCarouselRight}><BsArrowRight /></button> */}
+                                                           
                                                             <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
                                                             <CarouselRightButton arrowRight={reviewCarouselRight} />
                                                         </div>

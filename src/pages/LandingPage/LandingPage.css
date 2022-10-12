@@ -636,6 +636,27 @@ text set in the data-text attribute. */
 .nameForSmallDisplay{
   display: none;
 }
+.reviewText{
+  margin-bottom: 0;
+  overflow: hidden;
+ text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-line-clamp: 3; 
+ -webkit-box-orient: vertical;
+
+}
+
+
+.reviewShowMoreBtn{
+  display: none;
+  /* text-align: left;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer; */
+
+}
 
 
 .nextCommentSection {
@@ -866,6 +887,20 @@ text set in the data-text attribute. */
     transform: translate(-50%, 0);
   }
 
+ 
+
+  .reviewShowMoreBtn{
+    display: block;
+    text-align: left;
+    background-color: transparent;
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+  }
+
 
 }
 
@@ -903,6 +938,8 @@ text set in the data-text attribute. */
     margin-bottom: 0px;
 
   }
+
+ 
 
   .redBorder {
     width: 90%;
