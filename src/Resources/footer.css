@@ -1,3 +1,7 @@
+
+.footerDiv{
+    font-size: 1rem;
+}
 .newsletter{
     margin-top: 230px;
 }
@@ -26,18 +30,20 @@
     font-size: 1.4em;
 }
 .footerContainer{
-    width: 100vw !important;
+    /* width: 100vw !important; */
 }
 .socialIcons{
     text-align: left;
 } 
 
+
 @media only screen and (max-width:576px) {
-    .socialIcons{
-        margin: auto;
-    } 
+    
     .subscribebtn{
         margin-top: 10px;
+    }
+    .footerDiv{
+        font-size: 0.8rem;
     }
     
 }
