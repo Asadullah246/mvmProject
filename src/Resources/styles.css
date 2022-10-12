@@ -1,3 +1,37 @@
 .react-multiple-carousel__arrow--left, .react-multiple-carousel__arrow--right{
     display: none;
 }
+
+/* for carousel button  */
+
+.productArrow {
+    background-color: transparent;
+    color: white;
+    font-size: 2.3em;
+    border: none;
+    margin: 0 10px;
+    position: relative;
+  
+  }
+  
+  .btnRedEffectLeft {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ff000024;
+    position: absolute;
+    top: 24%;
+    left: 12%;
+    transform: translate(-50%, 0);
+  }
+  
+  .btnRedEffectRight {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ff000024;
+    position: absolute;
+    top: 24%;
+    right: -62%;
+    transform: translate(-50%, 0);
+  }

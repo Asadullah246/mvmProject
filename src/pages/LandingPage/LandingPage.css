@@ -493,7 +493,8 @@ text set in the data-text attribute. */
   border: 1px solid whitesmoke;
   border-radius: 6px;
 }
-.btnArrowDiv{
+
+.btnArrowDiv {
   margin-top: 20px;
 }
 
@@ -517,6 +518,7 @@ text set in the data-text attribute. */
   left: 12%;
   transform: translate(-50%, 0);
 }
+
 .btnRedEffectRight {
   width: 36px;
   height: 36px;
@@ -597,7 +599,8 @@ text set in the data-text attribute. */
 .customerCommentDiv {
   display: flex;
   justify-content: space-between !important;
-  align-items: center !important;
+  align-items: flex-start !important;
+  overflow: hidden !important;
 
 }
 
@@ -608,27 +611,32 @@ text set in the data-text attribute. */
 
 .imgDivComment {
   width: 35%;
-  /* display: flex;
-    justify-content: end; */
+  position: relative;
+  box-sizing: border-box;
 
 }
 
-.imageForComment {
-  margin-right: 0;
-  width: 450px;
-  height: 450px;
-  /* width: 90%;
-    height: 80%; */
+.redBorder {
+  width: 90%;
+  height: 23vw;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   border-top: 13px solid #EF3054;
   border-left: 13px solid #EF3054;
 }
 
 .commentImg {
-  width: 470px;
-  height: 470px;
-  /* width: 100%;
-    height: 90%; */
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-right: 22px;
+  width: 100%;
+  height: 26vw;
 }
+.nameForSmallDisplay{
+  display: none;
+}
+
 
 .nextCommentSection {
   /* width: 100% !important; */
@@ -659,15 +667,8 @@ text set in the data-text attribute. */
 
 /* media query  */
 
-@media only screen and (max-width:840px) {}
 
 @media only screen and (max-width:768px) {
-
-  .bodySection {
-
-    /* margin: auto; */
-
-  }
 
   .bigImage {
     width: 60% !important;
@@ -691,7 +692,6 @@ text set in the data-text attribute. */
   }
 
   .productName {
-    /* display: none; */
     font-weight: 600;
     position: absolute;
     top: -20%;
@@ -720,38 +720,80 @@ text set in the data-text attribute. */
     transform: translate(-50%, -50%);
     border-radius: 10px;
     padding: 8px 15px;
-  
+
   }
-  
+
 
   .courseName {
     font-size: 1.5em;
     margin-bottom: 5px;
   }
 
+
+
   .customerCommentDiv {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: center;
-    /* gap: 30px; */
+    justify-content: flex-start;
+
   }
 
   .commentDiv {
-    /* display: none;  */
-    width: 90vw;
-    /* margin: auto auto; */
-    margin-top: 100px;
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .commentDiv p{
+    text-align: left;
   }
 
+
+
   .imgDivComment {
-    width: fit-content;
-    margin: auto auto;
+    width: 50%;
+    position: relative;
+    box-sizing: border-box;
+    margin: auto;
+    margin-bottom: 0px;
+
+  }
+
+  .redBorder {
+    width: 90%;
+    height: 40vw;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    border-top: 13px solid #EF3054;
+    border-left: 13px solid #EF3054;
+  }
+
+  .commentImg {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 100%;
+    height: 50vw; 
+  }
+  .nameForSmallDisplay{
+    display: block;
     margin-bottom: 30px;
+  }
+  .ratingSpan{
+    margin-bottom: -5px;
+    margin-left: 7px;
+
+  }
+  .reviewNameBigSize{
+    display: none !important;
   }
 
   .commentRating {
-    margin-bottom: 20px;
+    font-size: 1em !important;
+    margin-bottom: 0px;
 
+  }
+  .ratingForBigDisplay{
+    display: none !important;
   }
 
   .service {
@@ -759,10 +801,11 @@ text set in the data-text attribute. */
     flex-direction: column !important;
   }
 
-  .serviceDesc{
+  .serviceDesc {
     margin-bottom: 0;
   }
-  .servicePrice{
+
+  .servicePrice {
     font-weight: 700;
     margin-bottom: 20px;
   }
@@ -778,10 +821,7 @@ text set in the data-text attribute. */
   }
 
   .divider2 {
-    /* display: none; */
     width: 100%;
-    /* max-height: 20px !important;  */
-    /* border: none;  */
     border-bottom: 2px solid white;
     margin: 20px auto;
 
@@ -804,9 +844,6 @@ text set in the data-text attribute. */
 
   }
 
-  #customerDiv {
-    display: none;
-  }
   .btnRedEffectLeft {
     width: 31px;
     height: 31px;
@@ -817,6 +854,7 @@ text set in the data-text attribute. */
     left: 17%;
     transform: translate(-50%, 0);
   }
+
   .btnRedEffectRight {
     width: 31px;
     height: 31px;
@@ -844,28 +882,60 @@ text set in the data-text attribute. */
   }
 
 
-  .imgDivComment {
-    width: 95vw;
-    margin: auto auto;
-    margin-bottom: 30px;
+
+
+  .commentDiv {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .commentDiv p{
+    text-align: left;
   }
 
-  .imageForComment {
-    width: 75vw;
-    height: 80vw;
-    /* margin-bottom: 20px; */
+
+
+  .imgDivComment {
+    width: 80%;
+    position: relative;
+    box-sizing: border-box;
+    margin: auto;
+    margin-bottom: 0px;
+
+  }
+
+  .redBorder {
+    width: 90%;
+    height: 70vw;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    border-top: 10px solid #EF3054;
+    border-left: 10px solid #EF3054;
   }
 
   .commentImg {
-    width: 80vw;
-    height: 85vw;
+    margin-top: 9px;
+    margin-left: 9px;
+    width: 100%;
+    height: 80vw; 
   }
 
-  .service div {
-    padding: 0 ;
-  
+
+
+  .imgDivComment {
+    width: 95%;
+    margin: auto auto;
+    margin-bottom: 0px;
   }
- 
+
+
+
+  .service div {
+    padding: 0;
+
+  }
+
 
   .ratingText {
     margin-bottom: 8px;

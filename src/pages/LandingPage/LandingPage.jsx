@@ -11,6 +11,8 @@ import Footer from '../../Components/Footer';
 import Carousel from 'react-multi-carousel';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import CarouselLeftButton from '../../Components/CarouselLeftButton';
+import CarouselRightButton from '../../Components/CarouselRightButton';
 
 
 // get window dimension 
@@ -128,6 +130,17 @@ const LandingPage = () => {
 
         document.querySelector(classname).click()
     }
+    const reviewCarouselLeft = (e) => {
+        e.preventDefault()
+        let classname = ".reviewCarousel > .react-multiple-carousel__arrow--left"
+        document.querySelector(classname).click()
+    }
+    const reviewCarouselRight = (e) => {
+        e.preventDefault()
+        let classname = ".reviewCarousel > .react-multiple-carousel__arrow--right"
+
+        document.querySelector(classname).click()
+    }
 
     const mouseEnter = (e) => {
         // let element = (e.target.parentNode.lastChild);
@@ -223,15 +236,8 @@ const LandingPage = () => {
 
 
                     <div className='btnArrowDiv'>
-                        <button className='productArrow' onClick={arrowLeft}><div className='btnTextDiv'>
-                            <BsArrowLeft />
-                            <div className='btnRedEffectLeft'></div>
-                        </div></button>
-                        <button className='productArrow' onClick={arrowRight}>
-                            <div className='btnTextDiv'>
-                                <BsArrowRight />
-                                <div className='btnRedEffectRight'></div>
-                            </div></button>
+                        <CarouselLeftButton arrowLeft={arrowLeft} />
+                        <CarouselRightButton arrowRight={arrowRight} />
                     </div>
                 </section>
 
@@ -293,41 +299,41 @@ const LandingPage = () => {
                                     className='serviceCarousel'
                                 >
                                     {
-                                        [...Array(6)].map(e=>{
-                                            return(
+                                        [...Array(6)].map(e => {
+                                            return (
                                                 <>
-                                                {
-                                    [...Array(6)].map(d => {
-                                        return (
-                                            <div className='mb-4'>
+                                                    {
+                                                        [...Array(6)].map(d => {
+                                                            return (
+                                                                <div className='mb-4'>
 
-                                                <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-5'>
-                                                    <div><h2>01</h2></div>
-                                                    <div className=' dividerSection'> </div>
-                                                    <div className=' divider2'> </div>
-                                                    <div className='text-start'>
-                                                        <h4>Tarot Reading</h4>
-                                                        <p className='serviceDesc'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
-                                                    </div>
-                                                    <div className='text-start text-md-end priceHourly'>
-                                                        <div className='priceAndDetailsSection'>
-                                                            <h6 className='servicePrice'>$30/hr</h6>
-                                                            <button className='detailsBtn'>View details</button>
-                                                        </div>
-                                                    </div>
+                                                                    <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-5'>
+                                                                        <div><h2>01</h2></div>
+                                                                        <div className=' dividerSection'> </div>
+                                                                        <div className=' divider2'> </div>
+                                                                        <div className='text-start'>
+                                                                            <h4>Tarot Reading</h4>
+                                                                            <p className='serviceDesc'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
+                                                                        </div>
+                                                                        <div className='text-start text-md-end priceHourly'>
+                                                                            <div className='priceAndDetailsSection'>
+                                                                                <h6 className='servicePrice'>$30/hr</h6>
+                                                                                <button className='detailsBtn'>View details</button>
+                                                                            </div>
+                                                                        </div>
 
 
-                                                </div>
+                                                                    </div>
 
-                                            </div>
-                                        )
-                                    })
-                                }
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
                                                 </>
                                             )
                                         })
                                     }
-                                    
+
                                 </Carousel>
 
                             </>
@@ -365,25 +371,17 @@ const LandingPage = () => {
                     }
                     {
                         width > 767 ?
-                        <div className='d-flex justify-content-between align-items center arrowForService'>
-                        {/* <button className='serviceBtn'><BsArrowLeft /></button>
-                        <button className='serviceBtn'><BsArrowRight /></button> */}
-                        <button className='productArrow' onClick={serviceArrowLeft}>
-                            <div className='btnTextDiv'>
-                            <BsArrowLeft />
-                            <div className='btnRedEffectLeft'></div>
-                        </div></button>
-                        <button className='productArrow' onClick={serviceArrowRight}>
-                            <div className='btnTextDiv'>
-                                <BsArrowRight />
-                                <div className='btnRedEffectRight'></div>
-                            </div></button>
-                    </div>
-                    :""
+                            <div className='d-flex justify-content-between align-items center arrowForService'>
+
+                                <CarouselLeftButton arrowLeft={serviceArrowLeft} />
+                                <CarouselRightButton arrowRight={serviceArrowRight} />
+
+                            </div>
+                            : ""
 
                     }
 
-                   
+
                 </section>
 
                 {/* course section  */}
@@ -471,20 +469,100 @@ const LandingPage = () => {
 
                 <section id='customerDiv'>
                     <h2 className='mb-5'>What Our Customer Says</h2>
-                    <div className='customerCommentDiv'>
+                    <Carousel
+                        swipeable={false}
+                        draggable={false}
+                        // showDots={true}
+                        responsive={responsiveSingle}
+                        ssr={true} // means to render carousel on server-side.
+                        infinite={true}
+                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+
+                        autoPlaySpeed={1000}
+                        keyBoardControl={true}
+                        customTransition="all .5"
+                        transitionDuration={500}
+                        containerClass="carousel-container"
+                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                        // deviceType={this.props.deviceType}
+                        // dotListClass="custom-dot-list-style"
+                        itemClass="carousel-item-padding-40-px"
+                        className='reviewCarousel'
+                    >
+                        {
+                            [...Array(10)].map((e,index) => {
+                                return (
+                                    <>
+                                        <div className='customerCommentDiv'>
+                                            <div className='commentDiv'>
+                                                <div className='nameForSmallDisplay'>
+                                                    <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
+                                                    <div className='d-flex justify-content-start align-items-center'>
+                                                        <p className='text-start fw-bold mb-0'>Rating : </p>
+                                                        <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
+                                                    </div>
+                                                </div>
+                                                <div >
+                                                    <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+
+                                                <div className='reviewNameBigSize'>
+                                                    <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
+                                                    {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
+                                                    <h5 className='text-start'>Raju Mullah</h5>
+                                                    <p className='text-start'>UI UX Designer</p>
+                                                </div>
+                                            </div>
+
+                                            <div className='imgDivComment'>
+                                                <div className=''>
+                                                    <img src="images/comments/Rectangle 21.png" alt="" className='commentImg' />
+                                                    <div className='d-flex justify-content-between mt-4 nextCommentSection'>
+                                                        <p><span style={{ fontSize: "2.3em" }}>{index+1}</span>/10</p>
+                                                        <div>
+                                                            {/* <button className='commentArrow' onClick={reviewCarouselLeft}><BsArrowLeft /></button>
+                                                            <button className='commentArrow' onClick={reviewCarouselRight}><BsArrowRight /></button> */}
+                                                            <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
+                                                            <CarouselRightButton arrowRight={reviewCarouselRight} />
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div className='redBorder'></div>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                            })
+                        }
+
+                    </Carousel>
+                    {/* <div className='customerCommentDiv'>
                         <div className='commentDiv'>
+                            <div className='nameForSmallDisplay'>
+                                <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <p className='text-start fw-bold mb-0'>Rating : </p>
+                                    <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
+                                </div>
+                            </div>
                             <div >
-                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' />
+                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
-                            <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
-                            {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
-                            <h5 className='text-start'>Raju Mullah</h5>
-                            <p className='text-start'>UI UX Designer</p>
+
+                            <div className='reviewNameBigSize'>
+                                <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
+                                <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} />
+                                <h5 className='text-start'>Raju Mullah</h5>
+                                <p className='text-start'>UI UX Designer</p>
+                            </div>
                         </div>
 
                         <div className='imgDivComment'>
-                            <div className='imageForComment'>
+                            <div className=''>
                                 <img src="images/comments/Rectangle 21.png" alt="" className='commentImg' />
                                 <div className='d-flex justify-content-between mt-4 nextCommentSection'>
                                     <p><span style={{ fontSize: "2.3em" }}>05</span>/10</p>
@@ -496,8 +574,9 @@ const LandingPage = () => {
                                 </div>
 
                             </div>
+                            <div className='redBorder'></div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </section>
 
