@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./LandingPage.css"
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
@@ -6,14 +6,38 @@ import { BsChevronDown } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
 import Navbar from '../../Components/Navbar';
-// import { Carousel } from 'react-responsive-carousel';
 import { Rating } from '@mui/material';
 import Footer from '../../Components/Footer';
 import Carousel from 'react-multi-carousel';
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import { BsArrowLeft } from "react-icons/bs";
-// import { BsArrowRight } from "react-icons/bs";
+
+
+// get window dimension 
+
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(
+        getWindowDimensions()
+    );
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return windowDimensions;
+}
 
 const responsive = {
     desktop: {
@@ -68,14 +92,39 @@ const LandingPage = () => {
         AOS.refresh();
     }, []);
 
+    const { height, width } = useWindowDimensions()
+
     const arrowLeft = (e) => {
         e.preventDefault()
         let classname = ".react-multiple-carousel__arrow--left"
         document.querySelector(classname).click()
     }
+
     const arrowRight = (e) => {
         e.preventDefault()
         let classname = ".react-multiple-carousel__arrow--right"
+
+        document.querySelector(classname).click()
+    }
+    const courseArrowLeft = (e) => {
+        e.preventDefault()
+        let classname = ".courseCarousel > .react-multiple-carousel__arrow--left"
+        document.querySelector(classname).click()
+    }
+    const courseArrowRight = (e) => {
+        e.preventDefault()
+        let classname = ".courseCarousel > .react-multiple-carousel__arrow--right"
+
+        document.querySelector(classname).click()
+    }
+    const serviceArrowLeft = (e) => {
+        e.preventDefault()
+        let classname = ".serviceCarousel > .react-multiple-carousel__arrow--left"
+        document.querySelector(classname).click()
+    }
+    const serviceArrowRight = (e) => {
+        e.preventDefault()
+        let classname = ".serviceCarousel > .react-multiple-carousel__arrow--right"
 
         document.querySelector(classname).click()
     }
@@ -140,7 +189,7 @@ const LandingPage = () => {
                             [...Array(8)].map((d, index) => {
                                 return (
                                     <>
-                                    
+
                                         <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 mb-2 mb-md-3 mb-lg-4 productImages">
                                             <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                                                 <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
@@ -175,7 +224,7 @@ const LandingPage = () => {
 
                     <div className='btnArrowDiv'>
                         <button className='productArrow' onClick={arrowLeft}><div className='btnTextDiv'>
-                            <BsArrowLeft/>
+                            <BsArrowLeft />
                             <div className='btnRedEffectLeft'></div>
                         </div></button>
                         <button className='productArrow' onClick={arrowRight}>
@@ -221,37 +270,120 @@ const LandingPage = () => {
                 <section id='serviceDiv'>
                     <h2 className='mb-3'>Services</h2>
                     {
-                        [...Array(6)].map(d => {
-                            return (
-                                <div className='mb-4'>
+                        width > 767 ?
+                            <>
+                                <Carousel
+                                    swipeable={false}
+                                    draggable={false}
+                                    showDots={true}
+                                    responsive={responsiveSingle}
+                                    ssr={true} // means to render carousel on server-side.
+                                    infinite={true}
+                                    // autoPlay={this.props.deviceType !== "mobile" ? true : false}
 
-                                    <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-5'>
-                                        <div><h2>01</h2></div>
-                                        <div className=' dividerSection'> </div>
-                                        <div className=' divider2'> </div>
-                                        <div className='text-start'>
-                                            <h4>Tarot Reading</h4>
-                                            <p>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
-                                        </div>
-                                        <div className='text-start text-md-end priceHourly'>
-                                            <div className='priceAndDetailsSection'>
-                                                <h6>$30/hr</h6>
-                                                <button className='detailsBtn'>View details</button>
+                                    autoPlaySpeed={1000}
+                                    keyBoardControl={true}
+                                    customTransition="all .5"
+                                    transitionDuration={500}
+                                    containerClass="carousel-container"
+                                    removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                                    // deviceType={this.props.deviceType}
+                                    // dotListClass="custom-dot-list-style"
+                                    itemClass="carousel-item-padding-40-px"
+                                    className='serviceCarousel'
+                                >
+                                    {
+                                        [...Array(6)].map(e=>{
+                                            return(
+                                                <>
+                                                {
+                                    [...Array(6)].map(d => {
+                                        return (
+                                            <div className='mb-4'>
+
+                                                <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-5'>
+                                                    <div><h2>01</h2></div>
+                                                    <div className=' dividerSection'> </div>
+                                                    <div className=' divider2'> </div>
+                                                    <div className='text-start'>
+                                                        <h4>Tarot Reading</h4>
+                                                        <p className='serviceDesc'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
+                                                    </div>
+                                                    <div className='text-start text-md-end priceHourly'>
+                                                        <div className='priceAndDetailsSection'>
+                                                            <h6 className='servicePrice'>$30/hr</h6>
+                                                            <button className='detailsBtn'>View details</button>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
                                             </div>
-                                        </div>
+                                        )
+                                    })
+                                }
+                                                </>
+                                            )
+                                        })
+                                    }
+                                    
+                                </Carousel>
+
+                            </>
+                            :
+
+                            <>
+                                {
+                                    [...Array(6)].map(d => {
+                                        return (
+                                            <div className='mb-4'>
+
+                                                <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-5'>
+                                                    <div><h2>01</h2></div>
+                                                    <div className=' dividerSection'> </div>
+                                                    <div className=' divider2'> </div>
+                                                    <div className='text-start'>
+                                                        <h4>Tarot Reading</h4>
+                                                        <p className='serviceDesc'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
+                                                    </div>
+                                                    <div className='text-start text-md-end priceHourly'>
+                                                        <div className='priceAndDetailsSection'>
+                                                            <h6 className='servicePrice'>$30/hr</h6>
+                                                            <button className='detailsBtn'>View details</button>
+                                                        </div>
+                                                    </div>
 
 
-                                    </div>
+                                                </div>
 
-                                </div>
-                            )
-                        })
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </>
+                    }
+                    {
+                        width > 767 ?
+                        <div className='d-flex justify-content-between align-items center arrowForService'>
+                        {/* <button className='serviceBtn'><BsArrowLeft /></button>
+                        <button className='serviceBtn'><BsArrowRight /></button> */}
+                        <button className='productArrow' onClick={serviceArrowLeft}>
+                            <div className='btnTextDiv'>
+                            <BsArrowLeft />
+                            <div className='btnRedEffectLeft'></div>
+                        </div></button>
+                        <button className='productArrow' onClick={serviceArrowRight}>
+                            <div className='btnTextDiv'>
+                                <BsArrowRight />
+                                <div className='btnRedEffectRight'></div>
+                            </div></button>
+                    </div>
+                    :""
+
                     }
 
-                    <div className='d-flex justify-content-between align-items center arrowForService'>
-                        <button className='serviceBtn'><BsArrowLeft /></button>
-                        <button className='serviceBtn'><BsArrowRight /></button>
-                    </div>
+                   
                 </section>
 
                 {/* course section  */}
@@ -262,7 +394,7 @@ const LandingPage = () => {
                     <Carousel
                         swipeable={false}
                         draggable={false}
-                        // showDots={true}
+                        showDots={true}
                         responsive={responsive}
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
@@ -277,9 +409,10 @@ const LandingPage = () => {
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
                         itemClass="carousel-item-padding-40-px"
+                        className='courseCarousel'
                     >
                         {
-                            [...Array(8)].map(d => {
+                            [...Array(12)].map(d => {
                                 return (
                                     <div className=' px-3 py-4 courseCard scaleDiv'>
                                         <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
@@ -301,8 +434,8 @@ const LandingPage = () => {
                         }
                     </Carousel>
                     <div className='d-flex justify-content-between align-items center arrowForService'>
-                        <button className='serviceBtn' onClick={arrowLeft}><BsArrowLeft /></button>
-                        <button className='serviceBtn' onClick={arrowRight}><BsArrowRight /></button>
+                        <button className='serviceBtn' onClick={courseArrowLeft}><BsArrowLeft /></button>
+                        <button className='serviceBtn' onClick={courseArrowRight}><BsArrowRight /></button>
                     </div>
 
 

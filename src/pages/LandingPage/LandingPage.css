@@ -19,7 +19,7 @@
 
 .bigImage {
   width: 60% !important;
-  height: 18vw;
+  height: 19vw;
   /* height: 300px; */
   position: relative;
   /* overflow: hidden !important; */
@@ -29,7 +29,7 @@
 
 .smallImage {
   width: 40% !important;
-  height: 18vw;
+  height: 19vw;
   /* height: 300px; */
   position: relative;
   overflow: hidden !important;
@@ -513,7 +513,7 @@ text set in the data-text attribute. */
   border-radius: 50%;
   background-color: #ff000024;
   position: absolute;
-  top: 26%;
+  top: 24%;
   left: 12%;
   transform: translate(-50%, 0);
 }
@@ -523,7 +523,7 @@ text set in the data-text attribute. */
   border-radius: 50%;
   background-color: #ff000024;
   position: absolute;
-  top: 26%;
+  top: 24%;
   right: -62%;
   transform: translate(-50%, 0);
 }
@@ -576,7 +576,7 @@ text set in the data-text attribute. */
   background-color: #EF3054;
   width: 80%;
   position: absolute;
-  bottom: -5%;
+  bottom: -12%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
@@ -711,6 +711,19 @@ text set in the data-text attribute. */
     height: auto;
   }
 
+  .coursePrice {
+    background-color: #EF3054;
+    width: 80%;
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 8px 15px;
+  
+  }
+  
+
   .courseName {
     font-size: 1.5em;
     margin-bottom: 5px;
@@ -744,6 +757,14 @@ text set in the data-text attribute. */
   .service {
     display: flex !important;
     flex-direction: column !important;
+  }
+
+  .serviceDesc{
+    margin-bottom: 0;
+  }
+  .servicePrice{
+    font-weight: 700;
+    margin-bottom: 20px;
   }
 
   .dividerSection {
@@ -792,7 +813,7 @@ text set in the data-text attribute. */
     border-radius: 50%;
     background-color: #ff000024;
     position: absolute;
-    top: 31%;
+    top: 28%;
     left: 17%;
     transform: translate(-50%, 0);
   }
@@ -802,7 +823,7 @@ text set in the data-text attribute. */
     border-radius: 50%;
     background-color: #ff000024;
     position: absolute;
-    top: 31%;
+    top: 28%;
     right: -47%;
     transform: translate(-50%, 0);
   }
@@ -810,7 +831,6 @@ text set in the data-text attribute. */
 
 }
 
-@media only screen and (max-width:640px) {}
 
 @media only screen and (max-width:576px) {
   .productName {
@@ -841,11 +861,11 @@ text set in the data-text attribute. */
     height: 85vw;
   }
 
-  .bodySection {
-    /* margin: auto; */
-    /* width: 95vw !important; */
-    /* margin-top: 100px !important; */
+  .service div {
+    padding: 0 ;
+  
   }
+ 
 
   .ratingText {
     margin-bottom: 8px;
