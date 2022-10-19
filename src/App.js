@@ -19,6 +19,7 @@ import ProductDetails from './pages/Product/ProductDetails/ProductDetails';
 import ProductwishList from './pages/Product/ProductWishList/ProductwishList';
 import ProductBillingtwo from './pages/Product/ProductBillingpage/ProductBillingtwo';
 import Product from './pages/AllCourses/Product';
+import BillingPage2 from "./pages/Services/BillingPage2/BillingPage2.jsx"
 import ServiceBillingPage3 from './pages/Services/BillingPage3/ServiceBillingPage3';
 import BillingSuccess from './pages/Services/BillingSuccess/BillingSuccess';
 import MyOrder from './pages/Product/MyOrder/MyOrder';
@@ -29,6 +30,8 @@ import EditProfile from './pages/EditProfile/EditProfile';
 import Services from "./pages/Services/ServicesMainPage/Sevices.jsx"
 import MyOrderProducts from './pages/Product/MyOrderProducts/MyOrderProducts';
 import ChatBox from './pages/ChatBox/ChatBox';
+import CallingPage from './pages/CallingPage/CallingPage';
+import Calender from './pages/Services/Calender/Calender';
 // import GoogleMap from './pages/GoogleMap/GoogleMap';
 
 
@@ -54,13 +57,14 @@ function App() {
             <Route path="/community" exact element={<Community />} />
             <Route path="/all-courses" exact element={<AllCourses />} />
             <Route path="/full-course" exact element={<CourseFullPage />} />
-            <Route path="/billing-page" exact element={<BillingPage />} />
+            {/* <Route path="/billing-page" exact element={<BillingPage />} /> */}
 
             {/* Product  */}
             <Route path="/all-product" exact element={<AllProduct />} />
             <Route path="/product-details" exact element={<ProductDetails />} />
             <Route path="/product-wishlist" exact element={<ProductwishList />} />
-            <Route path="/product-billing-two" exact element={<ProductBillingtwo />} />
+            <Route path="/product-billing-one" exact element={<ProductBillingtwo />} />
+            <Route path="/product-billing-two" exact element={<BillingPage2 />} />
             <Route path="/service-billing-cart" exact element={<ServiceBillingPage3 />} />
             <Route path="/billing-success" exact element={<BillingSuccess />} />
             <Route path="/messages" exact element={<Message />} />
@@ -69,7 +73,9 @@ function App() {
             <Route path="/edit-profile" exact element={<EditProfile />} />
             <Route path="/services" exact element={<Services />} />
             <Route path="/my-order-products" exact element={<MyOrderProducts />} />
+            <Route path="/calling" exact element={<CallingPage />} />
             <Route path="/message" exact element={<ChatBox />} />
+            <Route path="/calender" exact element={<Calender />} />
             {/* <Route path="/map" exact element={<GoogleMap />} /> */}
 
 

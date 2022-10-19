@@ -13,3 +13,10 @@
     display: flex;
     gap: 20px;
 }
+.orderInfoService{
+    margin-top: 80px !important;
+    
+}
+.previousOrderService{
+    margin-top: 120px;
+}

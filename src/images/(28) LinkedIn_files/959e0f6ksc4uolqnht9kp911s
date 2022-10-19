@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="empathy-creation-medium" data-supported-dps="24x24">
+  <g>
+    <path fill="none" d="M0 0h24v24H0z"/>
+    <path d="M11.48 7a4.66 4.66 0 00-6.61 6.58l7.13 7 7.13-7.07a4.66 4.66 0 00-3.31-7.95A4.69 4.69 0 0012.53 7l-.53.5z" fill="#df704d" fill-rule="evenodd"/>
+    <path d="M11.48 6.86a4.66 4.66 0 00-6.61 6.58L12 20.52l7.13-7.08a4.64 4.64 0 000-6.58 4.71 4.71 0 00-3.31-1.36h0a4.7 4.7 0 00-3.28 1.38l-.53.5z" fill="none" stroke="#77280c" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+.callingSection{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden !important;
+    /* background-image: url("../../images/products/download.jfif"); */
+    /* background-size: cover; */
+}
+.callingImg{
+    height: 100vh;
+    width: 100vw;
+}
+
+.collingBtns{
+    position: absolute;
+    bottom: 7vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.callingicons{
+   
+    
+
+}
+.callingicons img{
+    height: 40px;
+    padding: 10px;
+    background-color: #EF3054;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 10px;
+}
+.miceIcon{
+  
+    background-color: white;
+    color: #EF3054;
+    height: 40px;
+    padding: 10px 12px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 10px;
+
+}
