@@ -578,7 +578,7 @@ text set in the data-text attribute. */
   background-color: #EF3054;
   width: 80%;
   position: absolute;
-  bottom: -12%;
+  bottom: -7%; 
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
@@ -588,6 +588,7 @@ text set in the data-text attribute. */
 
 .rating {
   color: white !important;
+  font-size: 1.1em !important;
 }
 
 .commentRating {
@@ -691,6 +692,15 @@ text set in the data-text attribute. */
 
 @media only screen and (max-width:768px) {
 
+  .headerImages {
+    /* box-shadow:0px 0px 47px 16px #ffff !important; */
+    -webkit-filter: blur(1px) brightness(0.45);
+    -moz-filter: blur(1px) brightness(0.45);
+    -ms-filter: blur(1px) brightness(0.45);
+    -o-filter: blur(1px) brightness(0.45);
+    filter: blur(1px) brightness(0.45);
+  }
+
   .bigImage {
     width: 60% !important;
     height: 30vw;
@@ -715,7 +725,7 @@ text set in the data-text attribute. */
   .productName {
     font-weight: 600;
     position: absolute;
-    top: -20%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* transition: ease-in-out 0.6s; */
@@ -736,7 +746,7 @@ text set in the data-text attribute. */
     background-color: #EF3054;
     width: 80%;
     position: absolute;
-    bottom: -5%;
+    bottom: -2%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
@@ -906,11 +916,23 @@ text set in the data-text attribute. */
 
 
 @media only screen and (max-width:576px) {
+
+  .headerImages {
+    /* box-shadow:0px 0px 47px 16px #ffff !important; */
+    -webkit-filter: blur(1px) brightness(0.45);
+    -moz-filter: blur(1px) brightness(0.45);
+    -ms-filter: blur(1px) brightness(0.45);
+    -o-filter: blur(1px) brightness(0.45);
+    filter: blur(1px) brightness(0.45);
+  }
   .productName {
     /* display: none; */
+    font-size: 1.2em;
+    white-space: wrap;
+    word-wrap: break-word;
     font-weight: 600;
     position: absolute;
-    top: -30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* transition: ease-in-out 0.6s; */
@@ -975,7 +997,7 @@ text set in the data-text attribute. */
 
 
   .ratingText {
-    margin-bottom: 8px;
+    /* margin-bottom: 5px !important;  */ 
   }
 
   .courseName {

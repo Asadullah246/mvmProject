@@ -295,15 +295,15 @@
 }
 .serviceTextDiv{
     min-height: 100% !important;
-    /* width: 60%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between !important;
     margin-right: 10%;
-    /* align-items: flex-end; */
+    
 }
 
 .serviceCardText{
+    white-space: nowrap;
     width: fit-content;
     border: 1px solid rgba(245, 245, 245, 0.267);
     border-radius: 8px;
@@ -347,6 +347,10 @@
 @media only screen and (max-width: 768px) {
     .courseheadLine1 {
         display: none;
+    }
+    .imgDivCourse{
+        border: none;
+        padding: 0;
     }
 
     .courseheadLine2 {
@@ -406,6 +410,8 @@
         text-align: left !important;
         margin-top: 30px;
         margin-bottom: 20px;
+        /* white-space: nowrap !important;
+        color: red; */
     }
     #btnForSmall{
         display: flex !important;
@@ -421,24 +427,25 @@
         font-size: 1em;
         margin-top: 15px;
         margin-bottom: 15px;
+       
     }
     .priceTextService{
         
         font-size: 0.8em;
     }
-    .navBtn, .navBtn2 {
+    /* .navBtn, .navBtn2 {
         background-color: transparent;
         padding: 8px 25px;
         border: 1px solid whitesmoke;
         border-radius: 7px;
         font-size: 0.8em;
         color: white;
-        /* text-align: left; */
+        
         transition: ease-in-out 0.3s;
         margin-top: 30px;
         margin-right: 15px;
         font-weight: 500;
-    }
+    } */
 
    
 

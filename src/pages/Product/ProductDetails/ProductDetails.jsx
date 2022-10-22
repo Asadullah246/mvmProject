@@ -60,9 +60,9 @@ const ProductDetails = () => {
                         <img src={productPic} alt="" className='productDetailsImg' />
                     </div>
                     <div className="col col-12 col-md-12 col-lg-5 text-start">
-                        <p className='mb-2'>Magical</p>
+                        <p className='mb-2 mt-4 mt-md-5 mt-lg-0'>Magical</p>
                         <h1 className='mb-3 fw-bold'>Pure Botanical</h1>
-                        <h5 className='mb-1 fw-bolder'>$500.00</h5>
+                        <h5 className='mb-1 fw-bolder'>${amount*100.00}</h5>
                         <small className='mb-0'>Tax included.</small>
                         <h6 className='fw-bold mt-3 mb-2'>Quantity</h6>
 
@@ -80,7 +80,7 @@ const ProductDetails = () => {
                                 }} />
                         </p>
 
-                        <button className='productDetailsBtn2 '>Add to cart</button>
+                        <button className='productDetailsBtn2 '>Add to wishlist</button>
                         <button className='productDetailsBtn '>Add to cart</button>
 
 
@@ -100,7 +100,7 @@ const ProductDetails = () => {
                 <Carousel
                         swipeable={false}
                         draggable={false}
-                        // showDots={true}
+                        showDots={true}
                         responsive={responsive}
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
@@ -127,10 +127,10 @@ const ProductDetails = () => {
                                                 <p>Paid</p>
                                                 <h4>$500</h4>
                                             </div>
-                                            <h3 className='text-start mb-0'>Course name</h3>
+                                            <h4 className='text-start mb-0'>Course name</h4>
                                             <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                <p className=''>4.5k Reviews</p>
+                                                <p className='ratingText mb-1'>4.5k Reviews</p>
                                             </div>
                                         </div>
                                         <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />

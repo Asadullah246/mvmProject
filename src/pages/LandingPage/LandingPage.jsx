@@ -280,10 +280,10 @@ const LandingPage = () => {
                                                     <p>Paid</p>
                                                     <h4>$500</h4>
                                                 </div>
-                                                <h3 className='text-start mb-0 courseName'>Course name</h3>
+                                                <h4 className='text-start mb-1 courseName'>Course name</h4>
                                                 <div className='d-flex justify-content-start align-items-center'>
                                                     <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                    <p className='ratingText'>4.5k Reviews</p>
+                                                    <p className='ratingText mb-1'>4.5k Reviews</p>
                                                 </div>
                                             </div>
                                         </div>

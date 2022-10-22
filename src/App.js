@@ -11,7 +11,6 @@ import Community from './pages/Community/Community';
 import AllCourses from './pages/AllCourses/AllCourses';
 import CourseFullPage from './pages/AllCourses/CourseFullPage';
 import Curses from './pages/AllCourses/Curses';
-import WishList from './pages/AllCourses/WishList';
 import Service from './pages/AllCourses/Service';
 import BillingPage from './pages/AllCourses/BillingPage';
 import AllProduct from './pages/Product/AllProduct/AllProduct';
@@ -32,6 +31,8 @@ import MyOrderProducts from './pages/Product/MyOrderProducts/MyOrderProducts';
 import ChatBox from './pages/ChatBox/ChatBox';
 import CallingPage from './pages/CallingPage/CallingPage';
 import Calender from './pages/Services/Calender/Calender';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import WishList from './pages/Wishlist/WishList';
 // import GoogleMap from './pages/GoogleMap/GoogleMap';
 
 
@@ -76,6 +77,7 @@ function App() {
             <Route path="/calling" exact element={<CallingPage />} />
             <Route path="/message" exact element={<ChatBox />} />
             <Route path="/calender" exact element={<Calender />} />
+            <Route path="/shopping-cart" exact element={<ShoppingCart />} />
             {/* <Route path="/map" exact element={<GoogleMap />} /> */}
 
 

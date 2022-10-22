@@ -248,13 +248,14 @@ const Navbar = () => {
                                 <IconButton size="md" aria-label="show 4 new mails" color="inherit">
                                     <FiSearch />
                                 </IconButton>
-                                <a href="wishList" className='wishlistLink'><IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                <a href="/wishlist" className='wishlistLink'><IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                     <Badge badgeContent={4} color="error">
                                         <AiOutlineHeart />
                                     </Badge>
                                 </IconButton>
                                 </a>
-                                <IconButton
+                               <a href="/shopping-cart">
+                               <IconButton
                                     size="md"
                                     aria-label="show 17 new notifications"
                                     color="inherit"
@@ -263,6 +264,7 @@ const Navbar = () => {
                                         <RiShoppingCart2Line />
                                     </Badge>
                                 </IconButton>
+                               </a>
                                 <a href="/login" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
                             </div>
 

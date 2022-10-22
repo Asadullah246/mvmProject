@@ -126,35 +126,17 @@ const AllProduct = () => {
     </div>
   );
 
+  const detailPage=()=>{ 
+    window.location.href="/product-details" 
+  }
+
     return (
         <div>
             <Navbar/>
            <div className="container-fluid container-lg">
            <Box sx={{ display: 'flex' }} className="productBody">
       <CssBaseline />
-      {/* <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-        <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-         
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
+     
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { md: 0 } }}
@@ -208,7 +190,7 @@ const AllProduct = () => {
                                        <>
                                        {
                                         width> 768 ?
-                                        <div className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' onMouseEnter={()=>mouseEnter(index)} onMouseLeave={mouseLeave}>
+                                        <div onClick={detailPage} className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' onMouseEnter={()=>mouseEnter(index)} onMouseLeave={mouseLeave}>
                                             <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
 
                                             {
@@ -229,7 +211,7 @@ const AllProduct = () => {
                                             <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
                                         </div>
                                         :
-                                        <div className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv'>
+                                        <div onClick={detailPage}  className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv'>
                                             <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                                 <div className='d-flex justify-content-between'>
@@ -268,7 +250,7 @@ const AllProduct = () => {
                                     <>
                                     {
                                       width>768 ?
-                                      <div className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' onMouseEnter={()=>mouseEnter(index)} onMouseLeave={mouseLeave}>
+                                      <div onClick={detailPage} className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' onMouseEnter={()=>mouseEnter(index)} onMouseLeave={mouseLeave}>
                                             <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
 
                                       {
@@ -291,7 +273,7 @@ const AllProduct = () => {
                                             <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
                                         </div>
                                         :
-                                        <div className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' >
+                                        <div onClick={detailPage} className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' >
                                             <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                           <div className='d-flex justify-content-between'>
@@ -317,9 +299,11 @@ const AllProduct = () => {
                         </div>
 
 
+                        <Footer/>
+
            </div>
 
-    <Footer/>
+   
             
         </div>
     );

@@ -1,0 +1,81 @@
+.shoppingTextDiv{
+    min-height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    margin-right: 10%;
+    
+}
+.shoppingSection {
+    padding-top: 120px;
+}
+
+.cartHeadingText {
+    white-space: nowrap;
+}
+
+.shoppingpricDiv {
+    min-height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    /* margin-right: 10%; */
+
+}
+
+.priceTextShopping {
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: end;
+    text-align: right;
+
+}
+
+.shoppingPrice {
+    /* text-align: right; */
+    font-size: 0.8em;
+}
+
+.productId {
+    text-align: right;
+}
+
+.removeBtnCart{
+    border: 1px solid white;
+    padding: 6px 20px;
+    border-radius: 8px;
+    cursor: pointer; 
+    background-color: transparent;
+    color: white;
+}
+
+@media only screen and (max-width:768px) {
+
+
+    .shoppingTextDiv {
+        margin-top: 30px;
+       
+    
+    }
+    .priceTextShopping {
+        font-size: 1.2em;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: left;
+
+    }
+
+    .productId {
+        text-align: left;
+    }
+}
+
+@media only screen and ( max-width:640px){
+    .shoppingTextDiv{
+        text-align: left !important;
+        display: block !important;
+
+    }
+    
+}

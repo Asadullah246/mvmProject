@@ -1,6 +1,6 @@
 
 .productDetailsBody{
-    margin-top: 100px;
+    padding-top: 100px; 
 }
 .productImgDiv{
     /* box-sizing: border-box !important; */
@@ -8,7 +8,7 @@
 .productDetailsImg{
     border: 1px solid white;
     border-radius: 8px;
-    padding: 20px;
+    padding: 12px;
     width: calc(100% - 80px);
     height: auto;
 }
@@ -59,4 +59,10 @@
 
 .alsoLikeSection{
     margin-top: 160px;
+}
+@media only screen and (max-width:768px) {
+    .productDetailsImg{
+        width: 100%;
+    }
+    
 }
