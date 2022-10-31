@@ -1,10 +1,11 @@
 
 .notifications{
     
-    border-radius: 8px;
+    /* border-radius: 8px; */
 }
 .singleNotification{
     background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
     padding: 20px 30px;
     margin-bottom: 30px;
+    border-radius: 8px; 
 }

@@ -16,6 +16,16 @@ import "./shoppingCart.css"
 
 const ShoppingCart = () => {
     const [amount, setAmount]=useState(2)
+    let date = () =>{
+        let newDate = new Date()
+        let date = newDate.getDate()
+        let month = newDate.getMonth() + 1;
+        let year = newDate.getFullYear();
+        let fullDate= date +"-"+ month+"-"+year
+        // return (date +"-"+ month +'-'+year) 
+        return fullDate
+    }
+    console.log(date());
     
     return (
         <div>

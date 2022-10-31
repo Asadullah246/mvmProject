@@ -1,0 +1,11 @@
+[
+    {
+        "id":1,
+        "name":"course1",
+        "price":500,
+        "image":"../images/products/312050608_167709709259730_755418278457846540_n.jpg",
+        "paidStatus":"paid",
+        "averageReview":4.5,
+        "reviews":"5k"
+    }
+]

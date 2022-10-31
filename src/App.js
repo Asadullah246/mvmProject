@@ -33,6 +33,8 @@ import CallingPage from './pages/CallingPage/CallingPage';
 import Calender from './pages/Services/Calender/Calender';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import WishList from './pages/Wishlist/WishList';
+import MyOrderCourses from './pages/MyOrderCourses/CourseOrder/MyOrderCourses';
+import CourseOverview from './pages/MyOrderCourses/CourseOverview/CourseOverview';
 // import GoogleMap from './pages/GoogleMap/GoogleMap';
 
 
@@ -78,6 +80,10 @@ function App() {
             <Route path="/message" exact element={<ChatBox />} />
             <Route path="/calender" exact element={<Calender />} />
             <Route path="/shopping-cart" exact element={<ShoppingCart />} />
+            <Route path="/my-order-course" exact element={<MyOrderCourses />} />
+            <Route path="/course-overview" exact element={<CourseOverview tab="course-overview" />} />
+            <Route path="/questions" exact element={<CourseOverview tab="questions" />} />
+            <Route path="/reviews" exact element={<CourseOverview tab="reviews" />} /> 
             {/* <Route path="/map" exact element={<GoogleMap />} /> */}
 
 

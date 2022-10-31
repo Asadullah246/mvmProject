@@ -1,0 +1,84 @@
+.overviewSection {
+    margin-top: 120px;
+}
+
+.videoTag {
+    width: 100% !important;
+    height: 400px;
+}
+
+.courseContent div {
+    background-image: none;
+    background-color: transparent;
+
+}
+
+.contentpart {
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: ease-in-out 0.3s !important; 
+    margin-bottom: 10px;
+    background: transparent;  
+
+}
+
+.contentpart:hover {
+    background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+    /* opacity: 0.6;  */
+    /* backdrop-filter: blur(8px) !important;  
+backdrop-filter: brightness(20%) !important;  */
+    /* backdrop-filter: contrast(40%); */
+    /* backdrop-filter: drop-shadow(4px 4px 10px blue);
+backdrop-filter: grayscale(30%);
+backdrop-filter: hue-rotate(120deg);
+backdrop-filter: invert(70%);
+backdrop-filter: opacity(20%);
+backdrop-filter: sepia(90%);
+backdrop-filter: saturate(80%);  */ 
+
+
+}
+
+
+.minsDiv {
+    margin-left: 30px;
+}
+
+.videoMinutes {
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+.videoIcon {
+    font-size: 0.9em !important;
+}
+
+.answer {
+    font-size: 0.8em;
+    color: #C0B1B7;
+}
+
+.seeMoreCourseBtn {
+    width: 100%;
+    padding: 13px 0;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    border-color: #C0B1B7;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+.weekText{
+    font-size: 0.8em;  
+    color: #C0B1B7;
+
+}
+.starRating{
+    font-size: 1.1em;
+    margin: 0 5px; 
+    margin-top: -3px;
+
+
+
+}
