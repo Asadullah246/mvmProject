@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Footer from "../../../Components/Footer"
 import "../../../Resources/BillingPage.css"
 import "./productBillingtwo.css"
+import "./productBillingtwo.css" 
 import Navbar from "../../../Components/Navbar"
 import { Breadcrumbs, Checkbox, Link, Stack, Typography } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
@@ -11,6 +12,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import profileIcon from "../../../images/community/Ellipse 19.png"
 
 
 
@@ -24,20 +26,31 @@ const ProductBillingtwo = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
+    const handleCart=()=> {
+        window.location.href="/shopping-cart"
+     }
+     const handleShipping=()=> {
+        window.location.href="/product-billing-two"
+     }
+     const handlePayment=()=> {
+        window.location.href="/product-billing-three"  
+     }
+
     const breadcrumbs = [
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        <Link underline="hover" key="1" color="inherit" href="/shopping-cart" onClick={handleCart}>
             Cart
         </Link>,
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        <Typography key="3" color="text.primary">
             Information
-        </Link>,
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        </Typography>,
+        <Link underline="hover" key="1" color="inherit" href="/product-billing-two" onClick={handleShipping}>
             Shipping
         </Link>,
-
-        <Typography key="3" color="text.primary">
+        <Link underline="hover" key="1" color="inherit" href="/product-billing-three" onClick={handlePayment}>
             Payment
-        </Typography>,
+        </Link>,
+
+
     ];
 
     const breadcrumbDisplay = <>
@@ -51,14 +64,11 @@ const ProductBillingtwo = () => {
         </Stack>
     </>
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
-    }
+    
 
     const onSubmit = async data => {
         setSuccess("Successfully logged in");
-        window.location.href="/product-billing-two" 
+        window.location.href = "/product-billing-two"
 
     }
 
@@ -72,7 +82,7 @@ const ProductBillingtwo = () => {
 
             {/* main body  */}
 
-            <div className="container-fluid container-md" style={{marginTop:"150px"}}>
+            <div className="container-fluid container-md" style={{ marginTop: "150px" }}>
                 <div className="row billingServiceDiv">
                     <div className="col col-12 col-lg-6 text-start">
                         <button className='mvmServiceText'><BsArrowLeft /> <span>MVM Service</span></button>
@@ -83,7 +93,7 @@ const ProductBillingtwo = () => {
                         <h4 className='contactInformation'>Contact Information</h4>
 
                         <div className='d-flex justify-content-start align-items-center profileDivBilling'>
-                            <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
+                            <img src={profileIcon} alt="" className='profileImage' />
                             <div className='text-start'>
                                 <h5 className='mb-0'>Smir A</h5>
                                 <p className='mb-0'>rbrajumullah100@gmail.com</p>
@@ -98,19 +108,19 @@ const ProductBillingtwo = () => {
                                     <span className="label-text">Country</span>
                                 </label>
                                 <select name="country" id="inputTag" className='w-100' placeholder='Select country'
-                                {...register("country", {
-                                    required: {
-                                        value: true,
-                                        message: 'Give country name'
-                                    },
-                                  
-                                })}
+                                    {...register("country", {
+                                        required: {
+                                            value: true,
+                                            message: 'Give country name'
+                                        },
+
+                                    })}
                                 > <option value="" disabled selected hidden>Select country</option>
                                     <option value="India">India</option>
                                     <option value="Bangladesh">Bangladesh</option>
                                     <option value="Pakistan">Pakistan</option>
                                 </select>
-                               
+
                                 <label className="label">
                                     {errors.country?.type === 'required' && <span className="label-text-alt errorMsg">{errors.country.message}</span>}
                                     {errors.country?.type === 'pattern' && <span className="label-text-alt errorMsg">{errors.country.message}</span>}
@@ -128,7 +138,7 @@ const ProductBillingtwo = () => {
                                                 value: true,
                                                 message: 'give first Name'
                                             },
-                                          
+
                                         })} />
                                     <label className="label">
                                         {errors.firstName?.type === 'required' && <span className="label-text-alt errorMsg">{errors.firstName.message}</span>}
@@ -172,7 +182,7 @@ const ProductBillingtwo = () => {
                                             value: true,
                                             message: 'Give address'
                                         },
-                                        
+
                                     })}
                                 />
                                 <label className="label">
@@ -183,7 +193,7 @@ const ProductBillingtwo = () => {
 
                             {/* address details */}
 
-                            <div className='d-flex justify-content-between align-items-start'> 
+                            <div className='d-flex justify-content-between align-items-start'>
                                 <div className="inputSection inputAddress ">
                                     <label className="label">
                                         <span className="label-text">City</span>
@@ -194,7 +204,7 @@ const ProductBillingtwo = () => {
                                                 value: true,
                                                 message: 'Give city'
                                             },
-                                          
+
                                         })} />
                                     <label className="label">
                                         {errors.city?.type === 'required' && <span className="label-text-alt errorMsg">{errors.city.message}</span>}
@@ -211,7 +221,7 @@ const ProductBillingtwo = () => {
                                                 value: true,
                                                 message: 'Give state'
                                             },
-                                           
+
                                         })} />
                                     <label className="label">
                                         {errors.state?.type === 'required' && <span className="label-text-alt errorMsg">{errors.state.message}</span>}
@@ -228,7 +238,7 @@ const ProductBillingtwo = () => {
                                                 value: true,
                                                 message: 'Give zip code'
                                             },
-                                           
+
                                         })} />
                                     <label className="label">
                                         {errors.zipCode?.type === 'required' && <span className="label-text-alt errorMsg">{errors.zipCode.message}</span>}
@@ -261,43 +271,24 @@ const ProductBillingtwo = () => {
                                     {errors.contact?.type === 'minLength' && <span className="label-text-alt errorMsg">{errors.contact.message}</span>}
                                 </label>
                             </div>
-                            {/* <div className="inputSection">
-                                
-                                <input type="checkbox" placeholder="Type here" name='check' className="checkboxForBilling" id='inputTag'
-                                    {...register("check", {
-                                        required: {
-                                            value: true,
-                                            message: 'Please be agree'
-                                        },
-                                       
-                                    })}
-                                />
-                                <label className="label text-start">
-                                    <span className="label-text text-start">By ticking the box, I agree to the Terms of Purchase, Terms of Use and I acknowledge that I have read and understand the Privacy Policy.</span>
-                                </label> <br />
-
-                                <label className="label">
-                                    {errors.check?.type === 'required' && <span className="label-text-alt errorMsg">{errors.check.message}</span>}
-                                    {errors.check?.type === 'minLength' && <span className="label-text-alt errorMsg">{errors.check.message}</span>}
-                                </label>
-                            </div> */}
+                           
                             <div className='mb-5'>
-                            <p className='d-flex justify-content-start align-items-start mb-0'>
-                                <span>
-                                <input type="checkbox"  name='check' className="checkboxForBilling" id=''
-                                    {...register("check", {
-                                        required: {
-                                            value: true,
-                                            message: 'Please be agree'
-                                        },
-                                       
-                                    })}
-                                />
-                                   
-                                </span>
-                                <span className='agreeText'>By ticking the box, I agree to the Terms of Purchase, Terms of Use and I acknowledge that I have read and understand the Privacy Policy.</span>
-                            </p>
-                            <label className="label">
+                                <p className='d-flex justify-content-start align-items-start mb-0'>
+                                    <span>
+                                        <input type="checkbox" name='check' className="checkboxForBilling" id=''
+                                            {...register("check", {
+                                                required: {
+                                                    value: true,
+                                                    message: 'Please be agree with terms and condition'
+                                                },
+
+                                            })}
+                                        />
+
+                                    </span>
+                                    <span className='agreeText'>By ticking the box, I agree to the Terms of Purchase, Terms of Use and I acknowledge that I have read and understand the Privacy Policy.</span>
+                                </p>
+                                <label className="label">
                                     {errors.check?.type === 'required' && <span className="label-text-alt errorMsg">{errors.check.message}</span>}
                                     {errors.check?.type === 'minLength' && <span className="label-text-alt errorMsg">{errors.check.message}</span>}
                                 </label>
@@ -309,7 +300,7 @@ const ProductBillingtwo = () => {
                             {/* <small className='text-primary'>{success} </small> */}
                             {/* <small className='text-red-500'>{signInError} </small> */}
                             <div className='w-100 text-end'>
-                            <button className='paymentBtn'>Continue to payment</button>
+                                <button className='paymentBtn'>Continue to payment</button>
                             </div>
                         </form>
 
@@ -319,7 +310,7 @@ const ProductBillingtwo = () => {
                             <button className='policyBtn'>Refund policy</button>
                             <button className='policyBtn'>Shipping policy</button>
                             <button className='policyBtn'>Terms of service</button>
-                           
+
                         </div>
 
                     </div>
@@ -348,8 +339,8 @@ const ProductBillingtwo = () => {
                             {/* coupon code  */}
 
                             <div className='couponDiv'>
-                            <input type="text" name="" className='couponInputTag' id="inputTag" placeholder='Have coupon code ?' />
-                            <button className='applyBtn'>Apply code</button>
+                                <input type="text" name="" className='couponInputTag' id="inputTag" placeholder='Have coupon code ?' />
+                                <button className='applyBtn'>Apply code</button>
                             </div>
 
                             <div className='dividerBilling'></div>
@@ -380,10 +371,10 @@ const ProductBillingtwo = () => {
 
                     </div>
                 </div>
-             
+
 
             </div>
-            <Footer/>
+            <Footer />
 
         </div>
     );

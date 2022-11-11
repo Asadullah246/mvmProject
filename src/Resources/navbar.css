@@ -83,7 +83,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     min-width: 16px;
-    max-width: 400px;
+    max-width: 350px; 
     outline: 0;
 }
 

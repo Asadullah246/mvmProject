@@ -66,25 +66,29 @@ const WishList = () => {
             <div className="container-fluid container-md wishlistBody">
                 <h1 className='text-start wishlistHeading'>Wishlist</h1>
                 <div className='text-start '>
+                    
+                <button className={ productTab?"navBtn2":"navBtn"} id='wishProduct'
+                  onClick={product}
+                  >product</button>
                  
                 <button  className={ courseTab?"navBtn2":"navBtn"} id='wishCourses'
                  onClick={course}
                  >Courses</button>
               
-                <button className={ productTab?"navBtn2":"navBtn"} id='wishProduct'
-                  onClick={product}
-                  >product</button>
+               
               
-                {/* <button className={serviceTab ?"navBtn2":"navBtn"} id='wishProduct'
+                <button className={serviceTab ?"navBtn2":"navBtn"} id='wishProduct'
                   onClick={service}
-                  >Service</button>    */}
+                  >Service</button>   
              
                      
                 </div>
 
                 <Outlet/>
+
+                <Footer/>
             </div>
-            <Footer/>
+           
         </div>
     );
 };

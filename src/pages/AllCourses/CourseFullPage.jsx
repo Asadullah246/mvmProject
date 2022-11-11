@@ -16,6 +16,14 @@ import like from "../../images/course/like.svg"
 import ratingImg from "../../images/course/star.svg"
 import { FcLike } from 'react-icons/fc';
 import { IconContext } from "react-icons";
+import english from "../../images/course/sub.svg"
+import courseImg from "../../images/signup/Rectangle 85.png"
+import courseImg2 from "../../images/signup/Rectangle 83.png"
+import courseImg3 from "../../images/signup/Rectangle 84.png"
+import checkCircle from "../../images/course/check-circle.svg"
+import star from "../../images/course/star.svg"
+import profileImg from "../../images/community/Ellipse 19.png" 
+import moreCourseImg from "../../images/course/Rectangle 19 (1).png"  
 
 
 
@@ -42,13 +50,128 @@ const responsive = {
     }
 };
 
+// const data =
+//     [
+//         {
+//             "id": 1,
+//             "name": "product 1",
+//             "price": 500,
+//             "image": image1,
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "5k"
+//         },
+//         {
+//             "id": 2,
+//             "name": "product 2",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 84.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "6k"
+//         },
+//         {
+//             "id": 3,
+//             "name": "product 3",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 83.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "3k"
+//         },
+
+//         {
+//             "id": 4,
+//             "name": "product 4",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 85.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "6k"
+//         },
+//         {
+//             "id": 5,
+//             "name": "product 5",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 83.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "7k"
+//         },
+//         {
+//             "id": 6,
+//             "name": "product 6",
+//             "price": 900,
+//             "image": "./images/signup/Rectangle 84.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "6k"
+//         },
+//         {
+//             "id": 7,
+//             "name": "product 7",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 85.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "3k"
+//         },
+//         {
+//             "id": 8,
+//             "name": "product 8",
+//             "price": 900,
+//             "image": "./images/signup/Rectangle 84.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "6k"
+//         },
+//         {
+//             "id": 9,
+//             "name": "product 9",
+//             "price": 300,
+//             "image": "./images/signup/Rectangle 83.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "5k"
+//         },
+//         {
+//             "id": 10,
+//             "name": "product 10",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 85.png",
+//             "paidStatus": "paid",
+//             "averageReview": 5,
+//             "reviews": "3k"
+//         },
+
+//         {
+//             "id": 11,
+//             "name": "product 11",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 83.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "3k"
+//         },
+//         {
+//             "id": 12,
+//             "name": "product 12",
+//             "price": 400,
+//             "image": "./images/signup/Rectangle 84.png",
+//             "paidStatus": "paid",
+//             "averageReview": 4.5,
+//             "reviews": "6k"
+//         }
+//     ]
+
+
 const data =
     [
         {
             "id": 1,
             "name": "product 1",
             "price": 500,
-            "image": image1,
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "5k"
@@ -57,7 +180,7 @@ const data =
             "id": 2,
             "name": "product 2",
             "price": 400,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -66,7 +189,7 @@ const data =
             "id": 3,
             "name": "product 3",
             "price": 400,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "3k"
@@ -76,7 +199,7 @@ const data =
             "id": 4,
             "name": "product 4",
             "price": 400,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -85,7 +208,7 @@ const data =
             "id": 5,
             "name": "product 5",
             "price": 400,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "7k"
@@ -94,7 +217,7 @@ const data =
             "id": 6,
             "name": "product 6",
             "price": 900,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -103,7 +226,7 @@ const data =
             "id": 7,
             "name": "product 7",
             "price": 400,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "3k"
@@ -112,7 +235,7 @@ const data =
             "id": 8,
             "name": "product 8",
             "price": 900,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -121,7 +244,7 @@ const data =
             "id": 9,
             "name": "product 9",
             "price": 300,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "5k"
@@ -130,7 +253,7 @@ const data =
             "id": 10,
             "name": "product 10",
             "price": 400,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 5,
             "reviews": "3k"
@@ -140,7 +263,7 @@ const data =
             "id": 11,
             "name": "product 11",
             "price": 400,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "3k"
@@ -149,7 +272,7 @@ const data =
             "id": 12,
             "name": "product 12",
             "price": 400,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -222,10 +345,12 @@ const CourseFullPage = () => {
         setRefresh(!refresh)
 
 
+
     }
     const likeItem = () => {
         AddToCart(course.id, "coursemvmWishList")
         setRefresh(!refresh)
+
 
 
     }
@@ -243,7 +368,7 @@ const CourseFullPage = () => {
                             <div className="row gx-5 d-flex flex-column-reverse flex-lg-row ">
                                 <div className="col-12 col-lg-6">
                                     <h1 className='text-start courseheadLine1'>The Complete Magical  Consultation</h1>
-                                    {/* <button className='previewBtn'><img src={preview} alt="" className='me-3' />preview</button> */}
+                                    <button className='previewBtn'><img src={preview} alt="" className='me-3' />preview</button>
 
                                     <div className='d-flex justify-content-start align-items-center gap-4 gap-md-5 flex-wrap ratingState'>
                                         <div className='text-start'>
@@ -277,7 +402,7 @@ const CourseFullPage = () => {
                                     </div>
 
                                     <p className='text-start mb-0'>All Levels  Updated,  Aug 2022</p>
-                                    <p className='text-start'>English <img src="images/course/sub.svg" alt="" /></p>
+                                    <p className='text-start'>English <img src={english} alt="" /></p>
                                     <h4 className='text-start'>$19.99 <span className='text-muted ms-1'>$59.99</span></h4>
                                     {
                                         added ?
@@ -297,6 +422,8 @@ const CourseFullPage = () => {
 
                                 </div>
                             </div>
+
+
                             <div className="row gx-5 previewAndSpec">
                                 <div className="col-12 col-lg-6">
 
@@ -334,11 +461,11 @@ const CourseFullPage = () => {
                                 <div className="col-12 col-lg-6">
                                     <div className='specForCourse'>
                                         <ul>
-                                            <li className='specLi'><img src="images/course/check-circle.svg" alt="" />60 Hours Videos</li>
-                                            <li className='specLi'><img src="images/course/check-circle.svg" alt="" />20 Hands- on Projects</li>
-                                            <li className='specLi'><img src="images/course/check-circle.svg" alt="" />Super exercise</li>
-                                            <li className='specLi'><img src="images/course/check-circle.svg" alt="" />200 Articles + Resources</li>
-                                            <li className='specLi'><img src="images/course/check-circle.svg" alt="" />Certificate of Completion</li>
+                                            <li className='specLi'><img src={checkCircle} alt="" />60 Hours Videos</li> 
+                                            <li className='specLi'><img src={checkCircle} alt="" />20 Hands- on Projects</li>
+                                            <li className='specLi'><img src={checkCircle} alt="" />Super exercise</li>
+                                            <li className='specLi'><img src={checkCircle} alt="" />200 Articles + Resources</li>
+                                            <li className='specLi'><img src={checkCircle} alt="" />Certificate of Completion</li> 
                                         </ul>
                                     </div>
                                     <div></div>
@@ -351,7 +478,7 @@ const CourseFullPage = () => {
                         </div>
                         <div className="container-fluid container-md fullCourseBody">
                             {/* reviews  */}
-                            <h4 className='reviewsheadline'>4.5 <img src="images/course/star.svg" alt="" /> 405k Reviews</h4>
+                            <h4 className='reviewsheadline'>4.5 <img src={star} alt="" /> 405k Reviews</h4>
                         </div>
 
 
@@ -365,7 +492,7 @@ const CourseFullPage = () => {
                                             <div className="col col-md-6 col-lg-6 ">
                                                 <div className='reviewCol'>
                                                     <div className='d-flex justify-content-start align-items-center mb-3 '>
-                                                        <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
+                                                        <img src={profileImg} alt="" className='profileImage' />
                                                         <div className='text-start'>
                                                             <h5 className='mb-0'>Smir A</h5>
                                                             <p className='mb-0 d-flex justify-content-start align-items-center '><p className='mb-0'><Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly className='ratingStarCourse' /></p><p className='weekText'>a week ago</p></p>
@@ -390,7 +517,7 @@ const CourseFullPage = () => {
                 <Carousel
                     swipeable={false}
                     draggable={false}
-                    // showDots={true}
+                    showDots={true}
                     responsive={responsive}
                     ssr={true} // means to render carousel on server-side.
                     infinite={true}
@@ -410,7 +537,7 @@ const CourseFullPage = () => {
                         [...Array(8)].map(d => {
                             return (
                                 <div className=' px-3 py-4 courseCard scaleDiv'>
-                                    <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                    <img src={moreCourseImg} alt="" className='w-100 productCol forScale' />
                                     <div className='coursePrice'>
                                         <div className='d-flex justify-content-between'>
                                             <p>Paid</p>
@@ -435,7 +562,9 @@ const CourseFullPage = () => {
             </div>
 
 
-            <Footer />
+           <div className="container-fluid container-md">  
+           <Footer />
+           </div>
         </div>
     );
 };

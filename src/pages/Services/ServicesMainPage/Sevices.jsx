@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import img from "../../../images/Rectanglet71.png"
 import addition from "../../../images/Group 1.png"
 import sub from "../../../images/Vector 1.png"
@@ -8,6 +8,8 @@ import usePagination from '@mui/material/usePagination';
 import { styled } from '@mui/material/styles';
 import Navbar from '../../../Components/Navbar';
 import Footer from '../../../Components/Footer';
+import { MyContext } from '../../../App';
+import AddToCart from '../../../Components/AddToCart';
 
 const List = styled('ul')({
     listStyle: 'none',
@@ -22,18 +24,34 @@ const List = styled('ul')({
 
 const Sevices = () => {
     const [amount, setAmount] = useState(2)
-    const { items } = usePagination({
-        count: 10,
-    });
+    const { items } = usePagination({count: 10,});
+    const [data, setData]=useState(4)
+    const [selectedBtn, setSelectedBtn] = useState()
+    const [added, setAdded] = useState(false)
+    const [refresh, setRefresh] = useContext(MyContext)
+
+    const addToCart =()=>{
+        AddToCart(Math.floor(Math.random() * 1000), "productmvmCart") 
+        const newData=Number(data)-1
+        setData(newData)
+        
+        setRefresh(!refresh)
+    }
+    const remove =()=>{
+        const newData=Number(data)-1
+        setData(newData)
+        console.log(newData); 
+        
+    }
 
     return (
         <div>
             <Navbar/>
-            <div className='container-fluid container-md'>
+            <div className='container-fluid container-md' style={{marginTop:"150px"}}>
                 <div className='serviceDiv'>
 
                     {
-                        [...Array(6)].map(d => {
+                        [...Array(data)].map(d => { 
                             return (
                                 <div className='mb-4'>
                                     {/* d-flex align-items-start justify-content-between  */}
@@ -68,13 +86,15 @@ const Sevices = () => {
                                                 <div className='text-start ms-2 ms-md-2 ms-lg-3 serviceTextDiv '>
                                                     <h5 className='fw-bold priceDivService'> <span className='priceTextService'>Price : </span> $ <span>{amount * 30}</span>/hr</h5>
                                                     <div className='amount btnForBig'>
-                                                        <p className='mb-4 text-end ' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
-                                                        <button className='cartBtn'><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button>
+                                                        <p className='mb-4 text-end ' style={{ cursor: "pointer" }} onClick={remove}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
+                                                        <button className='cartBtn' onClick={addToCart}><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button>
                                                     </div>
 
 
-                                                    <div className='  gap-4 text-start' id='btnForSmall'> <p className='mb-0 text-end ' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
-                                                        <button className='cartBtn'><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button></div>
+                                                    <div className='  gap-4 text-start' id='btnForSmall'>
+                                                         <p className='mb-0 text-end ' style={{ cursor: "pointer" }} onClick={remove}>
+                                                             <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
+                                                        <button className='cartBtn' onClick={addToCart}><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button></div>
                                                 </div>
                                             </div>
                                         </div>

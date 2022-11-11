@@ -32,3 +32,34 @@
 .calenderLeftArrow:hover, .calenderRightArrow:hover{
     background-color: rgba(128, 128, 128, 0.555);
 }
+.buttonDiv button{
+    background-color: transparent;
+    border-radius: 8px;
+    color: white;
+    border: 1px solid whitesmoke; 
+    padding: 6px 10px ;
+    font-weight: 600;
+
+}
+#redBtn{ 
+    background-color: #EF3054; 
+    border-radius: 8px;
+    color: white;
+    border: 1px solid #EF3054; 
+    padding: 6px 10px ;
+    font-weight: 600; 
+
+}
+.bookingDiv{
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+}
+.bookingDiv button{
+    background-color: #EF3054; 
+    border-radius: 8px;
+    color: white;
+    border: 1px solid #EF3054; 
+    padding: 6px 15px ;
+    font-weight: 600;
+}

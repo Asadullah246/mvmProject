@@ -23,7 +23,7 @@ import auth from '../../../Firebase.init';
 
 const ServiceBillingPage3 = () => {
     const [success, setSuccess] = useState('');
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading, error] = useAuthState(auth); 
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate()
@@ -31,21 +31,33 @@ const ServiceBillingPage3 = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
+   
+
+    const handleCart = () => {
+        window.location.href = "/shopping-cart"
+    }
+    const handleInformation = () => {
+        window.location.href = "/product-billing-one"
+    }
+    const handlePayment = () => {
+        window.location.href = "/product-billing-three"
+    }
+
     const breadcrumbs = [
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        <Link underline="hover" key="1" color="inherit" href="/shopping-cart" onClick={handleCart}>
             Cart
         </Link>,
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        <Link underline="hover" key="1" color="inherit" href="/product-billing-one" onClick={handleInformation}>
             Information
         </Link>,
         <Typography key="3" color="text.primary">
-        Shipping
-    </Typography>,
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
-            Schedule
+            Shipping
+        </Typography>,
+        <Link underline="hover" key="1" color="inherit" href="/product-billing-three" onClick={handlePayment}>
+            Payment
         </Link>,
 
-        
+
     ];
 
     const breadcrumbDisplay = <>
@@ -59,16 +71,13 @@ const ServiceBillingPage3 = () => {
         </Stack>
     </>
 
-    const ServiceDivider=<div className='serviceDivider'></div>
+    const ServiceDivider = <div className='serviceDivider'></div>
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
-    }
+
 
     const onSubmit = async data => {
         setSuccess("Successfully logged in");
-        window.location.href="/product-billing-three" 
+        window.location.href = "/product-billing-three"
 
     }
 
@@ -82,7 +91,7 @@ const ServiceBillingPage3 = () => {
 
             {/* main body  */}
 
-            <div className="container-fluid container-md">
+            <div className="container-fluid container-md" style={{marginTop:"150px"}}>
                 <div className="row billingServiceDiv">
                     <div className="col col-12 col-lg-6 text-start">
                         <button className='mvmServiceText'><BsArrowLeft /> <span>MVM Service</span></button>
@@ -112,7 +121,7 @@ const ServiceBillingPage3 = () => {
                                 <p className='mb-0 infoTitle'>Ship to</p>
                                 <p className='mb-0'>45201 owen Street, Balleville, MT 48111, USA </p>
                             </div>
-                           
+
 
                         </div>
 
@@ -123,21 +132,21 @@ const ServiceBillingPage3 = () => {
 
                         <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
 
-                        
-                        <div className="inputSection">
+
+                            <div className="inputSection">
                                 <label className="label text-start">
-                                    <span className="label-text text-start">Shipping method</span> <br />
-                                    <small>For more information about delivery charges, please <a href="#" className='text-white border-bottom border-white'>click here</a></small>
+                                    <span className="label-text text-start">Product weight</span> <br /> 
+                                    <small>For more information about delivery charges, please <a href="" className='text-white border-bottom border-white'>click here</a></small>
                                 </label>
                                 {/* <img src={visaIcon} alt="" className='visaIcon' /> */}
-                                <p className='visaIcon mb-0'>$20.00</p>
+                                <p className='weight mb-0'>$20.00</p>
                                 <input type="number" placeholder="Up to 2kg" name='cardNumber' className="w-100" id='inputTag'
                                     {...register("cardNumber", {
                                         required: {
                                             value: true,
                                             message: 'Give card number'
                                         },
-                                        
+
                                     })}
                                 />
                                 <label className="label">
@@ -145,8 +154,8 @@ const ServiceBillingPage3 = () => {
                                     {errors.cardNumber?.type === 'minLength' && <span className="label-text-alt errorMsg">{errors.cardNumber.message}</span>}
                                 </label>
                             </div>
-                        
-                       
+
+
 
 
                             {/* <div className='w-100 text-end'>
@@ -155,7 +164,7 @@ const ServiceBillingPage3 = () => {
                             {/* <small className='text-primary'>{success} </small> */}
                             {/* <small className='text-red-500'>{signInError} </small> */}
                             <div className='w-100 text-end'>
-                            <button className='paymentBtn'>Pay now</button>
+                                <button className='paymentBtn'>Pay now</button>
                             </div>
                         </form>
 
@@ -165,7 +174,7 @@ const ServiceBillingPage3 = () => {
                             <button className='policyBtn'>Refund policy</button>
                             <button className='policyBtn'>Shipping policy</button>
                             <button className='policyBtn'>Terms of service</button>
-                           
+
                         </div>
 
                     </div>
@@ -180,15 +189,15 @@ const ServiceBillingPage3 = () => {
                                 <p className='pureBotanical'>$600</p>
 
                             </div>
-                         
+
 
                             <div className='dividerBilling'></div>
 
                             {/* coupon code  */}
 
                             <div className='couponDiv'>
-                            <input type="text" name="" className='couponInputTag' id="inputTag" placeholder='Have coupon code ?' />
-                            <button className='applyBtn'>Apply code</button>
+                                <input type="text" name="" className='couponInputTag' id="inputTag" placeholder='Have coupon code ?' />
+                                <button className='applyBtn'>Apply code</button>
                             </div>
 
                             <div className='dividerBilling'></div>
@@ -219,10 +228,10 @@ const ServiceBillingPage3 = () => {
 
                     </div>
                 </div>
-             
+
 
             </div>
-            <Footer/>
+            <Footer />
 
         </div>
     );

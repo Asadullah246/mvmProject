@@ -30,21 +30,56 @@ const ServiceBillingPage3 = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
 
+    // const breadcrumbs = [
+    //     <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+    //         Cart
+    //     </Link>,
+    //     <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+    //         Information
+    //     </Link>,
+    //     <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+    //         Schedule
+    //     </Link>,
+
+    //     <Typography key="3" color="text.primary">
+    //         Payment
+    //     </Typography>,
+    // ];
+
+    const handleCart = () => {
+        window.location.href = "/shopping-cart"
+    }
+    const handleInformation = () => {
+        window.location.href = "/product-billing-one"
+    }
+    const handleSchedule = () => {
+        window.location.href = "/calender"
+    }
+
     const breadcrumbs = [
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        <Link underline="hover" key="1" color="inherit" href="/shopping-cart"
+         onClick={handleCart}
+         >
             Cart
         </Link>,
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+        <Link underline="hover" key="1" color="inherit" href="/product-billing-one"
+         onClick={handleInformation}
+         >
             Information
         </Link>,
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+
+        <Link underline="hover" key="1" color="inherit" href="/calender"
+        onClick={handleSchedule} 
+         > 
             Schedule
         </Link>,
-
         <Typography key="3" color="text.primary">
             Payment
         </Typography>,
+
+
     ];
+
 
     const breadcrumbDisplay = <>
         <Stack spacing={2}>
@@ -57,16 +92,13 @@ const ServiceBillingPage3 = () => {
         </Stack>
     </>
 
-    const ServiceDivider=<div className='serviceDivider'></div>
+    const ServiceDivider = <div className='serviceDivider'></div>
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
-    }
+
 
     const onSubmit = async data => {
         setSuccess("Successfully logged in");
-        window.location.href="/billing-success"
+        window.location.href = "/billing-success"
 
     }
 
@@ -80,7 +112,7 @@ const ServiceBillingPage3 = () => {
 
             {/* main body  */}
 
-            <div className="container-fluid container-md">
+            <div className="container-fluid container-md" style={{marginTop:"150px"}}>
                 <div className="row billingServiceDiv">
                     <div className="col col-12 col-lg-6 text-start">
                         <button className='mvmServiceText'><BsArrowLeft /> <span>MVM Service</span></button>
@@ -115,7 +147,7 @@ const ServiceBillingPage3 = () => {
                                 <p className='mb-0 infoTitle'>Date</p>
                                 <p className='mb-0'> <span>02-08-2022</span> <img src={dotIcon} alt="" className='mx-2' /> <span>Tuesday</span></p>
                             </div>
-                           
+
 
                         </div>
 
@@ -126,8 +158,8 @@ const ServiceBillingPage3 = () => {
 
                         <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
 
-                        
-                        <div className="inputSection">
+
+                            <div className="inputSection">
                                 <label className="label text-start">
                                     <span className="label-text text-start">Card number</span>
                                 </label>
@@ -138,7 +170,7 @@ const ServiceBillingPage3 = () => {
                                             value: true,
                                             message: 'Give card number'
                                         },
-                                        
+
                                     })}
                                 />
                                 <label className="label">
@@ -146,8 +178,8 @@ const ServiceBillingPage3 = () => {
                                     {errors.cardNumber?.type === 'minLength' && <span className="label-text-alt errorMsg">{errors.cardNumber.message}</span>}
                                 </label>
                             </div>
-                        
-                        <div className="inputSection">
+
+                            <div className="inputSection">
                                 <label className="label text-start">
                                     <span className="label-text text-start">Name on card</span>
                                 </label>
@@ -157,7 +189,7 @@ const ServiceBillingPage3 = () => {
                                             value: true,
                                             message: 'Give your card name'
                                         },
-                                        
+
                                     })}
                                 />
                                 <label className="label">
@@ -171,13 +203,13 @@ const ServiceBillingPage3 = () => {
                                     <label className="label">
                                         <span className="label-text">Expiration of date</span>
                                     </label>
-                                    <input type="date"  name='expiration' className=" w-100 date-input--has-value" id='inputTag'
+                                    <input type="date" name='expiration' className=" w-100 date-input--has-value" id='inputTag'
                                         {...register("expiration", {
                                             required: {
                                                 value: true,
                                                 message: 'give expiration date'
                                             },
-                                          
+
                                         })} />
                                     <label className="label">
                                         {errors.expiration?.type === 'required' && <span className="label-text-alt errorMsg">{errors.expiration.message}</span>}
@@ -216,7 +248,7 @@ const ServiceBillingPage3 = () => {
                             {/* <small className='text-primary'>{success} </small> */}
                             {/* <small className='text-red-500'>{signInError} </small> */}
                             <div className='w-100 text-end'>
-                            <button className='paymentBtn'>Pay now</button>
+                                <button className='paymentBtn'>Pay now</button>
                             </div>
                         </form>
 
@@ -225,7 +257,7 @@ const ServiceBillingPage3 = () => {
                         <div>
                             <button className='policyBtn'>Refund policy</button>
                             <button className='policyBtn'>Terms of service</button>
-                           
+
                         </div>
 
                     </div>
@@ -240,15 +272,15 @@ const ServiceBillingPage3 = () => {
                                 <p className='pureBotanical'>$600</p>
 
                             </div>
-                         
+
 
                             <div className='dividerBilling'></div>
 
                             {/* coupon code  */}
 
                             <div className='couponDiv'>
-                            <input type="text" name="" className='couponInputTag' id="inputTag" placeholder='Have coupon code ?' />
-                            <button className='applyBtn'>Apply code</button>
+                                <input type="text" name="" className='couponInputTag' id="inputTag" placeholder='Have coupon code ?' />
+                                <button className='applyBtn'>Apply code</button>
                             </div>
 
                             <div className='dividerBilling'></div>
@@ -279,10 +311,10 @@ const ServiceBillingPage3 = () => {
 
                     </div>
                 </div>
-             
+
 
             </div>
-            <Footer/>
+            <Footer />
 
         </div>
     );

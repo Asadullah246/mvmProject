@@ -437,7 +437,7 @@ const Navbar = () => {
                                     />
                                 </div>
                                 <a href="/all-product">Products</a>
-                                {/* <a href="/">Services</a> */}
+                                <a href="/services">Services</a>
                                 <a href="/all-courses">Courses</a>
 
                                 <a href="/community">Community</a>

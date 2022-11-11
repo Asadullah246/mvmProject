@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import img from "../../images/Rectanglet71.png"
 import deleteIcon from "../../images/Group.png"
 import cart from "../../images/Vector (3).png"
 import { Rating } from '@mui/material';
 import dotIcon from "../../images/Ellipse.svg"
+import AddToCart from '../../Components/AddToCart';
+import { MyContext } from '../../App';
 
 const Curses = () => {
     const [amount, setAmount] = useState(2)
+    const [data, setData]=useState(3)
     const [courseShowMore, setCourseShowMore] = useState(true)
     const [selectedBtn, setSelectedBtn] = useState()
+    const [added, setAdded] = useState(false)
+    const [refresh, setRefresh] = useContext(MyContext)
 
     const seeMore = (id) => {
         setCourseShowMore(!courseShowMore)
         setSelectedBtn(id)
+    }
+
+    const addToCart =()=>{
+        AddToCart(Math.floor(Math.random() * 1000), "productmvmCart") 
+        const newData=Number(data)-1
+        setData(newData)
+        
+        setRefresh(!refresh)
+    }
+    const remove =()=>{
+        const newData=Number(data)-1
+        setData(newData)
+        console.log(newData); 
+        
     }
 
     return (
@@ -20,7 +39,7 @@ const Curses = () => {
             <div className='serviceDiv'>
 
                 {
-                    [...Array(6)].map((d, index) => {
+                    [...Array(data)].map((d, index) => { 
                         return (
                             <div className='mb-4'>
                                 {/* d-flex align-items-start justify-content-between  */}
@@ -40,9 +59,7 @@ const Curses = () => {
                                                             (!courseShowMore && (selectedBtn == index)) ?
                                                                 <>
                                                                     <p className='serviceDesc mb-0'>You will master the Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
-                                                                    he Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
-                                                                    master the Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
-                                                                    he Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
+                                                                   
                                                                     </p>
                                                                     <button className='seeMoreBtnForPTag' onClick={() => seeMore(index)}>See less</button>
 
@@ -71,15 +88,19 @@ const Curses = () => {
                                         </div>
                                         <div>
                                             <div className='text-start ms-2 ms-md-2 ms-lg-3 serviceTextDiv '>
-                                                <h5 className='fw-bold priceDivService'> <span className='priceTextService'>Price : </span> $ <span>{amount * 30}</span>/hr</h5>
+                                                <h5 className='fw-bold priceDivService text-nowrap'> <span   className='priceTextService'>Price : </span> $ <span>{amount * 30}</span>/hr</h5>
                                                 <div className='amount btnForBig'>
-                                                    <p className='mb-4 text-end ' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
-                                                    <button className='cartBtn'><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button>
+                                                    <p className='mb-4 text-end ' style={{ cursor: "pointer" }} onClick={remove}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p> 
+
+                                                    
+                                                    <button className='cartBtn' onClick={addToCart}><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button>
                                                 </div>
 
 
-                                                <div className='  gap-4 text-start' id='btnForSmall'> <p className='mb-0 text-end ' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
-                                                    <button className='cartBtn'><img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button></div>
+                                                <div className='  gap-4 text-start' id='btnForSmall' onClick={remove}> <p className='mb-0 text-end ' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</p>
+
+                                                
+                                                    <button className='cartBtn' onClick={addToCart}> <img src={cart} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px" }} /> Add to cart</button></div>
                                             </div>
                                         </div>
                                     </div>

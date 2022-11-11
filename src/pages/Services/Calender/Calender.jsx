@@ -108,6 +108,11 @@ const Calender = () => {
         document.querySelector(classname).click()
     }
 
+    const booking = ()=> {
+       window.location.href="/product-billing-three" 
+
+    }
+
     return (
         <div>
             <Navbar />
@@ -118,6 +123,7 @@ const Calender = () => {
                 <div className="row billingServiceDiv">
                     <div className="col col-12 col-lg-6 text-start">
                         <button className='mvmServiceText'><BsArrowLeft /> <span>MVM Service</span></button>
+
                         <div>
                             {breadcrumbDisplay}
                         </div>
@@ -136,7 +142,7 @@ const Calender = () => {
                             <Carousel
                                 swipeable={false}
                                 draggable={false}
-                                showDots={true}
+                                // showDots={true}
                                 responsive={responsive}
                                 ssr={true} // means to render carousel on server-side.
                                 infinite={true}
@@ -158,24 +164,29 @@ const Calender = () => {
                                 {
                                     [...Array(8)].map((d, index) => {
                                         return (
-                                            <div className='text-center'>
+                                            <div className='text-center buttonDiv'>
                                                 <h6>{dayName}</h6>
                                                 <p className='mutedText'>{day+"-"+month+"-"+year}</p>
-                                                <button className='my-3'>08:00</button> <br />
-                                                <button className='my-3'>08:00</button> <br />
-                                                <button className='my-3'>08:00</button> <br />
-                                                <button className='my-3'>08:00</button> <br />
-                                                <button className='my-3'>08:00</button> <br />
+                                                <button className='my-3'>08:00 AM</button> <br />
+                                                <button className='my-3'>08:00 AM</button> <br />
+                                                <button className='my-3 ' id="redBtn">08:00 AM</button> <br />
+                                                <button className='my-3'>08:00 AM</button> <br />
+                                                <button className='my-3'>08:00 AM</button> <br />
                                             </div>
                                         )
                                     })
                                 }
                             </Carousel>
 
+                            
+
 
                         </div>
 
 
+                       <div className='bookingDiv'>
+                       <button onClick={booking}>proceed to Booking</button>
+                       </div>
 
 
                         <div className='dividerBilling'></div>
@@ -238,9 +249,11 @@ const Calender = () => {
                     </div>
                 </div>
 
+                <Footer />
+
 
             </div>
-            <Footer />
+            
 
         </div>
     );
