@@ -1,43 +1,50 @@
-.headingOrderDiv{
+.headingOrderDiv {
     display: flex;
     justify-content: space-between;
     margin-top: 60px;
 }
-.orderSorting{
+
+.orderSorting {
     width: 200px;
     margin-top: 0 !important;
     padding: 9px 5px !important;
 }
-.orders{
+
+.orders {
     margin-top: 40px;
 }
-.completedBtn{
- padding: 13px 30px;
- color: white;
- background: #00AB66;
-border-radius: 8px;
+
+.completedBtn {
+    padding: 13px 30px;
+    color: white;
+    border: 1px solid #00AB66;
+    background: #00AB66;
+    border-radius: 8px;
 }
-.paginationDiv{
+
+.paginationDiv {
     text-align: right;
     margin-top: 40px;
-} 
+}
 
 @media only screen and (max-width:576px) {
-    .headingOrderDiv{
+    .headingOrderDiv {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-         
+
     }
-    .orderBtns button{
-        
+
+    .orderBtns button {
+
         margin-right: 10px;
     }
-    .orderId{
-  
+
+    .orderId {
+
         margin-top: 30px;
 
     }
-    
+
 }

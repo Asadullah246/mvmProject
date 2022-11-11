@@ -181,7 +181,7 @@ const Navbar = () => {
 
     }, [refresh])
     useEffect(() => {
-        
+
         let localStorageCourseWishList = localStorage.getItem("coursemvmWishList")
         let localStorageProductWishList = localStorage.getItem("productmvmWishList")
         let localStorageServiceWishList = localStorage.getItem("servicemvmWishList")
@@ -331,8 +331,23 @@ const Navbar = () => {
                 <div className='d-flex justify-content-start align-items-center mb-3 mt-2 mt-md-4'>
                     <img src={userImg} alt="" className='profileImage' />
                     <div className='text-start ms-2 profileTextMenu'>
-                        <h5 className='mb-0'>Raju Mullah</h5>
-                        <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
+                        <h5 className='mb-0 '> {
+                            user? user.displayName
+                            :
+                            "No user"
+                        }
+                        
+                        </h5>
+                        {
+                            user ?
+                            <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
+                            :
+                            <button className='loginBtnNav' onClick={()=>{
+                                window.location.href = "/login"
+                            }}>Login</button>
+
+                        }
+                        
                     </div>
                 </div>
             </MenuItem>
@@ -345,7 +360,7 @@ const Navbar = () => {
                 </a>
             </MenuItem>
             <MenuItem >
-                <a href="/all-product" className='menuLink w-100 d-block  menuitems p-0'>
+                <a href="/shopping-cart" className='menuLink w-100 d-block  menuitems p-0'>
                     <div className='w-100 d-flex justify-content-between align-items-center '>
                         <p className='mb-0'>Cart</p>
                         <p className='navbarNotiCount'>02</p>
@@ -374,22 +389,22 @@ const Navbar = () => {
             <div className='dividerNavbar'></div>
 
 
-            <MenuItem>
-                <a href="/community" className='menuLink menuitems p-0'>My order</a>
-            </MenuItem>
+            {/* <MenuItem>
+                <a href="/my-order-products" className='menuLink menuitems p-0'>My order</a>
+            </MenuItem> */}
 
             <MenuItem>
-                <a href="/login" className='menuLink menuitems p-0'>Order history</a>
-            </MenuItem>
-
-            {/* <div className='dividerNavbar'></div> */}
-            <MenuItem>
-                <a href="/services" className='menuLink menuitems p-0'>My service</a>
+                <a href="/previous-order" className='menuLink menuitems p-0'>Order history</a>
             </MenuItem>
 
             {/* <div className='dividerNavbar'></div> */}
             <MenuItem>
-                <a href="/" className='menuLink menuitems p-0'>My learning</a>
+                <a href="/my-order-products" className='menuLink menuitems p-0'>My service</a>
+            </MenuItem>
+
+            {/* <div className='dividerNavbar'></div> */}
+            <MenuItem>
+                <a href="/my-order-course" className='menuLink menuitems p-0'>My learning</a>
             </MenuItem>
 
             <div className='dividerNavbar'></div>
@@ -400,7 +415,12 @@ const Navbar = () => {
             {/* <div className='dividerNavbar'></div> */}
             <MenuItem>
 
-                <button className='menuLink menuitems signoutBtn p-0' onClick={() => auth.signOut()}>Logout</button>
+                <button className='menuLink menuitems signoutBtn p-0'
+                    onClick={() => {
+                        auth.signOut()
+                        window.location.href = "/login"
+                    }}
+                >Logout</button>
             </MenuItem>
 
         </Menu>

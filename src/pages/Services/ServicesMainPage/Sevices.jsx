@@ -48,7 +48,9 @@ const Sevices = () => {
         <div>
             <Navbar/>
             <div className='container-fluid container-md' style={{marginTop:"150px"}}>
+                
                 <div className='serviceDiv'>
+                <h1 className='text-start mb-4'>Services</h1> 
 
                     {
                         [...Array(data)].map(d => { 

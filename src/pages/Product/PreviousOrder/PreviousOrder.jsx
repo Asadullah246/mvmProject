@@ -62,7 +62,7 @@ const PreviousOrder = () => {
 
             {/* body  */}
 
-            <div className='container-fluid container-md'>
+            <div className='container-fluid container-md ' style={{marginTop:"150px"}}>
                 <div className='headingOrderDiv'>
                     <h1 style={{}}>Previous order</h1>
                     <div className='d-flex justify-content-end align-items-center'>

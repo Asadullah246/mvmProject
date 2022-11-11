@@ -5,7 +5,7 @@ import "./ChatBox.css"
 const ChatBox = () => {
     return (
         <div id='chatSection'>
-            {/* <MessageBox
+            <MessageBox
                 position='left'
                 title='Burhan'
                
@@ -32,13 +32,13 @@ const ChatBox = () => {
                 placeholder="Type here..."
                 multiline={true}
             />
-            <Button text={"Send"} onClick={() => alert("Sending...")} title="Send" />; */}
+            <Button text={"Send"} onClick={() => alert("Sending...")} title="Send" />;
 
-{/* 
+
             <div className={`message ${messageClass}`}>
                 <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
                 <p>{text}</p>
-            </div> */}
+            </div>
             <div className={`message `}>
                 <img src={'https://api.adorable.io/avatars/23/abott@adorable.png'} />
                 <p>dkfdkfj</p>

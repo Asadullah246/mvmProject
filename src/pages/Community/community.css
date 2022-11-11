@@ -58,11 +58,11 @@
 
 }
 
-.communityImg {
+.bigImageCommunity {
     transition: ease-in-out 0.4s;
 }
 
-.communityImg:hover {
+.bigImageCommunity:hover {
     transform: scale(1.05);
 }
 

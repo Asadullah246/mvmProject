@@ -24,7 +24,7 @@ const Notification = () => {
             <Navbar />
             {/* body  */}
             <div className="container-fluid container-md">
-                <h1 style={{ textAlign: "left", marginTop: "60px", marginBottom:"20px" }}>Notifications</h1>
+                <h1 style={{ textAlign: "left", marginTop: "150px", marginBottom:"20px" }}>Notifications</h1>
 
                     <div className='notifications'>
                         {

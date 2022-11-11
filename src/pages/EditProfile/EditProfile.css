@@ -6,7 +6,45 @@
     align-items: center;
 
 }
-/* .passChange{
-    width: 100%;
-    padding
-} */
+.passChange{
+    background-color: #5B3F46; 
+    border-radius: 8px;
+}
+.profileChange{
+    background-color: #5B3F46; 
+    border-radius: 8px;
+    margin-top: 100px !important; 
+    position: relative; 
+   
+}
+.userImage{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%; 
+    border: 7px solid #5B3F46;
+    position: absolute;
+    top: -10%;
+    left: 40%; 
+}
+
+.editimg{
+    /* position: absolute;  */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: fit-content; 
+
+
+    /* height: fit-content !important;     */
+    border-radius: 8px;
+}
+.nameInput{
+    margin-top: 60px;  
+}
+
+@media only screen and (max-width:768px) {
+    .edithImgDiv{
+        display: none; 
+    }
+    
+}

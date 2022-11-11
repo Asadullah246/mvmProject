@@ -220,7 +220,7 @@ const LandingPage = () => {
                 {/* product categories  */}
 
                 <section>
-                    <h2 className='mb-4 categoriesText'>Products Categories</h2>
+                    <h2 className='mb-4 categoriesText pt-3'>Products Categories</h2>
                     {/* carousel  */}
 
                     <Carousel
@@ -288,7 +288,7 @@ const LandingPage = () => {
                 {/* top selling section  */}
 
                 <section id='topSelling'>
-                    <h2 className='mb-3'>Top selling products</h2>
+                    <h2 className='mb-3 '>Top selling products</h2>
                     <div className="container-fluid">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
                             {

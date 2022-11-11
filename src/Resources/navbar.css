@@ -171,6 +171,14 @@
     margin-top: 5px !important;
 
 }
+.loginBtnNav{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-weight: 700;  
+    font-size: 0.8em;
+}
+
 
 
 
