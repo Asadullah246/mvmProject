@@ -17,7 +17,7 @@ const BillingSuccess = () => {
                 <button className='backBtn'>Back to home</button>
             </div>
 
-            <Footer/>
+            {/* <Footer/> */}
             
         </div>
     );

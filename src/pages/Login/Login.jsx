@@ -4,9 +4,14 @@ import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-
 import "./Login.css"
 import Loading from '../../Components/Loading';
+import image1 from "../../images/login/Rectangle 82.png"
+import image2 from "../../images/login/Rectangle 84.png"
+import image3 from "../../images/login/Rectangle 81.png"
+import image4 from "../../images/login/Rectangle 83.png" 
+import logo from "../../images/companyLogo.svg" 
+import { useEffect } from 'react';
 
 const Login = () => {
     const [signInError, setSignInError] = useState('');
@@ -16,9 +21,9 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate()
 
-    const navigateSignUp = () => {
-        navigate('/signup')
-    }
+    // console.log(from); 
+
+   
     const [
         signInWithEmailAndPassword, eUser, eLoading, eError,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -26,23 +31,28 @@ const Login = () => {
 
     // const [token] = useToken(user || gUser || eUser);
 
-    // useEffect(() => {
-    //     if (token) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, from, navigate])
+
+   
+  
+    useEffect(() => {
+        if (error || gError || eError) {
+            setSignInError(error?.message || gError?.message || eError?.message)
+            return;
+        }
+    }, [error , gError , eError]) 
 
     if (loading || gLoading || eLoading) {
         return <Loading></Loading>
-    }
-    if (error || gError || eError) {
-        setSignInError(error?.message || gError?.message || eError?.message)
-        return;
-    }
+    } 
 
     const googleLogin = async => {
         signInWithGoogle();
-        setSuccess("Successfully logged in with Google");
+        // setSuccess("Successfully logged in with Google");
     }
 
     const onSubmit = async data => {
@@ -57,7 +67,10 @@ const Login = () => {
     const forgetPass=()=>{
         navigate("/reset-password")
     }
-    console.log(user);
+    const home=()=>{
+        navigate("/") 
+    }
+   
     return (
         <div>
             {/* Navbar  */}
@@ -66,18 +79,18 @@ const Login = () => {
                 <div className='w-50 text-start '>
                     {/* <div className='bgColor'></div> */}
                     <div style={{ width: "50%", margin: "0 auto" }}>
-                        <img src="images/companyLogo.svg" alt="" style={{ width: "3rem" }} />
+                        <img src={logo} alt="" style={{ width: "3rem", cursor:"pointer" }} onClick={home} /> 
                     </div>
                 </div>
 
                 <div>
-                    <p style={{ marginBottom: "0" }}>Community</p>
+                    <p style={{ marginBottom: "0" }}>Community</p> 
                 </div>
             </div>
 
             {/* Body  */}
 
-            <div className='d-flex justify-content-start align-items-center'>
+            <div className='d-flex justify-content-start align-items-start'> 
                 <div className='w-50 text-start login' id="login">
                     <div style={{ width: "50%", margin: "0 auto" }} className="loginDiv">
                         <Typography variant="h4" gutterBottom style={{ marginBottom: "8px", fontWeight: "700" }} className="welcome">Welcome back</Typography>
@@ -130,22 +143,22 @@ const Login = () => {
                                 <p style={{ marginTop: "-5px", cursor:"pointer" }} onClick={forgetPass}>Forget password</p>
                             </div>
                             {/* <small className='text-primary'>{success} </small> */}
-                            {/* <small className='text-red-500'>{signInError} </small> */}
+                            <small className='text-danger d-block pb-2'>{signInError} </small>    
                             <button className='w-100 loginBtn'>Log in</button>
                         </form>
-                        <button className='w-100 googleLogin'><img src="images/login/google.png" alt="" className='google' /> Log in with google</button>
-                        <p className='text-center'>Don't have account ? <button style={{ backgroundColor: "transparent", fontWeight: "800", color: "white" }} onClick={signUp}>Sign up</button></p>
+                        <button className='w-100 googleLogin' onClick={googleLogin}><img src="images/login/google.png" alt="" className='google' /> Log in with google</button>
+                        <p className='text-center'>Don't have account ? <button style={{ backgroundColor: "transparent", fontWeight: "800", color: "white", border:"none" }} onClick={signUp}>Sign up</button></p> 
 
                     </div>
                 </div>
                 <div className='w-50  d-flex justify-content-start gap-3 picDiv' id="picDiv">
                     <div className='firstImages'>
-                        <img src="images/login/Rectangle 82.png" alt="" /> <br />
-                        <img src="images/login/Rectangle 84.png" alt="" />
+                        <img src={image1} alt="" /> <br />
+                        <img src={image2} alt="" />
                     </div>
                     <div className='nextImages'>
-                        <img src="images/login/Rectangle 81.png" alt="" /> <br />
-                        <img src="images/login/Rectangle 83.png" alt="" />
+                        <img src={image3} alt="" /> <br />
+                        <img src={image4} alt="" />
                     </div>
                 </div>
 

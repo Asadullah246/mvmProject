@@ -1,22 +1,26 @@
-.communityBody{
+.communityBody {
     width: 85vw;
     margin: 0 auto;
     margin-top: 70px;
 }
-.comBody{
+
+.comBody {
     margin-top: 60px;
     display: flex;
     align-items: flex-start;
     gap: 5%;
 }
-.bodyContent{
-width: 53%;
+
+.bodyContent {
+    width: 53%;
 }
-.captionCommunity{
+
+.captionCommunity {
     margin-top: 76px;
     margin-bottom: 20px;
 }
-.seeMoreBtn{
+
+.seeMoreBtn {
     background-color: transparent;
     padding: 13px 50px;
     border: 1px solid whitesmoke;
@@ -24,9 +28,10 @@ width: 53%;
     color: white;
     display: block;
     text-align: left;
-    transition: ease-in-out 0.3s; 
+    transition: ease-in-out 0.3s;
 }
-.viewPostBtn{
+
+.viewPostBtn {
     background-color: transparent;
     color: white;
     font-weight: 600;
@@ -35,74 +40,82 @@ width: 53%;
     margin-top: 5px;
 
 }
-.viewPostBtn:hover,.seeMoreBtn:hover{
+
+.viewPostBtn:hover,
+.seeMoreBtn:hover {
     color: #9747FF;
 }
-.profileImage{
-width: 3em;
-margin-right: 13px;
-}
-.msgText{
+
+
+
+.msgText {
     margin-left: 5px;
 }
-.bigImage{
+
+.bigImage {
     width: 100%;
     overflow: hidden;
- 
+
 }
-.communityImg{
+
+.communityImg {
     transition: ease-in-out 0.4s;
 }
-.communityImg:hover{
+
+.communityImg:hover {
     transform: scale(1.05);
 }
 
 @media only screen and (max-width:768px) {
-    
-    .comBody{
+
+    .comBody {
         margin-top: 60px;
         display: flex;
         flex-direction: column !important;
         /* align-items: flex-start; */
         gap: 5%;
     }
-    .bodyContent{
+
+    .bodyContent {
         width: 90%;
-        margin-left: auto; 
+        margin-left: auto;
         margin-right: auto;
-        }
-    .postsCommunity{
+    }
+
+    .postsCommunity {
         margin-top: 60px !important;
         width: 90%;
-        margin-left: auto; 
+        margin-left: auto;
         margin-right: auto;
-        }
-    
+    }
+
 }
+
 @media only screen and (max-width:768px) {
-    .communityBody{
+    .communityBody {
         width: 90vw;
         margin: 0 auto;
         margin-top: 70px;
     }
-    .bodyContent{
+
+    .bodyContent {
         width: 100%;
-        margin-left: auto; 
+        margin-left: auto;
         margin-right: auto;
-        }
-    .postsCommunity{
+    }
+
+    .postsCommunity {
         margin-top: 60px !important;
         width: 100%;
-        margin-left: auto; 
+        margin-left: auto;
         margin-right: auto;
-        }
-        .profileImage{
-            width: 3em;
-            margin-right: 6px;
-            }
-            .msgText{
-                margin-left: 2px;
-            }
-            
-    
+    }
+
+  
+
+    .msgText {
+        margin-left: 2px;
+    }
+
+
 }

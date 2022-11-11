@@ -35,3 +35,25 @@
     right: -62%;
     transform: translate(-50%, 0);
   }
+
+  .profileImage {
+    width: 2.6em;
+    height: 2.6em; 
+    /* margin-right: 13px; */
+    margin-right: 6px;
+    border-radius: 50%; 
+    cursor: pointer; 
+}
+
+@media only screen and (max-width:768px) {
+  
+
+  .profileImage {
+      width: 3em;
+      margin-right: 6px;
+  }
+
+ 
+
+
+}

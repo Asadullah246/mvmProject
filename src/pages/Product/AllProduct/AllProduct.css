@@ -6,6 +6,7 @@
     background: rgb(91, 60, 71);
     background: linear-gradient(180deg, rgb(87, 56, 66) 50%, rgba(47, 47, 63, 0.938) 100%)!important;
     position: static;
+    border-radius: 8px; 
     
 }
 .productHeadline{
@@ -42,6 +43,10 @@
     margin-top: 60px;
     margin-bottom: 20px;
     font-weight: 700;
+}
+
+.listHeading{
+    cursor: pointer !important;
 }
 
 @media only screen and (max-width:768px) {

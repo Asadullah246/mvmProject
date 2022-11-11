@@ -1,10 +1,11 @@
-.navbarSection{
+.navbarSection {
     width: 100%;
     margin-bottom: 0 !important;
     position: relative;
     /* outline: 0 !important; */
     /* padding-bottom: 0 !important;  */
 }
+
 .menu {
     height: 28px;
     width: 60px;
@@ -18,7 +19,10 @@
     outline: none;
     color: transparent;
 }
-.menu:after, .menu:before, .menu div {
+
+.menu:after,
+.menu:before,
+.menu div {
     content: "";
     position: absolute;
     width: 50px;
@@ -28,9 +32,13 @@
     border-radius: 4px;
 }
 
+.logoNavbar {
+    cursor: pointer !important;
+}
 
 
- .navbarDiv{
+
+.navbarDiv {
     /* background-color: #121212;
     color: #fff;
     -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -58,7 +66,7 @@
     outline: 0; */
 }
 
-.navbarOption ul{
+.navbarOption ul {
     -webkit-overflow-scrolling: touch;
     background-color: #121212;
     color: #fff;
@@ -67,50 +75,67 @@
     border-radius: 4px;
     box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
     background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12));
-    position: fixed !important;
-    top: 0px !important;
-    left: 0px !important;
-    height: 100vh !important;
-    transform-origin: 236px 0px !important;
+    position: fixed !important; 
+    top: 0px !important; 
+    right: 0px !important;
+    height: 100vh !important; 
+    transform-origin: 236px 0px !important; 
     overflow-y: auto;
     overflow-x: hidden;
     min-width: 16px;
     max-width: 400px;
     outline: 0;
-} 
+}
+
+.navbarOption ul li{
+    background-color: transparent !important; 
+}
+
+.navbarOption ul li:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08) !important; 
+
+}
 
 
 
 
 
 .menu.active:before {
-    transform: rotate(-45deg) translate3d(0,-50%,0);
+    transform: rotate(-45deg) translate3d(0, -50%, 0);
     top: 50%;
 }
+
 .menu.active:after {
-    transform: rotate(45deg) translate3d(0,50%,0);
+    transform: rotate(45deg) translate3d(0, 50%, 0);
     bottom: 50%;
 }
+
 .menu:before {
     top: 0;
 }
+
 .menu:after {
     bottom: 0;
 }
+
 .menu.active div {
     opacity: 0;
 }
+
 #navbarIs {
     /* background-image: linear-gradient(to right, #463039, #393039);
     background-color: #fff; */
     transition: all .3s;
-    background-color: transparent !important; 
+    background-color: transparent !important;
 }
+
 #header[scroll="true"] #navbarIs {
     transition: all .3s;
     background-image: linear-gradient(to right, #463039, #0000006e) !important;
 }
-.navbarNotiCount{
+
+.navbarNotiCount {
     background-color: #EF3054;
     font-size: 0.8em;
     margin-bottom: 0;
@@ -118,44 +143,88 @@
     border-radius: 50%;
     padding: 2px 6px;
 }
-.menuitems{
+
+.menuitems {
     padding: 0 !important;
 }
 
-.dividerNavbar{
-    
-    margin: 20px 0;
+.dividerNavbar {
+
+    margin: 10px 0;
     width: 100%;
-    border-bottom: 1px solid linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
+    /* border-bottom: 1px solid linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%); */
+    /* border-bottom: 1px solid linear-gradient(90deg, rgb(211, 177, 188) 50%, rgb(207, 207, 216) 100%); */
+    border-bottom: 2px solid rgba(87, 56, 66, 0.226);
+}
+
+.search-div {
+    /* display: flex;
+    align-items: center; */ 
+}
+
+.search-div div {
+    min-height: 26px !important;
+
+}
+
+.search-div div div {
+    margin-top: 5px !important;
+
 }
 
 
-.navIcon{
+
+
+@media only screen and (max-width:900px) {
+
+    .navbarOption ul {
+        -webkit-overflow-scrolling: touch;
+        background-color: #121212;
+        color: #fff;
+        -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-radius: 4px;
+        box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12));
+        position: fixed !important;
+        top: 0px !important;
+        left: 0px !important;
+        height: 100vh !important;
+        transform-origin: 236px 0px !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+        min-width: 16px;
+        max-width: 400px;
+        outline: 0;
+    }
+
+
+}
+.signoutBtn{
+    border: none;
+    background-color: transparent;
     
 }
-
-
 
 @media only screen and (max-width:768px) {
-    .navbarSection{
-        width: 100% !important; 
+    .navbarSection {
+        width: 100% !important;
         padding: 20px auto;
     }
-    
-    .navbarOption ul{
+
+    .navbarOption ul {
         max-width: 350px;
 
-    } 
-    
+    }
 
-    
-    
-    
+
+
+
+
 }
 
-@media screen and (min-width: 700px) {
-    
-}
+@media screen and (min-width: 700px) {}
+
 .navbarItem {
     display: flex;
     align-items: center;
@@ -168,40 +237,48 @@
     color: white;
     transition: ease-in-out 0.3s;
 }
-.navbarItem button{
+
+.navbarItem button {
     text-decoration: none;
     margin-right: 20px;
     color: white;
     transition: ease-in-out 0.3s;
 
 }
+
 .navbarItem a:hover {
     color: #9747FF;
 }
-.menuLink{
+
+.menuLink {
     font-size: 1.2em !important;
     color: white !important;
-    padding-left: 20px !important; 
-    padding-right: 10px !important; 
+    padding-left: 20px !important;
+    padding-right: 10px !important;
     margin-top: 10px;
 }
 
 @media only screen and (max-width:576px) {
-    .navbarSection{
-        width: 100% !important; 
+    .navbarSection {
+        width: 100% !important;
         padding: 20px auto;
     }
-    .menuLink , .profileTextMenu p{
+
+    .menuLink,
+    .profileTextMenu p {
         font-size: 0.8em !important;
-        
+
     }
-    .menuLink div{
+
+    .menuLink div {
         padding: 0 !important;
     }
-    .profileTextMenu h5{
+
+    .profileTextMenu h5 {
         font-size: 0.9em;
     }
-    .navbarNotiCount{
+
+    .navbarNotiCount {
         background-color: #EF3054;
         font-size: 0.8em;
         margin-bottom: 0;
@@ -209,12 +286,14 @@
         border-radius: 50%;
         padding: 4px 6px;
     }
-    .dividerNavbar{
+
+    .dividerNavbar {
         display: none;
     }
-    .navbarOption ul{
+
+    .navbarOption ul {
         max-width: 70% !important;
     }
-    
-    
+
+
 }

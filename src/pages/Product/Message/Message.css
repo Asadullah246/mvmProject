@@ -1,3 +1,7 @@
+.messageSection{
+    margin-top: 130px;
+}
+
 .messages {
     border-radius: 8px;
     background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);

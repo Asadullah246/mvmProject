@@ -20,7 +20,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import sideBarIcon from "../../../images/icon.svg"
 import downArrow from "../../../images/downArrow.svg"
-import { Rating } from '@mui/material';
+import { Checkbox, Rating } from '@mui/material';
 import Footer from '../../../Components/Footer';
 
 // get window dimension 
@@ -84,12 +84,18 @@ const AllProduct = () => {
     setPriceDiv("")
 
   }
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const drawer = (
-    <div>
+    <div className=''>
       {/* <Toolbar /> */}
       <Divider />
-      <Typography variant="h5" className='sidebarHeading' onClick={magical} >Magical <img src={downArrow} alt="" className='ms-5' /></Typography>
+      {/* <Typography variant="h5" className='sidebarHeading' onClick={magical} >Magical <img src={downArrow} alt="" className='ms-5' /></Typography> */}
+      <div className='d-flex justify-content-between align-items-center px-3 py-2 listHeading' onClick={magical}>
+        <h5 className='mb-0'>Magical</h5>
+        <img src={downArrow} alt="" className='ms-5' />
+
+      </div>
      {
       magicalCount ? 
       <List >
@@ -97,7 +103,9 @@ const AllProduct = () => {
         <ListItem key={text} disablePadding>
           <ListItemButton className="">
             <ListItemIcon className='iconSidebarDiv'>
-            <img src={sideBarIcon} alt="" srcset="" />
+            {/* <img src={sideBarIcon} alt="" srcset="" /> */}
+            {/* <input type="checkbox" name="" id="" /> */}
+            <Checkbox {...label} />
             </ListItemIcon>
             <ListItemText primary={`Product name ${index+1}`} />
           </ListItemButton>
@@ -106,7 +114,12 @@ const AllProduct = () => {
     </List>: ""
      }
       <Divider className='dividerSidebar'/>
-      <Typography variant="h5" className='sidebarHeading' onClick={botanical} >Botanical <img src={downArrow} alt="" className='ms-5' /></Typography>
+      {/* <Typography variant="h5" className='sidebarHeading' onClick={botanical} >Botanical <img src={downArrow} alt="" className='ms-5' /></Typography> */}
+      <div className='d-flex justify-content-between align-items-center px-3 py-2 listHeading' onClick={botanical}>
+        <h5 className='mb-0'>Magical</h5>
+        <img src={downArrow} alt="" className='ms-5' />
+
+      </div>
       {
       botanicalCount ? 
       <List>
@@ -115,7 +128,7 @@ const AllProduct = () => {
             <ListItemButton>
               <ListItemIcon className='iconSidebarDiv'>
                 
-                <img src={sideBarIcon} alt="" srcset="" />
+              <Checkbox {...label} />
               </ListItemIcon>
               <ListItemText primary={`Product name ${index+1}`}  />
             </ListItemButton>
@@ -134,7 +147,7 @@ const AllProduct = () => {
         <div>
             <Navbar/>
            <div className="container-fluid container-lg">
-           <Box sx={{ display: 'flex' }} className="productBody">
+           <Box sx={{ display: 'flex' }} className="productBody"> 
       <CssBaseline />
      
       <Box

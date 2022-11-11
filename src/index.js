@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Resources/anim.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'react-multi-carousel/lib/styles.css';
-import "react-chat-elements/dist/main.css"
+// import "react-chat-elements/dist/main.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

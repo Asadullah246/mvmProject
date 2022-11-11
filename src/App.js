@@ -35,68 +35,89 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import WishList from './pages/Wishlist/WishList';
 import MyOrderCourses from './pages/MyOrderCourses/CourseOrder/MyOrderCourses';
 import CourseOverview from './pages/MyOrderCourses/CourseOverview/CourseOverview';
+import RequireAuth from './Components/RequireAuth';
+import { createContext } from 'react';
+import { useState } from 'react';
+import EmailVerify from './pages/EmailVerify/EmailVerify';
+import ResetPasswordVerify from './pages/ResetPasswordVerify/ResetPasswordVerify';
 // import GoogleMap from './pages/GoogleMap/GoogleMap';
 
 
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
-    
+
   },
 });
+export const MyContext = createContext("something")
 
 function App() {
+
+  const [refresh, setRefresh]=useState(false)
+  const [userEmail, setUserEmail]=useState("")
+
   return (
     <div className="App">
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
+        <MyContext.Provider value={[refresh, setRefresh,userEmail, setUserEmail]}>
 
-        <Router>
-          <Routes>
-            <Route path="/login" exact element={<Login />} />
-            <Route path="/register" exact element={<SignUp />} />
-            <Route path="/reset-password" exact element={<ResetPassword />} />
-            <Route path="/" exact element={<LandingPage />} />
-            <Route path="/community" exact element={<Community />} />
-            <Route path="/all-courses" exact element={<AllCourses />} />
-            <Route path="/full-course" exact element={<CourseFullPage />} />
-            {/* <Route path="/billing-page" exact element={<BillingPage />} /> */}
+          <Router>
+            <Routes>
 
-            {/* Product  */}
-            <Route path="/all-product" exact element={<AllProduct />} />
-            <Route path="/product-details" exact element={<ProductDetails />} />
-            <Route path="/product-wishlist" exact element={<ProductwishList />} />
-            <Route path="/product-billing-one" exact element={<ProductBillingtwo />} />
-            <Route path="/product-billing-two" exact element={<BillingPage2 />} />
-            <Route path="/service-billing-cart" exact element={<ServiceBillingPage3 />} />
-            <Route path="/billing-success" exact element={<BillingSuccess />} />
-            <Route path="/messages" exact element={<Message />} />
-            <Route path="/previous-order" exact element={<PreviousOrder />} />
-            <Route path="/notification" exact element={<Notification />} />
-            <Route path="/edit-profile" exact element={<EditProfile />} />
-            <Route path="/services" exact element={<Services />} />
-            <Route path="/my-order-products" exact element={<MyOrderProducts />} />
-            <Route path="/calling" exact element={<CallingPage />} />
-            <Route path="/message" exact element={<ChatBox />} />
-            <Route path="/calender" exact element={<Calender />} />
-            <Route path="/shopping-cart" exact element={<ShoppingCart />} />
-            <Route path="/my-order-course" exact element={<MyOrderCourses />} />
-            <Route path="/course-overview" exact element={<CourseOverview tab="course-overview" />} />
-            <Route path="/questions" exact element={<CourseOverview tab="questions" />} />
-            <Route path="/reviews" exact element={<CourseOverview tab="reviews" />} /> 
-            {/* <Route path="/map" exact element={<GoogleMap />} /> */}
+              <Route path="/login" exact element={<Login />} />
+              <Route path="/register" exact element={<SignUp />} />
+              <Route path="/email-verify" exact element={<EmailVerify />} />
+              <Route path="/reset-password-verify" exact element={<ResetPasswordVerify />} />
+              <Route path="/reset-password" exact element={<ResetPassword />} />
+              <Route path="/" exact element={<LandingPage />} />
+              {/* <Route path="/" exact element={<RequireAuth><LandingPage /></RequireAuth>} /> */}
+              <Route path="/community" exact element={<Community />} />
+              <Route path="/all-courses" exact element={<AllCourses />} />
+              <Route path="/full-course/:id" exact element={<CourseFullPage />} />
+
+              {/* <Route path="/billing-page" exact element={<BillingPage />} /> */}
+
+              {/* Product  */}
+              {/* <Route path="/all-product" exact element={<AllProduct />} /> */}
+              <Route path="/all-product" exact element={<RequireAuth><AllProduct /></RequireAuth>} />
+              <Route path="/product-details" exact element={<ProductDetails />} />
+              <Route path="/product-wishlist" exact element={<ProductwishList />} />
+              <Route path="/product-billing-one" exact element={<ProductBillingtwo />} />
+              <Route path="/product-billing-two" exact element={<BillingPage2 />} />
+              <Route path="/service-billing-cart" exact element={<ServiceBillingPage3 />} />
+              <Route path="/billing-success" exact element={<BillingSuccess />} />
+              <Route path="/messages" exact element={<Message />} />
+              <Route path="/previous-order" exact element={<PreviousOrder />} />
+              <Route path="/notification" exact element={<Notification />} />
+              <Route path="/edit-profile" exact element={<EditProfile />} />
+              <Route path="/services" exact element={<Services />} />
+              <Route path="/my-order-products" exact element={<MyOrderProducts />} />
+              <Route path="/calling" exact element={<CallingPage />} />
+              <Route path="/message" exact element={<ChatBox />} />
+              <Route path="/calender" exact element={<Calender />} />
+              <Route path="/shopping-cart" exact element={<ShoppingCart />} />
+              <Route path="/my-order-course" exact element={<MyOrderCourses />} />
+              <Route path="/course-overview" exact element={<CourseOverview tab="course-overview" />} />
+              <Route path="/questions" exact element={<CourseOverview tab="questions" />} />
+              <Route path="/reviews" exact element={<CourseOverview tab="reviews" />} />
+              {/* <Route path="/map" exact element={<GoogleMap />} /> */}
 
 
-            <Route path="/wishlist" element={<WishList></WishList>}>
-              <Route index element={<Curses />} />
-              <Route path="service" element={<Service />} />
-              <Route path="product" element={<Product />} />
-            </Route>
+              <Route path="/wishlist" element={<WishList></WishList>}>
+                <Route index element={<Curses />} />
+                <Route path="service" element={<Service />} />
+                <Route path="product" element={<Product />} />
+              </Route>
 
 
-            <Route path="/*" element={<NotFound />} />
-          </Routes>
-        </Router>
+              <Route path="/*" element={<NotFound />} />
+            </Routes>
+          </Router>
+
+
+        </MyContext.Provider>
+
 
       </ThemeProvider>
 

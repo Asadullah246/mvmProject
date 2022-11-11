@@ -25,7 +25,7 @@
 
 .priceTextShopping {
     font-size: 1.2em;
-    margin-top: 15px;
+    margin-top: 0px;
     margin-bottom: 15px;
     text-align: end;
     text-align: right;
@@ -42,12 +42,13 @@
 }
 
 .removeBtnCart{
-    border: 1px solid white;
-    padding: 6px 20px;
-    border-radius: 8px;
+    border: none;
+    /* padding: 6px 20px; */
+    /* border-radius: 8px; */
     cursor: pointer; 
-    background-color: transparent;
+    background-color: transparent; 
     color: white;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width:768px) {

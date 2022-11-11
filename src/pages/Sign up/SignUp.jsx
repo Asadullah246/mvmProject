@@ -7,6 +7,10 @@ import auth from '../../Firebase.init';
 import "../Login/Login.css"
 import "./SignUp.css"
 import Loading from '../../Components/Loading';
+import logo from "../../images/companyLogo.svg"
+import image1 from "../../images/signup/Rectangle 84.png"
+import image2 from "../../images/signup/Rectangle 83.png"
+
 
 const SignUp = () => {
 
@@ -30,19 +34,41 @@ const SignUp = () => {
     //     }
     // }, [token, from, navigate])
 
-    if (loading || gLoading || eLoading || updating) {
+    useEffect(() => {
+        if(user){
+            if (user?.emailVerified) { 
+                navigate(from, { replace: true }); 
+            }
+            else{
+                navigate("/email-verify") 
+
+            }
+
+        }
+        
+    }, [user, from, navigate])
+
+   
+  
+    useEffect(() => {
+        if (error || gError || eError || sendingError || updateError) {
+            setSignUpError(error?.message || gError?.message || eError?.message || sendingError?.message || updateError.message) 
+            return;
+        }
+    }, [error , gError , eError, sendingError, updateError ])   
+
+
+    if (loading || gLoading || eLoading || updating || sending) {
         return <Loading></Loading>
     }
-    if (error || gError || eError || updateError) {
-        return setSignUpError(error?.message || gError?.message || eError?.message)
-    }
+   
 
 
     const onSubmit = async data => {
         console.log(data.email, data.password, data.name);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        // sendEmailVerification();
+        await sendEmailVerification(); 
         setSuccess("Successfully account created and verification email sent");
     }
     const googleSignIn = () => {
@@ -50,16 +76,15 @@ const SignUp = () => {
         setSuccess("Successfully logged in with Google");
     }
 
-    const signOut = (e) => {
-        e.preventDefault()
-        auth.signOut()
-        console.log("sign outed");
-    }
+   
     const login=()=>{
         navigate("/login")
     }
 
-    console.log(user);
+    const home=()=>{
+        navigate("/") 
+    }
+
     return (
         <div>
             {/* Navbar  */}
@@ -67,8 +92,8 @@ const SignUp = () => {
             <div className='d-flex justify-content-start align-items-center p-3 navbarDiv' id='navbar'>
                 <div className='w-50 text-start '>
                     <div style={{ width: "60%", margin: "0 auto" }}>
-                        <img src="images/companyLogo.svg" alt="" style={{ width: "3rem" }} />
-                    </div>
+                        <img src={logo} alt="" style={{ width: "3rem", cursor:"pointer" }} onClick={home} /> 
+                    </div> 
                 </div>
 
                 <div>
@@ -77,19 +102,19 @@ const SignUp = () => {
             </div>
 
             {/* Body  */}
-            <h3 onClick={signOut}>logout</h3>
+            
 
-            <div className='d-flex justify-content-start align-items-center'>
+            <div className='d-flex justify-content-start align-items-start signUpSection'> 
                 <div className='w-50 ' id="imgSection">
                     {/* <div className='bgColor'></div> */}
                     <div style={{ width: "60%", margin: "0 auto" }}>
                         <h3 className='text-start mb-4'>Join our Magical services & <br /> Products World - for Free</h3>
                         <div className='d-flex justify-content-start gap-3'>
                             <div className=''>
-                                <img src="images/signup/Rectangle 84.png" alt="" id="img1" />
+                                <img src={image1} alt="" id="img1" />
                             </div>
                             <div className=''>
-                                <img src="images/signup/Rectangle 83.png" alt="" id="img2" />
+                                <img src={image2} alt="" id="img2" /> 
                             </div>
                         </div>
                     </div>
@@ -165,7 +190,7 @@ const SignUp = () => {
                         </form>
                         <p className='mb-3 mt-2 text-center'>OR</p>
                         <button className='w-100 googleLogin'><img src="images/login/google.png" alt="" className='google' onClick={googleSignIn} /> Sign up with google</button>
-                        <p className='text-center'>Already a member ? <button style={{ backgroundColor: "transparent", fontWeight: "900", color: "white" }} onClick={login} >Log in</button> here</p>
+                        <p className='text-center'>Already a member ? <button style={{ backgroundColor: "transparent", fontWeight: "900", color: "white" }} onClick={login} >Log in</button> </p>
 
                     </div>
                 </div>

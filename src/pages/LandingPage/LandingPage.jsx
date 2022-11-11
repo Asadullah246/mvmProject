@@ -13,6 +13,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import CarouselLeftButton from '../../Components/CarouselLeftButton';
 import CarouselRightButton from '../../Components/CarouselRightButton';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase.init';
 
 
 // get window dimension 
@@ -91,6 +93,9 @@ const LandingPage = () => {
     const { height, width } = useWindowDimensions()
     const [btnText, setBtnText]=useState("See more")
     const [showMore, setShowMore]=useState(true)
+    const [user]=useAuthState(auth)
+    
+    console.log(user);
 
 
     useEffect(() => {
@@ -99,6 +104,8 @@ const LandingPage = () => {
         });
         AOS.refresh();
     }, []);
+
+
 
   
 
@@ -394,7 +401,7 @@ const LandingPage = () => {
                     }
                     {
                         width > 767 ?
-                            <div className='d-flex justify-content-between align-items center arrowForService'>
+                            <div className='d-flex justify-content-between align-items-center arrowForService'>
 
                                 <CarouselLeftButton arrowLeft={serviceArrowLeft} />
                                 <CarouselRightButton arrowRight={serviceArrowRight} />
@@ -454,7 +461,7 @@ const LandingPage = () => {
                             })
                         }
                     </Carousel>
-                    <div className='d-flex justify-content-between align-items center arrowForService'>
+                    <div className='d-flex justify-content-between align-items-center arrowForService'>
                         <button className='serviceBtn' onClick={courseArrowLeft}><BsArrowLeft /></button>
                         <button className='serviceBtn' onClick={courseArrowRight}><BsArrowRight /></button>
                     </div>

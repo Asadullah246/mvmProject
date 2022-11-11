@@ -1,9 +1,30 @@
 import React from 'react';
+import "../Resources/Loading.css"
 
 const Loading = () => {
     return (
-        <div>
-            <h2 className='mt-6'>Loading...</h2>
+
+        <div className='loadingComp'>
+            <div class="center">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+
+
+
+            {/* <div className='loadingSection'>
+                <div class="ring">Loading
+                    <span className='loadingSpan'></span>
+                </div>
+            </div> */}
         </div>
     );
 };

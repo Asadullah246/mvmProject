@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../../../Components/Navbar';
 import "./ProductDetails.css"
 import productPic from "../../../images/products/Rectangle 7.png"
@@ -13,6 +13,8 @@ import Carousel from 'react-multi-carousel';
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import Footer from '../../../Components/Footer';
+import { MyContext } from '../../../App';
+import AddToCart from '../../../Components/AddToCart';
 
 const responsive = {
     desktop: {
@@ -50,6 +52,40 @@ const ProductDetails = () => {
         let classname = ".react-multiple-carousel__arrow--right"
         document.querySelector(classname).click()
     }
+
+      // add to cart 
+
+      const [refresh, setRefresh] = useContext(MyContext)
+
+    //   const AddToCart = (product, storageName) => {
+  
+    //       let previousCart = JSON.parse(localStorage.getItem(storageName))
+    //       if (previousCart) {
+    //           const exist = previousCart.find(a => a.id == product.id)
+    //           if (!exist) {
+    //               previousCart.push(product)
+    //               localStorage.setItem(storageName, JSON.stringify(previousCart))
+  
+    //           }
+    //       }
+    //       else {
+    //           let newData = []
+    //           newData.push(product)
+    //           localStorage.setItem(storageName, JSON.stringify(newData))
+    //       }
+    //       setRefresh(!refresh)
+    //   }
+
+
+    const addToWishList=()=>{
+
+    }
+
+    const addToCart=()=>{
+        AddToCart("product", "mvmProductCart") 
+        setRefresh(!refresh)
+
+    }
     return (
         <div>
             <Navbar />
@@ -80,8 +116,8 @@ const ProductDetails = () => {
                                 }} />
                         </p>
 
-                        <button className='productDetailsBtn2 '>Add to wishlist</button>
-                        <button className='productDetailsBtn '>Add to cart</button>
+                        <button className='productDetailsBtn2 ' onClick={addToWishList}>Add to wishlist</button>
+                        <button className='productDetailsBtn ' onClick={addToCart}>Add to cart</button>
 
 
                         {/* accordion  */}
@@ -139,9 +175,11 @@ const ProductDetails = () => {
                             })
                         }
                     </Carousel>
-                    <div className='d-flex justify-content-between align-items center arrowForService'>
+                    <div className='d-flex justify-content-between align-items-center arrowForService'>
                         <button className='serviceBtn' onClick={arrowLeft}><BsArrowLeft /></button>
                         <button className='serviceBtn' onClick={arrowRight}><BsArrowRight /></button>
+                     
+                        
                     </div>
             </div>
 

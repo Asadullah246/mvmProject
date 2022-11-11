@@ -17,6 +17,73 @@ import "../Resources/navbar.css"
 import { useNavigate } from 'react-router-dom';
 import { BiMenu } from "react-icons/bi";
 import { BiMenuAltRight } from "react-icons/bi";
+import { useContext } from 'react';
+import { MyContext } from '../App';
+import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import PersonIcon from '@mui/icons-material/Person';
+import AddIcon from '@mui/icons-material/Add';
+import { blue } from '@mui/material/colors';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
+import homeLogo from "../images/logo.svg"
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../Firebase.init';
+// import userImg from "../images/community/Ellipse 19.png"
+import userImg from "../images/products/Rectangle 7.png"  
+
+// function SimpleDialog(props) {
+//     const { onClose, selectedValue, open } = props;
+
+//     const handleClose = () => {
+//         onClose(selectedValue);
+//     };
+
+//     const handleListItemClick = (value) => {
+//         onClose(value);
+//     };
+
+//     return (
+//         <Dialog onClose={handleClose} open={open}>
+//             <DialogTitle>Set backup account</DialogTitle>
+//             {/* <List sx={{ pt: 0 }}>
+//           {emails.map((email) => (
+//             <ListItem button onClick={() => handleListItemClick(email)} key={email}>
+//               <ListItemAvatar>
+//                 <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
+//                   <PersonIcon />
+//                 </Avatar>
+//               </ListItemAvatar>
+//               <ListItemText primary={email} />
+//             </ListItem>
+//           ))}
+
+//           <ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
+//             <ListItemAvatar>
+//               <Avatar>
+//                 <AddIcon />
+//               </Avatar>
+//             </ListItemAvatar>
+//             <ListItemText primary="Add account" />
+//           </ListItem>
+//         </List> */}
+//             output here
+//         </Dialog>
+//     );
+// }
+
+// SimpleDialog.propTypes = {
+//     onClose: PropTypes.func.isRequired,
+//     open: PropTypes.bool.isRequired,
+//     // selectedValue: PropTypes.string.isRequired,
+// };
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -60,10 +127,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Navbar = () => {
 
+    const [user] = useAuthState(auth)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [menuStatus, setMenuStatus] = useState(true)
+    const [cartCount, setCartCount] = useState(0)
     const navigate = useNavigate()
+    const [refresh] = useContext(MyContext)
+    const [open, setOpen] = useState(false);
+    //   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+
+    // const handleClickOpen = () => {
+    //     setOpen(true);
+    // };
+
+    // const handleClose = (value) => {
+    //     setOpen(false);
+    //     // setSelectedValue(value);
+    // };
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -73,7 +154,69 @@ const Navbar = () => {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
-    }, [])
+    }, [refresh])
+
+
+    useEffect(() => {
+        let localStorageCart = localStorage.getItem("mvmCart")
+
+        if (localStorageCart) {
+            const cartData = JSON.parse(localStorageCart)
+            setCartCount(cartData.length)
+        }
+
+    }, [refresh])
+
+
+    // for search section 
+
+    const items = [
+        {
+            id: 0,
+            name: "Cobol",
+        },
+        {
+            id: 1,
+            name: "JavaScript",
+        },
+        {
+            id: 2,
+            name: "Basic",
+        },
+        {
+            id: 3,
+            name: "PHP",
+        },
+        {
+            id: 4,
+            name: "Java",
+        },
+    ];
+
+    const handleOnSearch = (string, results) => {
+        // console.log(string, results);
+    };
+
+    const handleOnHover = (result) => {
+        // console.log(result);
+    };
+
+    const handleOnSelect = (item) => {
+        // console.log(item);
+    };
+
+    const handleOnFocus = () => {
+        // console.log("Focused");
+    };
+
+    const handleOnClear = () => {
+        // console.log("Cleared");
+    };
+
+    //   end of search section functions 
+
+
+
     const handleScroll = () => {
         if (window.scrollY > 20) {
             document.querySelector("#header").setAttribute('scroll', 'true');
@@ -99,6 +242,7 @@ const Navbar = () => {
         setMobileMoreAnchorEl(event.currentTarget);
         setMenuStatus(!menuStatus)
     };
+
 
 
     const menuId = 'primary-search-account-menu';
@@ -144,7 +288,7 @@ const Navbar = () => {
         >
             <MenuItem>
                 <div className='d-flex justify-content-start align-items-center mb-3 mt-2 mt-md-4'>
-                    <img src="images/community/Ellipse 19.png" alt="" className='profileImage' />
+                    <img src={userImg} alt="" className='profileImage' />
                     <div className='text-start ms-2 profileTextMenu'>
                         <h5 className='mb-0'>Raju Mullah</h5>
                         <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
@@ -170,7 +314,7 @@ const Navbar = () => {
 
             <div className='dividerNavbar'></div>
             <MenuItem>
-                <a href="/message" className='menuLink w-100 d-block  menuitems p-0'>
+                <a href="/messages" className='menuLink w-100 d-block  menuitems p-0'>
                     <div className='w-100 d-flex justify-content-between align-items-center '>
                         <p className='mb-0'>Message</p>
                         <p className='navbarNotiCount'>01</p>
@@ -197,12 +341,12 @@ const Navbar = () => {
                 <a href="/login" className='menuLink menuitems p-0'>Order history</a>
             </MenuItem>
 
-            <div className='dividerNavbar'></div>
+            {/* <div className='dividerNavbar'></div> */}
             <MenuItem>
                 <a href="/services" className='menuLink menuitems p-0'>My service</a>
             </MenuItem>
 
-            <div className='dividerNavbar'></div>
+            {/* <div className='dividerNavbar'></div> */}
             <MenuItem>
                 <a href="/" className='menuLink menuitems p-0'>My learning</a>
             </MenuItem>
@@ -212,9 +356,10 @@ const Navbar = () => {
                 <a href="/edit-profile" className='menuLink menuitems p-0'>Edit profile</a>
             </MenuItem>
 
-            <div className='dividerNavbar'></div>
+            {/* <div className='dividerNavbar'></div> */}
             <MenuItem>
-                <a href="" className='menuLink menuitems p-0'>Logout</a>
+               
+                <button className='menuLink menuitems signoutBtn p-0' onClick={()=>auth.signOut()}>Logout</button>
             </MenuItem>
 
         </Menu>
@@ -229,60 +374,104 @@ const Navbar = () => {
     return (
         <div className='navbarSection'>
             <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom: "0" }} className=''>
-                <AppBar position="fixed" style={{ width: "100%", marginBottom: "0" }} id="header" scroll="false">
-                    <Toolbar id='navbarIs'>
-                        <img src="images/logo.svg" alt="mvm" height="100" className='py-2 cursor-pointer' onClick={home} />
+                <AppBar position="fixed" style={{ width: "100%", }} id="header" scroll="false">
+                    <Toolbar id='navbarIs' >
+                        <img src={homeLogo} alt="mvm" height="100" className='py-2 cursor-pointer logoNavbar' onClick={home} />
                         <Box sx={{ flexGrow: 1 }} />
 
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
 
                             <div className='navbarItem'>
+                                <div style={{ width: 230, margin: 20 }} className="search-div">
+                                    <ReactSearchAutocomplete
+                                        items={items}
+                                        onSearch={handleOnSearch}
+                                        onHover={handleOnHover}
+                                        onSelect={handleOnSelect}
+                                        onFocus={handleOnFocus}
+                                        onClear={handleOnClear}
+                                        styling={{ zIndex: 4 }} // To display it on top of the search box below
+                                        autoFocus
+                                    />
+                                </div>
                                 <a href="/all-product">Products</a>
                                 <a href="/">Services</a>
                                 <a href="/all-courses">Courses</a>
+
                                 <a href="/community">Community</a>
+                                {/* 
 
-
-
-                                <IconButton size="md" aria-label="show 4 new mails" color="inherit">
+                                <div className='searchBarNav'> 
+                                <IconButton size="md" aria-label="show 4 new mails" color="inherit"  onClick={handleClickOpen}>
                                     <FiSearch />
                                 </IconButton>
+                                    <SimpleDialog
+                                    className="dsd"
+                                        // selectedValue={selectedValue} 
+                                        open={open}
+                                        onClose={handleClose} 
+                                    />
+                                </div>
+                                 */}
                                 <a href="/wishlist" className='wishlistLink'><IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                     <Badge badgeContent={4} color="error">
                                         <AiOutlineHeart />
                                     </Badge>
                                 </IconButton>
                                 </a>
-                               <a href="/shopping-cart">
-                               <IconButton
-                                    size="md"
-                                    aria-label="show 17 new notifications"
-                                    color="inherit"
-                                >
-                                    <Badge badgeContent={17} color="error">
-                                        <RiShoppingCart2Line />
-                                    </Badge>
-                                </IconButton>
-                               </a>
-                                <a href="/login" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
+                                <a href="/shopping-cart">
+                                    <IconButton
+                                        size="md"
+                                        aria-label={`show ${cartCount} new notifications`}
+                                        color="inherit"
+                                    >
+                                        <Badge badgeContent={cartCount} color="error">
+                                            <RiShoppingCart2Line />
+                                        </Badge>
+                                    </IconButton>
+                                </a>
+                                {
+                                    !user &&
+                                    <a href="/login" style={{ fontWeight: "700", fontSize: "1.2em" }}>Login  <span style={{ fontSize: "1.5em", paddingLeft: "5px" }}><BsArrowRight /></span></a>
+                                }
                             </div>
 
 
                         </Box>
-                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
-                                size="md"
-                                aria-label="show more"
-                                aria-controls={mobileMenuId}
-                                aria-haspopup="true"
-                                onClick={handleMobileMenuOpen}
-                                color="inherit"
-                                className={menuStatus ? 'menu' : 'menu active'}
-                            >
-                                <div></div>
-                            </IconButton>
-                        </Box>
+                        {
+                            user ?
+                                <Box sx={{ display: { xs: 'flex' } }}>
+                                    <img src={userImg} alt="" className='profileImage' onClick={handleMobileMenuOpen} />
+                                    {/* <IconButton
+                                        size="md"
+                                        aria-label="show more"
+                                        aria-controls={mobileMenuId}
+                                        aria-haspopup="true"
+                                        onClick={handleMobileMenuOpen}
+                                        color="inherit"
+                                        className={menuStatus ? 'menu' : 'menu active'}
+                                    >
+                                        <div></div>
+                                    </IconButton> */}
+                                </Box>
+                                :
+                                <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                                    <IconButton
+                                        size="md"
+                                        aria-label="show more"
+                                        aria-controls={mobileMenuId}
+                                        aria-haspopup="true"
+                                        onClick={handleMobileMenuOpen}
+                                        color="inherit"
+                                        className={menuStatus ? 'menu' : 'menu active'}
+                                    >
+                                        <div></div>
+                                    </IconButton>
+                                </Box>
+                        }
+
+                     
                     </Toolbar>
                 </AppBar>
                 {renderMobileMenu}

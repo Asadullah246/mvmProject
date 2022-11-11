@@ -36,10 +36,10 @@ const ShoppingCart = () => {
 
            
 
-                {/* product cart  */}
+                {/* product cart  */} 
 
-                <section>
-                    <h4 className='my-3 text-start'>products Cart</h4>
+                <section style={{marginBottom:"60px"}}>
+                    <h4 className='mb-3 mt-5 text-start'>products Cart</h4>
 
 
                 {
@@ -76,19 +76,24 @@ const ShoppingCart = () => {
                                         <div>
                                             <div className='text-start ms-2 ms-md-2 ms-lg-3 shoppingpricDiv '>
                                                 <div>
-                                                <h5 className='fw-bold priceTextShopping'>  $ <span>{amount*30}</span>/hr</h5>
-                                                <p className='productId'>#4847475457</p>
+                                                <h5 className='fw-bold priceTextShopping '>  $ <span>{amount*30}</span>/hr</h5>
+                                                <p className='productId mb-0'>#4847475457</p>
                                                 </div>
+                                                <button className='mb-0 text-end removeBtnCart btnForBig' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</button>
                                                 
-                                                <div className='amount btnForBig'>
+                                                <div className='amount btnForBig'> 
                                                    
-                                                    {/* <button className='cartBtn'><img src={cart} alt="" style={{height:"1.2em", marginBottom:"5px", marginRight:"3px"}}  /> Add to cart</button> */}
-                                                    <button className='mb-0 text-end removeBtnCart' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</button>
+                                                    <button className='cartBtn'>
+                                                        {/* <img src={cart} alt="" style={{height:"", marginTop:"0px", marginRight:"3px"}}  /> */}
+                                                         Buy now</button>
+                                                 
                                                 </div>
 
 
-                                                    <div className='mb-0  gap-4 text-start' id='btnForSmall'> 
-                                                    {/* <button className='cartBtn'><img src={cart} alt="" style={{height:"1.2em", marginBottom:"5px", marginRight:"3px"}}  /> Add to cart</button> */}
+                                                    <div className='mb-0 mt-3  gap-4 text-start' id='btnForSmall'> 
+                                                    <button className='cartBtn'>
+                                                        {/* <img src={cart} alt="" style={{height:"1.2em", marginBottom:"5px", marginRight:"3px"}}  /> */}
+                                                         Buy now</button>
                                                     <button className='mb-0 text-end removeBtnCart' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</button>
                                                     </div>
                                             </div>
@@ -105,6 +110,82 @@ const ShoppingCart = () => {
                 }
 
                 </section>
+
+                {/* course carts */}
+               
+                <section style={{marginBottom:"30px"}}> 
+                    <h4 className='mb-3 mt-5 text-start'>Course Cart</h4>
+
+
+                {
+                    [...Array(2)].map(d => {
+                        return (
+                            <div className='mb-4'>
+                                <div className='serviceSection '>
+                                    <div className='d-flex justify-content-between serviceCardDiv '>
+                                        <div className='d-flex justify-content-start serviceCard'>
+                                            <div className='imgDivCourse'>
+                                                <img src={img} alt="course" className='courseImg' />
+                                            </div>
+                                            <div>
+                                                <div className='text-start ms-2 ms-md-2 ms-lg-3 shoppingTextDiv '>
+                                                    <h4 className='cartHeadingText'>Pure Botanical</h4>
+                                                    <div className='amount'>
+                                                        <p className='mb-2'>Quantity</p>
+                                                        <p className='serviceCardText mb-0'><img src={addition} alt="" className='addition' 
+                                                        onClick={(e)=>{
+                                                            e.preventDefault()
+                                                            setAmount(Number(amount)+1)
+                                                        }} /> <span>{amount}</span> <img src={sub} alt="" className='Subtraction' onClick={(e)=>{
+                                                            e.preventDefault()
+                                                            if(amount!=1){
+                                                                setAmount(Number(amount)-1)
+                                                            }
+                                                        }} /></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div>
+                                            <div className='text-start ms-2 ms-md-2 ms-lg-3 shoppingpricDiv '>
+                                                <div>
+                                                <h5 className='fw-bold priceTextShopping '>  $ <span>{amount*30}</span>/hr</h5>
+                                                <p className='productId mb-0'>#4847475457</p>
+                                                </div>
+                                                <button className='mb-0 text-end removeBtnCart btnForBig' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</button>
+                                                
+                                                <div className='amount btnForBig'> 
+                                                   
+                                                    <button className='cartBtn'>
+                                                        {/* <img src={cart} alt="" style={{height:"", marginTop:"0px", marginRight:"3px"}}  /> */}
+                                                         Buy now</button>
+                                                 
+                                                </div>
+
+
+                                                    <div className='mb-0 mt-3  gap-4 text-start' id='btnForSmall'> 
+                                                    <button className='cartBtn'>
+                                                        {/* <img src={cart} alt="" style={{height:"1.2em", marginBottom:"5px", marginRight:"3px"}}  /> */}
+                                                         Buy now</button>
+                                                    <button className='mb-0 text-end removeBtnCart' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                        )
+                    })
+                }
+
+                </section>
+               
 
                
 
