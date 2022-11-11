@@ -22,6 +22,10 @@ import sideBarIcon from "../../../images/icon.svg"
 import downArrow from "../../../images/downArrow.svg"
 import { Checkbox, Rating } from '@mui/material';
 import Footer from '../../../Components/Footer';
+import productImg from "../../../images/course/Rectangle 19 (1).png"
+import likeIcon from "../../../images/course/Vector (1).svg"
+import topSellingImg from "../../../images/course/Rectangle 19 (1).png"
+import detailsImg from "../../../images/course/Rectangle 19 (1).png"
 
 // get window dimension 
 
@@ -204,7 +208,7 @@ const AllProduct = () => {
                                        {
                                         width> 768 ?
                                         <div onClick={detailPage} className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' onMouseEnter={()=>mouseEnter(index)} onMouseLeave={mouseLeave}>
-                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                            <img src={productImg} alt="" className='w-100 productCol forScale' />
 
                                             {
                                               (priceDiv ==index) &&
@@ -221,11 +225,11 @@ const AllProduct = () => {
                                           </div>
                                             }
                                            
-                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                            <img src={likeIcon} alt="" className='likeIcon' />
                                         </div>
                                         :
                                         <div onClick={detailPage}  className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv'>
-                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                            <img src={detailsImg} alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                                 <div className='d-flex justify-content-between'>
                                                     <p className='mb-0'>Paid</p>
@@ -237,7 +241,7 @@ const AllProduct = () => {
                                                     <p className='' style={{marginBottom:"5px"}}>4.5k Reviews</p>
                                                 </div>
                                             </div>
-                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                            <img src={likeIcon} alt="" className='likeIcon' />
                                         </div>
 
                                        }
@@ -264,7 +268,7 @@ const AllProduct = () => {
                                     {
                                       width>768 ?
                                       <div onClick={detailPage} className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' onMouseEnter={()=>mouseEnter(index)} onMouseLeave={mouseLeave}>
-                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                            <img src={topSellingImg} alt="" className='w-100 productCol forScale' />
 
                                       {
                                         (priceDiv ==index) &&
@@ -283,11 +287,11 @@ const AllProduct = () => {
                                            
 
 
-                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                            <img src={likeIcon} alt="" className='likeIcon' />
                                         </div>
                                         :
                                         <div onClick={detailPage} className='col px-0 py-0 px-md-3 py-md-4 courseCard scaleDiv' >
-                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                            <img src={productImg} alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                           <div className='d-flex justify-content-between'>
                                               <p className='mb-0'>Paid</p>
@@ -295,14 +299,14 @@ const AllProduct = () => {
                                           </div>
                                           <h5 className='text-start mb-0'>Course name</h5>
                                           <div className='d-flex justify-content-start align-items-center'>
-                                              <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                              <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' /> 
                                               <p className='' style={{marginBottom:"5px"}}>4.5k Reviews</p>
                                           </div>
                                       </div>
 
 
-                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
-                                        </div>
+                                            <img src={likeIcon} alt="" className='likeIcon' />
+                                        </div> 
                                     }
                                         
                                         </>

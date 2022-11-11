@@ -36,7 +36,7 @@ import homeLogo from "../images/logo.svg"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Firebase.init';
 // import userImg from "../images/community/Ellipse 19.png"
-import userImg from "../images/products/Rectangle 7.png"  
+import userImg from "../images/products/Rectangle 7.png"
 
 // function SimpleDialog(props) {
 //     const { onClose, selectedValue, open } = props;
@@ -132,6 +132,7 @@ const Navbar = () => {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [menuStatus, setMenuStatus] = useState(true)
     const [cartCount, setCartCount] = useState(0)
+    const [wishlistCount, setWishListCount] = useState(0)
     const navigate = useNavigate()
     const [refresh] = useContext(MyContext)
     const [open, setOpen] = useState(false);
@@ -158,12 +159,52 @@ const Navbar = () => {
 
 
     useEffect(() => {
-        let localStorageCart = localStorage.getItem("mvmCart")
+        let localStorageProduct = localStorage.getItem("productmvmCart")
+        let localStorageCourse = localStorage.getItem("coursemvmCart")
 
-        if (localStorageCart) {
-            const cartData = JSON.parse(localStorageCart)
-            setCartCount(cartData.length)
+        if (localStorageProduct && localStorageCourse) {
+            const product = JSON.parse(localStorageProduct)
+            const course = JSON.parse(localStorageCourse)
+            let totalLength = Number(product.length) + Number(course.length)
+            setCartCount(totalLength)
         }
+        else if (localStorageProduct) {
+            const product = JSON.parse(localStorageProduct)
+            setCartCount(product.length)
+
+        }
+        else if (localStorageCourse) {
+            const course = JSON.parse(localStorageCourse)
+            setCartCount(course.length)
+
+        }
+
+    }, [refresh])
+    useEffect(() => {
+        
+        let localStorageCourseWishList = localStorage.getItem("coursemvmWishList")
+        let localStorageProductWishList = localStorage.getItem("productmvmWishList")
+        let localStorageServiceWishList = localStorage.getItem("servicemvmWishList")
+
+        let courseWishList = 0
+        let productWishList = 0
+        let serviceWishList = 0
+
+        if (localStorageCourseWishList) {
+            courseWishList = JSON.parse(localStorageCourseWishList).length
+        }
+        if (localStorageProductWishList) {
+            productWishList = JSON.parse(localStorageProductWishList).length
+        }
+        if (localStorageServiceWishList) {
+            serviceWishList = JSON.parse(localStorageServiceWishList).length
+        }
+
+        // console.log(courseWishList, productWishList, serviceWishList);
+
+        let wishlistTotal = courseWishList + productWishList + serviceWishList
+        setWishListCount(wishlistTotal)
+
 
     }, [refresh])
 
@@ -358,8 +399,8 @@ const Navbar = () => {
 
             {/* <div className='dividerNavbar'></div> */}
             <MenuItem>
-               
-                <button className='menuLink menuitems signoutBtn p-0' onClick={()=>auth.signOut()}>Logout</button>
+
+                <button className='menuLink menuitems signoutBtn p-0' onClick={() => auth.signOut()}>Logout</button>
             </MenuItem>
 
         </Menu>
@@ -396,7 +437,7 @@ const Navbar = () => {
                                     />
                                 </div>
                                 <a href="/all-product">Products</a>
-                                <a href="/">Services</a>
+                                {/* <a href="/">Services</a> */}
                                 <a href="/all-courses">Courses</a>
 
                                 <a href="/community">Community</a>
@@ -414,8 +455,8 @@ const Navbar = () => {
                                     />
                                 </div>
                                  */}
-                                <a href="/wishlist" className='wishlistLink'><IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                    <Badge badgeContent={4} color="error">
+                                <a href="/wishlist" className='wishlistLink'><IconButton size="large" aria-label={`show ${wishlistCount} new mails`} color="inherit">
+                                    <Badge badgeContent={wishlistCount} color="error">
                                         <AiOutlineHeart />
                                     </Badge>
                                 </IconButton>
@@ -471,7 +512,7 @@ const Navbar = () => {
                                 </Box>
                         }
 
-                     
+
                     </Toolbar>
                 </AppBar>
                 {renderMobileMenu}

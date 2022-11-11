@@ -10,6 +10,12 @@ import { useParams } from 'react-router-dom';
 import image1 from "../../images/products/Rectangle 7.png"
 import { useContext } from 'react';
 import { MyContext } from '../../App';
+import AddToCart from '../../Components/AddToCart';
+import preview from "../../images/course/eye.svg"
+import like from "../../images/course/like.svg"
+import ratingImg from "../../images/course/star.svg"
+import { FcLike } from 'react-icons/fc';
+import { IconContext } from "react-icons";
 
 
 
@@ -159,6 +165,8 @@ const CourseFullPage = () => {
     const [course, setCourse] = useState({})
     const [previewCount, setPreviewCount] = useState(4)
     const { id } = useParams()
+    const [added, setAdded] = useState(false)
+    const [liked, setLiked] = useState(false)
 
 
 
@@ -169,28 +177,33 @@ const CourseFullPage = () => {
     }, [id])
 
 
-    // add to cart 
-
     const [refresh, setRefresh] = useContext(MyContext)
 
-    const AddToCart = (product, storageName) => {
-
-        let previousCart = JSON.parse(localStorage.getItem(storageName))
+    useEffect(() => {
+        const previousCart = JSON.parse(localStorage.getItem("coursemvmCart"))
         if (previousCart) {
-            const exist = previousCart.find(a => a.id == product.id)
-            if (!exist) {
-                previousCart.push(product)
-                localStorage.setItem(storageName, JSON.stringify(previousCart))
+            const remaining = previousCart.find(a => a == course.id)
+            if (remaining) {
+                setAdded(true)
 
             }
+
         }
-        else {
-            let newData = []
-            newData.push(product)
-            localStorage.setItem(storageName, JSON.stringify(newData))
+
+    }, [course.id, refresh])
+    useEffect(() => {
+        const previousCart = JSON.parse(localStorage.getItem("coursemvmWishList"))
+        if (previousCart) {
+            const remaining = previousCart.find(a => a == course.id)
+            if (remaining) {
+                setLiked(true)
+
+            }
+
         }
-        setRefresh(!refresh)
-    }
+
+    }, [course.id, refresh])
+
 
     const arrowLeft = (e) => {
         e.preventDefault()
@@ -205,22 +218,14 @@ const CourseFullPage = () => {
 
 
     const addToCart = () => {
-        // let previousCart=JSON.parse(localStorage.getItem("mvmCart"))
-        // if(previousCart){
-        //     const exist=previousCart.find(a=>a.id==course.id)
-        //     if(! exist){
-        //         previousCart.push(course)
-        //         localStorage.setItem("mvmCart", JSON.stringify(previousCart))
+        AddToCart(course.id, "coursemvmCart")
+        setRefresh(!refresh)
 
-        //     }
-        // }
-        // else{
-        //     let newData=[]
-        //     newData.push(course)
-        //     localStorage.setItem("mvmCart", JSON.stringify(newData))
-        // }
-        // setRefresh(!refresh)  
-        AddToCart(course, "mvmCart")
+
+    }
+    const likeItem = () => {
+        AddToCart(course.id, "coursemvmWishList")
+        setRefresh(!refresh)
 
 
     }
@@ -238,11 +243,11 @@ const CourseFullPage = () => {
                             <div className="row gx-5 d-flex flex-column-reverse flex-lg-row ">
                                 <div className="col-12 col-lg-6">
                                     <h1 className='text-start courseheadLine1'>The Complete Magical  Consultation</h1>
-                                    <button className='previewBtn'><img src="../../images/course/eye.svg" alt="" className='me-3' />preview</button>
+                                    {/* <button className='previewBtn'><img src={preview} alt="" className='me-3' />preview</button> */}
 
                                     <div className='d-flex justify-content-start align-items-center gap-4 gap-md-5 flex-wrap ratingState'>
                                         <div className='text-start'>
-                                            <h4>4.5 <img src="../../images/course/star.svg" alt="" className='mb-1' /></h4>
+                                            <h4>4.5 <img src={ratingImg} alt="" className='mb-1' /></h4>
                                             <small>405k Reviews</small>
                                         </div>
                                         <div className='text-start'>
@@ -254,7 +259,19 @@ const CourseFullPage = () => {
                                             <small>Total content</small>
                                         </div>
                                         <div className='text-start'>
-                                            <button className='likeBtn'><img src="../../images/course/like.svg" alt="" /></button>
+                                            {
+                                                liked ?
+                                                    <button className='likeBtn2'>
+                                                        <FcLike />
+                                                    </button>
+                                                    :
+                                                    <button onClick={likeItem} className='likeBtn'>
+                                                        <img src={like} alt="" />
+                                                    </button>
+
+
+                                            }
+
                                         </div>
 
                                     </div>
@@ -262,14 +279,19 @@ const CourseFullPage = () => {
                                     <p className='text-start mb-0'>All Levels  Updated,  Aug 2022</p>
                                     <p className='text-start'>English <img src="images/course/sub.svg" alt="" /></p>
                                     <h4 className='text-start'>$19.99 <span className='text-muted ms-1'>$59.99</span></h4>
-                                    <button className='addToCartBtn ' onClick={addToCart}>Add to cart</button>
+                                    {
+                                        added ?
+                                            <button className='addedToCartBtn ' disabled >Added to cart</button>
+                                            :
+                                            <button className='addToCartBtn ' onClick={addToCart}>Add to cart</button>
+                                    }
 
                                 </div>
                                 <div className="col-12 col-lg-6 ">
 
                                     <div className='imgDivForCourse'>
                                         <img src={course.image} alt="" />
-                                        {/* "images/course/courseImg.png" */}
+
 
                                     </div>
 

@@ -58,6 +58,7 @@ const ProductBillingtwo = () => {
 
     const onSubmit = async data => {
         setSuccess("Successfully logged in");
+        window.location.href="/product-billing-two" 
 
     }
 

@@ -66,6 +66,7 @@ const ServiceBillingPage3 = () => {
 
     const onSubmit = async data => {
         setSuccess("Successfully logged in");
+        window.location.href="/billing-success"
 
     }
 

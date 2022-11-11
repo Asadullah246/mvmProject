@@ -75,9 +75,9 @@ const WishList = () => {
                   onClick={product}
                   >product</button>
               
-                <button className={serviceTab ?"navBtn2":"navBtn"} id='wishProduct'
+                {/* <button className={serviceTab ?"navBtn2":"navBtn"} id='wishProduct'
                   onClick={service}
-                  >Service</button>   
+                  >Service</button>    */}
              
                      
                 </div>

@@ -7,12 +7,20 @@ import dotIcon from "../../images/Ellipse.svg"
 
 const Curses = () => {
     const [amount, setAmount] = useState(2)
+    const [courseShowMore, setCourseShowMore] = useState(true)
+    const [selectedBtn, setSelectedBtn] = useState()
+
+    const seeMore = (id) => {
+        setCourseShowMore(!courseShowMore)
+        setSelectedBtn(id)
+    }
+
     return (
         <div>
             <div className='serviceDiv'>
 
                 {
-                    [...Array(6)].map(d => {
+                    [...Array(6)].map((d, index) => {
                         return (
                             <div className='mb-4'>
                                 {/* d-flex align-items-start justify-content-between  */}
@@ -22,21 +30,33 @@ const Curses = () => {
                                             <div className='imgDivCourse'>
                                                 <img src={img} alt="course" className='courseImg' />
                                             </div>
-                                            <div>
+                                            <div className='courseTextDiv'>
                                                 <div className='text-start ms-2 ms-md-2 ms-lg-3 serviceTextDiv '>
                                                     <h4 className='spiritText'>Learn  how to spiritual</h4>
                                                     <div className='amount'>
-                                                        <p className='mb-2'>You will master the Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over..You will master the Python programming language by building 100 unique projects over..</p>
+                                                        <p className='mb-2'></p>
 
-                                                        {/* add this class  */}
-                                                        {/* .text {
-                                                            overflow: hidden;
-                                                        text-overflow: ellipsis;
-                                                        display: -webkit-box;
-                                                        -webkit-line-clamp: 2; 
-                                                        line-clamp: 2;
-                                                        -webkit-box-orient: vertical;
-} */}
+                                                        {
+                                                            (!courseShowMore && (selectedBtn == index)) ?
+                                                                <>
+                                                                    <p className='serviceDesc mb-0'>You will master the Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
+                                                                    he Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
+                                                                    master the Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
+                                                                    he Python programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.
+                                                                    </p>
+                                                                    <button className='seeMoreBtnForPTag' onClick={() => seeMore(index)}>See less</button>
+
+                                                                </>
+                                                                :
+                                                                <>
+
+
+                                                                    <p className='serviceDesc2 mb-0'>You will master the Python  programming language by building 100 unique projects over.. You will master the Python programming language by building 100 unique projects over. You will master the Python programming language by building 100 unique projects over.</p>
+                                                                    <button className='seeMoreBtnForPTag' onClick={() => seeMore(index)}>See more</button>
+                                                                </>
+
+                                                        }
+
 
                                                         <div className='d-flex justify-content-start align-items-center my-3'>
                                                             <Rating name="half-rating " defaultValue={4.3} precision={0.5} className='courseRating' readOnly />

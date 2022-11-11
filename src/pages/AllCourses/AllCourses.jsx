@@ -10,6 +10,11 @@ import { createBrowserHistory } from '@remix-run/router';
 import { useHref, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import courseImg from "../../images/signup/Rectangle 85.png"
+import courseImg2 from "../../images/signup/Rectangle 83.png"
+import courseImg3 from "../../images/signup/Rectangle 84.png"
+import likeIcon from "../../images/course/Vector (1).svg" 
+import courseImg4 from "../../images/course/Rectangle 19 (1).png" 
 
 
 const responsive = {
@@ -40,7 +45,7 @@ const data =
             "id": 1,
             "name": "product 1",
             "price": 500,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "5k"
@@ -49,7 +54,7 @@ const data =
             "id": 2,
             "name": "product 2",
             "price": 400,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -58,7 +63,7 @@ const data =
             "id": 3,
             "name": "product 3",
             "price": 400,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "3k"
@@ -68,7 +73,7 @@ const data =
             "id": 4,
             "name": "product 4",
             "price": 400,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -77,7 +82,7 @@ const data =
             "id": 5,
             "name": "product 5",
             "price": 400,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "7k"
@@ -86,7 +91,7 @@ const data =
             "id": 6,
             "name": "product 6",
             "price": 900,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -95,7 +100,7 @@ const data =
             "id": 7,
             "name": "product 7",
             "price": 400,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "3k"
@@ -104,7 +109,7 @@ const data =
             "id": 8,
             "name": "product 8",
             "price": 900,
-            "image": "./images/signup/Rectangle 84.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -113,7 +118,7 @@ const data =
             "id": 9,
             "name": "product 9",
             "price": 300,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg3,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "5k"
@@ -122,7 +127,7 @@ const data =
             "id": 10,
             "name": "product 10",
             "price": 400,
-            "image": "./images/signup/Rectangle 85.png",
+            "image": courseImg,
             "paidStatus": "paid",
             "averageReview": 5,
             "reviews": "3k"
@@ -132,16 +137,16 @@ const data =
             "id": 11,
             "name": "product 11",
             "price": 400,
-            "image": "./images/signup/Rectangle 83.png",
+            "image": courseImg2,
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "3k"
         },
-        {
+        { 
             "id": 12,
             "name": "product 12",
             "price": 400,
-            "image": "./images/signup/Rectangle 84.png", 
+            "image": courseImg3, 
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
@@ -211,7 +216,7 @@ const AllCourses = () => {
                                                     <p className='mb-1 ms-2'>{d.reviews}</p>
                                                 </div>
                                             </div>
-                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                            <img src={likeIcon} alt="" className='likeIcon' />
                                         </div>
                                     )
                                 })
@@ -257,11 +262,11 @@ const AllCourses = () => {
                             [...Array(8)].map(d => {
                                 return (
                                     <div className=' px-3 py-4 courseCard scaleDiv ' >
-                                        <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                        <img src={courseImg4} alt="" className='w-100 productCol forScale' />
                                         <div className='coursePrice'>
                                             <div className='d-flex justify-content-between'>
                                                 <p>Paid</p>
-                                                <h4>$500</h4>
+                                                <h4>$500</h4> 
                                             </div>
                                             <h3 className='text-start mb-0'>Course name</h3>
                                             <div className='d-flex justify-content-start align-items-center'>
@@ -269,7 +274,7 @@ const AllCourses = () => {
                                                 <p className=''>4.5k Reviews</p>
                                             </div>
                                         </div>
-                                        <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                        <img src={likeIcon} alt="" className='likeIcon' />
                                     </div>
                                 )
                             })

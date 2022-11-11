@@ -79,13 +79,13 @@ function App() {
               {/* <Route path="/billing-page" exact element={<BillingPage />} /> */}
 
               {/* Product  */}
-              {/* <Route path="/all-product" exact element={<AllProduct />} /> */}
-              <Route path="/all-product" exact element={<RequireAuth><AllProduct /></RequireAuth>} />
+              <Route path="/all-product" exact element={<AllProduct />} />
+              {/* <Route path="/all-product" exact element={<RequireAuth><AllProduct /></RequireAuth>} /> */}
               <Route path="/product-details" exact element={<ProductDetails />} />
               <Route path="/product-wishlist" exact element={<ProductwishList />} />
               <Route path="/product-billing-one" exact element={<ProductBillingtwo />} />
               <Route path="/product-billing-two" exact element={<BillingPage2 />} />
-              <Route path="/service-billing-cart" exact element={<ServiceBillingPage3 />} />
+              <Route path="/product-billing-three" exact element={<ServiceBillingPage3 />} />
               <Route path="/billing-success" exact element={<BillingSuccess />} />
               <Route path="/messages" exact element={<Message />} />
               <Route path="/previous-order" exact element={<PreviousOrder />} />

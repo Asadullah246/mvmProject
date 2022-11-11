@@ -1,59 +1,84 @@
-.react-multiple-carousel__arrow--left, .react-multiple-carousel__arrow--right{
-    display: none;
+.react-multiple-carousel__arrow--left,
+.react-multiple-carousel__arrow--right {
+  display: none;
 }
 
 /* for carousel button  */
 
 .productArrow {
-    background-color: transparent;
-    color: white;
-    font-size: 2.3em;
-    border: none;
-    margin: 0 10px;
-    position: relative;
-  
-  }
-  
-  .btnRedEffectLeft {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: #ff000024;
-    position: absolute;
-    top: 24%;
-    left: 12%;
-    transform: translate(-50%, 0);
-  }
-  
-  .btnRedEffectRight {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: #ff000024;
-    position: absolute;
-    top: 24%;
-    right: -62%;
-    transform: translate(-50%, 0);
-  }
+  background-color: transparent;
+  color: white;
+  font-size: 2.3em;
+  border: none;
+  margin: 0 10px;
+  position: relative;
 
-  .profileImage {
-    width: 2.6em;
-    height: 2.6em; 
-    /* margin-right: 13px; */
-    margin-right: 6px;
-    border-radius: 50%; 
-    cursor: pointer; 
+}
+
+.btnRedEffectLeft {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ff000024;
+  position: absolute;
+  top: 24%;
+  left: 12%;
+  transform: translate(-50%, 0);
+}
+
+.btnRedEffectRight {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ff000024;
+  position: absolute;
+  top: 24%;
+  right: -62%;
+  transform: translate(-50%, 0);
+}
+
+.profileImage {
+  width: 2.6em;
+  height: 2.6em;
+  /* margin-right: 13px; */
+  margin-right: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.seeMoreBtnForPTag {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 0;
+}
+
+.serviceDesc {   
+
+  line-height: 1.4em; 
+ 
+
+}
+.serviceDesc2 {   
+
+  line-height: 1.4em;
+  height: 4.2em !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 3;
 }
 
 @media only screen and (max-width:768px) {
-  
+
 
   .profileImage {
-      width: 3em;
-      margin-right: 6px;
+    width: 3em;
+    margin-right: 6px;
   }
 
- 
+
 
 
 }

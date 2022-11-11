@@ -14,8 +14,10 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import "./shoppingCart.css"
 
+
 const ShoppingCart = () => {
     const [amount, setAmount]=useState(2)
+
     let date = () =>{
         let newDate = new Date()
         let date = newDate.getDate()
@@ -26,6 +28,10 @@ const ShoppingCart = () => {
         return fullDate
     }
     console.log(date());
+
+    const  proceed=()=>{
+        window.location.href="/product-billing-one" 
+    }
     
     return (
         <div>
@@ -83,17 +89,17 @@ const ShoppingCart = () => {
                                                 
                                                 <div className='amount btnForBig'> 
                                                    
-                                                    <button className='cartBtn'>
+                                                    <button className='cartBtn' onClick={proceed}>
                                                         {/* <img src={cart} alt="" style={{height:"", marginTop:"0px", marginRight:"3px"}}  /> */}
-                                                         Buy now</button>
+                                                         Proceed to buy</button>
                                                  
                                                 </div>
 
 
                                                     <div className='mb-0 mt-3  gap-4 text-start' id='btnForSmall'> 
-                                                    <button className='cartBtn'>
+                                                    <button className='cartBtn' onClick={proceed}>
                                                         {/* <img src={cart} alt="" style={{height:"1.2em", marginBottom:"5px", marginRight:"3px"}}  /> */}
-                                                         Buy now</button>
+                                                         Proceed to buy</button>
                                                     <button className='mb-0 text-end removeBtnCart' style={{ cursor: "pointer" }}> <img src={deleteIcon} alt="" style={{ height: "1.2em", marginBottom: "5px", marginRight: "3px", }} /> Remove</button>
                                                     </div>
                                             </div>

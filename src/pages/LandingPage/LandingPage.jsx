@@ -15,6 +15,13 @@ import CarouselLeftButton from '../../Components/CarouselLeftButton';
 import CarouselRightButton from '../../Components/CarouselRightButton';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
+import carouselImg1 from "../../images/landing/natural.png"
+import carouselImg2 from "../../images/landing/Rectangle 5 (2).png"
+import carouselImg3 from "../../images/landing/natural.png"
+import carouselImg4 from "../../images/landing/Rectangle 6 (1).png"
+import topSellingImg from "../../images/landing/Rectangle 19 (1).png"
+import courseImg from "../../images/course/Rectangle 19 (1).png"
+import reviewImg from "../../images/comments/Rectangle 21.png"
 
 
 // get window dimension 
@@ -91,10 +98,12 @@ const responsiveSingle = {
 const LandingPage = () => {
 
     const { height, width } = useWindowDimensions()
-    const [btnText, setBtnText]=useState("See more")
-    const [showMore, setShowMore]=useState(true)
-    const [user]=useAuthState(auth)
-    
+    const [btnText, setBtnText] = useState("See more")
+    const [showMore, setShowMore] = useState(true)
+    const [user] = useAuthState(auth)
+    const [courseShowMore, setCourseShowMore] = useState(true)
+    const [selectedBtn, setSelectedBtn] = useState()
+
     console.log(user);
 
 
@@ -107,7 +116,7 @@ const LandingPage = () => {
 
 
 
-  
+
 
     const arrowLeft = (e) => {
         e.preventDefault()
@@ -164,21 +173,26 @@ const LandingPage = () => {
         // element.style.display = "none"
     }
 
-    const showMoreText=()=>{
+    const showMoreText = () => {
         // let showMoreId=document.querySelector("#reviewUserText")
         // console.log(showMoreId);
-        if(btnText==="See more"){
+        if (btnText === "See more") {
             setBtnText("See less")
             setShowMore(!showMore)
         }
-        else{
-           
+        else {
+
             setBtnText("See more")
             setShowMore(!showMore)
-            
+
 
         }
 
+    }
+
+    const seeMore = (id) => {
+        setCourseShowMore(!courseShowMore)
+        setSelectedBtn(id)
     }
 
     return (
@@ -235,11 +249,11 @@ const LandingPage = () => {
 
                                         <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 mb-2 mb-md-3 mb-lg-4 productImages">
                                             <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
+                                                <img src={carouselImg1} alt="" className=' headerImages forScale' />
                                                 <h2 className='productName'>Product name</h2>
                                             </div>
                                             <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src="images/landing/Rectangle 5 (2).png" alt="" className=' headerImages forScale' />
+                                                <img src={carouselImg2} alt="" className=' headerImages forScale' />
                                                 <h2 className='productName'>Product name</h2>
                                             </div>
 
@@ -247,11 +261,11 @@ const LandingPage = () => {
                                         <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 productImages">
 
                                             <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src="images/landing/natural.png" alt="" className=' headerImages forScale' />
+                                                <img src={carouselImg3} alt="" className=' headerImages forScale' />
                                                 <h2 className='productName'>Product name</h2>
                                             </div>
                                             <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src="images/landing/Rectangle 6 (1).png" alt="" className='forScale headerImages' />
+                                                <img src={carouselImg4} alt="" className='forScale headerImages' />
                                                 <h2 className='productName'>Product name</h2>
                                             </div>
 
@@ -281,7 +295,7 @@ const LandingPage = () => {
                                 [...Array(6)].map(d => {
                                     return (
                                         <div className='col px-3 py-4 topSellingCard scaleDiv'>
-                                            <img src="images/landing/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                            <img src={topSellingImg} alt="" className='w-100 productCol forScale' />
                                             <div className='coursePrice'>
                                                 <div className='d-flex justify-content-between'>
                                                     <p>Paid</p>
@@ -333,17 +347,34 @@ const LandingPage = () => {
                                             return (
                                                 <>
                                                     {
-                                                        [...Array(6)].map(d => {
+                                                        [...Array(6)].map((d, index) => {
                                                             return (
                                                                 <div className='mb-4'>
 
-                                                                    <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-5'>
-                                                                        <div><h2>01</h2></div>
+                                                                    <div className='service p-3 d-flex align-items-center justify-content-center gap-1 gap-lg-4'>
+                                                                        <div><h2>{index + 1}</h2></div>
                                                                         <div className=' dividerSection'> </div>
                                                                         <div className=' divider2'> </div>
                                                                         <div className='text-start'>
                                                                             <h4>Tarot Reading</h4>
-                                                                            <p className='serviceDesc'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
+
+                                                                            {
+                                                                                (!courseShowMore && (selectedBtn == index)) ?
+                                                                                    <>
+                                                                                        <p className='serviceDesc mb-0'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
+                                                                                        <button className='seeMoreBtnForPTag' onClick={() => seeMore(index)}>See less</button>
+
+                                                                                    </>
+                                                                                    :
+                                                                                    <>
+
+
+                                                                                        <p className='serviceDesc2 mb-0'>We provide the best solution for your business planning so that it can help increase your business to be more advanced in market reach and your company’s income</p>
+                                                                                        <button className='seeMoreBtnForPTag' onClick={() => seeMore(index)}>See more</button>
+                                                                                    </>
+
+                                                                            }
+
                                                                         </div>
                                                                         <div className='text-start text-md-end priceHourly'>
                                                                             <div className='priceAndDetailsSection'>
@@ -443,7 +474,7 @@ const LandingPage = () => {
                             [...Array(12)].map(d => {
                                 return (
                                     <div className=' px-3 py-4 courseCard scaleDiv'>
-                                        <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
+                                        <img src={courseImg} alt="" className='w-100 productCol forScale' />
                                         <div className='coursePrice'>
                                             <div className='d-flex justify-content-between'>
                                                 <p>Paid</p>
@@ -520,7 +551,7 @@ const LandingPage = () => {
                         className='reviewCarousel'
                     >
                         {
-                            [...Array(10)].map((e,index) => {
+                            [...Array(10)].map((e, index) => {
                                 return (
                                     <>
                                         <div className='customerCommentDiv'>
@@ -535,7 +566,7 @@ const LandingPage = () => {
                                                 <div >
                                                     <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
                                                 </div>
-                                                <p className={showMore ?"reviewText" :"mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+                                                <p className={showMore ? "reviewText" : "mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
 
                                                 <button className='reviewShowMoreBtn' onClick={showMoreText}>{btnText}</button>
 
@@ -549,11 +580,11 @@ const LandingPage = () => {
 
                                             <div className='imgDivComment overflow-hidden'>
                                                 <div className=''>
-                                                    <img src="images/comments/Rectangle 21.png" alt="" className='commentImg' />
+                                                    <img src={reviewImg} alt="" className='commentImg' />
                                                     <div className='d-flex justify-content-between mt-4 nextCommentSection'>
-                                                        <p><span style={{ fontSize: "2.3em" }}>{index+1}</span>/10</p>
+                                                        <p><span style={{ fontSize: "2.3em" }}>{index + 1}</span>/10</p>
                                                         <div>
-                                                           
+
                                                             <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
                                                             <CarouselRightButton arrowRight={reviewCarouselRight} />
                                                         </div>

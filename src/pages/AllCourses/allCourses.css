@@ -1,11 +1,12 @@
 .courseFullPage {
     overflow-x: hidden !important;
+    margin-top: 60px;
 }
 
 .allCoursesBody {
     width: 85vw;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 130px;
 }
 
 .likeIcon {
@@ -56,6 +57,21 @@
     margin-top: 25px;
     font-weight: 600;
 }
+.addedToCartBtn {
+    background-color: transparent; 
+    border: 1px solid white;
+    /* width: 75%; */
+    padding: 15px 0;
+    font-size: 1.2em;
+    text-align: center;
+    width: 75%;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    transition: ease-in-out 0.3s;
+    margin-top: 25px;
+    font-weight: 600;
+}
 
 .ratingState {
     margin-top: 35px;
@@ -75,8 +91,27 @@
 .likeBtn {
     background-color: transparent;
     padding: 10px 12px;
-    border: 1px solid whitesmoke;
+    border: 1px solid whitesmoke; 
+   
 }
+.likeBtn2 {
+    background-color: transparent;
+    padding: 9px 11px;
+    border: 1px solid whitesmoke;  
+    margin-top: -2px; 
+   
+}
+.likeBtn2 svg  {
+   background-color: transparent;
+   width: 1.55em !important; 
+   height: 1.55em !important; 
+   
+   
+}
+/* .likeIcon{
+    color: blue !important;  
+} */
+
 
 /* previw section  */
 
@@ -127,15 +162,7 @@
     width: 0.9em;
 }
 
-.courseImg {
-    width: 100%;
-    /* height: 100% !important;  */
-    /* height: 300px; */
-}
 
-.rowDiv {
-    /* gap: 100px; */
-}
 
 .imgDivForCourse {
     margin-left: 10%;
@@ -249,9 +276,14 @@
 .serviceDiv {
     margin-top: 70px;
 }
+.courseTextDiv{
+    height: 100%; 
+    overflow: auto;
+}
 
 .courseImg {
     height: 100%;
+    max-height: 400px; 
     width: 100%;
 
 }
@@ -269,7 +301,7 @@
 .serviceSection {
     padding: 15px;
     min-height: 150px;
-    max-height: fit-content;
+    max-height: fit-content; 
     width: 100%;
     background: rgb(91, 60, 71);
     background: linear-gradient(90deg, rgb(87, 56, 66) 50%, rgb(70, 69, 122) 100%);
@@ -384,7 +416,7 @@
     .allCoursesBody {
         width: 100%;
         /* margin: 0 auto; */
-        margin-top: 70px;
+        margin-top: 130px;
     }
     .serviceCardDiv{
         flex-direction: column !important;
