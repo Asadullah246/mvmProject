@@ -5,7 +5,7 @@ import "./ChatBox.css"
 const ChatBox = () => {
     return (
         <div id='chatSection'>
-            <MessageBox
+            {/* <MessageBox
                 position='left'
                 title='Burhan'
                
@@ -13,9 +13,9 @@ const ChatBox = () => {
                 text="Hi there !"
                 date={new Date()}
                 replyButton={true}
-            />
+            /> */}
           <div style={{ color: "black", marginTop:"30px" }} >
-          <MessageBox
+          {/* <MessageBox
                 position={"right"}
                 type={"text"}
                 title={"Message Box Title"}
@@ -26,23 +26,23 @@ const ChatBox = () => {
                     message: "Nice to meet you",
                   }}
                 
-            />
+            /> */}
           </div>
-            <Input
+            {/* <Input
                 placeholder="Type here..."
                 multiline={true}
             />
-            <Button text={"Send"} onClick={() => alert("Sending...")} title="Send" />;
+            <Button text={"Send"} onClick={() => alert("Sending...")} title="Send" />; */}
 
 
-            <div className={`message ${messageClass}`}>
+            {/* <div className={`message ${messageClass}`}>
                 <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
                 <p>{text}</p>
             </div>
             <div className={`message `}>
                 <img src={'https://api.adorable.io/avatars/23/abott@adorable.png'} />
                 <p>dkfdkfj</p>
-            </div>
+            </div> */}
 
         </div>
     );
