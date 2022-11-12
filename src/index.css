@@ -24,6 +24,16 @@ code {
 a{
   text-decoration: none !important;
 }
+*::-webkit-scrollbar {
+  width: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #ef30539d;
+  border-radius: 12px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #EF3054;
+} 
 
 
 
