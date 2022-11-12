@@ -250,7 +250,7 @@ const AllProduct = () => {
                                     )
                                 })
                             }
-                        </div>
+                        </div> 
 </div>
 
 
