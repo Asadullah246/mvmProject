@@ -1,135 +1,153 @@
-/* #chatSection{
-    width: 400px;
-    min-height: 400px;
-    background-color: #fff;
-    color: black !important;
+
+.chattingSection{
+  padding: 10px;
+ 
+  overflow: auto;
+  border-radius: 10px;
+  /* overflow-y: scroll; */
+  /* display: flex;
+  flex-direction: column;  */
+  background-color: white;
+  width: 100%;
+  color: black;
+  margin-left: auto; 
+  margin-right: auto;
+  position: relative;
+  padding-bottom: 60px;
+ 
+
 }
 
-.App section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: rgb(40, 37, 53);
-  }
+.closeIcon{
+  cursor: pointer; 
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.chattingMain {
   
-  main {
-    padding: 10px;
-    height: 80vh;
-    margin: 10vh 0 10vh;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-  }
+  height : 50vh;
+  overflow: auto;
+  border-radius: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column; 
+  background-color: white;
+  width: 100%;
+  color: black;
+  margin-left: auto; 
+  margin-right: auto;
+  position: relative;
+  margin-bottom: 30px;
+ 
+}
+
+.chattingMain::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.chattingMain::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+.chattingMain::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
+.chattingForm {
+
+  position: absolute; 
+  bottom: 1%;
+  left: 2%; 
+
+  background-color: white; 
+  width: 95%;
+
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
   
-  main::-webkit-scrollbar {
-    width: 0.25rem;
-  }
+
+}
+
+
+
+
+.chattingInput {
   
-  main::-webkit-scrollbar-track {
-    background: #1e1e24;
-  }
-  
-  main::-webkit-scrollbar-thumb {
-    background: #6649b8;
-  }
-  
-  form {
-    height: 10vh;
-    position: fixed;
-    bottom: 0;
-    background-color: rgb(24, 23, 23);
-    width: 100%;
-    max-width: 728px;
-    display: flex;
-    font-size: 1.5rem;
-  }
-  
-  form button {
-    width: 20%;
-    background-color: rgb(56, 56, 143);
-  }
-  
-  
-  input {
-    line-height: 1.5;
-    width: 100%;
-    font-size: 1.5rem;
-    background: rgb(58, 58, 58);
-    color: white;
-    outline: none;
-    border: none;
-    padding: 0 10px;
-  }
-  
-  button {
-    background-color: #282c34; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 1.25rem;
-  }
-  
-  button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  
-  .sign-in {
-    color: #282c34;
-    background: white;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  
-  
-  
-  ul, li {
-    text-align: left;
-    list-style: none;
-  }
-  
-  p {
-    max-width: 500px;
-    margin-bottom: 12px;
-    line-height: 24px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    position: relative;
-    color: white;
-    text-align: center;
-  }
-  
-  .message {
-    display: flex;
-    align-items: center;
-  }
-  
-  
-  .sent {
-    flex-direction: row-reverse;
-  }
-  
-  .sent p {
-    color: white;
-    background: #0b93f6;
-    align-self: flex-end;
-  }
-  .received p {
-    background: #e5e5ea;
-    color: black;
-  }
-  
-  img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 2px 5px;
-  }
-   */
+  width: 77%;
+  font-size: 1rem;
+  background-color: #8B8B8B;
+  border-radius: 20px;
+  color: black;
+  outline: none;
+  border: none;
+  padding: 0 10px; 
+  height: 40px;
+}
+
+.chattingBtn {
+  width: 20%;
+
+  background-color: #3d0ac9; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+  border-radius: 8px !important; 
+}
+
+.chattingBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ul, li {
+  text-align: left;
+  list-style: none;
+} */
+
+.chattingPTag {
+
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 25px;
+
+  color: black;
+
+}
+
+.message {
+  display: flex !important; 
+  align-items: center; 
+ 
+}
+
+
+/* .sent {
+  flex-direction: row-reverse;
+} */
+
+/* .sent.chattingPTag{
+
+  color: black;
+
+  align-self: flex-end;
+}
+.received.chattingPTag{
+  background: #e5e5ea;
+  color: black;
+} */
+
+.chattingImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 2px 5px;
+}

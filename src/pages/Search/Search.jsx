@@ -5,16 +5,16 @@ import Footer from '../../Components/Footer';
 import Navbar from '../../Components/Navbar';
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
-import "./allCourses.css"
+import "../AllCourses/allCourses.css" 
 import { createBrowserHistory } from '@remix-run/router';
-import { useHref, useNavigate } from 'react-router-dom';
+import { useHref, useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import courseImg from "../../images/signup/Rectangle 85.png"
 import courseImg2 from "../../images/signup/Rectangle 83.png"
 import courseImg3 from "../../images/signup/Rectangle 84.png"
-import likeIcon from "../../images/course/Vector (1).svg"
-import courseImg4 from "../../images/course/Rectangle 19 (1).png"
+import likeIcon from "../../images/course/Vector (1).svg" 
+import courseImg4 from "../../images/course/Rectangle 19 (1).png" 
 
 
 const responsive = {
@@ -142,49 +142,43 @@ const data =
             "averageReview": 4.5,
             "reviews": "3k"
         },
-        {
+        { 
             "id": 12,
             "name": "product 12",
             "price": 400,
-            "image": courseImg3,
+            "image": courseImg3, 
             "paidStatus": "paid",
             "averageReview": 4.5,
             "reviews": "6k"
         }
     ]
 
-const AllCourses = () => {
+const Search = () => {
     const [page, setPage] = React.useState(1);
     const history = createBrowserHistory();
     const [courses, setCourses] = useState([])
     const navigate = useNavigate()
+    const {text}=useParams()
 
     useEffect(() => {
-        setCourses(data)
+       
+        const result=data.filter(a=>a.name.includes(text))
+        setCourses(result)
+        console.log(result);
 
-    }, [])
-
+    }, [text]) 
+   
 
 
     const handleChange = (event, value) => {
         setPage(value);
     };
 
-    const arrowLeft = (e) => {
-        e.preventDefault()
-        let classname = ".react-multiple-carousel__arrow--left"
-        document.querySelector(classname).click()
-    }
-    const arrowRight = (e) => {
-        e.preventDefault()
-        let classname = ".react-multiple-carousel__arrow--right"
-        document.querySelector(classname).click()
-    }
 
     const fullCourse = (id) => {
-        // history.push(`/full-course/${id}`)
-        navigate(`/full-course/${id}`)
-        // window.href.push(`/full-course/${id}`)
+        // navigate(`/full-course/${id}`)
+        window.location.href=`/full-course/${id}`
+        
     }
     return (
         <div>
@@ -197,81 +191,26 @@ const AllCourses = () => {
 
                 {/* all courses  */}
                 <div>
-                    <h2 className='text-start'>All Courses</h2>
+                    <h2 className='text-start'>Search results</h2>
+                    <p className='text-start'>Results for {text}</p>  
+                   {
+                    courses.length>0 ?
                     <div className="container-fluid">
-                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
-                            {
-                                courses?.map(d => {
-                                    return (
-                                        <div className='col px-3 py-4 courseCard scaleDiv' onClick={() => fullCourse(d.id)}>
-                                            <img src={d.image} alt="" className='w-100 productCol forScale' />
-                                            <div className='coursePrice'>
-                                                <div className='d-flex justify-content-between'>
-                                                    <p>{d.paidStatus}</p>
-                                                    <h5>{d.price}</h5>
-                                                </div>
-                                                <h3 className='text-start mb-0'>{d.name}</h3>
-                                                <div className='d-flex justify-content-start align-items-center'>
-                                                    <Rating name="half-rating" defaultValue={d.averageReview} precision={0.5} className='rating' />
-                                                    <p className='mb-1 ms-2'>{d.reviews}</p>
-                                                </div>
-                                            </div>
-                                            <img src={likeIcon} alt="" className='likeIcon' />
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-
-                    {/* pagination  */}
-
-                    <div className='paginationDiv'>
-                        <Stack spacing={2} className="paginationStack">
-                            {/* <Typography>Page: {page}</Typography> */}
-                            <Pagination count={10} page={page} onChange={handleChange} className="paginationText" />
-                        </Stack>
-                    </div>
-
-                    {/* top courses  */}
-                    <h2>
-                        Top Popular Courses
-                    </h2>
-
-
-                    <Carousel
-                        swipeable={false}
-                        draggable={false}
-                        // showDots={true}
-                        responsive={responsive}
-                        ssr={true} // means to render carousel on server-side.
-                        infinite={true}
-                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-
-                        autoPlaySpeed={1000}
-                        keyBoardControl={true}
-                        customTransition="all .5"
-                        transitionDuration={500}
-                        containerClass="carousel-container"
-                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                        // deviceType={this.props.deviceType}
-                        // dotListClass="custom-dot-list-style"
-                        itemClass="carousel-item-padding-40-px"
-                    >
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
                         {
-                            [...Array(8)].map(d => {
+                            courses?.map(d => {
                                 return (
-                                    <div className=' px-3 py-4 courseCard scaleDiv ' >
-                                        <img src={courseImg4} alt="" className='w-100 productCol forScale' />
+                                    <div className='col px-3 py-4 courseCard scaleDiv' onClick={() => fullCourse(d.id)}>
+                                        <img src={d.image} alt="" className='w-100 productCol forScale' />
                                         <div className='coursePrice'>
                                             <div className='d-flex justify-content-between'>
-                                                <p>Paid</p>
-                                                <h4>$500</h4>
+                                                <p>{d.paidStatus}</p>
+                                                <h5>{d.price}</h5>
                                             </div>
-                                            <h3 className='text-start mb-0'>Course name</h3>
+                                            <h3 className='text-start mb-0'>{d.name}</h3>
                                             <div className='d-flex justify-content-start align-items-center'>
-                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                <p className=''>4.5k Reviews</p>
+                                                <Rating name="half-rating" defaultValue={d.averageReview} precision={0.5} className='rating' />
+                                                <p className='mb-1 ms-2'>{d.reviews}</p>
                                             </div>
                                         </div>
                                         <img src={likeIcon} alt="" className='likeIcon' />
@@ -279,11 +218,25 @@ const AllCourses = () => {
                                 )
                             })
                         }
-                    </Carousel>
-                    <div className='d-flex justify-content-between align-items-center arrowForService'>
-                        <button className='serviceBtn' onClick={arrowLeft}><BsArrowLeft /></button>
-                        <button className='serviceBtn' onClick={arrowRight}><BsArrowRight /></button>
                     </div>
+                </div>
+                :
+                <h4 style={{marginTop:"100px"}}> 
+                    No result found
+                </h4>
+                   }
+
+                    {/* pagination  */}
+
+                    {/* <div className='paginationDiv'>
+                        <Stack spacing={2} className="paginationStack">
+                           
+                            <Pagination count={10} page={page} onChange={handleChange} className="paginationText" />
+                        </Stack>
+                    </div> */}
+
+                    {/* top courses  */}
+                   
 
 
                 </div>
@@ -292,10 +245,10 @@ const AllCourses = () => {
 
 
             <div className="container-fluid container-md">
-                <Footer />
+            <Footer />
             </div>
         </div>
     );
 };
 
-export default AllCourses;
+export default Search;

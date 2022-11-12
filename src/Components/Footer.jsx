@@ -5,6 +5,8 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 import { ImLinkedin } from "react-icons/im";
 import { GrTwitter } from "react-icons/gr";
 import { AiOutlineInstagram } from "react-icons/ai";
+import logo1 from "../images/footer/Vector (3).png"
+import logo2 from "../images/footer/Frame 38183.png" 
 
 const Footer = () => {
 
@@ -15,7 +17,7 @@ const Footer = () => {
                 <h2>Subscribe to our newsletter</h2>
                 <div className='mt-4 ' style={{ marginBottom: "80px" }}>
                     <input type="email" placeholder='Enter your email address' name="" id="" className='newsletterInput' />
-                    <button className='subscribebtn'>Subscribe</button>
+                    <button className='subscribebtn'>Subscribe</button> 
                 </div>
 
             </div>
@@ -47,17 +49,17 @@ const Footer = () => {
                             <div className='col mx-auto mb-4'>
                                 <h6 className='text-uppercase fw-bold mb-4 mt-2 mt-lg-0'>Quick Links</h6>
                                 <p>
-                                    <a href='#!' className='text-reset'>
+                                    <a href='all-product' className='text-reset'>
                                         Products
                                     </a>
                                 </p>
                                 <p>
-                                    <a href='#!' className='text-reset'>
+                                    <a href='services' className='text-reset'>
                                         Services
                                     </a>
                                 </p>
                                 <p>
-                                    <a href='#!' className='text-reset'>
+                                    <a href='all-courses' className='text-reset'>
                                         Courses
                                     </a>
                                 </p>
@@ -84,10 +86,10 @@ const Footer = () => {
                             <div className='col mx-auto mb-md-0 mb-4'>
                                 <h6 className='text-uppercase fw-bold mb-4'>Supported payment systems</h6>
                                 <div className='d-flex justify-content-start align-items-center flex-wrap gap-2 gap-md-3'>
-                                    <img src="images/footer/Vector (3).png" alt="" />
+                                    <img src={logo1} alt="" />
                                     <p className='mb-0'>VISA</p>
                                     <p className='mb-0'>stripe</p>
-                                    <img src="images/footer/Frame 38183.png" alt="" />
+                                    <img src={logo2} alt="" />
                                 </div>
                                
                             </div>

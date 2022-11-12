@@ -37,6 +37,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Firebase.init';
 // import userImg from "../images/community/Ellipse 19.png"
 import userImg from "../images/products/Rectangle 7.png"
+import { BiSearch } from 'react-icons/bi';
 
 // function SimpleDialog(props) {
 //     const { onClose, selectedValue, open } = props;
@@ -85,6 +86,34 @@ import userImg from "../images/products/Rectangle 7.png"
 // };
 
 
+// get window dimension 
+
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(
+        getWindowDimensions()
+    );
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return windowDimensions;
+}
+
+
+
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -128,6 +157,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Navbar = () => {
 
     const [user] = useAuthState(auth)
+    const { height, width } = useWindowDimensions()
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const [menuStatus, setMenuStatus] = useState(true)
@@ -235,7 +265,7 @@ const Navbar = () => {
     ];
 
     const handleOnSearch = (string, results) => {
-        // console.log(string, results);
+        console.log(string, results);
     };
 
     const handleOnHover = (result) => {
@@ -252,6 +282,13 @@ const Navbar = () => {
 
     const handleOnClear = () => {
         // console.log("Cleared");
+    };
+    const keyDown = (e) => {
+        if (e.key === 'Enter') {
+            const value=e.target.value
+            window.location.href = `/search/${value}` 
+            
+        }
     };
 
     //   end of search section functions 
@@ -332,22 +369,22 @@ const Navbar = () => {
                     <img src={userImg} alt="" className='profileImage' />
                     <div className='text-start ms-2 profileTextMenu'>
                         <h5 className='mb-0 '> {
-                            user? user.displayName
-                            :
-                            "No user"
+                            user ? user.displayName
+                                :
+                                "No user"
                         }
-                        
+
                         </h5>
                         {
                             user ?
-                            <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
-                            :
-                            <button className='loginBtnNav' onClick={()=>{
-                                window.location.href = "/login"
-                            }}>Login</button>
+                                <p className='mb-0 ' style={{ color: "#AC9DA3" }}>rbrajumullah100@gmail.com</p>
+                                :
+                                <button className='loginBtnNav' onClick={() => {
+                                    window.location.href = "/login"
+                                }}>Login</button>
 
                         }
-                        
+
                     </div>
                 </div>
             </MenuItem>
@@ -368,24 +405,48 @@ const Navbar = () => {
                 </a>
             </MenuItem>
 
-            <div className='dividerNavbar'></div>
-            <MenuItem>
-                <a href="/messages" className='menuLink w-100 d-block  menuitems p-0'>
-                    <div className='w-100 d-flex justify-content-between align-items-center '>
-                        <p className='mb-0'>Message</p>
-                        <p className='navbarNotiCount'>01</p>
-                    </div>
-                </a>
-            </MenuItem>
-            <MenuItem>
-                <a href="/notification" className='menuLink w-100 d-block  menuitems p-0'>
-                    <div className='w-100 d-flex justify-content-between align-items-center '>
-                        <p className='mb-0'>Notifications</p>
-                        <p className='navbarNotiCount'>03</p>
-                    </div>
-                </a>
-            </MenuItem>
+            {
+                user &&
+                <>
+                    <div className='dividerNavbar'></div>
+                    <MenuItem>
+                        <a href="/messages" className='menuLink w-100 d-block  menuitems p-0'>
+                            <div className='w-100 d-flex justify-content-between align-items-center '>
+                                <p className='mb-0'>Message</p>
+                                <p className='navbarNotiCount'>01</p>
+                            </div>
+                        </a>
+                    </MenuItem>
+                    <MenuItem>
+                        <a href="/notification" className='menuLink w-100 d-block  menuitems p-0'>
+                            <div className='w-100 d-flex justify-content-between align-items-center '>
+                                <p className='mb-0'>Notifications</p>
+                                <p className='navbarNotiCount'>03</p>
+                            </div>
+                        </a>
+                    </MenuItem>
+                </>
+            }
 
+            <div className='dividerNavbar'></div>
+            {
+                width <= 900 &&
+                <>
+                    <MenuItem>
+                        <a href="/all-product" className='menuLink menuitems p-0'>product</a>
+                    </MenuItem>
+                    <MenuItem>
+                        <a href="/services" className='menuLink menuitems p-0'>Services</a>
+                    </MenuItem>
+                    <MenuItem>
+                        <a href="/all-courses" className='menuLink menuitems p-0'>Courses</a>
+                    </MenuItem>
+                    <MenuItem>
+                        <a href="/community" className='menuLink menuitems p-0'>Community</a>
+                    </MenuItem>
+                </>
+
+            }
             <div className='dividerNavbar'></div>
 
 
@@ -393,35 +454,40 @@ const Navbar = () => {
                 <a href="/my-order-products" className='menuLink menuitems p-0'>My order</a>
             </MenuItem> */}
 
-            <MenuItem>
-                <a href="/previous-order" className='menuLink menuitems p-0'>Order history</a>
-            </MenuItem>
+            {
+                user &&
+                <>
+                    <MenuItem>
+                        <a href="/previous-order" className='menuLink menuitems p-0'>Order history</a>
+                    </MenuItem>
 
-            {/* <div className='dividerNavbar'></div> */}
-            <MenuItem>
-                <a href="/my-order-products" className='menuLink menuitems p-0'>My service</a>
-            </MenuItem>
+                    {/* <div className='dividerNavbar'></div> */}
+                    <MenuItem>
+                        <a href="/my-order-products" className='menuLink menuitems p-0'>My service</a>
+                    </MenuItem>
 
-            {/* <div className='dividerNavbar'></div> */}
-            <MenuItem>
-                <a href="/my-order-course" className='menuLink menuitems p-0'>My learning</a>
-            </MenuItem>
+                    {/* <div className='dividerNavbar'></div> */}
+                    <MenuItem>
+                        <a href="/my-order-course" className='menuLink menuitems p-0'>My learning</a>
+                    </MenuItem>
 
-            <div className='dividerNavbar'></div>
-            <MenuItem>
-                <a href="/edit-profile" className='menuLink menuitems p-0'>Edit profile</a>
-            </MenuItem>
+                    <div className='dividerNavbar'></div>
+                    <MenuItem>
+                        <a href="/edit-profile" className='menuLink menuitems p-0'>Edit profile</a>
+                    </MenuItem>
 
-            {/* <div className='dividerNavbar'></div> */}
-            <MenuItem>
+                    {/* <div className='dividerNavbar'></div> */}
+                    <MenuItem>
 
-                <button className='menuLink menuitems signoutBtn p-0'
-                    onClick={() => {
-                        auth.signOut()
-                        window.location.href = "/login"
-                    }}
-                >Logout</button>
-            </MenuItem>
+                        <button className='menuLink menuitems signoutBtn p-0'
+                            onClick={() => {
+                                auth.signOut()
+                                window.location.href = "/login"
+                            }}
+                        >Logout</button>
+                    </MenuItem>
+                </>
+            }
 
         </Menu>
     );
@@ -444,8 +510,8 @@ const Navbar = () => {
 
 
                             <div className='navbarItem'>
-                                <div style={{ width: 230, margin: 20 }} className="search-div">
-                                    <ReactSearchAutocomplete
+                                <div style={{ width: 230, margin: 20, position: "relative", marginRight: "32px" }} className="search-div">
+                                    {/* <ReactSearchAutocomplete
                                         items={items}
                                         onSearch={handleOnSearch}
                                         onHover={handleOnHover}
@@ -454,7 +520,12 @@ const Navbar = () => {
                                         onClear={handleOnClear}
                                         styling={{ zIndex: 4 }} // To display it on top of the search box below
                                         autoFocus
-                                    />
+                                        onKeyDown={keyDown}
+                                    /> */}
+                                    <input type="text" className='searchinput' name="" id="" style={{ borderRadius: "20px" }} onKeyDown={keyDown} />
+                                    <div className='searchIconNavbar'>
+                                        <FiSearch />
+                                    </div>
                                 </div>
                                 <a href="/all-product">Products</a>
                                 <a href="/services">Services</a>

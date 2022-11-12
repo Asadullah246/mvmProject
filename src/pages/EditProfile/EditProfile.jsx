@@ -6,10 +6,13 @@ import "./EditProfile.css"
 import editProfileImg1 from "../../images/Screenshot_163.png"
 import userImage from "../../images/comments/Rectangle 21.png"
 import Footer from '../../Components/Footer';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase.init';
 
 
 const EditProfile = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
+    const [user]=useAuthState(auth)
 
     const onSubmit = async data => {
         console.log("doing");
