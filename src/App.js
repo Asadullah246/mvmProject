@@ -42,6 +42,7 @@ import EmailVerify from './pages/EmailVerify/EmailVerify';
 import ResetPasswordVerify from './pages/ResetPasswordVerify/ResetPasswordVerify';
 import Search from './pages/Search/Search';
 // import GoogleMap from './pages/GoogleMap/GoogleMap';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 const darkTheme = createTheme({

@@ -132,7 +132,8 @@
 
 #header[scroll="true"] #navbarIs {
     transition: all .3s;
-    background-image: linear-gradient(to right, #463039, #0000006e) !important;
+    background-color: #0F141C !important;  
+    /* background-image: linear-gradient(to right, #463039, #0000006e) !important; */
 }
 
 .navbarNotiCount {
@@ -190,7 +191,7 @@
 .searchIconNavbar{
     position: absolute;
     top: 12%;
-    left: 4%;
+    left: 15%;
 }
 
 

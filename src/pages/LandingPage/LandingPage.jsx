@@ -22,6 +22,10 @@ import carouselImg4 from "../../images/landing/Rectangle 6 (1).png"
 import topSellingImg from "../../images/landing/Rectangle 19 (1).png"
 import courseImg from "../../images/course/Rectangle 19 (1).png"
 import reviewImg from "../../images/comments/Rectangle 21.png"
+import likeIcon from "../../images/course/Vector (1).svg"
+import db from '../../Firebase';
+import { LazyLoadImage } from 'react-lazy-load-image-component';  
+import videoFile from "../../Others/video3.mp4"  
 
 
 // get window dimension 
@@ -53,25 +57,47 @@ function useWindowDimensions() {
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 4,
-        slidesToSlide: 4 // optional, default to 1.
+        items: 3.5,
+        slidesToSlide: 2 // optional, default to 1.
     },
     tablet: {
         breakpoint: { max: 1024, min: 769 },
-        items: 3,
-        slidesToSlide: 3 // optional, default to 1.
+        items: 3.5,
+        slidesToSlide: 2 // optional, default to 1.
     },
     miniTablet: {
         breakpoint: { max: 768, min: 577 },
-        items: 2,
-        slidesToSlide: 2 // optional, default to 1.
+        items: 2.5,
+        slidesToSlide: 1 // optional, default to 1. 
     },
     mobile: {
         breakpoint: { max: 576, min: 0 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
+        items: 2.5,
+        slidesToSlide: 1 // optional, default to 1.  
     }
 };
+// const responsive = {
+//     desktop: {
+//         breakpoint: { max: 3000, min: 1024 },
+//         items: 4,
+//         slidesToSlide: 4 // optional, default to 1.
+//     },
+//     tablet: {
+//         breakpoint: { max: 1024, min: 769 },
+//         items: 3,
+//         slidesToSlide: 3 // optional, default to 1.
+//     },
+//     miniTablet: {
+//         breakpoint: { max: 768, min: 577 },
+//         items: 2,
+//         slidesToSlide: 2 // optional, default to 1.
+//     },
+//     mobile: {
+//         breakpoint: { max: 576, min: 0 },
+//         items: 1,
+//         slidesToSlide: 1 // optional, default to 1.
+//     }
+// };
 const responsiveSingle = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -95,6 +121,47 @@ const responsiveSingle = {
     }
 };
 
+const imagedata = [
+    {
+        image: carouselImg4,
+        name: "Lolita",
+    },
+    {
+        image: carouselImg1,
+        name: "Money Candle",
+    },
+    {
+        image: carouselImg2,
+        name: "Crown of Success",
+    },
+
+    {
+        image: carouselImg3,
+        name: "Lolita",
+    },
+    {
+        image: carouselImg4,
+        name: "Lolita",
+    },
+    {
+        image: carouselImg1,
+        name: "Lolita",
+    },
+    {
+        image: carouselImg2,
+        name: "Lolita",
+    },
+
+    {
+        image: carouselImg3,
+        name: "Lolita",
+    },
+    {
+        image: carouselImg1,
+        name: "Lolita",
+    },
+]
+
 const LandingPage = () => {
 
     const { height, width } = useWindowDimensions()
@@ -103,8 +170,13 @@ const LandingPage = () => {
     const [user] = useAuthState(auth)
     const [courseShowMore, setCourseShowMore] = useState(true)
     const [selectedBtn, setSelectedBtn] = useState()
+    const [data, setData] = useState([])
+    const [category, setCategory] = useState([])
+    const [showName, setShowName] = useState(false)
 
-    console.log(user);
+    console.log(data);
+
+    // console.log(user);
 
 
     useEffect(() => {
@@ -113,6 +185,34 @@ const LandingPage = () => {
         });
         AOS.refresh();
     }, []);
+
+    useEffect(() => {
+        db.collection('products').onSnapshot(snapshot => {
+            setData(
+                snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    data: doc.data(),
+
+                }))
+            );
+        });
+
+    }, [])
+    useEffect(() => {
+        db.collection('categories').onSnapshot(snapshot => {
+            setCategory(
+                snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    data: doc.data(),
+
+                }))
+            );
+        });
+
+    }, [])
+
+
+
 
 
 
@@ -164,14 +264,12 @@ const LandingPage = () => {
         document.querySelector(classname).click()
     }
 
-    const mouseEnter = (e) => {
-        // let element = (e.target.parentNode.lastChild);
-        // element.style.display = "block"
-    }
-    const mouseLeave = (e) => {
-        // let element = (e.target.parentNode.lastChild);
-        // element.style.display = "none"
-    }
+    // const mouseEnter = (e) => {
+    //     setShowName(true)
+    // }
+    // const mouseLeave = (e) => {
+    //     setShowName(false)
+    // }
 
     const showMoreText = () => {
         // let showMoreId=document.querySelector("#reviewUserText")
@@ -196,8 +294,24 @@ const LandingPage = () => {
     }
 
     return (
-        <div style={{ overflowX: "hidden" }}>
+        <div style={{ overflowX: "hidden" }} className="landingPage">
+            <div id='stars'></div>
+            <div id='stars2'></div>
+            <div id='stars3'></div>
+
             <div className='headerSection'>
+                <video
+                    muted
+                    autoPlay={"autoplay"}
+                    preLoad="auto"
+                    loop 
+                    className='video'>
+                    <source src={videoFile} type="video/mp4" />
+                    {/* <source src={videoFile} type="video/ogg" /> */}
+                    Your browser does not support the video tag.
+                </video>
+
+
                 <Navbar />
                 {/* Hero Section */}
                 <section id="hero">
@@ -217,20 +331,33 @@ const LandingPage = () => {
 
             <div className="container-fluid container-md bodySection">
 
+                {/* <video
+                    controls 
+                    muted
+                    autoPlay={"autoplay"} 
+                    preLoad="auto"
+                    loop
+                    className='vi'>
+                    <source src={videoFile} type="video/mp4" />
+                    <source src={videoFile} type="video/ogg" />
+                    Your browser does not support the video tag.
+                </video> */}
+
                 {/* product categories  */}
 
-                <section>
-                    <h2 className='mb-4 categoriesText pt-3'>Products Categories</h2>
+                <section style={{ marginBottom: "100px" }}>
+                    <h2 className='mb-4 categoriesText pt-3'>Top Selling Products</h2>
                     {/* carousel  */}
 
                     <Carousel
-                        swipeable={false}
-                        draggable={false}
-                        showDots={true}
-                        responsive={responsiveSingle}
+                        swipeable={true}
+                        // draggable={true}
+                        // showDots={true}
+                        responsive={responsive}
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
                         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                        // autoPlay={true} 
 
                         autoPlaySpeed={1000}
                         keyBoardControl={true}
@@ -241,53 +368,166 @@ const LandingPage = () => {
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
                         itemClass="carousel-item-padding-40-px"
+                        className='courseCarousel'
                     >
                         {
-                            [...Array(8)].map((d, index) => {
+                            data.map((d, index) => {
                                 return (
-                                    <>
+                                    <div className=' mx-2 courseCard scaleDiv'>
 
-                                        <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 mb-2 mb-md-3 mb-lg-4 productImages">
-                                            <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src={carouselImg1} alt="" className=' headerImages forScale' />
-                                                <h2 className='productName'>Product name</h2>
-                                            </div>
-                                            <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src={carouselImg2} alt="" className=' headerImages forScale' />
-                                                <h2 className='productName'>Product name</h2>
-                                            </div>
+                                        {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                        <LazyLoadImage className='w-100 productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
 
+                                        <div className='coursePrice'>
+                                            {/* <div className='d-flex justify-content-between'>
+                                               d<p>Paid</p>
+                                                <h4>$500</h4>  
+                                            </div>  */}
+                                            <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
+                                            <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
+                                            {/* <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div> */}
                                         </div>
-                                        <div style={{ width: "100%", }} className="d-flex justify-content gap-2 gap-lg-3 productImages">
+                                        {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                    </div>
+                                )
+                            })
+                        }
+                        {
+                            data.map((d, index) => {
+                                return (
+                                    <div className=' mx-2 courseCard scaleDiv'>
 
-                                            <div className='smallImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src={carouselImg3} alt="" className=' headerImages forScale' />
-                                                <h2 className='productName'>Product name</h2>
-                                            </div>
-                                            <div className='bigImage ' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
-                                                <img src={carouselImg4} alt="" className='forScale headerImages' />
-                                                <h2 className='productName'>Product name</h2>
-                                            </div>
+                                        {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                        <LazyLoadImage className='w-100 productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
 
-
+                                        <div className='coursePrice'>
+                                            {/* <div className='d-flex justify-content-between'>
+                                               d<p>Paid</p>
+                                                <h4>$500</h4>  
+                                            </div>  */}
+                                            <h4 className='text-start productNamLanding text-start'>{d.data.name}</h4>
+                                            <p className='productPriceLanding text-start'>Price : ${d.data.price}</p>
+                                            {/* <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div> */}
                                         </div>
-
-                                    </>
+                                        {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                    </div>
                                 )
                             })
                         }
                     </Carousel>
 
 
-                    <div className='btnArrowDiv'>
+
+
+                    {/* <div className='btnArrowDiv'>
                         <CarouselLeftButton arrowLeft={arrowLeft} />
                         <CarouselRightButton arrowRight={arrowRight} />
-                    </div>
+                    </div> */}
+                </section>
+
+
+                {/* product categories  */}
+
+                <section style={{ marginBottom: "0px" }}>
+                    <h2 className='mb-5 categoriesText pt-3'>Category</h2>
+                    {/* carousel  */}
+
+                    <Carousel
+                        swipeable={true}
+                        // draggable={true}
+                        showDots={true}
+                        responsive={responsive}
+                        ssr={true} // means to render carousel on server-side.
+                        infinite={true}
+                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                        // autoPlay={true} 
+
+                        autoPlaySpeed={1000}
+                        keyBoardControl={true}
+                        customTransition="all .5"
+                        transitionDuration={500}
+                        containerClass="carousel-container"
+                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                        // deviceType={this.props.deviceType}
+                        // dotListClass="custom-dot-list-style"
+                        itemClass="carousel-item-padding-40-px"
+                        className='courseCarousel'
+                    >
+                        {
+                            category.map((d, index) => {
+                                return (
+                                    <div className=' mx-2 categoryCard scaleDiv2'
+                                    //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
+                                     >
+
+                                        {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                        <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+
+                                        {
+                                            // showName &&
+                                            <div className='categoryName'>
+                                                {/* <div className='d-flex justify-content-between'>
+                                               d<p>Paid</p>
+                                                <h4>$500</h4>  
+                                            </div>  */}
+                                                <h4 className='text-start categoryNameText mb-1'>{d.data.name}</h4>
+                                                {/* <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>  */}
+                                                {/* <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div> */}
+                                            </div>
+                                        }
+                                        {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                    </div>
+                                )
+                            })
+                        }
+                        {
+                            category.map((d, index) => {
+                                return (
+                                    <div className=' mx-2 categoryCard scaleDiv2'
+                                    //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
+                                     >
+
+                                        {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                        <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+
+                                        {
+                                            // showName &&
+                                            <div className='categoryName'>
+                                                {/* <div className='d-flex justify-content-between'>
+                                               d<p>Paid</p>
+                                                <h4>$500</h4>  
+                                            </div>  */}
+                                                <h4 className='text-start categoryNameText mb-1'>{d.data.name}</h4>
+                                                {/* <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>  */}
+                                                {/* <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div> */}
+                                            </div>
+                                        }
+                                        {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                    </div>
+                                )
+                            })
+                        }
+
+                    </Carousel>
+
+
                 </section>
 
                 {/* top selling section  */}
 
-                <section id='topSelling'>
+                {/* <section id='topSelling'>
                     <h2 className='mb-3 '>Top selling products</h2>
                     <div className="container-fluid">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
@@ -313,11 +553,11 @@ const LandingPage = () => {
                             }
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* services  */}
 
-                <section id='serviceDiv'>
+                {/* <section id='serviceDiv'>
                     <h2 className='mb-3'>Services</h2>
                     {
                         width > 767 ?
@@ -330,6 +570,7 @@ const LandingPage = () => {
                                     ssr={true} // means to render carousel on server-side.
                                     infinite={true}
                                     // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                                    autoPlay={true}
 
                                     autoPlaySpeed={1000}
                                     keyBoardControl={true}
@@ -443,63 +684,85 @@ const LandingPage = () => {
                     }
 
 
-                </section>
+                </section> */}
 
-                {/* course section  */}
 
-                <section id='courseDiv'>
-                    <h2>Our Course</h2>
 
-                    <Carousel
-                        swipeable={false}
-                        draggable={false}
-                        showDots={true}
-                        responsive={responsive}
-                        ssr={true} // means to render carousel on server-side.
-                        infinite={true}
-                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
 
-                        autoPlaySpeed={1000}
-                        keyBoardControl={true}
-                        customTransition="all .5"
-                        transitionDuration={500}
-                        containerClass="carousel-container"
-                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                        // deviceType={this.props.deviceType}
-                        // dotListClass="custom-dot-list-style"
-                        itemClass="carousel-item-padding-40-px"
-                        className='courseCarousel'
-                    >
-                        {
-                            [...Array(12)].map(d => {
-                                return (
-                                    <div className=' px-3 py-4 courseCard scaleDiv'>
-                                        <img src={courseImg} alt="" className='w-100 productCol forScale' />
-                                        <div className='coursePrice'>
-                                            <div className='d-flex justify-content-between'>
-                                                <p>Paid</p>
-                                                <h4>$500</h4>
+
+
+
+
+            </div>
+
+            {/* course section  */}
+
+            <div id='container-fluid'>
+                <div id='stars'></div>
+
+                <div className="container-fluid container-md bodySection">
+                    <section id='courseDiv'>
+
+                        <h2>Our Course</h2>
+
+                        <Carousel
+                            swipeable={true}
+                            draggable={true}
+                            showDots={true}
+                            responsive={responsive}
+                            ssr={true} // means to render carousel on server-side.
+                            infinite={true}
+                            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                            // autoPlay={true} 
+
+                            autoPlaySpeed={1000}
+                            keyBoardControl={true}
+                            customTransition="all .5"
+                            transitionDuration={500}
+                            containerClass="carousel-container"
+                            removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                            // deviceType={this.props.deviceType}
+                            // dotListClass="custom-dot-list-style"
+                            itemClass="carousel-item-padding-40-px"
+                            className='courseCarousel'
+                        >
+                            {
+                                [...Array(10)].map((d, index) => {
+                                    return (
+                                        <div className=' px-3 py-4 courseCard scaleDiv'>
+                                            {
+                                                index % 2 == 0 ?
+                                                    <img src={courseImg} alt="" className='w-100 productCol forScale' />
+                                                    :
+                                                    <img src={reviewImg} alt="" className='w-100 productCol forScale' />
+                                            }
+
+
+                                            <div className='coursePrice'>
+                                                <div className='d-flex justify-content-between'>
+                                                    <p>Paid</p>
+                                                    <h4>$500</h4>
+                                                </div>
+                                                <h3 className='text-start mb-0'>Course name</h3>
+                                                <div className='d-flex justify-content-start align-items-center'>
+                                                    <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                    <p className=''>4.5k Reviews</p>
+                                                </div>
                                             </div>
-                                            <h3 className='text-start mb-0'>Course name</h3>
-                                            <div className='d-flex justify-content-start align-items-center'>
-                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                <p className=''>4.5k Reviews</p>
-                                            </div>
+                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
                                         </div>
-                                        <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
-                                    </div>
-                                )
-                            })
-                        }
-                    </Carousel>
-                    <div className='d-flex justify-content-between align-items-center arrowForService'>
-                        <button className='serviceBtn' onClick={courseArrowLeft}><BsArrowLeft /></button>
-                        <button className='serviceBtn' onClick={courseArrowRight}><BsArrowRight /></button>
-                    </div>
+                                    )
+                                })
+                            }
+                        </Carousel>
+                        <div className='d-flex justify-content-between align-items-center arrowForService'>
+                            <button className='serviceBtn' onClick={courseArrowLeft}><BsArrowLeft /></button>
+                            <button className='serviceBtn' onClick={courseArrowRight}><BsArrowRight /></button>
+                        </div>
 
 
 
-                    {/* <div className="container-fluid">
+                        {/* <div className="container-fluid">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
                             {
                                 [...Array(6)].map(d => {
@@ -523,127 +786,116 @@ const LandingPage = () => {
                             }
                         </div>
                     </div> */}
-                </section>
+                    </section>
+
+                </div>
+
+            </div>
 
 
-                {/* customer comments  */}
 
-                <section id='customerDiv'>
-                    <h2 className='mb-5'>What Our Customer Says</h2>
-                    <Carousel
-                        swipeable={false}
-                        draggable={false}
-                        // showDots={true}
-                        responsive={responsiveSingle}
-                        ssr={true} // means to render carousel on server-side.
-                        infinite={true}
-                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+            <div className='container-fluid'>
+                <div id='stars'>
 
-                        autoPlaySpeed={1000}
-                        keyBoardControl={true}
-                        customTransition="all .5"
-                        transitionDuration={500}
-                        containerClass="carousel-container"
-                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                        // deviceType={this.props.deviceType}
-                        // dotListClass="custom-dot-list-style"
-                        itemClass="carousel-item-padding-40-px"
-                        className='reviewCarousel'
-                    >
-                        {
-                            [...Array(10)].map((e, index) => {
-                                return (
-                                    <>
-                                        <div className='customerCommentDiv'>
-                                            <div className='commentDiv'>
-                                                <div className='nameForSmallDisplay'>
-                                                    <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
-                                                    <div className='d-flex justify-content-start align-items-center'>
-                                                        <p className='text-start fw-bold mb-0'>Rating : </p>
-                                                        <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
+                </div>
+                <div className="container-fluid container-md bodySection">
+                    {/* customer comments  */}
+
+                    <section id='customerDiv'>
+                        <h2 className='mb-5'>What Our Customer Says</h2>
+                        <Carousel
+                            swipeable={false}
+                            draggable={false}
+                            // showDots={true}
+                            responsive={responsiveSingle}
+                            ssr={true} // means to render carousel on server-side.
+                            infinite={true}
+                            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+
+                            autoPlaySpeed={1000}
+                            keyBoardControl={true}
+                            customTransition="all .5"
+                            transitionDuration={500}
+                            containerClass="carousel-container"
+                            removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                            // deviceType={this.props.deviceType}
+                            // dotListClass="custom-dot-list-style"
+                            itemClass="carousel-item-padding-40-px"
+                            className='reviewCarousel'
+                        >
+                            {
+                                [...Array(10)].map((e, index) => {
+                                    return (
+                                        <>
+                                            <div className='customerCommentDiv'>
+                                                <div className='commentDiv'>
+                                                    <div className='nameForSmallDisplay'>
+                                                        <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
+                                                        <div className='d-flex justify-content-start align-items-center'>
+                                                            <p className='text-start fw-bold mb-0'>Rating : </p>
+                                                            <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
+                                                        </div>
+                                                    </div>
+                                                    <div >
+                                                        <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
+                                                    </div>
+                                                    <p className={showMore ? "reviewText" : "mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+
+                                                    <button className='reviewShowMoreBtn' onClick={showMoreText}>{btnText}</button>
+
+                                                    <div className='reviewNameBigSize'>
+                                                        <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
+                                                        {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
+                                                        <h5 className='text-start'>Raju Mullah</h5>
+                                                        <p className='text-start'>UI UX Designer</p>
                                                     </div>
                                                 </div>
-                                                <div >
-                                                    <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
-                                                </div>
-                                                <p className={showMore ? "reviewText" : "mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
 
-                                                <button className='reviewShowMoreBtn' onClick={showMoreText}>{btnText}</button>
+                                                <div className='imgDivComment overflow-hidden'>
+                                                    <div className=''>
+                                                        <img src={reviewImg} alt="" className='commentImg' />
+                                                        <div className='d-flex justify-content-between mt-4 nextCommentSection'>
+                                                            <p><span style={{ fontSize: "2.3em" }}>{index + 1}</span>/10</p>
+                                                            <div>
 
-                                                <div className='reviewNameBigSize'>
-                                                    <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
-                                                    {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
-                                                    <h5 className='text-start'>Raju Mullah</h5>
-                                                    <p className='text-start'>UI UX Designer</p>
-                                                </div>
-                                            </div>
+                                                                <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
+                                                                <CarouselRightButton arrowRight={reviewCarouselRight} />
+                                                            </div>
 
-                                            <div className='imgDivComment overflow-hidden'>
-                                                <div className=''>
-                                                    <img src={reviewImg} alt="" className='commentImg' />
-                                                    <div className='d-flex justify-content-between mt-4 nextCommentSection'>
-                                                        <p><span style={{ fontSize: "2.3em" }}>{index + 1}</span>/10</p>
-                                                        <div>
-
-                                                            <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
-                                                            <CarouselRightButton arrowRight={reviewCarouselRight} />
                                                         </div>
 
                                                     </div>
-
+                                                    <div className='redBorder'></div>
                                                 </div>
-                                                <div className='redBorder'></div>
                                             </div>
-                                        </div>
-                                    </>
-                                )
-                            })
-                        }
+                                        </>
+                                    )
+                                })
+                            }
 
-                    </Carousel>
-                    {/* <div className='customerCommentDiv'>
-                        <div className='commentDiv'>
-                            <div className='nameForSmallDisplay'>
-                                <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
-                                <div className='d-flex justify-content-start align-items-center'>
-                                    <p className='text-start fw-bold mb-0'>Rating : </p>
-                                    <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
-                                </div>
-                            </div>
-                            <div >
-                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+                        </Carousel>
 
-                            <div className='reviewNameBigSize'>
-                                <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
-                                <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} />
-                                <h5 className='text-start'>Raju Mullah</h5>
-                                <p className='text-start'>UI UX Designer</p>
-                            </div>
-                        </div>
 
-                        <div className='imgDivComment'>
-                            <div className=''>
-                                <img src="images/comments/Rectangle 21.png" alt="" className='commentImg' />
-                                <div className='d-flex justify-content-between mt-4 nextCommentSection'>
-                                    <p><span style={{ fontSize: "2.3em" }}>05</span>/10</p>
-                                    <div>
-                                        <button className='commentArrow'><BsArrowLeft /></button>
-                                        <button className='commentArrow'><BsArrowRight /></button>
-                                    </div>
+                    </section>
 
-                                </div>
 
-                            </div>
-                            <div className='redBorder'></div>
-                        </div>
-                    </div> */}
-
-                </section>
-
-                <Footer />
+                </div>
             </div>
+
+
+
+
+
+
+            <div className='container-fluid'>
+                <div id='stars'></div>
+                <div className="container-fluid container-md bodySection">
+
+                    <Footer />
+                </div>
+            </div>
+
+
         </div>
     );
 };

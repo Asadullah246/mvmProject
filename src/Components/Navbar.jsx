@@ -527,7 +527,7 @@ const Navbar = () => {
                                         <FiSearch />
                                     </div>
                                 </div>
-                                <a href="/all-product">Products</a>
+                                <a href="/all-product">Products</a>  
                                 <a href="/services">Services</a>
                                 <a href="/all-courses">Courses</a>
 

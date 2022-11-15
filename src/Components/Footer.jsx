@@ -12,7 +12,8 @@ const Footer = () => {
 
     const Divider=<div className='dividerFooter'></div>
     return (
-        <div>
+        <footer > 
+            {/* <div id='stars'></div>  */}
             <div className='newsletter'>
                 <h2>Subscribe to our newsletter</h2>
                 <div className='mt-4 ' style={{ marginBottom: "80px" }}>
@@ -102,7 +103,7 @@ const Footer = () => {
                    Copyright ©2022 Mystique vedic miracles. All Rights Reserved.   
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 
