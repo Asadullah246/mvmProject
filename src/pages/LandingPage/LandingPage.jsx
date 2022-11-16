@@ -25,8 +25,8 @@ import courseImg from "../../images/course/Rectangle 19 (1).png"
 import reviewImg from "../../images/comments/Rectangle 21.png"
 import likeIcon from "../../images/course/Vector (1).svg"
 import db from '../../Firebase';
-import { LazyLoadImage } from 'react-lazy-load-image-component';  
-import videoFile from "../../Others/video3.mp4"  
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import videoFile from "../../Others/video3.mp4"
 
 
 // get window dimension 
@@ -210,7 +210,7 @@ const LandingPage = () => {
         setLoader(false)
 
     }, [])
-    
+
 
 
 
@@ -293,7 +293,7 @@ const LandingPage = () => {
         setCourseShowMore(!courseShowMore)
         setSelectedBtn(id)
     }
-    
+
     return (
         <div style={{ overflowX: "hidden" }} className="landingPage">
             <div id='stars'></div>
@@ -305,7 +305,7 @@ const LandingPage = () => {
                     muted
                     autoPlay={"autoplay"}
                     preLoad="auto"
-                    loop 
+                    loop
                     className='video'>
                     <source src={videoFile} type="video/mp4" />
                     {/* <source src={videoFile} type="video/ogg" /> */}
@@ -348,7 +348,7 @@ const LandingPage = () => {
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
                         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                        autoPlay={true} 
+                        autoPlay={true}
 
                         autoPlaySpeed={5000}
                         keyBoardControl={true}
@@ -359,43 +359,43 @@ const LandingPage = () => {
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
                         itemClass=""
-                        className='courseCarousel' 
+                        className='courseCarousel'
                     >
-                        {data.length !== 0?data.map((d, index) => {
-                                return (
-                                    <div className='courseCard scaleDiv'>
+                        {data.length !== 0 ? data.map((d, index) => {
+                            return (
+                                <div className='courseCard scaleDiv'>
 
-                                        {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
-                                        <LazyLoadImage className='productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+                                    {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                    <LazyLoadImage className='productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
 
-                                        <div className='coursePrice'>
-                                            {/* <div className='d-flex justify-content-between'>
+                                    <div className='coursePrice'>
+                                        {/* <div className='d-flex justify-content-between'>
                                                d<p>Paid</p>
                                                 <h4>$500</h4>  
                                             </div>  */}
-                                           <div>
-                                                <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
-                                                <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
-                                           </div>
-                                            {/* <div className='d-flex justify-content-start align-items-center'>
+                                        <div>
+                                            <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
+                                            <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
+                                        </div>
+                                        {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
                                             </div> */}
-                                        </div>
-                                        {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
                                     </div>
-                                )
-                            })
-                            
+                                    {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                </div>
+                            )
+                        })
+
                             : <div class="loader">
-                            <div class="loader-inner pacman">
-                              <div></div>
-                              <div></div>
-                              <div></div>
-                              <div></div>
-                              <div></div>
+                                <div class="loader-inner pacman">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
                             </div>
-                          </div>
                         }
                         {
                             data.map((d, index) => {
@@ -413,7 +413,7 @@ const LandingPage = () => {
                                             <div>
                                                 <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
                                                 <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
-                                           </div>
+                                            </div>
                                             {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
@@ -455,19 +455,19 @@ const LandingPage = () => {
                         removeArrowOnDeviceType={["miniTablet", "mobile"]}
                         className='courseCarousel'
                         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                        autoPlay={true} 
+                        autoPlay={true}
                         autoPlaySpeed={5000}
                         customTransition="all .3"
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
                         itemClass=""
                     >
-                        {category.length!==0?
+                        {category.length !== 0 ?
                             category.map((d, index) => {
                                 return (
                                     <div className='categoryCard scaleDiv2'
                                     //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
-                                     >
+                                    >
 
                                         {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
                                         <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
@@ -492,21 +492,21 @@ const LandingPage = () => {
                                 )
                             })
                             : <div class="loader">
-                            <div class="loader-inner pacman">
-                              <div></div>
-                              <div></div>
-                              <div></div>
-                              <div></div>
-                              <div></div>
+                                <div class="loader-inner pacman">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
                             </div>
-                          </div>
                         }
                         {
                             category.map((d, index) => {
                                 return (
                                     <div className='categoryCard scaleDiv2'
                                     //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
-                                     >
+                                    >
 
                                         {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
                                         <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
@@ -698,106 +698,98 @@ const LandingPage = () => {
 
                 </section> */}
 
-
-
-
-
-
-
-
             </div>
+
 
             {/* course section  */}
 
             <div id='container-fluid'>
                 <div id='stars'></div>
 
-                <div className="container-fluid container-md bodySection">
+                <div className="container-fluid container-md ">
                     <section id='courseDiv'>
 
-                        <h2>Our Course</h2>
+                        <h2 className='mb-3'>Our Course</h2>
 
                         <Carousel
                             swipeable={true}
                             draggable={true}
-                            showDots={true}
+                            // showDots={true}
                             responsive={responsive}
                             ssr={true} // means to render carousel on server-side.
                             infinite={true}
                             // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                            // autoPlay={true} 
+                            autoPlay={true}
 
-                            autoPlaySpeed={1000}
+                            autoPlaySpeed={5000}
                             keyBoardControl={true}
-                            customTransition="all .5"
+                            customTransition="all .3"
                             transitionDuration={500}
                             containerClass="carousel-container"
                             removeArrowOnDeviceType={["miniTablet", "mobile"]}
                             // deviceType={this.props.deviceType}
                             // dotListClass="custom-dot-list-style"
-                            itemClass="carousel-item-padding-40-px"
+                            itemClass=""
                             className='courseCarousel'
                         >
                             {
-                                [...Array(10)].map((d, index) => {
-                                    return (
-                                        <div className=' px-3 py-4 courseCard scaleDiv'>
-                                            {
-                                                index % 2 == 0 ?
-                                                    <img src={courseImg} alt="" className='w-100 productCol forScale' />
-                                                    :
-                                                    <img src={reviewImg} alt="" className='w-100 productCol forScale' />
-                                            }
+                                (courseImg && reviewImg) ?
+                                    [...Array(10)].map((d, index) => {
+                                        return (
+                                            <div className='courseCard scaleDiv'>
 
 
-                                            <div className='coursePrice'>
-                                                <div className='d-flex justify-content-between'>
-                                                    <p>Paid</p>
-                                                    <h4>$500</h4>
+                                                {
+                                                    index % 2 == 0 ?
+
+                                                        <LazyLoadImage className='productCol forScale ' src={courseImg} alt={"image"} effect="blur" />
+                                                        :
+
+                                                        <LazyLoadImage className='productCol forScale ' src={reviewImg} alt={"image"} effect="blur" />
+                                                }
+
+                                                <div className='coursePrice'>
+                                                    {/* <div className='d-flex justify-content-between'>
+                                               d<p>Paid</p>
+                                                <h4>$500</h4>  
+                                            </div>  */}
+                                                    <div>
+                                                        {
+                                                            index % 2 == 0 ?
+                                                                <h4 className='text-start productNamLanding mb-1'>{"Lolita"}</h4>
+                                                                :
+                                                                <h4 className='text-start productNamLanding mb-1'>{"Money Candle"}</h4>
+                                                        }
+                                                        <p className='productPriceLanding text-start mb-0'>Price : ${"300"}</p> 
+                                                    </div>
+                                                    {/* <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div> */}
                                                 </div>
-                                                <h3 className='text-start mb-0'>Course name</h3>
-                                                <div className='d-flex justify-content-start align-items-center'>
-                                                    <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                    <p className=''>4.5k Reviews</p>
-                                                </div>
+                                                {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
                                             </div>
-                                            <img src="images/course/Vector (1).svg" alt="" className='likeIcon' />
+                                        )
+                                    })
+
+                                    : <div class="loader">
+                                        <div class="loader-inner pacman">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
                                         </div>
-                                    )
-                                })
+                                    </div>
                             }
+
                         </Carousel>
-                        <div className='d-flex justify-content-between align-items-center arrowForService'>
-                            <button className='serviceBtn' onClick={courseArrowLeft}><BsArrowLeft /></button>
-                            <button className='serviceBtn' onClick={courseArrowRight}><BsArrowRight /></button>
-                        </div>
 
 
 
-                        {/* <div className="container-fluid">
-                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
-                            {
-                                [...Array(6)].map(d => {
-                                    return (
-                                        <div className='col px-3 py-4 courseCard scaleDiv'>
-                                            <img src="images/course/Rectangle 19 (1).png" alt="" className='w-100 productCol forScale' />
-                                            <div className='coursePrice'>
-                                                <div className='d-flex justify-content-between'>
-                                                    <p>Paid</p>
-                                                    <h4>$500</h4>
-                                                </div>
-                                                <h3 className='text-start mb-0'>Course name</h3>
-                                                <div className='d-flex justify-content-start align-items-center'>
-                                                    <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                    <p className=''>4.5k Reviews</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div> */}
+
+
+
                     </section>
 
                 </div>
@@ -833,7 +825,7 @@ const LandingPage = () => {
                             // deviceType={this.props.deviceType}
                             // dotListClass="custom-dot-list-style"
                             itemClass="carousel-item-padding-40-px"
-                            // className='reviewCarousel'
+                            className='reviewCarousel'
                         >
                             {
                                 [...Array(10)].map((e, index) => {

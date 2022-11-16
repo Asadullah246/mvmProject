@@ -169,6 +169,11 @@
   }
 }
 
+.reviewCarousel .react-multiple-carousel__arrow--left , .reviewCarousel .react-multiple-carousel__arrow--right{ 
+  display: none !important; 
+}
+
+
 
 
 /* h2 {
@@ -750,7 +755,7 @@ text set in the data-text attribute. */
 #topSelling,
 #courseDiv,
 #customerDiv {
-  margin-top: 177px;
+  margin-top: 50px;  
 }
 
 #serviceDiv {
