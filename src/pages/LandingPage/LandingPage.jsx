@@ -331,17 +331,7 @@ const LandingPage = () => {
 
             <div className="container-fluid container-md bodySection">
 
-                {/* <video
-                    controls 
-                    muted
-                    autoPlay={"autoplay"} 
-                    preLoad="auto"
-                    loop
-                    className='vi'>
-                    <source src={videoFile} type="video/mp4" />
-                    <source src={videoFile} type="video/ogg" />
-                    Your browser does not support the video tag.
-                </video> */}
+
 
                 {/* product categories  */}
 
@@ -359,7 +349,7 @@ const LandingPage = () => {
                         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
                         // autoPlay={true} 
 
-                        autoPlaySpeed={1000}
+                        autoPlaySpeed={2000}
                         keyBoardControl={true}
                         customTransition="all .5"
                         transitionDuration={500}
@@ -368,7 +358,9 @@ const LandingPage = () => {
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
                         itemClass="carousel-item-padding-40-px"
-                        className='courseCarousel'
+                        className='courseCarousel' 
+                        
+                        
                     >
                         {
                             data.map((d, index) => {
@@ -821,7 +813,7 @@ const LandingPage = () => {
                             // deviceType={this.props.deviceType}
                             // dotListClass="custom-dot-list-style"
                             itemClass="carousel-item-padding-40-px"
-                            className='reviewCarousel'
+                            // className='reviewCarousel'
                         >
                             {
                                 [...Array(10)].map((e, index) => {
