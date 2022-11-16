@@ -503,8 +503,8 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1 }} style={{ width: "100%", marginBottom: "0" }} className=''>
                 <AppBar position="fixed" style={{ width: "100%", }} id="header" scroll="false">
                     <Toolbar id='navbarIs' >
-                        <img src={homeLogo} alt="mvm" height="100" className='py-2 cursor-pointer logoNavbar' onClick={home} />
-                        <Box sx={{ flexGrow: 1 }} />
+                        <img src={homeLogo} alt="mvm" height="60" className='py-2 cursor-pointer logoNavbar' onClick={home} />
+                        <Box sx={{ flexGrow: 1 }} /> 
 
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
