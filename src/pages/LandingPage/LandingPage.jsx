@@ -11,6 +11,7 @@ import Footer from '../../Components/Footer';
 import Carousel from 'react-multi-carousel';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./loader.css";
 import CarouselLeftButton from '../../Components/CarouselLeftButton';
 import CarouselRightButton from '../../Components/CarouselRightButton';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -57,22 +58,22 @@ function useWindowDimensions() {
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3.5,
+        items: 6,
         slidesToSlide: 2 // optional, default to 1.
     },
     tablet: {
         breakpoint: { max: 1024, min: 769 },
-        items: 3.5,
+        items: 4,
         slidesToSlide: 2 // optional, default to 1.
     },
     miniTablet: {
         breakpoint: { max: 768, min: 577 },
-        items: 2.5,
+        items: 3,
         slidesToSlide: 1 // optional, default to 1. 
     },
     mobile: {
         breakpoint: { max: 576, min: 0 },
-        items: 2.5,
+        items: 3,
         slidesToSlide: 1 // optional, default to 1.  
     }
 };
@@ -173,8 +174,9 @@ const LandingPage = () => {
     const [data, setData] = useState([])
     const [category, setCategory] = useState([])
     const [showName, setShowName] = useState(false)
+    const [loader, setLoader] = useState(true)
 
-    console.log(data);
+    // console.log(data);
 
     // console.log(user);
 
@@ -187,18 +189,15 @@ const LandingPage = () => {
     }, []);
 
     useEffect(() => {
+        setLoader(true)
         db.collection('products').onSnapshot(snapshot => {
             setData(
                 snapshot.docs.map(doc => ({
                     id: doc.id,
                     data: doc.data(),
-
                 }))
             );
         });
-
-    }, [])
-    useEffect(() => {
         db.collection('categories').onSnapshot(snapshot => {
             setCategory(
                 snapshot.docs.map(doc => ({
@@ -208,8 +207,10 @@ const LandingPage = () => {
                 }))
             );
         });
+        setLoader(false)
 
     }, [])
+    
 
 
 
@@ -292,7 +293,7 @@ const LandingPage = () => {
         setCourseShowMore(!courseShowMore)
         setSelectedBtn(id)
     }
-
+    
     return (
         <div style={{ overflowX: "hidden" }} className="landingPage">
             <div id='stars'></div>
@@ -335,48 +336,47 @@ const LandingPage = () => {
 
                 {/* product categories  */}
 
-                <section style={{ marginBottom: "100px" }}>
+                <section className="my-3">
                     <h2 className='mb-4 categoriesText pt-3'>Top Selling Products</h2>
                     {/* carousel  */}
 
                     <Carousel
                         swipeable={true}
-                        // draggable={true}
+                        draggable={true}
                         // showDots={true}
                         responsive={responsive}
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
                         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                        // autoPlay={true} 
+                        autoPlay={true} 
 
-                        autoPlaySpeed={2000}
+                        autoPlaySpeed={5000}
                         keyBoardControl={true}
-                        customTransition="all .5"
+                        customTransition="all .3"
                         transitionDuration={500}
                         containerClass="carousel-container"
                         removeArrowOnDeviceType={["miniTablet", "mobile"]}
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
-                        itemClass="carousel-item-padding-40-px"
+                        itemClass=""
                         className='courseCarousel' 
-                        
-                        
                     >
-                        {
-                            data.map((d, index) => {
+                        {data.length !== 0?data.map((d, index) => {
                                 return (
-                                    <div className=' mx-2 courseCard scaleDiv'>
+                                    <div className='courseCard scaleDiv'>
 
                                         {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
-                                        <LazyLoadImage className='w-100 productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+                                        <LazyLoadImage className='productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
 
                                         <div className='coursePrice'>
                                             {/* <div className='d-flex justify-content-between'>
                                                d<p>Paid</p>
                                                 <h4>$500</h4>  
                                             </div>  */}
-                                            <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
-                                            <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
+                                           <div>
+                                                <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
+                                                <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
+                                           </div>
                                             {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
@@ -386,11 +386,21 @@ const LandingPage = () => {
                                     </div>
                                 )
                             })
+                            
+                            : <div class="loader">
+                            <div class="loader-inner pacman">
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                            </div>
+                          </div>
                         }
                         {
                             data.map((d, index) => {
                                 return (
-                                    <div className=' mx-2 courseCard scaleDiv'>
+                                    <div className='courseCard scaleDiv'>
 
                                         {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
                                         <LazyLoadImage className='w-100 productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
@@ -400,8 +410,10 @@ const LandingPage = () => {
                                                d<p>Paid</p>
                                                 <h4>$500</h4>  
                                             </div>  */}
-                                            <h4 className='text-start productNamLanding text-start'>{d.data.name}</h4>
-                                            <p className='productPriceLanding text-start'>Price : ${d.data.price}</p>
+                                            <div>
+                                                <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
+                                                <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
+                                           </div>
                                             {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
@@ -426,35 +438,34 @@ const LandingPage = () => {
 
                 {/* product categories  */}
 
-                <section style={{ marginBottom: "0px" }}>
+                <section className="my-3">
                     <h2 className='mb-5 categoriesText pt-3'>Category</h2>
                     {/* carousel  */}
 
                     <Carousel
                         swipeable={true}
-                        // draggable={true}
-                        showDots={true}
+                        draggable={true}
+                        // showDots={this.props.deviceType !== "mobile" ? true : false}
                         responsive={responsive}
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
-                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                        // autoPlay={true} 
-
-                        autoPlaySpeed={1000}
                         keyBoardControl={true}
-                        customTransition="all .5"
                         transitionDuration={500}
                         containerClass="carousel-container"
                         removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                        className='courseCarousel'
+                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                        autoPlay={true} 
+                        autoPlaySpeed={5000}
+                        customTransition="all .3"
                         // deviceType={this.props.deviceType}
                         // dotListClass="custom-dot-list-style"
-                        itemClass="carousel-item-padding-40-px"
-                        className='courseCarousel'
+                        itemClass=""
                     >
-                        {
+                        {category.length!==0?
                             category.map((d, index) => {
                                 return (
-                                    <div className=' mx-2 categoryCard scaleDiv2'
+                                    <div className='categoryCard scaleDiv2'
                                     //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
                                      >
 
@@ -480,11 +491,20 @@ const LandingPage = () => {
                                     </div>
                                 )
                             })
+                            : <div class="loader">
+                            <div class="loader-inner pacman">
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                            </div>
+                          </div>
                         }
                         {
                             category.map((d, index) => {
                                 return (
-                                    <div className=' mx-2 categoryCard scaleDiv2'
+                                    <div className='categoryCard scaleDiv2'
                                     //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
                                      >
 

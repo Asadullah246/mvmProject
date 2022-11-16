@@ -32,7 +32,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
 import { blue } from '@mui/material/colors';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
-import homeLogo from "../images/logo.svg"
+import homeLogo from "../images/logoname.png"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Firebase.init';
 // import userImg from "../images/community/Ellipse 19.png"
