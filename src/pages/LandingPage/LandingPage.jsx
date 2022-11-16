@@ -31,7 +31,7 @@ import videoFile2 from "../../Others/video3.mp4"
 
 // const videoFile = React.lazy(() => import('../../Others/video3.mp4')); 
 
-const VideoFile = React.lazy(() => import("../../Components/Video")); 
+const VideoFile = React.lazy(() => import("../../Components/Video.jsx"));  
 
 
 // get window dimension 
@@ -447,6 +447,18 @@ const LandingPage = () => {
                         <CarouselRightButton arrowRight={arrowRight} />
                     </div> */}
                         </section>
+
+                        {/* <div className='container-loader'>
+                        <div className='loader'>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--text'></div>
+                        </div>
+                    </div>  */}
 
 
                         {/* product categories  */}
