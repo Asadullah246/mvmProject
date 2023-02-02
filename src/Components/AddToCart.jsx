@@ -1,7 +1,4 @@
 
-
-
-
 const AddToCart=( id, storageName)=>{
  
     let previousCart=JSON.parse(localStorage.getItem(storageName))

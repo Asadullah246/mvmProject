@@ -27,11 +27,13 @@ import likeIcon from "../../images/course/Vector (1).svg"
 import db from '../../Firebase';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import videoFile2 from "../../Others/video3.mp4" 
+import videoFile2 from "../../Others/video3.mp4"
+import posterImg from "../../Others/poster.png" 
+// import { LazyVideo } from 'react-lazy-media';
 
 // const videoFile = React.lazy(() => import('../../Others/video3.mp4')); 
 
-const VideoFile = React.lazy(() => import("../../Components/Video.jsx"));  
+// const VideoFile = React.lazy(() => import("../../Components/Video.jsx"));  
 
 
 // get window dimension 
@@ -301,8 +303,9 @@ const LandingPage = () => {
 
     return (
         <>
-            <Suspense
-                fallback={
+            {
+                !videoFile2 ?
+
                     <div className='container-loader'>
                         <div className='loader'>
                             <div className='loader--dot'></div>
@@ -313,110 +316,95 @@ const LandingPage = () => {
                             <div className='loader--dot'></div>
                             <div className='loader--text'></div>
                         </div>
-                    </div>}
-            >
-
-                <div style={{ overflowX: "hidden" }} className="landingPage">
-                    <div id='stars'></div>
-                    <div id='stars2'></div>
-                    <div id='stars3'></div>
-
-                    <div className='headerSection'>
-                        <VideoFile/>  
-                       
-
-
-                        <Navbar />
-                        {/* Hero Section */}
-                        <section id="hero">
-                            <div className='container'>
-                                <div className='headingDiv' data-aos="zoom-out-down">
-                                    <h1 style={{ marginBottom: "20px" }} data-text="
-                       Equip yourself with magical power" className='glitch'>Equip yourself with magical power</h1>
-                                    <p className='mb-5 sub'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
-                                    <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
-                                    <p style={{ fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
-                                </div>
-                            </div>
-                        </section>
                     </div>
+                    :
+                    <div style={{ overflowX: "hidden" }} className="landingPage">
+                        <div id='stars'></div>
+                        <div id='stars2'></div>
+                        <div id='stars3'></div>
 
-                    {/* body section  */}
+                        <div className='headerSection'>
+                            {/* <VideoFile/>   */}
 
-                    <div className="container-fluid container-md bodySection">
+                            {/* <LazyVideo
+                            muted={true}
+                            autoPlay={true}
+                            preLoad={true}
+                            loop={true} 
+                            controls={false}  
+                            classes={['myLazyVideo video']} 
+                                src={videoFile2}>
+
+                            </LazyVideo>   */}
+
+                            <video
+                                muted
+                                autoPlay={"autoplay"}
+                                preLoad="auto"
+                                loop
+                                poster={posterImg} 
+                                className='video'>
+                                <source src={videoFile2} type="video/mp4" />
+                                {/* <source src={videoFile2} type="video/ogg" /> */}
+                                Your browser does not support the video tag.
+                            </video>
 
 
 
-                        {/* product categories  */}
-
-                        <section className="my-3">
-                            <h2 className='mb-4 categoriesText pt-3'>Top Selling Products</h2>
-                            {/* carousel  */}
-
-                            <Carousel
-                                swipeable={true}
-                                draggable={true}
-                                // showDots={true}
-                                responsive={responsive}
-                                ssr={true} // means to render carousel on server-side.
-                                infinite={true}
-                                // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                                autoPlay={true}
-
-                                autoPlaySpeed={5000}
-                                keyBoardControl={true}
-                                customTransition="all .3"
-                                transitionDuration={500}
-                                containerClass="carousel-container"
-                                removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                                // deviceType={this.props.deviceType}
-                                // dotListClass="custom-dot-list-style"
-                                itemClass=""
-                                className='courseCarousel'
-                            >
-                                {data.length !== 0 ? data.map((d, index) => {
-                                    return (
-                                        <div className='courseCard scaleDiv'>
-
-                                            {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
-                                            <LazyLoadImage className='productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
-
-                                            <div className='coursePrice'>
-                                                {/* <div className='d-flex justify-content-between'>
-                                               d<p>Paid</p>
-                                                <h4>$500</h4>  
-                                            </div>  */}
-                                                <div>
-                                                    <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
-                                                    <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
-                                                </div>
-                                                {/* <div className='d-flex justify-content-start align-items-center'>
-                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
-                                                <p className=''>4.5k Reviews</p>
-                                            </div> */}
-                                            </div>
-                                            {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
-                                        </div>
-                                    )
-                                })
-
-                                    : <div class="loader">
-                                        <div class="loader-inner pacman">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                        </div>
+                            <Navbar />
+                            {/* Hero Section */}
+                            <section id="hero">
+                                <div className='container'>
+                                    <div className='headingDiv' data-aos="zoom-out-down">
+                                        <h1 style={{ marginBottom: "20px" }} data-text="
+                       Equip yourself with magical power" className='glitch'>Equip yourself with magical power</h1>
+                                        <p className='mb-5 sub'>The proper Magical oils, Pure Botanical, and Spiritual Jewellery and so more are central to the practice of Mystique Vedic Miracles, and essential for many magical products services. </p>
+                                        <button style={{ backgroundColor: "transparent", color: "white", border: "1px solid rgb(250, 250, 250) ", padding: "5px 40px", borderRadius: "10px" }}>Shop now</button>
+                                        <p style={{ fontSize: "1.3em", fontWeight: "800" }} className="arrow "><BsChevronDown /></p>
                                     </div>
-                                }
-                                {
-                                    data.map((d, index) => {
+                                </div>
+                            </section>
+                        </div>
+
+                        {/* body section  */}
+
+                        <div className="container-fluid container-md bodySection">
+
+
+
+                            {/* product categories  */}
+
+                            <section className="my-3">
+                                <h2 className='mb-4 categoriesText pt-3'>Top Selling Products</h2>
+                                {/* carousel  */}
+
+                                <Carousel
+                                    swipeable={true}
+                                    draggable={true}
+                                    // showDots={true}
+                                    responsive={responsive}
+                                    ssr={true} // means to render carousel on server-side.
+                                    infinite={true}
+                                    // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                                    autoPlay={true}
+
+                                    autoPlaySpeed={5000}
+                                    keyBoardControl={true}
+                                    customTransition="all .3"
+                                    transitionDuration={500}
+                                    containerClass="carousel-container"
+                                    removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                                    // deviceType={this.props.deviceType}
+                                    // dotListClass="custom-dot-list-style"
+                                    itemClass=""
+                                    className='courseCarousel'
+                                >
+                                    {data.length !== 0 ? data.map((d, index) => {
                                         return (
                                             <div className='courseCard scaleDiv'>
 
                                                 {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
-                                                <LazyLoadImage className='w-100 productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+                                                <LazyLoadImage className='productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
 
                                                 <div className='coursePrice'>
                                                     {/* <div className='d-flex justify-content-between'>
@@ -436,135 +424,163 @@ const LandingPage = () => {
                                             </div>
                                         )
                                     })
-                                }
-                            </Carousel>
+
+                                        : <div class="loader">
+                                            <div class="loader-inner pacman">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    }
+                                    {
+                                        data.map((d, index) => {
+                                            return (
+                                                <div className='courseCard scaleDiv'>
+
+                                                    {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                                    <LazyLoadImage className='w-100 productCol forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+
+                                                    <div className='coursePrice'>
+                                                        {/* <div className='d-flex justify-content-between'>
+                                               d<p>Paid</p>
+                                                <h4>$500</h4>  
+                                            </div>  */}
+                                                        <div>
+                                                            <h4 className='text-start productNamLanding mb-1'>{d.data.name}</h4>
+                                                            <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>
+                                                        </div>
+                                                        {/* <div className='d-flex justify-content-start align-items-center'>
+                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
+                                                <p className=''>4.5k Reviews</p>
+                                            </div> */}
+                                                    </div>
+                                                    {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </Carousel>
 
 
 
 
-                            {/* <div className='btnArrowDiv'>
+                                {/* <div className='btnArrowDiv'>
                         <CarouselLeftButton arrowLeft={arrowLeft} />
                         <CarouselRightButton arrowRight={arrowRight} />
                     </div> */}
-                        </section>
-
-                        {/* <div className='container-loader'>
-                        <div className='loader'>
-                            <div className='loader--dot'></div>
-                            <div className='loader--dot'></div>
-                            <div className='loader--dot'></div>
-                            <div className='loader--dot'></div>
-                            <div className='loader--dot'></div>
-                            <div className='loader--dot'></div>
-                            <div className='loader--text'></div>
-                        </div>
-                    </div>  */}
+                            </section>
 
 
-                        {/* product categories  */}
 
-                        <section className="my-3">
-                            <h2 className='mb-5 categoriesText pt-3'>Category</h2>
-                            {/* carousel  */}
 
-                            <Carousel
-                                swipeable={true}
-                                draggable={true}
-                                // showDots={this.props.deviceType !== "mobile" ? true : false}
-                                responsive={responsive}
-                                ssr={true} // means to render carousel on server-side.
-                                infinite={true}
-                                keyBoardControl={true}
-                                transitionDuration={500}
-                                containerClass="carousel-container"
-                                removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                                className='courseCarousel'
-                                // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                                autoPlay={true}
-                                autoPlaySpeed={5000}
-                                customTransition="all .3"
-                                // deviceType={this.props.deviceType}
-                                // dotListClass="custom-dot-list-style"
-                                itemClass=""
-                            >
-                                {category.length !== 0 ?
-                                    category.map((d, index) => {
-                                        return (
-                                            <div className='categoryCard scaleDiv2'
-                                            //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
-                                            >
 
-                                                {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
-                                                <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+                            {/* product categories  */}
 
-                                                {
-                                                    // showName &&
-                                                    <div className='categoryName'>
-                                                        {/* <div className='d-flex justify-content-between'>
+                            <section className="my-3">
+                                <h2 className='mb-5 categoriesText pt-3'>Category</h2>
+                                {/* carousel  */}
+
+                                <Carousel
+                                    swipeable={true}
+                                    draggable={true}
+                                    // showDots={this.props.deviceType !== "mobile" ? true : false}
+                                    responsive={responsive}
+                                    ssr={true} // means to render carousel on server-side.
+                                    infinite={true}
+                                    keyBoardControl={true}
+                                    transitionDuration={500}
+                                    containerClass="carousel-container"
+                                    removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                                    className='courseCarousel'
+                                    // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                                    autoPlay={true}
+                                    autoPlaySpeed={5000}
+                                    customTransition="all .3"
+                                    // deviceType={this.props.deviceType}
+                                    // dotListClass="custom-dot-list-style"
+                                    itemClass=""
+                                >
+                                    {category.length !== 0 ?
+                                        category.map((d, index) => {
+                                            return (
+                                                <div className='categoryCard scaleDiv2'
+                                                //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
+                                                >
+
+                                                    {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                                    <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+
+                                                    {
+                                                        // showName &&
+                                                        <div className='categoryName'>
+                                                            {/* <div className='d-flex justify-content-between'>
                                                d<p>Paid</p>
                                                 <h4>$500</h4>  
                                             </div>  */}
-                                                        <h4 className='text-start categoryNameText mb-1'>{d.data.name}</h4>
-                                                        {/* <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>  */}
-                                                        {/* <div className='d-flex justify-content-start align-items-center'>
+                                                            <h4 className='text-start categoryNameText mb-1'>{d.data.name}</h4>
+                                                            {/* <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>  */}
+                                                            {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
                                             </div> */}
-                                                    </div>
-                                                }
-                                                {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                                        </div>
+                                                    }
+                                                    {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                                </div>
+                                            )
+                                        })
+                                        : <div class="loader">
+                                            <div class="loader-inner pacman">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
                                             </div>
-                                        )
-                                    })
-                                    : <div class="loader">
-                                        <div class="loader-inner pacman">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
                                         </div>
-                                    </div>
-                                }
-                                {
-                                    category.map((d, index) => {
-                                        return (
-                                            <div className='categoryCard scaleDiv2'
-                                            //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
-                                            >
+                                    }
+                                    {
+                                        category.map((d, index) => {
+                                            return (
+                                                <div className='categoryCard scaleDiv2'
+                                                //  onMouseLeave={mouseLeave} onMouseEnter={mouseEnter} 
+                                                >
 
-                                                {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
-                                                <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
+                                                    {/* <img src={d.data.image} alt="" className='w-100 productCol forScale' /> */}
+                                                    <LazyLoadImage className=' categoryImg forScale ' src={d.data.image} alt={d.data.name} effect="blur" />
 
-                                                {
-                                                    // showName &&
-                                                    <div className='categoryName'>
-                                                        {/* <div className='d-flex justify-content-between'>
+                                                    {
+                                                        // showName &&
+                                                        <div className='categoryName'>
+                                                            {/* <div className='d-flex justify-content-between'>
                                                d<p>Paid</p>
                                                 <h4>$500</h4>  
                                             </div>  */}
-                                                        <h4 className='text-start categoryNameText mb-1'>{d.data.name}</h4>
-                                                        {/* <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>  */}
-                                                        {/* <div className='d-flex justify-content-start align-items-center'>
+                                                            <h4 className='text-start categoryNameText mb-1'>{d.data.name}</h4>
+                                                            {/* <p className='productPriceLanding text-start mb-0'>Price : ${d.data.price}</p>  */}
+                                                            {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
                                             </div> */}
-                                                    </div>
-                                                }
-                                                {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
-                                            </div>
-                                        )
-                                    })
-                                }
+                                                        </div>
+                                                    }
+                                                    {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                                </div>
+                                            )
+                                        })
+                                    }
 
-                            </Carousel>
+                                </Carousel>
 
 
-                        </section>
+                            </section>
 
-                        {/* top selling section  */}
+                            {/* top selling section  */}
 
-                        {/* <section id='topSelling'>
+                            {/* <section id='topSelling'>
                     <h2 className='mb-3 '>Top selling products</h2>
                     <div className="container-fluid">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
@@ -592,9 +608,9 @@ const LandingPage = () => {
                     </div>
                 </section> */}
 
-                        {/* services  */}
+                            {/* services  */}
 
-                        {/* <section id='serviceDiv'>
+                            {/* <section id='serviceDiv'>
                     <h2 className='mb-3'>Services</h2>
                     {
                         width > 767 ?
@@ -723,211 +739,234 @@ const LandingPage = () => {
 
                 </section> */}
 
-                    </div>
+                        </div>
 
 
-                    {/* course section  */}
+                        {/* course section  */}
 
-                    <div id='container-fluid'>
-                        <div id='stars'></div>
+                        <div id='container-fluid'>
+                            <div id='stars'></div>
 
-                        <div className="container-fluid container-md ">
-                            <section id='courseDiv'>
+                            <div className="container-fluid container-md ">
+                                <section id='courseDiv'>
 
-                                <h2 className='mb-3'>Our Course</h2>
+                                    <h2 className='mb-3'>Our Course</h2>
 
-                                <Carousel
-                                    swipeable={true}
-                                    draggable={true}
-                                    // showDots={true}
-                                    responsive={responsive}
-                                    ssr={true} // means to render carousel on server-side.
-                                    infinite={true}
-                                    // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                                    autoPlay={true}
+                                    <Carousel
+                                        swipeable={true}
+                                        draggable={true}
+                                        // showDots={true}
+                                        responsive={responsive}
+                                        ssr={true} // means to render carousel on server-side.
+                                        infinite={true}
+                                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                                        autoPlay={true}
 
-                                    autoPlaySpeed={5000}
-                                    keyBoardControl={true}
-                                    customTransition="all .3"
-                                    transitionDuration={500}
-                                    containerClass="carousel-container"
-                                    removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                                    // deviceType={this.props.deviceType}
-                                    // dotListClass="custom-dot-list-style"
-                                    itemClass=""
-                                    className='courseCarousel'
-                                >
-                                    {
-                                        (courseImg && reviewImg) ?
-                                            [...Array(10)].map((d, index) => {
-                                                return (
-                                                    <div className='courseCard scaleDiv'>
+                                        autoPlaySpeed={5000}
+                                        keyBoardControl={true}
+                                        customTransition="all .3"
+                                        transitionDuration={500}
+                                        containerClass="carousel-container"
+                                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                                        // deviceType={this.props.deviceType}
+                                        // dotListClass="custom-dot-list-style"
+                                        itemClass=""
+                                        className='courseCarousel'
+                                    >
+                                        {
+                                            (courseImg && reviewImg) ?
+                                                [...Array(10)].map((d, index) => {
+                                                    return (
+                                                        <div className='courseCard scaleDiv'>
 
 
-                                                        {
-                                                            index % 2 == 0 ?
+                                                            {
+                                                                index % 2 == 0 ?
 
-                                                                <LazyLoadImage className='productCol forScale ' src={courseImg} alt={"image"} effect="blur" />
-                                                                :
+                                                                    <LazyLoadImage className='productCol forScale ' src={courseImg} alt={"image"} effect="blur" />
+                                                                    :
 
-                                                                <LazyLoadImage className='productCol forScale ' src={reviewImg} alt={"image"} effect="blur" />
-                                                        }
+                                                                    <LazyLoadImage className='productCol forScale ' src={reviewImg} alt={"image"} effect="blur" />
+                                                            }
 
-                                                        <div className='coursePrice'>
-                                                            {/* <div className='d-flex justify-content-between'>
+                                                            <div className='coursePrice'>
+                                                                {/* <div className='d-flex justify-content-between'>
                                                d<p>Paid</p>
                                                 <h4>$500</h4>  
                                             </div>  */}
-                                                            <div>
-                                                                {
-                                                                    index % 2 == 0 ?
-                                                                        <h4 className='text-start productNamLanding mb-1'>{"Lolita"}</h4>
-                                                                        :
-                                                                        <h4 className='text-start productNamLanding mb-1'>{"Money Candle"}</h4>
-                                                                }
-                                                                <p className='productPriceLanding text-start mb-0'>Price : ${"300"}</p>
-                                                            </div>
-                                                            {/* <div className='d-flex justify-content-start align-items-center'>
+                                                                <div>
+                                                                    {
+                                                                        index % 2 == 0 ?
+                                                                            <h4 className='text-start productNamLanding mb-1'>{"Lolita"}</h4>
+                                                                            :
+                                                                            <h4 className='text-start productNamLanding mb-1'>{"Money Candle"}</h4>
+                                                                    }
+                                                                    <p className='productPriceLanding text-start mb-0'>Price : ${"300"}</p>
+                                                                </div>
+                                                                {/* <div className='d-flex justify-content-start align-items-center'>
                                                 <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='rating' />
                                                 <p className=''>4.5k Reviews</p>
                                             </div> */}
+                                                            </div>
+                                                            {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
                                                         </div>
-                                                        {/* <img src={likeIcon} alt="" className='likeIcon' /> */}
+                                                    )
+                                                })
+
+                                                : <div class="loader">
+                                                    <div class="loader-inner pacman">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
                                                     </div>
-                                                )
-                                            })
-
-                                            : <div class="loader">
-                                                <div class="loader-inner pacman">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
                                                 </div>
-                                            </div>
-                                    }
+                                        }
 
-                                </Carousel>
-
+                                    </Carousel>
 
 
 
 
 
-                            </section>
 
-                        </div>
+                                </section>
 
-                    </div>
-
-
-
-                    <div className='container-fluid'>
-                        <div id='stars'>
+                            </div>
 
                         </div>
-                        <div className="container-fluid container-md bodySection">
-                            {/* customer comments  */}
 
-                            <section id='customerDiv'>
-                                <h2 className='mb-5'>What Our Customer Says</h2>
-                                <Carousel
-                                    swipeable={false}
-                                    draggable={false}
-                                    // showDots={true}
-                                    responsive={responsiveSingle}
-                                    ssr={true} // means to render carousel on server-side.
-                                    infinite={true}
-                                    // autoPlay={this.props.deviceType !== "mobile" ? true : false}
 
-                                    autoPlaySpeed={1000}
-                                    keyBoardControl={true}
-                                    customTransition="all .5"
-                                    transitionDuration={500}
-                                    containerClass="carousel-container"
-                                    removeArrowOnDeviceType={["miniTablet", "mobile"]}
-                                    // deviceType={this.props.deviceType}
-                                    // dotListClass="custom-dot-list-style"
-                                    itemClass="carousel-item-padding-40-px"
-                                    className='reviewCarousel'
-                                >
-                                    {
-                                        [...Array(10)].map((e, index) => {
-                                            return (
-                                                <>
-                                                    <div className='customerCommentDiv'>
-                                                        <div className='commentDiv'>
-                                                            <div className='nameForSmallDisplay'>
-                                                                <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
-                                                                <div className='d-flex justify-content-start align-items-center'>
-                                                                    <p className='text-start fw-bold mb-0'>Rating : </p>
-                                                                    <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
+
+                        <div className='container-fluid'>
+                            <div id='stars'>
+
+                            </div>
+                            <div className="container-fluid container-md bodySection">
+                                {/* customer comments  */}
+
+                                <section id='customerDiv'>
+                                    <h2 className='mb-5'>What Our Customer Says</h2>
+                                    <Carousel
+                                        swipeable={false}
+                                        draggable={false}
+                                        // showDots={true}
+                                        responsive={responsiveSingle}
+                                        ssr={true} // means to render carousel on server-side.
+                                        infinite={true}
+                                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+
+                                        autoPlaySpeed={1000}
+                                        keyBoardControl={true}
+                                        customTransition="all .5"
+                                        transitionDuration={500}
+                                        containerClass="carousel-container"
+                                        removeArrowOnDeviceType={["miniTablet", "mobile"]}
+                                        // deviceType={this.props.deviceType}
+                                        // dotListClass="custom-dot-list-style"
+                                        itemClass="carousel-item-padding-40-px"
+                                        className='reviewCarousel'
+                                    >
+                                        {
+                                            [...Array(10)].map((e, index) => {
+                                                return (
+                                                    <>
+                                                        <div className='customerCommentDiv'>
+                                                            <div className='commentDiv'>
+                                                                <div className='nameForSmallDisplay'>
+                                                                    <h5 className='text-start'>Raju Mullah <span className='ms-2 text-muted fs-6'>UI UX Designer</span></h5>
+                                                                    <div className='d-flex justify-content-start align-items-center'>
+                                                                        <p className='text-start fw-bold mb-0'>Rating : </p>
+                                                                        <p className='ratingSpan'><Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating' readOnly /></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div >
+                                                                    <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
+                                                                </div>
+                                                                <p className={showMore ? "reviewText" : "mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
+
+                                                                <button className='reviewShowMoreBtn' onClick={showMoreText}>{btnText}</button>
+
+                                                                <div className='reviewNameBigSize'>
+                                                                    <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
+                                                                    {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
+                                                                    <h5 className='text-start'>Raju Mullah</h5>
+                                                                    <p className='text-start'>UI UX Designer</p>
                                                                 </div>
                                                             </div>
-                                                            <div >
-                                                                <Rating name="half-rating" defaultValue={4.3} precision={0.5} className='commentRating ratingForBigDisplay' readOnly />
-                                                            </div>
-                                                            <p className={showMore ? "reviewText" : "mb-0"} id='reviewUserText'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare tortor at leo eleifend, sed facilisis lacus facilisis. Etiam elit turpis, eleifend at justo at, vehicula pretium nibh. Integer eget auctor mi, vitae accumsan felis. Aenean ultricies sagittis nisi, ut luctus tellus. Integer eu tempor magna, sit amet dictum risus. Nunc a interdum arcu. Cras finibus arcu nec sodales tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut efficitur ornare nibh, sit amet auctor metus auctor quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam pellentesque urna et ligula malesuada, sit amet semper diam tristique.</p>
 
-                                                            <button className='reviewShowMoreBtn' onClick={showMoreText}>{btnText}</button>
+                                                            <div className='imgDivComment overflow-hidden'>
+                                                                <div className=''>
+                                                                    <img src={reviewImg} alt="" className='commentImg' />
+                                                                    <div className='d-flex justify-content-between mt-4 nextCommentSection'>
+                                                                        <p><span style={{ fontSize: "2.3em" }}>{index + 1}</span>/10</p>
+                                                                        <div>
 
-                                                            <div className='reviewNameBigSize'>
-                                                                <div style={{ width: "100%", borderBottom: "2px solid white", marginTop: "80px", marginBottom: "30px" }}></div>
-                                                                {/* <hr style={{ color: "white", fontSize: "2em", marginTop: "80px", marginBottom: "30px" }} /> */}
-                                                                <h5 className='text-start'>Raju Mullah</h5>
-                                                                <p className='text-start'>UI UX Designer</p>
-                                                            </div>
-                                                        </div>
+                                                                            <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
+                                                                            <CarouselRightButton arrowRight={reviewCarouselRight} />
+                                                                        </div>
 
-                                                        <div className='imgDivComment overflow-hidden'>
-                                                            <div className=''>
-                                                                <img src={reviewImg} alt="" className='commentImg' />
-                                                                <div className='d-flex justify-content-between mt-4 nextCommentSection'>
-                                                                    <p><span style={{ fontSize: "2.3em" }}>{index + 1}</span>/10</p>
-                                                                    <div>
-
-                                                                        <CarouselLeftButton arrowLeft={reviewCarouselLeft} />
-                                                                        <CarouselRightButton arrowRight={reviewCarouselRight} />
                                                                     </div>
 
                                                                 </div>
-
+                                                                <div className='redBorder'></div>
                                                             </div>
-                                                            <div className='redBorder'></div>
                                                         </div>
-                                                    </div>
-                                                </>
-                                            )
-                                        })
-                                    }
+                                                    </>
+                                                )
+                                            })
+                                        }
 
-                                </Carousel>
-
-
-                            </section>
+                                    </Carousel>
 
 
+                                </section>
+
+
+                            </div>
                         </div>
+
+
+
+
+
+
+                        <div className='container-fluid'>
+                            <div id='stars'></div>
+                            <div className="container-fluid container-md bodySection">
+
+                                <Footer />
+                            </div>
+                        </div>
+
+
                     </div>
 
 
 
-
-
-
-                    <div className='container-fluid'>
-                        <div id='stars'></div>
-                        <div className="container-fluid container-md bodySection">
-
-                            <Footer />
+            }
+            {/* fallback={
+                    <div className='container-loader'>
+                        <div className='loader'>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--dot'></div>
+                            <div className='loader--text'></div>
                         </div>
                     </div>
+                    } */}
 
 
-                </div>
+           
 
-            </Suspense>
+
+
+
+
 
 
 

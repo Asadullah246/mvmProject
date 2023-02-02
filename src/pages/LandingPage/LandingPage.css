@@ -883,7 +883,7 @@ text set in the data-text attribute. */
 }
 .courseCard,
 .topSellingCard{
-  height: 20rem;
+  height: 16rem; 
   width: 100%;
   /* padding: .5rem; */
   border-radius: 15px;
